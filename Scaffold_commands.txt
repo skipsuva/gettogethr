@@ -2,41 +2,24 @@ rails g scaffold user name email password_digest
 rails g scaffold gathering title owner:references
 rails g model interest user:references gathering:references
 
+Brain DUMP POOP
 
-class CreateUsers < ActiveRecord::Migration
-  def change
-    create_table :users do |t|
-      t.string :name
-      t.string :email
-      t.string :password_digest
-
-      t.timestamps null: false
-    end
-  end
-end
-
-
-
-class CreateGatherings < ActiveRecord::Migration
-  def change
-    create_table :gatherings do |t|
-      t.string :title
-      t.owner :references, index:true
-
-      t.timestamps null: false
-    end
-    add_foreign_key :gatherings, :users, column: :owner_id
-  end
-end
-
-
-class CreateInterests < ActiveRecord::Migration
-  def change
-    create_table :interests do |t|
-      t.user :references, index: true, foreign_key: true
-      t.gathering :references, index: true, foreign_key: true
-
-      t.timestamps null: false
-    end
-  end
-end
+- sessions (controller, views)
+- registrations (controller, views)
+- use devise for above instead? or with above? look into this
+- basic new gathering form
+- location, activity (scaffolds? models, controllers, etc.) belong to gatherings
+- how do we represent times?
+  - http://martinfowler.com/apsupp/recurring.pdf
+  - ical gem? does that solve the problem?
+  - schedule object? occurence?
+  - ranges or a point in time and an optional estimated duration on gatherings object?
+- seed data (fakr)
+- basic user flow:
+  1. login / account creation
+  2. gathering index
+  3. create new gathering
+    a. add type column to interest?
+    b. TODO: how do we store/represent invitations?
+    c. for now, invitations will be automatically accepted
+  4. show gathering: list of users, title
