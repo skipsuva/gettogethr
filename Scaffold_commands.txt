@@ -1,0 +1,3 @@
+rails g scaffold gathering title references:owner
+rails g scaffold user name email password_digest
+rails g model interest references:user references:gathering

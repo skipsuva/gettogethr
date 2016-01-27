@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @gathering.title %>
+</p>
+
+<p>
+  <strong>References:</strong>
+  <%= @gathering.references %>
+</p>
+
+<%= link_to 'Edit', edit_gathering_path(@gathering) %> |
+<%= link_to 'Back', gatherings_path %>
