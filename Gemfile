@@ -15,6 +15,11 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 
+# for heroku
+gem 'rails_12factor'
+#for style
+gem 'bootstrap-sass', '~> 3.3.6'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -39,6 +44,7 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails', '~> 3.0'
   gem 'rails-pry'
+  gem 'dotenv-rails'
 end
 
 group :development do
