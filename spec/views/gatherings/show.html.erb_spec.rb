@@ -4,7 +4,7 @@ RSpec.describe "gatherings/show", type: :view do
   before(:each) do
     @gathering = assign(:gathering, Gathering.create!(
       :title => "Title",
-      :references => ""
+      :owner => nil
     ))
   end
 

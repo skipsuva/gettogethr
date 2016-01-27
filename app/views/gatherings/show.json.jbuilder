@@ -1,1 +1,1 @@
-json.extract! @gathering, :id, :title, :references, :created_at, :updated_at
+json.extract! @gathering, :id, :title, :owner_id, :created_at, :updated_at

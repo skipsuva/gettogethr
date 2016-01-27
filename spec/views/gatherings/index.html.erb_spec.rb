@@ -5,11 +5,11 @@ RSpec.describe "gatherings/index", type: :view do
     assign(:gatherings, [
       Gathering.create!(
         :title => "Title",
-        :references => ""
+        :owner => nil
       ),
       Gathering.create!(
         :title => "Title",
-        :references => ""
+        :owner => nil
       )
     ])
   end
@@ -17,6 +17,6 @@ RSpec.describe "gatherings/index", type: :view do
   it "renders a list of gatherings" do
     render
     assert_select "tr>td", :text => "Title".to_s, :count => 2
-    assert_select "tr>td", :text => "".to_s, :count => 2
+    assert_select "tr>td", :text => nil.to_s, :count => 2
   end
 end

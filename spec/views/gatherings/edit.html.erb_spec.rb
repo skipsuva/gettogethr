@@ -4,7 +4,7 @@ RSpec.describe "gatherings/edit", type: :view do
   before(:each) do
     @gathering = assign(:gathering, Gathering.create!(
       :title => "MyString",
-      :references => ""
+      :owner => nil
     ))
   end
 
@@ -15,7 +15,7 @@ RSpec.describe "gatherings/edit", type: :view do
 
       assert_select "input#gathering_title[name=?]", "gathering[title]"
 
-      assert_select "input#gathering_references[name=?]", "gathering[references]"
+      assert_select "input#gathering_owner_id[name=?]", "gathering[owner_id]"
     end
   end
 end

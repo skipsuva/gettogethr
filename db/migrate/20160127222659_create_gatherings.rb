@@ -2,7 +2,7 @@ class CreateGatherings < ActiveRecord::Migration
   def change
     create_table :gatherings do |t|
       t.string :title
-      t.owner :references, index:true
+      t.references :owner, index: true
 
       t.timestamps null: false
     end

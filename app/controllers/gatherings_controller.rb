@@ -69,6 +69,6 @@ class GatheringsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gathering_params
-      params.require(:gathering).permit(:title, :references)
+      params.require(:gathering).permit(:title, :owner_id)
     end
 end
