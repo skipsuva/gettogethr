@@ -31,7 +31,15 @@ SKIP-invite friends branch TODO:
 - add form to add new collaborators
   - drop down
   - pull from all users
+    - OR...only users not involved??
     X- instance variable @users
+
+not working
+    <%= form_tag("/users", method: "get") do %>
+      <%= label_tag(:user_id) %>
+      <%= select(:user_id, User.order(:name), {include_blank: true}) %>
+      <%= submit_tag("Invite") %>
+    <% end %>
 
 
 

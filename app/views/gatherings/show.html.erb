@@ -7,7 +7,7 @@
 
 <p>
   <strong>Owner:</strong>
-  <%= @gathering.owner %>
+  <%= @gathering.owner.name %>
 </p>
 
 <div class="container" id="collaborators">
@@ -18,7 +18,12 @@
     <% end %>
   </ul>
 
-
+  <div class="">
+    <%= form_tag("/gatherings/#{@gathering.id}/add-users") do %>
+      <%= select("user", "name", @users.map {|u| u.name}, {include_blank:true}) %>
+      <%=submit_tag "Add Users!"%>
+    <% end %>
+  </div>
 
 </div>
 
