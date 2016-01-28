@@ -25,6 +25,7 @@ class GatheringsController < ApplicationController
   # POST /gatherings.json
   def create
     @gathering = Gathering.new(gathering_params)
+    @gathering.user = current_user
 
     respond_to do |format|
       if @gathering.save
@@ -69,6 +70,6 @@ class GatheringsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gathering_params
-      params.require(:gathering).permit(:title, :owner_id)
+      params.require(:gathering).permit(:title)
     end
 end
