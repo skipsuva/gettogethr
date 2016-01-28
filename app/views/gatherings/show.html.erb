@@ -10,5 +10,19 @@
   <%= @gathering.owner %>
 </p>
 
+<div class="container" id="collaborators">
+  <h4>Who's Involved?</h4>
+  <ul>
+    <% @collaborators.each do |collaborator| %>
+    <li> <%= collaborator.name %> </li>
+    <% end %>
+  </ul>
+
+
+
+</div>
+
+
+
 <%= link_to 'Edit', edit_gathering_path(@gathering) %> |
 <%= link_to 'Back', gatherings_path %>

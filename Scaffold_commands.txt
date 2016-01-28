@@ -27,11 +27,11 @@ Brain DUMP POOP
 
 SKIP-invite friends branch TODO:
 - add div on gathering/show page to display current users associated
-  - instance variable @collaborators
+  X- instance variable @collaborators
 - add form to add new collaborators
   - drop down
   - pull from all users
-    - instance variable @users
+    X- instance variable @users
 
 
 
