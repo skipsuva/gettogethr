@@ -25,7 +25,8 @@ class GatheringsController < ApplicationController
   # POST /gatherings.json
   def create
     @gathering = Gathering.new(gathering_params)
-    @gathering.user = current_user
+    @gathering.owner = current_user
+    @gathering.users << current_user
 
     respond_to do |format|
       if @gathering.save
