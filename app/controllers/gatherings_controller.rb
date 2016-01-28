@@ -10,6 +10,7 @@ class GatheringsController < ApplicationController
   # GET /gatherings/1
   # GET /gatherings/1.json
   def show
+    @moment = Moment.new
   end
 
   # GET /gatherings/new

@@ -10,5 +10,16 @@
   <%= @gathering.owner %>
 </p>
 
+<h2>Add a time</h2>
+
+<%= form_for @moment do |f| %>
+
+<%= label :time %>
+<%= datetime :time %>
+
+<%= submit 'Add time' %>
+
+<% end %>
+
 <%= link_to 'Edit', edit_gathering_path(@gathering) %> |
 <%= link_to 'Back', gatherings_path %>
