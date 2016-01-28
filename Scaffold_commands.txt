@@ -23,3 +23,30 @@ Brain DUMP POOP
     b. TODO: how do we store/represent invitations?
     c. for now, invitations will be automatically accepted
   4. show gathering: list of users, title
+
+
+SKIP-SESSIONS BRANCH TODO:
+  Building sessions with EMAIL as main login identifier
+X - add current user and logged in methods to application_helper
+X - add sessions controller
+  X - constrict/define routes
+  X - views
+- add registrations controller
+  - constrict/define routes
+  - views
+
+- add links to root for each
+      CURRENT STATUS
+
+        reg working, log out button not showing...
+
+
+1/28 TODO
+- Log in/out
+- gathering creation
+- user invite
+  - BONUS
+    - users who aren't signed up
+    - action mailer
+- time selection
+- voting
