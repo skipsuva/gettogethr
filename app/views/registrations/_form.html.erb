@@ -1,6 +1,6 @@
 <h3>New User Registration</h3><br>
 
-<%= form_for @user do |f| %>
+<%= form_for @user, url: {controller: "registrations", action: "create"} do |f| %>
   <div class="">
     <%= f.label :name %>
     <%= f.text_field :name %>
