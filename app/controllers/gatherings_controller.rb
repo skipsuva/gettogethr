@@ -12,12 +12,13 @@ class GatheringsController < ApplicationController
   def show
     @gathering = Gathering.find(params[:id])
     @collaborators = @gathering.users
-    @users = []
-    User.all.each do |user|
-      if !@collaborators.include?(user)
-        @users << user
-      end
-    end
+  #  @users = []
+  #  User.all.each do |user|
+  #    if !@collaborators.include?(user)
+  #      @users << user
+  #    end
+  #  end
+    @users = User.all - @collaborators
   end
 
   def add_users
