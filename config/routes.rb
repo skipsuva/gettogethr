@@ -4,8 +4,7 @@ Rails.application.routes.draw do
   resources :users
 
   # added by skip
-  resources :sessions, only: [:new, :create]
-  delete 'sessions', to: "sessions#destroy"
+  resources :sessions, only: [:new, :create, :destroy]
 
   resources :registrations, only: [:new, :create]
 
