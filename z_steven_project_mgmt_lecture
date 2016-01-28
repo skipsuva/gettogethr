@@ -1,0 +1,21 @@
+His suggestion is Trello
+  Icebox - Dreamlist...try to keep prioritized
+  TODO - end of day
+  Doing - active
+  Done - on master github, on heroku
+
+  Focus features thru user stories
+    "As a student I should be able to add my repos and contribs so that it an be tracked..."
+    "As a <role>, I want <feature> so that <reason>"
+    Stories are way to start a conversation
+
+  Points
+    an estimate about how hard you think a task will be
+    points are usually wrong...but will even out
+      use fib #s to show
+      q, 1, 2, 3, 5, 8
+    try to keep tasks around 1,2,3
+    Try to do as many points as you did yesterday
+    prioritize, assign points
+
+  In cards, use check lists

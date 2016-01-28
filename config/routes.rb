@@ -2,6 +2,14 @@ Rails.application.routes.draw do
   root "gatherings#index"
   resources :gatherings
   resources :users
+
+  # added by skip
+  resources :sessions, only: [:new, :create]
+  delete 'sessions', to: "sessions#destroy"
+
+  resources :registrations, only: [:new, :create]
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
