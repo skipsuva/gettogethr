@@ -20,6 +20,8 @@ gem 'rails_12factor'
 #for style
 gem 'bootstrap-sass', '~> 3.3.6'
 
+gem 'devise'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
