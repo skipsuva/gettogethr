@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :gatherings
   resources :users
 
+  get 'login', to: "sessions#new", as: :login
+
   # added by skip
   resources :sessions, only: [:new, :create]
   delete 'sessions', to: "sessions#destroy"
