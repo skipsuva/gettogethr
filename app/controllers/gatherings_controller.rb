@@ -4,7 +4,7 @@ class GatheringsController < ApplicationController
   # GET /gatherings
   # GET /gatherings.json
   def index
-    @gatherings = Gathering.all
+    @gatherings = current_user.gatherings
   end
 
   # GET /gatherings/1
