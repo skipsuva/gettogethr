@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   root "gatherings#index"
-  resources :gatherings
-  resources :users
+  resources :gatherings do
+    resources :moments, only: [:create, :destroy]
+  end
 
+  resources :users
   get 'login', to: "sessions#new", as: :login
 
   # added by skip
