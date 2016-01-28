@@ -25,20 +25,22 @@ Brain DUMP POOP
   4. show gathering: list of users, title
 
 
-SKIP-SESSIONS BRANCH TODO:
-  Building sessions with EMAIL as main login identifier
-X - add current user and logged in methods to application_helper
-X - add sessions controller
-  X - constrict/define routes
-  X - views
-- add registrations controller
-  - constrict/define routes
-  - views
+SKIP-invite friends branch TODO:
+- add div on gathering/show page to display current users associated
+  X- instance variable @collaborators
+- add form to add new collaborators
+  - drop down
+  - pull from all users
+    - OR...only users not involved??
+    X- instance variable @users
 
-- add links to root for each
-      CURRENT STATUS
+not working
+    <%= form_tag("/users", method: "get") do %>
+      <%= label_tag(:user_id) %>
+      <%= select(:user_id, User.order(:name), {include_blank: true}) %>
+      <%= submit_tag("Invite") %>
+    <% end %>
 
-        reg working, log out button not showing...
 
 
 1/28 TODO

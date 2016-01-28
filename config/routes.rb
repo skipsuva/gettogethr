@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete 'sessions', to: "sessions#destroy"
 
   resources :registrations, only: [:new, :create]
+  post '/gatherings/:id/add-users', to: "gatherings#add_users"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

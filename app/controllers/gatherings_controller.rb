@@ -10,6 +10,22 @@ class GatheringsController < ApplicationController
   # GET /gatherings/1
   # GET /gatherings/1.json
   def show
+    @gathering = Gathering.find(params[:id])
+    @collaborators = @gathering.users
+  #  @users = []
+  #  User.all.each do |user|
+  #    if !@collaborators.include?(user)
+  #      @users << user
+  #    end
+  #  end
+    @users = User.all - @collaborators
+  end
+
+  def add_users
+    @gathering = Gathering.find(params[:id])
+    @user = User.find_by(name: params[:user][:name])
+    @gathering.users << @user
+    redirect_to @gathering
   end
 
   # GET /gatherings/new
@@ -42,6 +58,7 @@ class GatheringsController < ApplicationController
   # PATCH/PUT /gatherings/1
   # PATCH/PUT /gatherings/1.json
   def update
+    # binding.pry
     respond_to do |format|
       if @gathering.update(gathering_params)
         format.html { redirect_to @gathering, notice: 'Gathering was successfully updated.' }
