@@ -22,6 +22,7 @@
   <div class="container">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <p class="error"><%= flash[:error] if flash[:error] %></p>
 
     <% if logged_in? %>
       <%= "hello, #{current_user.name}!" %>
