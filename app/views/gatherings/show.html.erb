@@ -7,8 +7,9 @@
 
 <p>
   <strong>Owner:</strong>
-  <%= @gathering.owner %>
+  <%= @gathering.owner.name %>
 </p>
+
 
 <h2>Suggested Times</h2>
 
@@ -28,6 +29,26 @@
 <%= f.submit 'Add time' %>
 
 <% end %>
+
+<div class="container" id="collaborators">
+  <h4>Who's Involved?</h4>
+  <ul>
+    <% @collaborators.each do |collaborator| %>
+    <li> <%= collaborator.name %> </li>
+    <% end %>
+  </ul>
+
+  <div class="">
+    <%= form_tag("/gatherings/#{@gathering.id}/add-users") do %>
+      <%= select("user", "name", @users.map {|u| u.name}, {include_blank:true}) %>
+      <%=submit_tag "Add Users!"%>
+    <% end %>
+  </div>
+
+</div>
+
+
+
 
 <%= link_to 'Edit', edit_gathering_path(@gathering) %> |
 <%= link_to 'Back', gatherings_path %>
