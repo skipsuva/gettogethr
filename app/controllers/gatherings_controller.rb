@@ -1,5 +1,5 @@
 class GatheringsController < ApplicationController
-  before_action :set_gathering, only: [:show, :edit, :update, :destroy]
+  before_action :set_gathering, only: [:edit, :update, :destroy]
 
   # GET /gatherings
   # GET /gatherings.json
@@ -11,6 +11,7 @@ class GatheringsController < ApplicationController
   # GET /gatherings/1.json
   def show
     @moment = Moment.new
+    @gathering = Gathering.includes(:moments).find(params[:id])
   end
 
   # GET /gatherings/new

@@ -10,6 +10,14 @@
   <%= @gathering.owner %>
 </p>
 
+<h2>Suggested Times</h2>
+
+<ul>
+<% @gathering.moments.each do |moment| %>
+  <li><%= moment.time.strftime('%A, %B %e %Y at %I:%M %P') %></li>
+<% end %>
+</ul>
+
 <h2>Add a time</h2>
 
 <%= form_for [@gathering, @moment] do |f| %>
