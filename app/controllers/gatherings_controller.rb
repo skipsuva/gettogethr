@@ -10,6 +10,9 @@ class GatheringsController < ApplicationController
   # GET /gatherings/1
   # GET /gatherings/1.json
   def show
+    @gathering = Gathering.find(params[:id])
+    @collaborators = @gathering.users
+    @users = User.all
   end
 
   # GET /gatherings/new

@@ -25,20 +25,14 @@ Brain DUMP POOP
   4. show gathering: list of users, title
 
 
-SKIP-SESSIONS BRANCH TODO:
-  Building sessions with EMAIL as main login identifier
-X - add current user and logged in methods to application_helper
-X - add sessions controller
-  X - constrict/define routes
-  X - views
-- add registrations controller
-  - constrict/define routes
-  - views
+SKIP-invite friends branch TODO:
+- add div on gathering/show page to display current users associated
+  - instance variable @collaborators
+- add form to add new collaborators
+  - drop down
+  - pull from all users
+    - instance variable @users
 
-- add links to root for each
-      CURRENT STATUS
-
-        reg working, log out button not showing...
 
 
 1/28 TODO
