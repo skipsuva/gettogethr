@@ -1,5 +1,5 @@
 class GatheringsController < ApplicationController
-  before_action :set_gathering, only: [:show, :edit, :update, :destroy]
+  before_action :set_gathering, only: [:edit, :update, :destroy]
 
   # GET /gatherings
   # GET /gatherings.json
@@ -10,7 +10,10 @@ class GatheringsController < ApplicationController
   # GET /gatherings/1
   # GET /gatherings/1.json
   def show
-    @gathering = Gathering.find(params[:id])
+
+    @moment = Moment.new
+    @gathering = Gathering.includes(:moments).find(params[:id])
+
     @collaborators = @gathering.users
   #  @users = []
   #  User.all.each do |user|

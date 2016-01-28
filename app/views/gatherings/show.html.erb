@@ -10,6 +10,26 @@
   <%= @gathering.owner.name %>
 </p>
 
+
+<h2>Suggested Times</h2>
+
+<ul>
+<% @gathering.moments.each do |moment| %>
+  <li><%= moment.time.strftime('%A, %B %e %Y at %I:%M %P') %></li>
+<% end %>
+</ul>
+
+<h2>Add a time</h2>
+
+<%= form_for [@gathering, @moment] do |f| %>
+
+<%= f.label :time %>
+<%= f.datetime_local_field :time %>
+
+<%= f.submit 'Add time' %>
+
+<% end %>
+
 <div class="container" id="collaborators">
   <h4>Who's Involved?</h4>
   <ul>
@@ -26,6 +46,7 @@
   </div>
 
 </div>
+
 
 
 
