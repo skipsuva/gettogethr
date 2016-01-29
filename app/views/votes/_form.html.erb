@@ -2,14 +2,17 @@
 
   <span>
     <%= button_to "Thumbs Up", { controller:"votes", action:"submit", thumbage:"1", gathering_id:gathering.id, votable_id:votable.id, votable_class:votable.class.to_s }, method: :post %>
+    <%= votable.votes.where(value:1).count %>
   </span>
 
   <span>
     <%= button_to "Shrug", { controller:"votes", action:"submit", thumbage:"0", gathering_id:gathering.id, votable_id:votable.id, votable_class:votable.class.to_s }, method: :post %>
+    <%= votable.votes.where(value:0).count %>
   </span>
 
   <span>
     <%= button_to "Thumbs Down", { controller:"votes", action:"submit", thumbage:"-1", gathering_id:gathering.id, votable_id:votable.id, votable_class:votable.class.to_s }, method: :post %>
+    <%= votable.votes.where(value:-1).count %>
   </span>
 
 
