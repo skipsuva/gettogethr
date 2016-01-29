@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
-  post 'votes/submit'
+  root 'home#index'
+  get 'home/index'
 
-  root "gatherings#index"
+  post 'votes/submit'
 
   resources :gatherings do
     resources :moments, only: [:create, :destroy]

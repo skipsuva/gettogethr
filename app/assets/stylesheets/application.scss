@@ -2,6 +2,34 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.hidden-button{
-display: none; 
+//
+// Navigation
+// --------------------------------------------------
+nav.user-menu {
+    padding-top: 1.5em;
 }
+
+//
+// Flash panel
+// --------------------------------------------------
+.flash.success {
+    background-color: lighten($brand-success, 35%);
+    color: darken($brand-success, 5%);
+}
+
+.flash.notice {
+    background-color: lighten($brand-info, 35%);
+    color: darken($brand-info, 5%);
+}
+
+.flash.error {
+    background-color: lighten($brand-danger, 35%);
+    color: darken($brand-danger, 5%);
+}
+
+//
+// Vote Form
+// --------------------------------------------------
+.hidden-button{
+  display: none;
+  }
