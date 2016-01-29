@@ -31,9 +31,9 @@
     </header>
   </div>
   <div class="container">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <p class="error"><%= flash[:error] if flash[:error] %></p>
+    <%- flash.each do |note, msg| -%>
+      <p class="flash <%= note %>"><%= msg %></p>
+    <%- end -%>
   </div>
 
   <div class="container">
