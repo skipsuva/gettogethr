@@ -9,28 +9,31 @@
 <body>
   <div class="container">
     <header>
-      <h1>gettoget.hr</h1>
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <ul class="nav navbar-nav">
-            <li><%= link_to 'Home', root_path %></li>
-          </ul>
-        </div>
-      </nav>
+      <div class="row">
+        <h1 class="col-xs-8">gettoget.hr</h1>
+        <nav aria-labelledby="user-navigation" class="user-menu text-right col-xs-4" role="navigation">
+          <%- if logged_in? -%>
+            <%= render 'layouts/logged_in' %>
+          <%- else -%>
+            <%= render 'layouts/logged_out' %>
+          <%- end -%>
+        </nav>
+      </div>
+      <div class="row">
+        <nav aria-labelledby="main-navigation" class="navbar navbar-default">
+          <div class="container-fluid">
+            <ul class="nav navbar-nav">
+              <li><%= link_to 'Home', root_path %></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
     </header>
   </div>
   <div class="container">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <p class="error"><%= flash[:error] if flash[:error] %></p>
-
-    <% if logged_in? %>
-      <%= "hello, #{current_user.name}!" %>
-        <li><%= link_to "Log Out", sessions_path, method: :delete %></li>
-      <% else %>
-        <li><%= link_to "Sign Up", new_registration_path %></li>
-        <li><%= link_to "Sign In", new_session_path %></li>
-    <%end%>
   </div>
 
   <div class="container">
