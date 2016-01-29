@@ -12,6 +12,7 @@ class GatheringsController < ApplicationController
   def show
 
     @moment = Moment.new
+    @activity = Activity.new
     @gathering = Gathering.includes(:moments).find(params[:id])
 
     @collaborators = @gathering.users
