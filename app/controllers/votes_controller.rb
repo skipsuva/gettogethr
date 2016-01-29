@@ -6,7 +6,6 @@ class VotesController < ApplicationController
     votable = Object.const_get(params[:votable_class]).find(params[:votable_id])
     gathering = Gathering.find(params[:gathering_id])
 
-
     if vote = Vote.find_by(user:current_user,votable:votable)
       if params[:thumbage].to_i == vote.value.to_i
         vote.destroy
