@@ -48,6 +48,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'rails-pry'
   gem 'dotenv-rails'
+  gem 'seedbank'
 end
 
 group :development do
