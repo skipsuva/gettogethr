@@ -5,8 +5,9 @@ module Votable
     self.votes << new_vote
   end
 
-  def unvote(user, value)
-
+  def unvote(user)
+    vote = Vote.find_by(user: user, votable: self)
+    vote.destroy
   end
 
 end
