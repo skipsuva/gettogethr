@@ -30,6 +30,25 @@
 
 <% end %>
 
+<h2>Suggested Activities</h2>
+
+<ul>
+<% @gathering.activities.each do |moment| %>
+  <li><%= activity.description %> (<%= activity.activity_category %>)</li>
+<% end %>
+</ul>
+
+<h2>Add an activity</h2>
+
+<%= form_for [@gathering, @activity] do |f| %>
+
+<%= f.label :description %>
+<%= f.datetime_local_field :description %>
+
+<%= f.submit 'Add activity' %>
+
+<% end %>
+
 <div class="container" id="collaborators">
   <h4>Who's Involved?</h4>
   <ul>
