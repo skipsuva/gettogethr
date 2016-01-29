@@ -24,6 +24,7 @@
           <div class="container-fluid">
             <ul class="nav navbar-nav">
               <li><%= link_to 'Home', root_path %></li>
+              <li><%= link_to 'Gatherings', gatherings_path if logged_in? %></li>
             </ul>
           </div>
         </nav>
