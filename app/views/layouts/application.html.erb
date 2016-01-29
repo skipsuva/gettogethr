@@ -30,11 +30,13 @@
       </div>
     </header>
   </div>
-  <div class="container">
+  <%- if !flash.empty? -%>
+  <div class="container panel panel-default">
     <%- flash.each do |note, msg| -%>
-      <p class="flash <%= note %>"><%= msg %></p>
+      <div class="panel-body flash <%= note %>"><%= msg %></div>
     <%- end -%>
   </div>
+  <%- end -%>
 
   <div class="container">
     <%= yield %>
