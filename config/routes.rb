@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "gatherings#index"
+  root 'home#index'
+  get 'home/index'
 
   resources :gatherings do
     resources :moments, only: [:create, :destroy]
