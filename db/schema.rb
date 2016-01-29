@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129144752) do
+ActiveRecord::Schema.define(version: 20160129152358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,11 @@ ActiveRecord::Schema.define(version: 20160129144752) do
     t.text     "description"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "gathering_id"
   end
 
   add_index "activities", ["activity_category_id"], name: "index_activities_on_activity_category_id", using: :btree
+  add_index "activities", ["gathering_id"], name: "index_activities_on_gathering_id", using: :btree
 
   create_table "activity_categories", force: :cascade do |t|
     t.string   "label"
@@ -82,6 +84,7 @@ ActiveRecord::Schema.define(version: 20160129144752) do
   add_index "votes", ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id", using: :btree
 
   add_foreign_key "activities", "activity_categories"
+  add_foreign_key "activities", "gatherings"
   add_foreign_key "gatherings", "users", column: "owner_id"
   add_foreign_key "interests", "gatherings"
   add_foreign_key "interests", "users"
