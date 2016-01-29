@@ -1,0 +1,8 @@
+ActivityCategory.create(label: "Meal")
+ActivityCategory.create(label: "Movie")
+ActivityCategory.create(label: "Concert")
+ActivityCategory.create(label: "Party")
+ActivityCategory.create(label: "Hike")
+ActivityCategory.create(label: "Meeting")
+ActivityCategory.create(label: "Rehearsal")
+ActivityCategory.create(label: "Other")
