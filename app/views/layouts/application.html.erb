@@ -32,11 +32,11 @@
     </header>
   </div>
   <%- if !flash.empty? -%>
-  <div class="container panel panel-default">
     <%- flash.each do |note, msg| -%>
-      <div class="panel-body flash <%= note %>"><%= msg %></div>
-    <%- end -%>
+  <div class="container panel panel-default flash <%= note %>">
+      <div class="panel-body"><%= msg %></div>
   </div>
+    <%- end -%>
   <%- end -%>
 
   <div class="container">

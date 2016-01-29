@@ -1,6 +1,28 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+//
+// Navigation
+// --------------------------------------------------
 nav.user-menu {
     padding-top: 1.5em;
+}
+
+//
+// Flash panel
+// --------------------------------------------------
+.flash.success {
+    background-color: lighten($brand-success, 30%);
+    color: $brand-success;
+}
+
+.flash.notice {
+    background-color: lighten($brand-info, 30%);
+    color: $brand-info;
+}
+
+.flash.error {
+    background-color: lighten($brand-warning, 30%);
+    color: $brand-warning;
 }
