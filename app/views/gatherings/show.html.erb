@@ -36,6 +36,7 @@
 <ul>
 <% @gathering.activities.each do |activity| %>
   <li><%= activity.description %> (<%= activity.activity_category.label %>)</li>
+  <%= render partial: '/votes/form', locals:{votable:activity,gathering:@gathering} %>
 <% end %>
 </ul>
 
