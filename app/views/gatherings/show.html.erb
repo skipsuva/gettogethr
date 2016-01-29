@@ -46,7 +46,7 @@
 <%= f.collection_select(:activity_category_id, ActivityCategory.all, :id, :label) %>
 
 <%= f.label :description %>
-<%= f.datetime_local_field :description %>
+<%= f.text_field :description %>
 
 <%= f.submit 'Add activity' %>
 
