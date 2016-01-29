@@ -11,17 +11,17 @@ class SessionsController < ApplicationController
     # binding.pry
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      redirect_to gatherings_path, notice: "You have been logged in"
+      redirect_to gatherings_path, :flash => { :success => "You have been logged in." }
     else
       @user = User.new
-      flash.now[:notice] = "Bad Username or Password, idiot"
+      flash.now[:error] = "Bad Username or Password, idiot"
       render :new
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path, notice: "You have been logged out"
+    redirect_to root_path, :flash => { :success => "You have been logged out." }
   end
 
   private
