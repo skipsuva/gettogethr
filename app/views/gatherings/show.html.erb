@@ -42,6 +42,9 @@
 
 <%= form_for [@gathering, @activity] do |f| %>
 
+<%= f.label :activity_category_id %>
+<%= f.collection_select(:activity_category_id, ActivityCategory.all, :id, :label) %>
+
 <%= f.label :description %>
 <%= f.datetime_local_field :description %>
 
