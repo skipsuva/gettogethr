@@ -41,6 +41,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'pry'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+gem 'seedbank'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -48,7 +49,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'rails-pry'
   gem 'dotenv-rails'
-  gem 'seedbank'
 end
 
 group :development do
