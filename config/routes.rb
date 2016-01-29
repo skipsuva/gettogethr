@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   root "gatherings#index"
 
-  resources :activities, only: [:create, :destroy]
-
   resources :gatherings do
     resources :moments, only: [:create, :destroy]
+    resources :activities, only: [:create, :destroy]
   end
 
   resources :users
