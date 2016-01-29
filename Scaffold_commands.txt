@@ -25,21 +25,6 @@ Brain DUMP POOP
   4. show gathering: list of users, title
 
 
-SKIP-invite friends branch TODO:
-- add div on gathering/show page to display current users associated
-  X- instance variable @collaborators
-- add form to add new collaborators
-  - drop down
-  - pull from all users
-    - OR...only users not involved??
-    X- instance variable @users
-
-not working
-    <%= form_tag("/users", method: "get") do %>
-      <%= label_tag(:user_id) %>
-      <%= select(:user_id, User.order(:name), {include_blank: true}) %>
-      <%= submit_tag("Invite") %>
-    <% end %>
 
 
 
@@ -52,3 +37,19 @@ not working
     - action mailer
 - time selection
 - voting
+
+
+Votable Module
+  - create a module for voting
+    - include method for submitting a votes
+    - include in any class that is votable_id
+      - e.g. moment.vote
+      - store vote as -1 0 1
+      -vote, unvote
+
+      def moment.vote
+
+      end
+
+
+  - create a partial
