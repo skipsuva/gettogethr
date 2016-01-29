@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  post 'votes/submit'
+
   root "gatherings#index"
   resources :gatherings do
     resources :moments, only: [:create, :destroy]
