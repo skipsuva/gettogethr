@@ -35,8 +35,13 @@ class GatheringsController < ApplicationController
   def remove_users
     user = User.find(params[:user])
     @gathering = Gathering.find(params[:id])
-    @gathering.users.delete(user)
-    redirect_to @gathering
+    if user == current_user
+      @gathering.users.delete(user)
+      redirect_to gatherings_path
+    else
+      @gathering.users.delete(user)
+      redirect_to @gathering
+    end
   end
 
   # GET /gatherings/new
