@@ -33,7 +33,10 @@ class GatheringsController < ApplicationController
   end
 
   def remove_users
-    binding.pry
+    user = User.find(params[:user])
+    @gathering = Gathering.find(params[:id])
+    @gathering.users.delete(user)
+    redirect_to @gathering
   end
 
   # GET /gatherings/new
