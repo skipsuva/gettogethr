@@ -32,6 +32,10 @@ class GatheringsController < ApplicationController
     redirect_to @gathering
   end
 
+  def remove_users
+    binding.pry
+  end
+
   # GET /gatherings/new
   def new
     @gathering = Gathering.new
