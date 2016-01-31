@@ -19,8 +19,9 @@ class MomentsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @gathering = Gathering.find(params[:id])
+    Moment.find(params[:moment_id]).destroy
+    redirect_to @gathering
   end
 
   private
