@@ -19,6 +19,8 @@ class MomentsController < ApplicationController
   end
 
   def destroy
+    binding.pry
+    @gathering = Gathering.find(params[:id])
   end
 
   private
