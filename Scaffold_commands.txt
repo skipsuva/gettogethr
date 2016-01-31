@@ -53,3 +53,9 @@ Votable Module
 
 
   - create a partial
+
+
+
+Remove Times from gathering show
+  - add removal button to show page
+  - add route 
