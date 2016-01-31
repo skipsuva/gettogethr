@@ -19,6 +19,10 @@ class ActivitiesController < ApplicationController
   end
 
   def destroy
+    @gathering = Gathering.find(params[:id])
+    activity = Activity.find(params[:activity_id])
+    activity.destroy
+    redirect_to @gathering
   end
 
   private
