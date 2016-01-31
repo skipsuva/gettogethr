@@ -35,7 +35,7 @@
 
 <ul>
 <% @gathering.activities.each do |activity| %>
-  <li><%= activity.description %> (<%= activity.activity_category.label %>)</li>
+  <li><%= activity.description %> (<%= activity.activity_category.label %>) <%= button_to "X", {controller: :activities , action: 'destroy', gathering_id: @gathering.id, activity_id: activity.id}, method: :delete %> </li>
   <%= render partial: '/votes/form', locals:{votable:activity,gathering:@gathering} %>
 <% end %>
 </ul>
