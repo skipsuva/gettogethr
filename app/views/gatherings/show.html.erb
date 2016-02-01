@@ -1,78 +1,100 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @gathering.title %>
-</p>
+<div class="container col-md-4">
 
-<p>
-  <strong>Owner:</strong>
-  <%= @gathering.owner.name %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @gathering.title %>
+  </p>
 
+  <p>
+    <strong>Owner:</strong>
+    <%= @gathering.owner.name %>
+  </p>
 
-<h2>Suggested Times</h2>
-
-<ul>
-<% @gathering.moments.each do |moment| %>
-  <li><%= moment.time.strftime('%A, %B %e %Y at %I:%M %P') %> <%= button_to "X", {controller: :moments , action: 'destroy', gathering_id: @gathering.id, moment_id: moment.id}, method: :delete %> </li>
-  <%= render partial: '/votes/form', locals:{votable:moment,gathering:@gathering} %>
-<% end %>
-</ul>
-
-<h2>Add a time</h2>
-
-<%= form_for [@gathering, @moment] do |f| %>
-
-<%= f.label :time %>
-<%= f.datetime_local_field :time %>
-
-<%= f.submit 'Add time' %>
-
-<% end %>
-
-<h2>Suggested Activities</h2>
-
-<ul>
-<% @gathering.activities.each do |activity| %>
-  <li><%= activity.description %> (<%= activity.activity_category.label %>) <%= button_to "X", {controller: :activities , action: 'destroy', gathering_id: @gathering.id, activity_id: activity.id}, method: :delete %> </li>
-  <%= render partial: '/votes/form', locals:{votable:activity,gathering:@gathering} %>
-<% end %>
-</ul>
-
-<h2>Add an activity</h2>
-
-<%= form_for [@gathering, @activity] do |f| %>
-
-<%= f.label :activity_category_id %>
-<%= f.collection_select(:activity_category_id, ActivityCategory.all, :id, :label) %>
-
-<%= f.label :description %>
-<%= f.text_field :description %>
-
-<%= f.submit 'Add activity' %>
-
-<% end %>
-
-<div class="container" id="collaborators">
-  <h4>Who's Involved?</h4>
-  <ul>
-    <% @collaborators.each do |collaborator| %>
-      <li><%= collaborator.name %> <%= button_to "X", action:"remove_users", user:collaborator.id, method: :post %> </li>
-    <% end %>
-  </ul>
-
-  <div class="">
-    <%= form_tag("/gatherings/#{@gathering.id}/add-users") do %>
-      <%= select("user", "name", @users.map {|u| u.name}, {include_blank:true}) %>
-      <%=submit_tag "Add Users!"%>
-    <% end %>
-  </div>
+  <%= link_to 'Edit', edit_gathering_path(@gathering) %> |
+  <%= link_to 'Back', gatherings_path %>
 
 </div>
 
 
+<div class="container col-md-12">
+
+  <div class="container col-md-2" id="collaborators">
+
+    <h4>Who's Involved?</h4>
+    <ul>
+      <% @collaborators.each do |collaborator| %>
+      <li><%= collaborator.name %></li>
+      <% end %>
+    </ul>
+
+    <div class="">
+      <%= form_tag("/gatherings/#{@gathering.id}/add-users") do %>
+        <%= select("user", "name", @users.map {|u| u.name}, {include_blank:true}) %>
+        <%=submit_tag "Add Users!"%>
+      <% end %>
+    </div>
+
+  </div>
 
 
-<%= link_to 'Edit', edit_gathering_path(@gathering) %> |
-<%= link_to 'Back', gatherings_path %>
+  <div class="container col-md-4" id="moments">
+
+
+    <h3>Suggested Times</h3>
+
+    <ul>
+      <% @gathering.moments.each do |moment| %>
+        <li><%= moment.time.strftime('%A, %B %e %Y at %I:%M %P') %> <%= button_to "X", {controller: :moments , action: 'destroy', gathering_id: @gathering.id, moment_id: moment.id}, method: :delete %> </li>
+        <%= render partial: '/votes/form', locals:{votable:moment,gathering:@gathering} %>
+      <% end %>
+    </ul>
+
+  </div>
+
+  <div class="container col-md-4" id="activities">
+
+    <h3>Suggested Activities</h3>
+
+
+    <ul>
+      <% @gathering.activities.each do |activity| %>
+        <li><%= activity.description %> (<%= activity.activity_category.label %>) <%= button_to "X", {controller: :activities , action: 'destroy', gathering_id: @gathering.id, activity_id: activity.id}, method: :delete %> </li>
+        <%= render partial: '/votes/form', locals:{votable:activity,gathering:@gathering} %>
+      <% end %>
+    </ul>
+
+  </div>
+
+  <div class="container col-md-2" id="right-panel">
+    No content
+  </div>
+
+</div>
+
+<div class="container col-md-2">
+
+  <h4>Add a time</h4>
+  <%= form_for [@gathering, @moment] do |f| %>
+    <%= f.label :time %>
+    <%= f.datetime_local_field :time %>
+    <%= f.submit 'Add time' %>
+  <% end %>
+
+
+  <h4>Add an activity</h4>
+
+    <%= form_for [@gathering, @activity] do |f| %>
+
+    <%= f.label :activity_category_id %>
+    <%= f.collection_select(:activity_category_id, ActivityCategory.all, :id, :label) %>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+
+    <%= f.submit 'Add activity' %>
+
+  <% end %>
+
+</div>
