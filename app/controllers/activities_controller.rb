@@ -1,7 +1,7 @@
 class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params.merge({
-      gathering_id: params['gathering_id'] }))
+      gathering_id: params['gathering_id'], user_id: current_user.id }))
     @gathering = Gathering.find(params['gathering_id'])
 
     respond_to do |format|
