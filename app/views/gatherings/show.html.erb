@@ -25,7 +25,7 @@
     <h4>Who's Involved?</h4>
     <ul>
       <% @collaborators.each do |collaborator| %>
-      <li><%= collaborator.name %></li>
+      <li><%= collaborator.name %> <%= button_to "X", action:"remove_users", user:collaborator.id, method: :post %> </li>
       <% end %>
     </ul>
 
