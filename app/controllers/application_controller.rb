@@ -16,4 +16,14 @@ class ApplicationController < ActionController::Base
   def authenticate!
     redirect_to login_path, notice: "You must be logged in to do that." unless logged_in?
   end
+
+  def is_interested?(gathering_id)
+    gathering = Gathering.find(gathering_id)
+    gathering.users.include?(current_user)
+  end
+
+  def check_gathering_access(gathering_id)
+    redirect_to gatherings_path, :flash => { :error => "You have not been invited to that gathering." } unless is_interested?(gathering_id)
+  end
+
 end
