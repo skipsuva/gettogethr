@@ -20,10 +20,10 @@ class ActivitiesController < ApplicationController
 
   def destroy
     # TODO: do we need to consider exisiting votes on a destroyed activity?
-    @gathering = Gathering.find(params[:id])
+    gathering = Gathering.find(params[:id])
     activity = Activity.find(params[:activity_id])
     activity.destroy
-    redirect_to @gathering
+    redirect_to gathering
   end
 
   private
