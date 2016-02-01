@@ -1,9 +1,9 @@
 <h4>Who's Involved?</h4>
-<ul>
+<ul id="collaborator-list">
   <%= render partial: "collaborator", collection: @collaborators %>
 </ul>
 
-<div class="">
+<div>
   <%= form_tag("/gatherings/#{@gathering.id}/add-users", remote:true) do %>
     <%= select("user", "name", @users.map {|u| u.name}, {include_blank:true}) %>
     <%=submit_tag "Add Users!"%>
