@@ -23,39 +23,3 @@ Brain DUMP POOP
     b. TODO: how do we store/represent invitations?
     c. for now, invitations will be automatically accepted
   4. show gathering: list of users, title
-
-
-
-
-
-1/28 TODO
-- Log in/out
-- gathering creation
-- user invite
-  - BONUS
-    - users who aren't signed up
-    - action mailer
-- time selection
-- voting
-
-
-Votable Module
-  - create a module for voting
-    - include method for submitting a votes
-    - include in any class that is votable_id
-      - e.g. moment.vote
-      - store vote as -1 0 1
-      -vote, unvote
-
-      def moment.vote
-
-      end
-
-
-  - create a partial
-
-
-
-Remove Times from gathering show
-  - add removal button to show page
-  - add route 
