@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def check_gathering_access(gathering_id)
-    redirect_to gatherings_path, notice: "You are not invited to that gathering." unless is_interested?(gathering_id)
+    redirect_to gatherings_path, :flash => { :error => "You have not been invited to that gathering." } unless is_interested?(gathering_id)
   end
 
 end
