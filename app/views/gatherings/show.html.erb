@@ -73,11 +73,11 @@
 
     <ul>
       <% @gathering.places.each do |place| %>
-        <li><%= place.name %> <%= button_to "X", {controller: :activities , action: 'destroy', gathering_id: @gathering.id, activity_id: activity.id}, method: :delete %> </li>
+        <li><%= place.name %> <%= button_to "X", {controller: :places , action: 'destroy', gathering_id: @gathering.id, place_id: place.id}, method: :delete %> </li>
         <%= render partial: '/votes/form', locals:{votable:place,gathering:@gathering} %>
       <% end %>
     </ul>
-    
+
   </div>
 
 </div>
@@ -104,6 +104,14 @@
 
     <%= f.submit 'Add activity' %>
 
+  <% end %>
+
+
+  <h4>Add a place</h4>
+  <%= form_for [@gathering, @place] do |f| %>
+    <%= f.label "Place Name" %>
+    <%= f.text_field :name %>
+    <%= f.submit 'Add place' %>
   <% end %>
 
 </div>

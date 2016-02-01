@@ -2,7 +2,7 @@ class PlacesController < ApplicationController
 
   def create
     @place = Place.new(place_params.merge({
-      place_id: params['place_id'] }))
+      gathering_id: params['gathering_id'] }))
     @gathering = Gathering.find(params['gathering_id'])
 
     respond_to do |format|
