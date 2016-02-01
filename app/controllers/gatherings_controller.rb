@@ -23,9 +23,12 @@ class GatheringsController < ApplicationController
 
   def add_users
     @gathering = Gathering.find(params[:id])
-    @user = User.find_by(name: params[:user][:name])
+    @user = User.find(params[:user][:id])
     @gathering.users << @user
-    redirect_to @gathering
+    respond_to do |format|
+      format.html{redirect_to @gathering}
+      format.js{}
+    end
   end
 
   def remove_users
