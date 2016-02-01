@@ -140,10 +140,10 @@
   <h3>Comments</h3>
 
 
-    <ul>
+    <ul class="list-unstyled comment-list">
       <% @gathering.comments.each do |comment| %>
         <li>
-          <span class="comment-user"><%= comment.user.name %></span>
+          <span class="comment-user text-uppercase"><%= comment.user.name %></span>
           <br><%= comment.content %>
         </li>
       <% end %>

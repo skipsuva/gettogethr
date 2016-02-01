@@ -23,3 +23,21 @@ Brain DUMP POOP
     b. TODO: how do we store/represent invitations?
     c. for now, invitations will be automatically accepted
   4. show gathering: list of users, title
+
+
+2/1 TODO
+  - how do we implement comments?
+    -chat room-esque?  comment on specific things?
+    -explain your vote?
+
+    - Activity feed?
+      - read into how people have done this
+  - Location
+    - basic: no geocoder...text field
+    - advanced: AJAX, suggest locations
+  - Devise stuff
+    - want to invite other users, this will help
+
+
+  TO DO
+  can't remove USERS
