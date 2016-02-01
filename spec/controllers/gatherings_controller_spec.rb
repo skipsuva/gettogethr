@@ -50,7 +50,7 @@ RSpec.describe GatheringsController, type: :controller do
   describe "GET #index" do
     it "assigns all gatherings as @gatherings" do
       gathering = Gathering.create! valid_attributes
-      gathering.user = user
+      gathering.owner = user
       gathering.save
       get :index, {}, valid_session
       expect(assigns(:gatherings)).to eq([gathering])
