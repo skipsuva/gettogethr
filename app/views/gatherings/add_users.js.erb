@@ -1,1 +1,3 @@
-$("#collaborator-list").append("<%= j render partial: 'collaborator', object: @user %>")
+$("#collaborator-list").append("<%= j render partial: 'collaborator', object: @user %>");
+var $userOption = $("#user_id").find("[value='<%= @user.id %>']");
+$userOption.remove();
