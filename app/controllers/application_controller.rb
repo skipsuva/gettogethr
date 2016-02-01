@@ -19,7 +19,11 @@ class ApplicationController < ActionController::Base
 
   def is_interested?(gathering_id)
     gathering = Gathering.find(gathering_id)
-    gathering.users.includes?(current_user)
+    gathering.users.include?(current_user)
+  end
+
+  def check_gathering_access(gathering_id)
+    redirect_to gatherings_path, notice: "You are not invited to that gathering." unless is_interested?(gathering_id)
   end
 
 end

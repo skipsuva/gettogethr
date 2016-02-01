@@ -1,5 +1,7 @@
 class GatheringsController < ApplicationController
   before_action :set_gathering, only: [:edit, :update, :destroy]
+  before_action -> { is_interested?(params[:id])}, only: [:show]
+
 
   # GET /gatherings
   # GET /gatherings.json
