@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  before_action -> { is_interested?(params['gathering_id'])}
+
+
   def create
     comment = Comment.new(comment_params.merge({
       gathering_id: params['gathering_id'], user_id: current_user.id }))

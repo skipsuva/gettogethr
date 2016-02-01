@@ -16,4 +16,10 @@ class ApplicationController < ActionController::Base
   def authenticate!
     redirect_to login_path, notice: "You must be logged in to do that." unless logged_in?
   end
+
+  def is_interested?(gathering_id)
+    gathering = Gathering.find(gathering_id)
+    gathering.users.includes?(current_user)
+  end
+
 end
