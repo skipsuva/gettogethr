@@ -33,3 +33,15 @@ nav.user-menu {
 .hidden-button{
   display: none;
   }
+
+
+//
+// Comments Field
+// --------------------------------------------------
+.comment-user {
+  color: $gray-light;
+}
+
+.comment-list li {
+    padding-bottom: $line-height-computed;
+}
