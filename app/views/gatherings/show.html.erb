@@ -41,41 +41,7 @@
 
 <div class="container">
 
-  <div class="container col-md-2">
-
-    <h4>Add a time</h4>
-    <%= form_for [@gathering, @moment] do |f| %>
-      <%= f.label :time %>
-      <%= f.datetime_local_field :time %>
-      <%= f.submit 'Add time' %>
-    <% end %>
-
-
-    <h4>Add an activity</h4>
-
-      <%= form_for [@gathering, @activity] do |f| %>
-
-      <%= f.label :activity_category_id %>
-      <%= f.collection_select(:activity_category_id, ActivityCategory.all, :id, :label) %>
-
-      <%= f.label :description %>
-      <%= f.text_field :description %>
-
-      <%= f.submit 'Add activity' %>
-
-    <% end %>
-
-    <h4>Add a place</h4>
-    <%= form_for [@gathering, @place] do |f| %>
-      <%= f.label "Place Name" %>
-      <%= f.text_field :name %>
-      <%= f.submit 'Add place' %>
-    <% end %>
-
-
-
-
-  </div>
+  <%= render partial: 'add_items' %>
 
 
   <div class="container col-md-4">
