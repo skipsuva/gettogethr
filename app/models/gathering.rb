@@ -4,4 +4,5 @@ class Gathering < ActiveRecord::Base
   has_many :users, through: :interests
   has_many :moments
   has_many :activities
+  has_many :places
 end
