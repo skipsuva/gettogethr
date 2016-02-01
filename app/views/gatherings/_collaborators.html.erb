@@ -1,0 +1,13 @@
+<h4>Who's Involved?</h4>
+<ul>
+  <% collaborators.each do |collaborator| %>
+  <li><%= collaborator.name %> <%= button_to "X", action:"remove_users", user:collaborator.id, method: :post %> </li>
+  <% end %>
+</ul>
+
+<div class="">
+  <%= form_tag("/gatherings/#{gathering.id}/add-users") do %>
+    <%= select("user", "name", users.map {|u| u.name}, {include_blank:true}) %>
+    <%=submit_tag "Add Users!"%>
+  <% end %>
+</div>
