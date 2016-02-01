@@ -30,16 +30,7 @@
   </div>
 
   <div class="container col-md-4" id="activities">
-
-    <h3>Suggested Activities</h3>
-
-
-    <ul>
-      <% @gathering.activities.each do |activity| %>
-        <li><%= activity.description %> (<%= activity.activity_category.label %>) <%= render partial: 'delete_button', locals:{gathering: @gathering, object: activity} %> </li>
-        <%= render partial: '/votes/form', locals:{votable:activity,gathering:@gathering} %>
-      <% end %>
-    </ul>
+    <%= render partial: "activities" %>
 
   </div>
 
