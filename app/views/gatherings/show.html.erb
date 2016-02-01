@@ -26,19 +26,7 @@
 
 
   <div class="container col-md-4" id="moments">
-
-
-    <h3>Suggested Times</h3>
-
-    <ul>
-      <% @gathering.moments.each do |moment| %>
-
-
-        <li><%= moment.time.strftime('%A, %B %e %Y at %I:%M %P') %> <%= render partial: 'delete_button', locals:{gathering: @gathering, object: moment} %> </li>
-        <%= render partial: '/votes/form', locals:{votable:moment,gathering:@gathering} %>
-      <% end %>
-    </ul>
-
+    <%= render partial: "moments" %>
   </div>
 
   <div class="container col-md-4" id="activities">
