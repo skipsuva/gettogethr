@@ -31,20 +31,10 @@
 
   <div class="container col-md-4" id="activities">
     <%= render partial: "activities" %>
-
   </div>
 
   <div class="container col-md-2" id="right-panel">
-
-    <h3>Suggested Places</h3>
-
-    <ul>
-      <% @gathering.places.each do |place| %>
-        <li><%= place.name %> <%= render partial: 'delete_button', locals:{gathering: @gathering, object: place} %> </li>
-        <%= render partial: '/votes/form', locals:{votable:place,gathering:@gathering} %>
-      <% end %>
-    </ul>
-
+    <%= render partial: "places" %>
   </div>
 
 </div>
