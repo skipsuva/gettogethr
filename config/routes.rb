@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'places/create'
-
-  get 'places/destroy'
-
   root 'home#index'
   get 'home/index'
 
