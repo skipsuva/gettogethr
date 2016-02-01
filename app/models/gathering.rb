@@ -5,4 +5,5 @@ class Gathering < ActiveRecord::Base
   has_many :moments
   has_many :activities
   has_many :places
+  has_many :comments
 end

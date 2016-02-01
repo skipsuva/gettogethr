@@ -10,11 +10,11 @@ class GatheringsController < ApplicationController
   # GET /gatherings/1
   # GET /gatherings/1.json
   def show
-
     @moment = Moment.new
     @activity = Activity.new
+    @comment = Comment.new
+    @gathering = Gathering.includes(:moments, :comments).find(params[:id])
     @place = Place.new
-    @gathering = Gathering.includes(:moments).find(params[:id])
     @collaborators = @gathering.users
     @users = User.all - @collaborators
   end

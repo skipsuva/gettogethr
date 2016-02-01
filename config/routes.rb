@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root 'home#index'
   get 'home/index'
 
@@ -9,6 +8,7 @@ Rails.application.routes.draw do
     resources :moments, only: [:create, :destroy]
     resources :activities, only: [:create, :destroy]
     resources :places, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
 
   resources :users

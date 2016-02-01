@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201155719) do
+ActiveRecord::Schema.define(version: 20160201155752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(version: 20160201155719) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "gathering_id"
+    t.text     "content"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "comments", ["gathering_id"], name: "index_comments_on_gathering_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "gatherings", force: :cascade do |t|
     t.string   "title"
@@ -96,6 +107,8 @@ ActiveRecord::Schema.define(version: 20160201155719) do
 
   add_foreign_key "activities", "activity_categories"
   add_foreign_key "activities", "gatherings"
+  add_foreign_key "comments", "gatherings"
+  add_foreign_key "comments", "users"
   add_foreign_key "gatherings", "users", column: "owner_id"
   add_foreign_key "interests", "gatherings"
   add_foreign_key "interests", "users"
