@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action -> { is_interested?(params['gathering_id'])}
+  before_action -> { check_gathering_access(params['gathering_id'])}
 
 
   def create
