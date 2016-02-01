@@ -23,16 +23,3 @@ Brain DUMP POOP
     b. TODO: how do we store/represent invitations?
     c. for now, invitations will be automatically accepted
   4. show gathering: list of users, title
-
-
-
-
-
-
-Remove invited Users:
-  - add 'remove' button to each user listed
-  - button should post to gatherings controller (remove-users?)
-
-
-Reorg to do:
-  - move the invited users to the top

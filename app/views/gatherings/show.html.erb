@@ -17,6 +17,7 @@
 
 </div>
 
+
 <div class="container col-md-12">
 
   <div class="container col-md-2" id="collaborators">
@@ -37,15 +38,17 @@
 
   </div>
 
+
   <div class="container col-md-4" id="moments">
+
 
     <h3>Suggested Times</h3>
 
     <ul>
-    <% @gathering.moments.each do |moment| %>
-      <li><%= moment.time.strftime('%A, %B %e %Y at %I:%M %P') %></li>
-      <%= render partial: '/votes/form', locals:{votable:moment,gathering:@gathering} %>
-    <% end %>
+      <% @gathering.moments.each do |moment| %>
+        <li><%= moment.time.strftime('%A, %B %e %Y at %I:%M %P') %> <%= button_to "X", {controller: :moments , action: 'destroy', gathering_id: @gathering.id, moment_id: moment.id}, method: :delete %> </li>
+        <%= render partial: '/votes/form', locals:{votable:moment,gathering:@gathering} %>
+      <% end %>
     </ul>
 
   </div>
@@ -56,10 +59,10 @@
 
 
     <ul>
-    <% @gathering.activities.each do |activity| %>
-      <li><%= activity.description %> (<%= activity.activity_category.label %>)</li>
-      <%= render partial: '/votes/form', locals:{votable:activity,gathering:@gathering} %>
-    <% end %>
+      <% @gathering.activities.each do |activity| %>
+        <li><%= activity.description %> (<%= activity.activity_category.label %>) <%= button_to "X", {controller: :activities , action: 'destroy', gathering_id: @gathering.id, activity_id: activity.id}, method: :delete %> </li>
+        <%= render partial: '/votes/form', locals:{votable:activity,gathering:@gathering} %>
+      <% end %>
     </ul>
 
   </div>
