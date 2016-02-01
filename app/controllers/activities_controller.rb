@@ -1,4 +1,6 @@
 class ActivitiesController < ApplicationController
+  before_action -> { check_gathering_access(params['gathering_id'])}
+  
   def create
     @activity = Activity.new(activity_params.merge({
       gathering_id: params['gathering_id'] }))

@@ -1,4 +1,6 @@
 class VotesController < ApplicationController
+  before_action -> { check_gathering_access(params['gathering_id'])}
+  
 
   def submit
 

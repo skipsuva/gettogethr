@@ -1,4 +1,7 @@
 class MomentsController < ApplicationController
+  before_action -> { check_gathering_access(params['gathering_id'])}
+
+
   def create
     @moment = Moment.new(moment_params.merge({
       gathering_id: params['gathering_id'] }))

@@ -1,4 +1,6 @@
 class PlacesController < ApplicationController
+  before_action -> { check_gathering_access(params['gathering_id'])}
+  
 
   def create
     place = Place.new(place_params.merge({
