@@ -17,24 +17,23 @@
 
 </div>
 
-
 <div class="container">
 
   <div class="container col-md-2" id="collaborators">
-    <%= render partial: "collaborators" , locals:{ collaborators: @collaborators, gathering: @gathering, users: @users } %>
+    <%= render "collaborators" %>
   </div>
 
 
   <div class="container col-md-4" id="moments">
-    <%= render partial: "moments" %>
+    <%= render "moments" %>
   </div>
 
   <div class="container col-md-4" id="activities">
-    <%= render partial: "activities" %>
+    <%= render "activities" %>
   </div>
 
   <div class="container col-md-2" id="right-panel">
-    <%= render partial: "places" %>
+    <%= render "places" %>
   </div>
 
 </div>
