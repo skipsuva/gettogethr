@@ -6,7 +6,7 @@
 </ul>
 
 <div class="">
-  <%= form_tag("/gatherings/#{@gathering.id}/add-users") do %>
+  <%= form_tag("/gatherings/#{@gathering.id}/add-users", remote:true) do %>
     <%= select("user", "name", @users.map {|u| u.name}, {include_blank:true}) %>
     <%=submit_tag "Add Users!"%>
   <% end %>
