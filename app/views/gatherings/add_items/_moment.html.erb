@@ -1,0 +1,6 @@
+<h4>Add a time</h4>
+<%= form_for [@gathering, @moment] do |f| %>
+  <%= f.label :time %>
+  <%= f.datetime_local_field :time %>
+  <%= f.submit 'Add time' %>
+<% end %>
