@@ -68,7 +68,16 @@
   </div>
 
   <div class="container col-md-2" id="right-panel">
-    No content
+
+    <h3>Suggested Places</h3>
+
+    <ul>
+      <% @gathering.places.each do |place| %>
+        <li><%= place.name %> <%= button_to "X", {controller: :activities , action: 'destroy', gathering_id: @gathering.id, activity_id: activity.id}, method: :delete %> </li>
+        <%= render partial: '/votes/form', locals:{votable:place,gathering:@gathering} %>
+      <% end %>
+    </ul>
+    
   </div>
 
 </div>
