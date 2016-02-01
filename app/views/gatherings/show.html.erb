@@ -32,8 +32,9 @@
 
     <ul>
       <% @gathering.moments.each do |moment| %>
-        <%= render partial: 'delete_button', locals:{gathering: @gathering, object: moment} %>
-        <li><%= moment.time.strftime('%A, %B %e %Y at %I:%M %P') %> <%= button_to "X", {controller: :moments , action: 'destroy', gathering_id: @gathering.id, moment_id: moment.id}, method: :delete %> </li>
+
+
+        <li><%= moment.time.strftime('%A, %B %e %Y at %I:%M %P') %> <%= render partial: 'delete_button', locals:{gathering: @gathering, object: moment} %> </li>
         <%= render partial: '/votes/form', locals:{votable:moment,gathering:@gathering} %>
       <% end %>
     </ul>
@@ -47,7 +48,7 @@
 
     <ul>
       <% @gathering.activities.each do |activity| %>
-        <li><%= activity.description %> (<%= activity.activity_category.label %>) <%= button_to "X", {controller: :activities , action: 'destroy', gathering_id: @gathering.id, activity_id: activity.id}, method: :delete %> </li>
+        <li><%= activity.description %> (<%= activity.activity_category.label %>) <%= render partial: 'delete_button', locals:{gathering: @gathering, object: activity} %> </li>
         <%= render partial: '/votes/form', locals:{votable:activity,gathering:@gathering} %>
       <% end %>
     </ul>
@@ -60,7 +61,7 @@
 
     <ul>
       <% @gathering.places.each do |place| %>
-        <li><%= place.name %> <%= button_to "X", {controller: :places , action: 'destroy', gathering_id: @gathering.id, place_id: place.id}, method: :delete %> </li>
+        <li><%= place.name %> <%= render partial: 'delete_button', locals:{gathering: @gathering, object: place} %> </li>
         <%= render partial: '/votes/form', locals:{votable:place,gathering:@gathering} %>
       <% end %>
     </ul>
