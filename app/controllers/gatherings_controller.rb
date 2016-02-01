@@ -13,6 +13,7 @@ class GatheringsController < ApplicationController
 
     @moment = Moment.new
     @activity = Activity.new
+    @place = Place.new
     @gathering = Gathering.includes(:moments).find(params[:id])
     @collaborators = @gathering.users
     @users = User.all - @collaborators
