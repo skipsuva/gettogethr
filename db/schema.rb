@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129152358) do
+ActiveRecord::Schema.define(version: 20160201155719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(version: 20160129152358) do
   add_index "moments", ["gathering_id"], name: "index_moments_on_gathering_id", using: :btree
   add_index "moments", ["user_id"], name: "index_moments_on_user_id", using: :btree
 
+  create_table "places", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "user_id"
+    t.integer  "gathering_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "places", ["gathering_id"], name: "index_places_on_gathering_id", using: :btree
+  add_index "places", ["user_id"], name: "index_places_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -90,5 +101,7 @@ ActiveRecord::Schema.define(version: 20160129152358) do
   add_foreign_key "interests", "users"
   add_foreign_key "moments", "gatherings"
   add_foreign_key "moments", "users"
+  add_foreign_key "places", "gatherings"
+  add_foreign_key "places", "users"
   add_foreign_key "votes", "users"
 end
