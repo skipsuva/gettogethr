@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :comments_controllers
   root 'home#index'
   get 'home/index'
 
