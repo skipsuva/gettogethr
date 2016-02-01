@@ -41,13 +41,13 @@
 
 <div class="container">
 
-  <%= render partial: 'gatherings/add_items/all' %>
+  <div class="container col-md-2">
+    <%= render 'gatherings/add_items/all' %>
+  </div>
 
   <div class="container col-md-4">
     <%= render 'add_comment' %>
   </div>
-
-
 
   <div class="container col-md-6" id="comments">
     <%= render 'comments' %>
