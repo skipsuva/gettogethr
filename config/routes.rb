@@ -19,6 +19,8 @@ Rails.application.routes.draw do
 
   resources :registrations, only: [:new, :create]
   post '/gatherings/:id/add-users', to: "gatherings#add_users"
+  post '/gatherings/:id/remove-users', to: "gatherings#remove_users"
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

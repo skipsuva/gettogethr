@@ -14,14 +14,7 @@ class GatheringsController < ApplicationController
     @moment = Moment.new
     @activity = Activity.new
     @gathering = Gathering.includes(:moments).find(params[:id])
-
     @collaborators = @gathering.users
-  #  @users = []
-  #  User.all.each do |user|
-  #    if !@collaborators.include?(user)
-  #      @users << user
-  #    end
-  #  end
     @users = User.all - @collaborators
   end
 
@@ -30,6 +23,19 @@ class GatheringsController < ApplicationController
     @user = User.find_by(name: params[:user][:name])
     @gathering.users << @user
     redirect_to @gathering
+  end
+
+  def remove_users
+    # TODO: what if user is last user and removes themself? build in ability to destroy gathering?
+    user = User.find(params[:user])
+    @gathering = Gathering.find(params[:id])
+    if user == current_user
+      @gathering.users.delete(user)
+      redirect_to gatherings_path
+    else
+      @gathering.users.delete(user)
+      redirect_to @gathering
+    end
   end
 
   # GET /gatherings/new
