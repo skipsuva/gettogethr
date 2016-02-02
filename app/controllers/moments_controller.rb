@@ -24,6 +24,7 @@ class MomentsController < ApplicationController
   def destroy
     # TODO: need to add any contingencies for destroying associated votes as well?  Not a concern?
     @gathering = Gathering.find(params[:id])
+    @moment_id = Moment.find(params[:moment_id]).id
     Moment.find(params[:moment_id]).destroy
     respond_to do |format|
       format.html {redirect_to @gathering}
