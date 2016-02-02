@@ -11,15 +11,9 @@ class VotesController < ApplicationController
     thumbage = params[:thumbage]
 
     if vote
-      update_thumb(thumbage, vote)
-      # if params[:thumbage].to_i == vote.value.to_i
-      #   vote.destroy
-      # else
-      #   vote.update(value:params[:thumbage])
-      # end
-    else #vote doesn't exist
-      new_vote = Vote.create(user: current_user, value: thumbage)
-      votable.votes << new_vote
+      update_thumbage(thumbage, vote)
+    else
+      new_vote(thumbage, current_user, votable)
     end
 
     redirect_to gathering
@@ -28,12 +22,17 @@ class VotesController < ApplicationController
 
   private
 
-  def update_thumb(thumbage, vote)
+  def update_thumbage(thumbage, vote)
     if thumbage.to_i == vote.value.to_i
       vote.destroy
     else
       vote.update(value: thumbage)
     end
+  end
+
+  def new_vote(thumbage, user, votable)
+    new_vote = Vote.create(user: user, value: thumbage)
+    votable.votes << new_vote
   end
 
   # def new(user:user, value: value)
