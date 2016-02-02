@@ -1,29 +1,44 @@
 class VotesController < ApplicationController
   before_action -> { check_gathering_access(params['gathering_id'])}
-  
+
 
   def submit
 
     #TODO Sanitize input
-    votable = Object.const_get(params[:votable_class]).find(params[:votable_id])
+    @votable = Object.const_get(params[:votable_class]).includes(:votes).find(params[:votable_id])
     gathering = Gathering.find(params[:gathering_id])
+    @vote = Vote.find_by(user: current_user,votable: @votable)
+    thumbage = params[:thumbage]
 
-    if vote = Vote.find_by(user:current_user,votable:votable)
-      if params[:thumbage].to_i == vote.value.to_i
-        vote.destroy
-      else
-        vote.update(value:params[:thumbage])
-      end
-    else #vote doesn't exist
-      new_vote = Vote.create(user: current_user, value: params[:thumbage])
-      votable.votes << new_vote
+    if @vote
+      update_thumbage(thumbage, @vote)
+    else
+      @vote = new_vote(thumbage, current_user, @votable)
     end
 
-    redirect_to gathering
-
+    respond_to do |format|
+      format.html { redirect_to gathering }
+      format.js {
+        @votable.reload
+      }
+    end
   end
 
   private
+
+  def update_thumbage(thumbage, vote)
+    if thumbage.to_i == vote.value.to_i
+      vote.destroy
+    else
+      vote.update(value: thumbage)
+    end
+  end
+
+  def new_vote(thumbage, user, votable)
+    new_vote = Vote.create(user: user, value: thumbage)
+    votable.votes << new_vote
+    new_vote
+  end
 
   # def new(user:user, value: value)
   #   new_vote = Vote.create(user: user, value: value)
