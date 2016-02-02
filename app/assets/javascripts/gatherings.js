@@ -5,14 +5,14 @@
 $(document).ready(function(){
   $('.gathering-title').dblclick(function(){
     var oldTitle = $('.gathering-title').text();
-    var gatheringId = $('.title-container').attr('id').replace( /^\D+/g, '');
+    var gatheringId = $('.title-container').data('id');
     var textbox = document.createElement('input');
     textbox.type = 'text';
     textbox.id = 'title';
     textbox.value = oldTitle;
 
     $('.gathering-title').html(textbox);
-    $('.gathering-title').off();
+    // $('.gathering-title').off();
     $('#title').on('keypress', function(e){
       if(e.keyCode === 13){
         var title = $('#title').val();
