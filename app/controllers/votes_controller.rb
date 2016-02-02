@@ -1,24 +1,26 @@
 class VotesController < ApplicationController
   before_action -> { check_gathering_access(params['gathering_id'])}
-  
+
 
   def submit
 
     #TODO Sanitize input
-    @votable = Object.const_get(params[:votable_class]).find(params[:votable_id])
+    @votable = Object.const_get(params[:votable_class]).includes(:votes).find(params[:votable_id])
     gathering = Gathering.find(params[:gathering_id])
     @vote = Vote.find_by(user: current_user,votable: @votable)
     thumbage = params[:thumbage]
 
     if @vote
+      @olde_thumbage = @vote.value
       update_thumbage(thumbage, @vote)
     else
-      new_vote(thumbage, current_user, @votable)
+      @vote = new_vote(thumbage, current_user, @votable)
     end
 
     respond_to do |format|
       format.html { redirect_to gathering }
       format.js {
+
         # new_vote is easy; update needs old vote value also
       }
     end
@@ -37,6 +39,7 @@ class VotesController < ApplicationController
   def new_vote(thumbage, user, votable)
     new_vote = Vote.create(user: user, value: thumbage)
     votable.votes << new_vote
+    new_vote
   end
 
   # def new(user:user, value: value)

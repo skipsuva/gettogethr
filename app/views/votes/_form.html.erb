@@ -3,21 +3,21 @@
   <label>
   <span class="glyphicon glyphicon-thumbs-up">
     <%= button_to "Thumbs Up",{ controller:"votes", action:"submit", thumbage:"1", gathering_id:gathering.id, votable_id:votable.id, votable_class:votable.class.to_s }, method: :post, remote: true, class:"hidden-button" %>
-    <%= votable.votes.where(value:1).count %>
+    <%= vote_count(votable,1)%>
   </span>
   </label>
 
   <label>
   <span class="glyphicon glyphicon-question-sign">
     <%= button_to "Shrug", { controller:"votes", action:"submit", thumbage:"0", gathering_id:gathering.id, votable_id:votable.id, votable_class:votable.class.to_s }, method: :post, remote: true, class:"hidden-button" %>
-    <%= votable.votes.where(value:0).count %>
+    <%= vote_count(votable,0) %>
   </span>
   </label>
 
 <label>
   <span class="glyphicon glyphicon-thumbs-down">
     <%= button_to "Thumbs Down", { controller:"votes", action:"submit", thumbage:"-1", gathering_id:gathering.id, votable_id:votable.id, votable_class:votable.class.to_s }, method: :post, remote: true, class:"hidden-button" %>
-    <%= votable.votes.where(value:-1).count %>
+    <%= vote_count(votable,-1) %>
   </span>
 </label>
 
