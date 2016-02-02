@@ -1,4 +1,1 @@
-debugger;
-
-$('#collaborator-list li:contains(<%= @gathering.user.name %>)').remove();
-debugger;
+ $('#collaborator-list li:contains('+ "<%= @user.name %>" +')').remove();
