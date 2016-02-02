@@ -33,14 +33,17 @@ class GatheringsController < ApplicationController
 
   def remove_users
     # TODO: what if user is last user and removes themself? build in ability to destroy gathering?
-    user = User.find(params[:user])
+    @user = User.find(params[:user])
     @gathering = Gathering.find(params[:id])
-    if user == current_user
-      @gathering.users.delete(user)
+    if @user == current_user
+      @gathering.users.delete(@user)
       redirect_to gatherings_path
     else
-      @gathering.users.delete(user)
-      redirect_to @gathering
+      @gathering.users.delete(@user)
+      respond_to do |format|
+        format.html {redirect_to @gathering}
+        format.js { }
+      end
     end
   end
 
