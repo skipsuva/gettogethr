@@ -10,6 +10,7 @@ $(document).ready(function(){
     var textbox = document.createElement('input');
     textbox.type = 'text';
     textbox.id = 'title';
+    textbox.value = oldTitle;
 
     $('.gathering-title').html(textbox);
     $('.gathering-title').off();
@@ -18,13 +19,12 @@ $(document).ready(function(){
         $('.gathering-title').html($('#title').val());
       }
     });
-    debugger;
-    // $container.empty().append("<input placeholder=" + (oldTitle) + "'></input>");
-    // debugger;
+    // $(document).on();
   });
 });
 
 
 //get current title
 //replace with textfield
+//how to get new title to controller...
 //
