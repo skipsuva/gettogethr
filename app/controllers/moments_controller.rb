@@ -22,11 +22,14 @@ class MomentsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     # TODO: need to add any contingencies for destroying associated votes as well?  Not a concern?
     @gathering = Gathering.find(params[:id])
     Moment.find(params[:moment_id]).destroy
-    redirect_to @gathering
+    respond_to do |format|
+      format.html {redirect_to @gathering}
+      format.js { }
+    end
+
   end
 
   private
