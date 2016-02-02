@@ -12,12 +12,10 @@ $(document).ready(function(){
     textbox.value = oldTitle;
 
     $('.gathering-title').html(textbox);
-    // $('.gathering-title').off();
     $('#title').on('keypress', function(e){
       if(e.keyCode === 13){
 
         var title = $('#title').val();
-        // $('.gathering-title').html($('#title').val());
 
         var URL =  gatheringId;
         $.ajax({
@@ -28,22 +26,12 @@ $(document).ready(function(){
             gathering: {
               id: gatheringId,
               title: title
-            }
-          },
+            }},
           success: function(){
             $('.gathering-title').html($('#title').val());
           }
         });
       }
     });
-
-
-    // $(document).on();
   });
 });
-
-
-//get current title
-//replace with textfield
-//how to get new title to controller...
-//
