@@ -1,4 +1,4 @@
 <div class="moment-box" id="<%= moment.id %>">
-  <li><%= moment.time.strftime('%A, %B %e %Y at %I:%M %P') %> <%= render partial: 'gatherings/delete_button', locals:{ object: moment} %> </li>
+  <li><%= moment.time.strftime('%A, %B %e %Y at %I:%M %P') %> <%= button_to "X", gathering_moment_path(@gathering, moment), method: :delete, remote: true %> </li>
   <%= render partial: '/votes/form', locals:{ votable: moment, gathering: @gathering } %>
 </div>
