@@ -6,8 +6,8 @@ $(document).ready(function(){
   $('.gathering-title').dblclick(function(){
     var oldTitle = $('.gathering-title').text();
     var $container = $('.title-container');
-
-    $container.empty().append("<input value='" + oldTitle + "'></input>");
+    debugger;
+    $container.empty().append("<input placeholder=" + (oldTitle) + "'></input>");
     // debugger;
   });
 });
