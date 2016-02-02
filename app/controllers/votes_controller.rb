@@ -7,15 +7,18 @@ class VotesController < ApplicationController
     #TODO Sanitize input
     votable = Object.const_get(params[:votable_class]).find(params[:votable_id])
     gathering = Gathering.find(params[:gathering_id])
+    vote = Vote.find_by(user:current_user,votable:votable)
+    thumbage = params[:thumbage]
 
-    if vote = Vote.find_by(user:current_user,votable:votable)
-      if params[:thumbage].to_i == vote.value.to_i
-        vote.destroy
-      else
-        vote.update(value:params[:thumbage])
-      end
+    if vote
+      update_thumb(thumbage, vote)
+      # if params[:thumbage].to_i == vote.value.to_i
+      #   vote.destroy
+      # else
+      #   vote.update(value:params[:thumbage])
+      # end
     else #vote doesn't exist
-      new_vote = Vote.create(user: current_user, value: params[:thumbage])
+      new_vote = Vote.create(user: current_user, value: thumbage)
       votable.votes << new_vote
     end
 
@@ -24,6 +27,14 @@ class VotesController < ApplicationController
   end
 
   private
+
+  def update_thumb(thumbage, vote)
+    if thumbage.to_i == vote.value.to_i
+      vote.destroy
+    else
+      vote.update(value: thumbage)
+    end
+  end
 
   # def new(user:user, value: value)
   #   new_vote = Vote.create(user: user, value: value)
