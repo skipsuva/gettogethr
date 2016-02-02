@@ -40,7 +40,10 @@ class GatheringsController < ApplicationController
       redirect_to gatherings_path
     else
       @gathering.users.delete(user)
-      redirect_to @gathering
+      respond_to do |format|
+        format.html {redirect_to @gathering}
+        format.js { }
+      end
     end
   end
 
