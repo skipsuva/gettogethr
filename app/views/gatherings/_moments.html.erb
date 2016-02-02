@@ -1,8 +1,0 @@
-<h3>Suggested Times</h3>
-
-<ul>
-  <% @gathering.moments.each do |moment| %>
-    <li><%= moment.time.strftime('%A, %B %e %Y at %I:%M %P') %> <%= render partial: 'delete_button', locals:{ object: moment} %> </li>
-    <%= render partial: '/votes/form', locals:{votable:moment,gathering:@gathering} %>
-  <% end %>
-</ul>

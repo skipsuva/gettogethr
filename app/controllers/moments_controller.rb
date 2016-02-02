@@ -6,11 +6,11 @@ class MomentsController < ApplicationController
     @moment = Moment.new(moment_params.merge({
       gathering_id: params['gathering_id'] }))
     @gathering = Gathering.find(params['gathering_id'])
-
     respond_to do |format|
       if @moment.save
         format.html { redirect_to @gathering, notice: 'Moment was successfully created.' }
         format.json { render :show, status: :created, location: @gathering }
+        format.js { }
       else
         format.html {
           flash.now[:error] = 'Time ' + @moment.errors.messages[:time].join(", ")
@@ -23,9 +23,16 @@ class MomentsController < ApplicationController
 
   def destroy
     # TODO: need to add any contingencies for destroying associated votes as well?  Not a concern?
-    @gathering = Gathering.find(params[:id])
-    Moment.find(params[:moment_id]).destroy
-    redirect_to @gathering
+    @gathering = Gathering.find(params[:gathering_id])
+    moment = Moment.find(params[:id])
+    @moment_id = moment.id
+    moment.destroy
+
+    respond_to do |format|
+      format.html {redirect_to @gathering}
+      format.js { }
+    end
+
   end
 
   private
