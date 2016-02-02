@@ -3,7 +3,8 @@
 
 <ul>
   <% @gathering.activities.each do |activity| %>
-    <li><%= activity.description %> (<%= activity.activity_category.label %>) <%= render partial: 'delete_button', locals:{ object: activity} %> </li>
-    <%= render partial: '/votes/form', locals:{votable:activity,gathering:@gathering} %>
+    <li class="activity-box" id="activity-<%= activity.id %>"><%= activity.description %> (<%= activity.activity_category.label %>) <%= render partial: 'delete_button', locals:{ object: activity} %>
+      <%= render partial: '/votes/form', locals:{votable:activity,gathering:@gathering} %>
+    </li>
   <% end %>
 </ul>

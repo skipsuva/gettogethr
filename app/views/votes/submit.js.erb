@@ -1,1 +1,4 @@
-
+$("#<%= @votable.class.to_s.downcase %>-<%= @votable.id %> .thumbs-up .vote-count").text("<%= vote_count(@votable,1) %>")
+$("#<%= @votable.class.to_s.downcase %>-<%= @votable.id %> .shruggie .vote-count").text("<%= vote_count(@votable,0) %>")
+$("#<%= @votable.class.to_s.downcase %>-<%= @votable.id %> .thumbs-down .vote-count").text("<%= vote_count(@votable,-1) %>")
+ // debugger;
