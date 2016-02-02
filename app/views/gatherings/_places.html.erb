@@ -1,8 +1,0 @@
-<h3>Suggested Places</h3>
-
-<ul>
-  <% @gathering.places.each do |place| %>
-    <li><%= place.name %> <%= render partial: 'delete_button', locals:{object: place} %> </li>
-    <%= render partial: '/votes/form', locals:{votable:place,gathering:@gathering} %>
-  <% end %>
-</ul>
