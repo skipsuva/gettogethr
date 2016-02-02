@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action -> { check_gathering_access(params['gathering_id'])}
-  
+
   def create
     @activity = Activity.new(activity_params.merge({
       gathering_id: params['gathering_id'], user_id: current_user.id }))
@@ -10,6 +10,7 @@ class ActivitiesController < ApplicationController
       if @activity.save
         format.html { redirect_to @gathering, notice: 'Activity was successfully created.' }
         format.json { render :show, status: :created, location: @gathering }
+        format.js { }
       else
         format.html {
           flash.now[:error] = 'Activity ' + @activity.errors.messages[:time].join(", ")
@@ -22,10 +23,15 @@ class ActivitiesController < ApplicationController
 
   def destroy
     # TODO: do we need to consider exisiting votes on a destroyed activity?
-    gathering = Gathering.find(params[:id])
-    activity = Activity.find(params[:activity_id])
+    gathering = Gathering.find(params[:gathering_id])
+    activity = Activity.find(params[:id])
+    @activity_id = activity.id
     activity.destroy
-    redirect_to gathering
+
+    respond_to do |format|
+      format.html {redirect_to gathering}
+      format.js { }
+    end
   end
 
   private
