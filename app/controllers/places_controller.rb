@@ -22,12 +22,13 @@ class PlacesController < ApplicationController
   end
 
   def destroy
-    gathering = Gathering.find(params[:id])
-     Place.find(params[:place_id]).destroy
-    redirect_to gathering
+    @gathering = Gathering.find(params[:gathering_id])
+    place = Place.find(params[:id])
+    @place_id = place.id
+    place.destroy
 
     respond_to do |format|
-      format.html {redirect_to gathering}
+      format.html {redirect_to @gathering}
       format.js {}
     end
 
