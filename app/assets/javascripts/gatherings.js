@@ -2,22 +2,17 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
-// $(document).ready(function(){
-//   $('.remove_collab').on('click', function(){
-//     var collabId = $(this).val();
-//     $(this).parent().remove();
-//
-//     $.ajax({
-//       method:'post',
-//       url: ??;
-//       dataType: ??,
-//       data: collabId
-//     })
-//   });
-//
-//
-// });
+$(document).ready(function(){
+  $('.gathering-title').dblclick(function(){
+    var oldTitle = $('.gathering-title').text();
+    var $container = $('.title-container');
+
+    $container.empty().append("<input value='" + oldTitle + "'></input>");
+    // debugger;
+  });
+});
 
 
-// on click, identify the right li via id # and remove it, then use
-// AJAX to send it to route
+//get current title
+//replace with textfield
+//
