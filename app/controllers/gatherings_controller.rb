@@ -82,6 +82,7 @@ class GatheringsController < ApplicationController
       if @gathering.update(gathering_params)
         format.html { redirect_to @gathering, notice: 'Gathering was successfully updated.' }
         format.json { render :show, status: :ok, location: @gathering }
+        format.js { head 204 }
       else
         format.html { render :edit }
         format.json { render json: @gathering.errors, status: :unprocessable_entity }
