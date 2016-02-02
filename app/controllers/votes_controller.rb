@@ -11,7 +11,6 @@ class VotesController < ApplicationController
     thumbage = params[:thumbage]
 
     if @vote
-      # @olde_thumbage = @vote.value
       update_thumbage(thumbage, @vote)
     else
       @vote = new_vote(thumbage, current_user, @votable)
@@ -20,7 +19,7 @@ class VotesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to gathering }
       format.js {
-      @votable.reload
+        @votable.reload
       }
     end
   end
