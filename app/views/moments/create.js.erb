@@ -1,4 +1,4 @@
 // debugger;
-// get info from the moment controller, e.g. id
-// create the element
-$("#moments-list").append("<%= j render partial: 'moment', object: @moment %>");
+//how to access the moment partial?
+
+$("#moments-list").append("<%= j render partial: 'moment', locals: { moment: @moment, @gathering: @gathering } %>");
