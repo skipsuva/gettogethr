@@ -15,16 +15,24 @@ $(document).ready(function(){
     $('.gathering-title').off();
     $('#title').on('keypress', function(e){
       if(e.keyCode === 13){
+        var title = $('#title').val();
         $('.gathering-title').html($('#title').val());
+
+        var URL =  gatheringId;
+        $.ajax({
+          method: 'patch',
+          url: URL,
+          dataType: 'script',
+          data: {
+            gathering: {
+              id: gatheringId,
+              title: title
+            }
+          }
+        });
       }
     });
-    var URL = "";
-    $.ajax({
-      method: 'patch',
-      url: '',
-      dataType: 'script',
 
-    });
 
     // $(document).on();
   });

@@ -77,7 +77,7 @@ class GatheringsController < ApplicationController
   # PATCH/PUT /gatherings/1
   # PATCH/PUT /gatherings/1.json
   def update
-    # binding.pry
+    @gathering = Gathering.find(params[:id])
     respond_to do |format|
       if @gathering.update(gathering_params)
         format.html { redirect_to @gathering, notice: 'Gathering was successfully updated.' }
