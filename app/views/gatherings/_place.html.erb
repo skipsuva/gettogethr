@@ -1,0 +1,4 @@
+<div class="place-box" id="place-<%= place.id %>">
+  <li><%= place.name %> <%= button_to "X", gathering_place_path(@gathering, place), method: :delete, remote: true %> </li>
+  <%= render partial: '/votes/form', locals:{ votable: place, gathering: @gathering } %>
+</div>
