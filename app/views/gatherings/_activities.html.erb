@@ -1,0 +1,4 @@
+<div class="activity-box" id="activity-<%= activity.id %>">
+  <li><%= activity.description %> (<%= activity.activity_category.label %>) <%= render partial: 'delete_button', locals:{ object: activity} %> </li>
+  <%= render partial: '/votes/form', locals:{votable:activity,gathering:@gathering} %>
+</div>
