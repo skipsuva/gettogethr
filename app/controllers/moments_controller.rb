@@ -10,7 +10,7 @@ class MomentsController < ApplicationController
       if @moment.save
         format.html { redirect_to @gathering, notice: 'Moment was successfully created.' }
         format.json { render :show, status: :created, location: @gathering }
-        format.js { binding.pry}
+        format.js { }
       else
         format.html {
           flash.now[:error] = 'Time ' + @moment.errors.messages[:time].join(", ")
