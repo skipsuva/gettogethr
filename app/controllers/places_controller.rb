@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
   before_action -> { check_gathering_access(params['gathering_id'])}
-  
+
 
   def create
     place = Place.new(place_params.merge({
@@ -11,6 +11,7 @@ class PlacesController < ApplicationController
       if place.save
         format.html { redirect_to gathering, notice: 'Place was successfully created.' }
         format.json { render :show, status: :created, location: gathering }
+        format.js {}
       else
         format.html {
           flash.now[:error] = place.errors.messages.map { |msg| "<li>#{msg}</li>"}.join('')
@@ -25,6 +26,12 @@ class PlacesController < ApplicationController
     gathering = Gathering.find(params[:id])
      Place.find(params[:place_id]).destroy
     redirect_to gathering
+
+    respond_to do |format|
+      format.html {redirect_to gathering}
+      format.js {}
+    end
+
   end
 
   private
