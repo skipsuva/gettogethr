@@ -16,8 +16,10 @@ class VotesController < ApplicationController
       new_vote(thumbage, current_user, votable)
     end
 
-    redirect_to gathering
-
+    respond_to do |format|
+      format.html { redirect_to gathering }
+      format.js { }
+    end
   end
 
   private
