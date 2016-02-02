@@ -1,7 +1,7 @@
 
 <h4>Add an activity</h4>
 
-  <%= form_for [@gathering, @activity] do |f| %>
+  <%= form_for [@gathering, @activity], remote: true do |f| %>
 
   <%= f.label :activity_category_id %>
   <%= f.collection_select(:activity_category_id, ActivityCategory.all, :id, :label) %>
