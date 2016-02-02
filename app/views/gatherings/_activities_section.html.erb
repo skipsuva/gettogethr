@@ -2,5 +2,7 @@
 
 
 <ul class="activities-list">
-  <%= render partial: "activity", collection: @gathering.activities %>
+  <%# render partial: "activity", collection: @gathering.activities %>
+  <%= render @gathering.activities %>
+
 </ul>

@@ -1,2 +1,2 @@
-$(".activities-list").append("<%= j render(partial: 'gatherings/activity', locals:{activity: @activity}) %>");
+$(".activities-list").append("<%= j render @activity %>");
 $("#new_activity")[0].reset();
