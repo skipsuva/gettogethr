@@ -5,7 +5,7 @@
 $(document).ready(function(){
   $('.gathering-title').dblclick(function(){
     var oldTitle = $('.gathering-title').text();
-
+    var gatheringId = $('.title-container').attr('id').replace( /^\D+/g, '');
     var textbox = document.createElement('input');
     textbox.type = 'text';
     textbox.id = 'title';
@@ -18,9 +18,10 @@ $(document).ready(function(){
         $('.gathering-title').html($('#title').val());
       }
     });
+    var URL = "";
     $.ajax({
       method: 'patch',
-      url: ,
+      url: '',
       dataType: 'script',
 
     });

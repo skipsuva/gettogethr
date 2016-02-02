@@ -1,6 +1,6 @@
 class GatheringsController < ApplicationController
   before_action :set_gathering, only: [:edit, :update, :destroy]
-  before_action -> { check_gathering_access(params[:id])}, only: [:show]
+  before_action -> { check_gathering_access(params[:id])}, only: [:show, :update]
 
 
   # GET /gatherings
@@ -54,7 +54,6 @@ class GatheringsController < ApplicationController
 
   # GET /gatherings/1/edit
   def edit
-    binding.pry
   end
 
   # POST /gatherings
