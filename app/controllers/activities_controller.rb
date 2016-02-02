@@ -10,7 +10,7 @@ class ActivitiesController < ApplicationController
       if @activity.save
         format.html { redirect_to @gathering, notice: 'Activity was successfully created.' }
         format.json { render :show, status: :created, location: @gathering }
-        format.js { binding.pry }
+        format.js { }
       else
         format.html {
           flash.now[:error] = 'Activity ' + @activity.errors.messages[:time].join(", ")
