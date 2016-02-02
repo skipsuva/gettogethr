@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action -> { check_gathering_access(params['gathering_id'])}
-  
+
   def create
     @activity = Activity.new(activity_params.merge({
       gathering_id: params['gathering_id'], user_id: current_user.id }))
@@ -10,6 +10,7 @@ class ActivitiesController < ApplicationController
       if @activity.save
         format.html { redirect_to @gathering, notice: 'Activity was successfully created.' }
         format.json { render :show, status: :created, location: @gathering }
+        format.js { binding.pry }
       else
         format.html {
           flash.now[:error] = 'Activity ' + @activity.errors.messages[:time].join(", ")
