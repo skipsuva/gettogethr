@@ -6,8 +6,20 @@ $(document).ready(function(){
   $('.gathering-title').dblclick(function(){
     var oldTitle = $('.gathering-title').text();
     var $container = $('.title-container');
+
+    var textbox = document.createElement('input');
+    textbox.type = 'text';
+    textbox.id = 'title';
+
+    $('.gathering-title').html(textbox);
+    $('.gathering-title').off();
+    $('#title').on('keypress', function(e){
+      if(e.keyCode === 13){
+        $('.gathering-title').html($('#title').val());
+      }
+    });
     debugger;
-    $container.empty().append("<input placeholder=" + (oldTitle) + "'></input>");
+    // $container.empty().append("<input placeholder=" + (oldTitle) + "'></input>");
     // debugger;
   });
 });
