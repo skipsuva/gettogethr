@@ -1,6 +1,6 @@
 class GatheringsController < ApplicationController
   before_action :set_gathering, only: [:edit, :update, :destroy]
-  before_action -> { check_gathering_access(params[:id])}, only: [:show]
+  before_action -> { check_gathering_access(params[:id])}, only: [:show, :update]
 
 
   # GET /gatherings
@@ -77,11 +77,12 @@ class GatheringsController < ApplicationController
   # PATCH/PUT /gatherings/1
   # PATCH/PUT /gatherings/1.json
   def update
-    # binding.pry
+    @gathering = Gathering.find(params[:id])
     respond_to do |format|
       if @gathering.update(gathering_params)
         format.html { redirect_to @gathering, notice: 'Gathering was successfully updated.' }
         format.json { render :show, status: :ok, location: @gathering }
+        format.js { head 204 }
       else
         format.html { render :edit }
         format.json { render json: @gathering.errors, status: :unprocessable_entity }
