@@ -54,6 +54,7 @@ class GatheringsController < ApplicationController
 
   # GET /gatherings/1/edit
   def edit
+    binding.pry
   end
 
   # POST /gatherings

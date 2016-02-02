@@ -5,7 +5,6 @@
 $(document).ready(function(){
   $('.gathering-title').dblclick(function(){
     var oldTitle = $('.gathering-title').text();
-    var $container = $('.title-container');
 
     var textbox = document.createElement('input');
     textbox.type = 'text';
@@ -19,6 +18,13 @@ $(document).ready(function(){
         $('.gathering-title').html($('#title').val());
       }
     });
+    $.ajax({
+      method: 'patch',
+      url: ,
+      dataType: 'script',
+
+    });
+
     // $(document).on();
   });
 });
