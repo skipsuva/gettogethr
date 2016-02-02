@@ -1,4 +1,4 @@
 // debugger;
 //how to access the moment partial?
-
-$("#moments-list").append("<%= j render partial: 'moment', locals: { moment: @moment, @gathering: @gathering } %>");
+var x = "<%= j render(partial: 'gatherings/moment', locals:{moment: @moment}) %>"
+debugger;
