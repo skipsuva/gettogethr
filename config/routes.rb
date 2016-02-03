@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   post 'votes/submit'
 
   resources :gatherings do
+    member do
+      get 'stage'
+    end
     resources :moments, only: [:create, :destroy]
     resources :activities, only: [:create, :destroy]
     resources :places, only: [:create, :destroy]

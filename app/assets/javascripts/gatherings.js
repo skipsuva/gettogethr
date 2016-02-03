@@ -34,4 +34,23 @@ $(document).ready(function(){
       }
     });
   });
+
+  $('#staging-button').on('click', function(e) {
+    e.preventDefault();
+    var id = $('#gathering-title-container').data('id');
+    var stagingUrl = id + '/stage';
+    $.ajax({
+        url:  stagingUrl,
+        type: 'GET',
+        dataType: 'json',
+        success: function(modal_data){
+            // $('#staging-modal .modal-body').html(modal_data);
+            $('#staging-modal .modal-body').html(JSON.stringify(modal_data));
+            $('#staging-modal').modal('show');
+        },
+        error: function(){
+            alert("ajax error");
+        }  
+    });  
+  });
 });
