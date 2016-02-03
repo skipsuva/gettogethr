@@ -68,6 +68,10 @@ class GatheringsController < ApplicationController
     end
   end
 
+  def finalize
+    head 200
+  end
+
   # GET /gatherings/new
   def new
     @gathering = Gathering.new
