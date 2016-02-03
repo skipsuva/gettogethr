@@ -44,7 +44,8 @@ $(document).ready(function(){
         type: 'GET',
         dataType: 'json',
         success: function(modal_data){
-            $('#staging-modal .modal-body').html(modal_data);
+            // $('#staging-modal .modal-body').html(modal_data);
+            $('#staging-modal .modal-body').html('ajax call successful');
             $('#staging-modal').modal('show');
         },
         error: function(){
