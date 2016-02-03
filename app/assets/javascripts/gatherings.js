@@ -3,54 +3,71 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready(function(){
-  $('.gathering-title').dblclick(function(){
-    var oldTitle = $('.gathering-title').text();
-    var gatheringId = $('.title-container').data('id');
-    var textbox = document.createElement('input');
-    textbox.type = 'text';
-    textbox.id = 'title';
-    textbox.value = oldTitle;
+  var titleKeypressListener = function(e) {
+    if(e.keyCode === 13) {
+      var title = $('#title').val();
+      var URL =  this.gatheringId;
+      $.ajax({
+        method: 'patch',
+        url: URL,
+        dataType: 'script',
+        data: {
+          gathering: {
+            id: this.gatheringId,
+            title: title
+          }},
+        success: function(){
+          this.$gatheringTitle.html($('#title').val());
+        }.bind(this)
+      });
+    }
+  }
 
-    $('.gathering-title').html(textbox);
-    $('#title').on('keypress', function(e){
-      if(e.keyCode === 13){
+  var Gathering = function() {
+    this.$gatheringTitle = $('.gathering-title');
+    this.$gatheringTitleContainer = $('#gathering-title-container');
+    this.$stagingButton = $('#staging-button');
+    this.$stagingModalBody = $('#staging-modal .modal-body');
+    this.$stagingModal = $('#staging-modal');
+    this.gatheringId = this.$gatheringTitleContainer.data('id');
+  }
 
-        var title = $('#title').val();
+  Gathering.prototype.init = function() {
+    this.addTitleListener();
+    this.addModalButtonListener();
+  }
 
-        var URL =  gatheringId;
-        $.ajax({
-          method: 'patch',
-          url: URL,
-          dataType: 'script',
-          data: {
-            gathering: {
-              id: gatheringId,
-              title: title
-            }},
-          success: function(){
-            $('.gathering-title').html($('#title').val());
-          }
-        });
-      }
-    });
-  });
+  Gathering.prototype.addTitleListener = function() {
+    this.$gatheringTitle.dblclick(function() {
+      var oldTitle = this.$gatheringTitle.text();
+      var textbox = document.createElement('input');
+      textbox.type = 'text';
+      textbox.id = 'title';
+      textbox.value = oldTitle;
+      this.$gatheringTitle.html(textbox);
+      $('#title').on('keypress', titleKeypressListener.bind(this) );
+    }.bind(this) );
+  }
 
-  $('#staging-button').on('click', function(e) {
-    e.preventDefault();
-    var id = $('#gathering-title-container').data('id');
-    var stagingUrl = id + '/stage';
-    $.ajax({
-        url:  stagingUrl,
-        type: 'GET',
-        dataType: 'json',
-        success: function(modal_data){
-            // $('#staging-modal .modal-body').html(modal_data);
-            $('#staging-modal .modal-body').html(JSON.stringify(modal_data));
-            $('#staging-modal').modal('show');
-        },
-        error: function(){
-            alert("ajax error");
-        }  
-    });  
-  });
+  Gathering.prototype.addModalButtonListener = function() {
+    $('#staging-button').on('click', function(e) {
+      e.preventDefault();
+      var stagingUrl = this.gatheringId + '/stage';
+      $.ajax({
+          url:  stagingUrl,
+          type: 'GET',
+          dataType: 'json',
+          success: function(modal_data){
+              this.$stagingModalBody.html(JSON.stringify(modal_data));
+              this.$stagingModal.modal('show');
+          }.bind(this),
+          error: function(){
+              alert("ajax error");
+          }  
+      });  
+    }.bind(this) );
+  }
+
+  var gathering = new Gathering();
+  gathering.init();
 });
