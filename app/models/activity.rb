@@ -1,4 +1,5 @@
 class Activity < ActiveRecord::Base
+  include Votable
   belongs_to :activity_category
   belongs_to :gathering
   belongs_to :user
