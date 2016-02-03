@@ -6,4 +6,19 @@ class Gathering < ActiveRecord::Base
   has_many :activities
   has_many :places
   has_many :comments
+
+  # cascading filters
+  #   pass in array of gathering.moments
+
+  # F1
+  def most_up_votes
+    
+  end
+
+
+  def find_best(item)
+    votable = Object.const_get(item)
+
+  end
+
 end
