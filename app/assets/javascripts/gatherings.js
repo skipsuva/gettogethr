@@ -21,7 +21,7 @@ $(document).ready(function(){
         }.bind(this)
       });
     }
-  }
+  };
 
   var Gathering = function() {
     this.$gatheringTitle = $('.gathering-title');
@@ -30,12 +30,12 @@ $(document).ready(function(){
     this.$stagingModalBody = $('#staging-modal .modal-body');
     this.$stagingModal = $('#staging-modal');
     this.gatheringId = this.$gatheringTitleContainer.data('id');
-  }
+  };
 
   Gathering.prototype.init = function() {
     this.addTitleListener();
     this.addModalButtonListener();
-  }
+  };
 
   Gathering.prototype.addTitleListener = function() {
     this.$gatheringTitle.dblclick(function() {
@@ -47,7 +47,7 @@ $(document).ready(function(){
       this.$gatheringTitle.html(textbox);
       $('#title').on('keypress', titleKeypressListener.bind(this) );
     }.bind(this) );
-  }
+  };
 
   Gathering.prototype.addModalButtonListener = function() {
     $('#staging-button').on('click', function(e) {
@@ -63,10 +63,10 @@ $(document).ready(function(){
           }.bind(this),
           error: function(){
               alert("ajax error");
-          }  
-      });  
+          }
+      });
     }.bind(this) );
-  }
+  };
 
   var gathering = new Gathering();
   gathering.init();
