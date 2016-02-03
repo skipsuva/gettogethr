@@ -8,6 +8,9 @@
         <h4 class="modal-title" id="staging-modal-label"></h4>
       </div>
       <div class="modal-body">
+        <%= form_tag("/#{@gathering.id}/finalize", method: 'post', remote: true) do %>
+          <%= submit_tag "Finalize" %>
+        <% end %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

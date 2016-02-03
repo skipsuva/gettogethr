@@ -27,6 +27,7 @@ $(document).ready(function(){
     this.$gatheringTitle = $('.gathering-title');
     this.$gatheringTitleContainer = $('#gathering-title-container');
     this.$stagingButton = $('#staging-button');
+    this.$stagingModalTitle = $('#staging-modal-label');
     this.$stagingModalBody = $('#staging-modal .modal-body');
     this.$stagingModal = $('#staging-modal');
     this.gatheringId = this.$gatheringTitleContainer.data('id');
@@ -58,6 +59,9 @@ $(document).ready(function(){
           type: 'GET',
           dataType: 'json',
           success: function(modal_data){
+              // debugger;
+
+              this.$stagingModalTitle.text("Finalizing " + modal_data.gathering_title);
               this.$stagingModalBody.html(JSON.stringify(modal_data));
               this.$stagingModal.modal('show');
           }.bind(this),
