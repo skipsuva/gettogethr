@@ -59,10 +59,18 @@ $(document).ready(function(){
           type: 'GET',
           dataType: 'json',
           success: function(modal_data){
-              // debugger;
-
+            // debugger;
+              var checked = "";
+              modal_data.activities.forEach(function(activity){
+                if(activity.suggested){
+                  checked = " checked";
+                }else{
+                  checked = "";
+                }
+                $("#modal-form").prepend('<input type="radio" name="activity" value=' + activity.id + checked + '>  ' + activity.description +'<br>');
+              });
               this.$stagingModalTitle.text("Finalizing " + modal_data.gathering_title);
-              this.$stagingModalBody.html(JSON.stringify(modal_data));
+              // this.$stagingModalBody.html(JSON.stringify(modal_data));
               this.$stagingModal.modal('show');
           }.bind(this),
           error: function(){

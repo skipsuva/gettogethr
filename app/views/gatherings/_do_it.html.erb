@@ -8,7 +8,8 @@
         <h4 class="modal-title" id="staging-modal-label"></h4>
       </div>
       <div class="modal-body">
-        <%= form_tag("/#{@gathering.id}/finalize", method: 'post', remote: true) do %>
+        <%= form_tag("/#{@gathering.id}/finalize", method: 'post', remote: true, id: "modal-form") do %>
+
           <%= submit_tag "Finalize" %>
         <% end %>
       </div>
