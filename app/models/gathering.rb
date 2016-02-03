@@ -35,8 +35,14 @@ class Gathering < ActiveRecord::Base
      end
   end
 
+  def ratio(a,b)
+    return 0 if a == 0
+    a.to_f/b.to_f
+  end
+
   def vote_ratio(collection)
-    collection.group_by{|item| (item.upvotes.to_f / item.downvotes.to_f) }.max.last
+    # binding.pry
+    collection.group_by{|item| ratio(item.upvotes,item.downvotes) }.max.last
   end
 
   def shrug_ratio(collection)
