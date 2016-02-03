@@ -48,7 +48,7 @@ class Gathering < ActiveRecord::Base
   end
 
   def shrug_ratio(collection)
-    collection.group_by{|item| (item.upvotes.to_f / item.shrugs.to_f) }.max.last
+    collection.group_by{|item| ratio(item.upvotes,item.shrugs) }.max.last
   end
 
   def absolute_upvote(collection)
