@@ -61,6 +61,14 @@ $(document).ready(function(){
           success: function(modal_data){
             // debugger;
               var checked = "";
+              modal_data.moments.forEach(function(moment){
+                if(moment.suggested){
+                  checked = " checked";
+                }else{
+                  checked = "";
+                }
+                $("#modal-form").prepend('<input type="radio" name="moment" value=' + moment.id + checked + '>  ' + moment.description +'<br>');
+              });
               modal_data.activities.forEach(function(activity){
                 if(activity.suggested){
                   checked = " checked";
@@ -68,6 +76,14 @@ $(document).ready(function(){
                   checked = "";
                 }
                 $("#modal-form").prepend('<input type="radio" name="activity" value=' + activity.id + checked + '>  ' + activity.description +'<br>');
+              });
+              modal_data.places.forEach(function(place){
+                if(place.suggested){
+                  checked = " checked";
+                }else{
+                  checked = "";
+                }
+                $("#modal-form").prepend('<input type="radio" name="place" value=' + place.id + checked + '>  ' + place.description +'<br>');
               });
               this.$stagingModalTitle.text("Finalizing " + modal_data.gathering_title);
               // this.$stagingModalBody.html(JSON.stringify(modal_data));
