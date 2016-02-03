@@ -1,17 +1,21 @@
 module Votable
 
   def upvotes
-    self.votes.reduce(0) do |memo, vote|
-      if vote.value == 1
-        memo + vote.value
-      else
-        memo
-      end
-    end
+    self.votes.select do |vote|
+      vote == 1
+    end.count
   end
 
   def downvotes
+    self.votes.select do |vote|
+      vote == -1
+    end.count
+  end
 
+  def downvotes
+    self.votes.select do |vote|
+      vote == 0
+    end.count
   end
 
 end
