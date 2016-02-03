@@ -13,7 +13,7 @@ class Gathering < ActiveRecord::Base
     #TODO functionalize chain of filters
     collection = self.send(votable_class.to_s.pluralize)
 
-    if filtered_collection != positive_total(collection).empty?
+    if (filtered_collection = positive_total(collection)).empty?
       collection = filtered_collection
     end
     collection = vote_ratio(collection)
