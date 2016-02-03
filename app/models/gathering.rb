@@ -20,14 +20,12 @@ class Gathering < ActiveRecord::Base
      end
   end
 
-# other filters:
-
-  def vote_ratio(item_collection)
-
+  def vote_ratio(collection)
+    collection.group_by{|place| (place.upvotes.to_f / place.downvotes.to_f) }.max.last
   end
 
-  def final_pick(item_collection)
-    item_collection.sample
+  def final_pick(collection)
+    collection.sample
   end
 
 
@@ -44,6 +42,7 @@ class Gathering < ActiveRecord::Base
     collection = self.send(item.to_s.pluralize)
 
     collection = positive_total(collection)
+
   end
 
 
