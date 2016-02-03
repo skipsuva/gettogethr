@@ -18,8 +18,4 @@ module Votable
     end.count
   end
 
-  # def vote_ratio(vote_type)
-  #
-  # end
-
 end
