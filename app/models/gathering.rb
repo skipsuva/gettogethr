@@ -9,9 +9,9 @@ class Gathering < ActiveRecord::Base
   has_one :finalized_plan
 
 
-  def find_best(item)
+  def find_best(votable_class)
     #TODO functionalize chain of filters
-    collection = self.send(item.to_s.pluralize)
+    collection = self.send(votable_class.to_s.pluralize)
 
     collection = positive_total(collection)
     collection = vote_ratio(collection)
