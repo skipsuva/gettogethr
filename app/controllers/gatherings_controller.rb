@@ -1,5 +1,5 @@
 class GatheringsController < ApplicationController
-  before_action :set_gathering, only: [:edit, :update, :destroy]
+  before_action :set_gathering, only: [:edit, :update, :destroy, :stage]
   before_action -> { check_gathering_access(params[:id])}, only: [:show, :update]
 
 
@@ -45,6 +45,11 @@ class GatheringsController < ApplicationController
         format.js { }
       end
     end
+  end
+
+  def stage
+    # @suggestions = @gathering.suggestions_with_collections
+    "test"
   end
 
   # GET /gatherings/new
