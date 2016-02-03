@@ -6,4 +6,5 @@ class Gathering < ActiveRecord::Base
   has_many :activities
   has_many :places
   has_many :comments
+  has_one :finalized_plan
 end
