@@ -13,14 +13,18 @@ class Gathering < ActiveRecord::Base
     #TODO functionalize chain of filters
     collection = self.send(votable_class.to_s.pluralize)
 
-    if (filtered_collection = positive_total(collection)).empty?
+    if !(filtered_collection = positive_total(collection)).empty?
       collection = filtered_collection
     end
-    collection = vote_ratio(collection)
-    collection = shrug_ratio(collection)
-    collection = absolute_upvote(collection)
-    collection = final_pick(collection)
-
+    %w{vote_ratio shrug_ratio absolute_upvote final_pick}.each do |meth|
+      return nil if collection.empty?
+      collection = send(meth,collection)
+    end
+    # collection = send(vote_ratio(collection)
+    # collection = shrug_ratio(collection)
+    # collection = absolute_upvote(collection)
+    # collection = final_pick(collection)
+    collection
   end
 
   private
@@ -41,7 +45,6 @@ class Gathering < ActiveRecord::Base
   end
 
   def vote_ratio(collection)
-    # binding.pry
     collection.group_by{|item| ratio(item.upvotes,item.downvotes) }.max.last
   end
 
