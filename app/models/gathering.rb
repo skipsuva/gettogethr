@@ -8,10 +8,23 @@ class Gathering < ActiveRecord::Base
   has_many :comments
   has_one :finalized_plan
 
-  # cascading filters
-  #   pass in array of gathering.moments
 
-  # F1
+  def find_best(item)
+    #TODO functionalize chain of filters
+    collection = self.send(item.to_s.pluralize)
+
+    collection = positive_total(collection)
+    collection = vote_ratio(collection)
+    collection = shrug_ratio(collection)
+    collection = absolute_upvote(collection)
+    collection = final_pick(collection)
+
+  end
+
+  private
+
+    # cascading filters
+
   def positive_total(collection)
     collection.select do |item|
        upvotes = (item.upvotes)
@@ -21,38 +34,18 @@ class Gathering < ActiveRecord::Base
   end
 
   def vote_ratio(collection)
-    collection.group_by{|place| (place.upvotes.to_f / place.downvotes.to_f) }.max.last
+    collection.group_by{|item| (item.upvotes.to_f / item.downvotes.to_f) }.max.last
   end
 
   def shrug_ratio(collection)
-    #code
+    collection.group_by{|item| (item.upvotes.to_f / item.shrugs.to_f) }.max.last
   end
 
   def absolute_upvote(collection)
-    #code
+    collection.group_by{|item| item.upvotes }.max.last
   end
 
   def final_pick(collection)
     collection.sample
   end
-
-
-  # @positive_total = ->(collection){
-  #   collection.select do |item|
-  #     upvotes = (item.upvotes)
-  #     downvotes = (item.downvotes)
-  #     upvotes > downvotes
-  #   end
-  # }
-
-
-  def find_best(item)
-    collection = self.send(item.to_s.pluralize)
-
-    collection = positive_total(collection)
-    collection = vote_ratio(collection)
-
-  end
-
-
 end
