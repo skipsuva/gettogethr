@@ -3,6 +3,7 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready(function(){
+  alert('dfgds');
   $('.gathering-title').dblclick(function(){
     var oldTitle = $('.gathering-title').text();
     var gatheringId = $('.title-container').data('id');
@@ -33,5 +34,23 @@ $(document).ready(function(){
         });
       }
     });
+  });
+
+  $('#staging-button').on('click', function(e) {
+    e.preventDefault();
+    var id = $('#gathering-title-container').data('id');
+    var stagingUrl = id + '/stage';
+    $.ajax({
+        url:  stagingUrl,
+        type: 'GET',
+        dataType: 'json',
+        success: function(modal_data){
+            $('#staging-modal .modal-body').html(modal_data);
+            $('#staging-modal').modal('show');
+        },
+        error: function(){
+            alert("ajax error");
+        }  
+    });  
   });
 });
