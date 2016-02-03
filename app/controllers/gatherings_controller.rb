@@ -50,6 +50,22 @@ class GatheringsController < ApplicationController
   def stage
     @gathering = Gathering.includes(:moments, :activities, :places).find(params[:id])
     # @suggestions = @gathering.suggestions_with_collections
+    @suggestions = []
+    [:moment,:activity,:place].each do |class_name|
+      objects = []
+      @gathering.send(class_name.to_s.pluralize).each do |object|
+        if @gathering.find_best(class_name) == object
+          object.instance_variable_set(:@suggested,true)
+        else
+          object.instance_variable_set(:@suggested,false)
+        end
+        def object.suggested?  #singleton methods generated dynamically
+          @suggested
+        end
+        objects << object
+      end
+      @suggestions << objects
+    end
   end
 
   # GET /gatherings/new
