@@ -1,6 +1,6 @@
 <div class="container col-md-12">
 
-  <div class="title-container" id="gathering-<%= @gathering.id %>" data-id="<%= @gathering.id %>">
+  <div class="title-container" id="gathering-title-container" data-id="<%= @gathering.id %>">
     <h2 class="gathering-title"><%= @gathering.title %></h2>
   </div>
 
@@ -12,7 +12,7 @@
   <%= link_to 'Edit', edit_gathering_path(@gathering) %> |
   <%= link_to 'Back', gatherings_path %>
 
-  <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#letsDoIt">
+  <button type="button" id="staging-button" class="btn btn-primary btn-md">
     Let's Do It
   </button>
 
