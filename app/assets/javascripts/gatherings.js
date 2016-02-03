@@ -45,7 +45,7 @@ $(document).ready(function(){
         dataType: 'json',
         success: function(modal_data){
             // $('#staging-modal .modal-body').html(modal_data);
-            $('#staging-modal .modal-body').html('ajax call successful');
+            $('#staging-modal .modal-body').html(JSON.stringify(modal_data));
             $('#staging-modal').modal('show');
         },
         error: function(){
