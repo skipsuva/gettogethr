@@ -13,10 +13,10 @@ class Gathering < ActiveRecord::Base
 
   # F1
   def upvote_ratio #item as arg
-    self.moments.max_by do |moment|
-      upvotes = (moment.upvotes).to_f
-      downvotes = (moment.downvotes).to_f
-      upvotes / downvotes
+    self.places.select do |place|
+      upvotes = (place.upvotes)
+      downvotes = (place.downvotes)
+      upvotes > downvotes
     end
   end
 
