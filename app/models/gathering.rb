@@ -12,11 +12,16 @@ class Gathering < ActiveRecord::Base
   #   pass in array of gathering.moments
 
   # F1
-  def most_up_votes(votable)
-    array = []
-    # item =
-    self.
+  def upvote_ratio #item as arg
+    self.moments.max_by do |moment|
+      upvotes = (moment.upvotes).to_f
+      downvotes = (moment.downvotes).to_f
+      upvotes / downvotes
+    end
   end
+
+
+
 
 
   def find_best(item)
