@@ -3,7 +3,6 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready(function(){
-  alert('dfgds');
   $('.gathering-title').dblclick(function(){
     var oldTitle = $('.gathering-title').text();
     var gatheringId = $('.title-container').data('id');
