@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :gatherings do
     member do
       get 'stage'
+      post 'finalize'
     end
     resources :moments, only: [:create, :destroy]
     resources :activities, only: [:create, :destroy]
