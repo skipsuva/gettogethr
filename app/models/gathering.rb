@@ -24,6 +24,14 @@ class Gathering < ActiveRecord::Base
     collection.group_by{|place| (place.upvotes.to_f / place.downvotes.to_f) }.max.last
   end
 
+  def shrug_ratio(collection)
+    #code
+  end
+
+  def absolute_upvote(collection)
+    #code
+  end
+
   def final_pick(collection)
     collection.sample
   end
@@ -42,6 +50,7 @@ class Gathering < ActiveRecord::Base
     collection = self.send(item.to_s.pluralize)
 
     collection = positive_total(collection)
+    collection = vote_ratio(collection)
 
   end
 
