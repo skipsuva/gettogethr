@@ -48,8 +48,8 @@ class GatheringsController < ApplicationController
   end
 
   def stage
+    @gathering = Gathering.includes(:moment, :activity, :place).find(params[:id])
     # @suggestions = @gathering.suggestions_with_collections
-    "test"
   end
 
   # GET /gatherings/new
