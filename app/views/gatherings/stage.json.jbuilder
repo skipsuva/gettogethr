@@ -1,14 +1,26 @@
 json.moments @gathering.moments do |moment|
   json.time moment.time
-  # json.suggested moment.suggested
+  if moment == @gathering.moment.first
+    json.suggested true
+  else
+    json.suggested false
+  end
 end
 
 json.places @gathering.places do |place|
   json.name place.name
-  # json.suggested moment.suggested
+  if place == @gathering.place.first
+    json.suggested true
+  else
+    json.suggested false
+  end
 end
 
 json.activities @gathering.activities do |activity|
   json.description activity.description
-  # json.suggested moment.suggested
+  if activity == @gathering.activity.first
+    json.suggested true
+  else
+    json.suggested false
+  end
 end
