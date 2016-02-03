@@ -12,13 +12,13 @@ class Gathering < ActiveRecord::Base
   #   pass in array of gathering.moments
 
   # F1
-  # def positive_total #item as arg
-  #   self.places.select do |place|
-  #     upvotes = (place.upvotes)
-  #     downvotes = (place.downvotes)
-  #     upvotes > downvotes
-  #   end
-  # end
+  def positive_total(collection)
+    collection.select do |item|
+       upvotes = (item.upvotes)
+       downvotes = (item.downvotes)
+       upvotes > downvotes
+     end
+  end
 
 # other filters:
 
@@ -31,20 +31,19 @@ class Gathering < ActiveRecord::Base
   end
 
 
+  # @positive_total = ->(collection){
+  #   collection.select do |item|
+  #     upvotes = (item.upvotes)
+  #     downvotes = (item.downvotes)
+  #     upvotes > downvotes
+  #   end
+  # }
 
 
   def find_best(item)
     collection = self.send(item.to_s.pluralize)
 
-    positive_total = ->(){
-      collection.select do |item|
-      upvotes = (item.upvotes)
-      downvotes = (item.downvotes)
-      upvotes > downvotes}
-    }
-
-    positive_total.()
-
+    collection = positive_total(collection)
   end
 
 
