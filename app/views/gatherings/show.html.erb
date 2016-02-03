@@ -12,7 +12,13 @@
   <%= link_to 'Edit', edit_gathering_path(@gathering) %> |
   <%= link_to 'Back', gatherings_path %>
 
+  <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#letsDoIt">
+    Let's Do It
+  </button>
+
 </div>
+
+<%= render 'do_it' %>
 
 <div class="container">
 
