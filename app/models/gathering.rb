@@ -16,15 +16,14 @@ class Gathering < ActiveRecord::Base
     if !(filtered_collection = positive_total(collection)).empty?
       collection = filtered_collection
     end
+
     %w{vote_ratio shrug_ratio absolute_upvote final_pick}.each do |meth|
       return nil if collection.empty?
       collection = send(meth,collection)
     end
-    # collection = send(vote_ratio(collection)
-    # collection = shrug_ratio(collection)
-    # collection = absolute_upvote(collection)
-    # collection = final_pick(collection)
+
     collection
+    
   end
 
   private
