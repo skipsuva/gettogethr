@@ -6,6 +6,7 @@ class Gathering < ActiveRecord::Base
   has_many :activities
   has_many :places
   has_many :comments
+  has_one :finalized_plan
 
   # cascading filters
   #   pass in array of gathering.moments
@@ -13,7 +14,7 @@ class Gathering < ActiveRecord::Base
   # F1
   def most_up_votes(votable)
     array = []
-    # item = 
+    # item =
     self.
   end
 
@@ -22,5 +23,6 @@ class Gathering < ActiveRecord::Base
     votable = Object.const_get(item)
 
   end
+
 
 end

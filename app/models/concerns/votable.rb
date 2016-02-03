@@ -12,7 +12,7 @@ module Votable
     end.count
   end
 
-  def downvotes
+  def shrugs
     self.votes.select do |vote|
       vote == 0
     end.count
