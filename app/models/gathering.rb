@@ -11,8 +11,10 @@ class Gathering < ActiveRecord::Base
   #   pass in array of gathering.moments
 
   # F1
-  def most_up_votes
-    
+  def most_up_votes(votable)
+    array = []
+    # item = 
+    self.
   end
 
 
