@@ -69,7 +69,6 @@ class GatheringsController < ApplicationController
   end
 
   def finalize
-    head 200
   end
 
   # GET /gatherings/new
