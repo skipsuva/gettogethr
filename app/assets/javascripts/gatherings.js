@@ -67,7 +67,7 @@ $(document).ready(function(){
                 }else{
                   checked = "";
                 }
-                $("#moments-buttons").prepend('<input type="radio" name="moment" value=' + moment.id + checked + '>  ' + moment.description +'<br>');
+                $("#moments-buttons").prepend('<input type="radio" name="moment" value=' + moment.id + checked + '>  ' + moment.time +'<br>');
               });
               modal_data.activities.forEach(function(activity){
                 if(activity.suggested){
@@ -83,7 +83,7 @@ $(document).ready(function(){
                 }else{
                   checked = "";
                 }
-                $("#places-buttons").prepend('<input type="radio" name="place" value=' + place.id + checked + '>  ' + place.description +'<br>');
+                $("#places-buttons").prepend('<input type="radio" name="place" value=' + place.id + checked + '>  ' + place.name +'<br>');
               });
               this.$stagingModalTitle.text("Finalizing " + modal_data.gathering_title);
               // this.$stagingModalBody.html(JSON.stringify(modal_data));
