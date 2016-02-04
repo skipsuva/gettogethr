@@ -10,8 +10,19 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
+
+//= require js/jquery-1.10.2.min
+// require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
 // require turbolinks
 //= require_tree .
+
+
+
+
+//= require plugins/bootstrap/js/bootstrap.min
+//= require plugins/navgoco/jquery.navgoco.min
+//= require plugins/waypoints/waypoints.min
+//= require plugins/switchery/switchery.min
+//= require js/application
