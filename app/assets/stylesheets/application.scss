@@ -1,12 +1,46 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
+
+// <!-- Font Icons -->
+// @import "font-awesome.min.css";
+@import "simple-line-icons.css";
+// <!-- CSS Animate -->
+@import "animate.css";
+// <!-- Switchery -->
+@import "switchery/switchery.min.css";
+// <!-- Custom styles for this theme -->
+@import "main.css";
+// <!-- Vector Map  -->
+@import "jvectormap/css/jquery-jvectormap-1.2.2.css";
+// <!-- ToDos  -->
+@import "todo/css/todos.css";
+// <!-- Morris  -->
+@import "morris/css/morris.css";
+
+//
+// Theme colors
+// --------------------------------------------------
+
+$theme-body-text: #5D5F63;
+$gt-color1: #0066b1; //rgba(0, 102, 177, 100) - bright blue
+$gt-color2: #003049; //rgba(0, 48, 73, 100) - navy
+$gt-color3: #ece4b7; //rgba(236, 228, 183, 100) - pellow
+$gt-color4: #f49e4c; //rgba(244, 158, 76, 100) - light ochre
+$gt-color5: #ab3428; //rgba(171, 52, 40, 100) - passionate coral
 
 //
 // Navigation
 // --------------------------------------------------
-nav.user-menu {
-    padding-top: 1.5em;
+
+.brand {
+  text-align: center;
+}
+
+img#nav-logo {
+  width: 80%;
+  padding-top: 14px;
 }
 
 //
@@ -44,4 +78,28 @@ nav.user-menu {
 
 .comment-list li {
     padding-bottom: $line-height-computed;
+}
+
+//
+// Theme Color Overrides
+// --------------------------------------------------
+
+// body {
+//   color: $theme-body-text;
+// }
+
+#header .brand {
+  background: $gt-color4;
+}
+.sidebar {
+  background: $gt-color3;
+}
+
+a:link,
+a:visited {
+  color: $gt-color1;
+}
+a:hover,
+a:active {
+  color: $gt-color2;
 }
