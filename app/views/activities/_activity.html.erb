@@ -1,4 +1,19 @@
-<li class="activity-box" id="activity-<%= activity.id %>">
-  <%= activity.description %> (<%= activity.activity_category.label %>) <%= button_to "X", gathering_activity_path(@gathering, activity), method: :delete, remote: true %>
-  <%= render partial: '/votes/form', locals:{votable:activity,gathering:@gathering} %>
+<li class="activity-box panel panel-solid-info" id="activity-<%= activity.id %>">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= activity.activity_category.label %></h3>
+    <div class="actions pull-right">
+      <i class="fa fa-chevron-down"></i>
+      <i class="fa fa-times"></i>
+    </div>
+  </div>
+  <div class="panel-body">
+    <p>
+      <%= activity.user.name %> has suggested the following gathering activity:
+      <%= activity.description %> (<%= activity.activity_category.label %>)
+    </p>
+    <%= button_to "X", gathering_activity_path(@gathering, activity), method: :delete, remote: true %>
+  </div>
+  <div class="panel-footer">
+    <%= render partial: '/votes/form', locals:{votable:activity,gathering:@gathering} %>
+  </div>
 </li>
