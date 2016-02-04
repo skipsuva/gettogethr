@@ -11,7 +11,7 @@
 // about supported directives.
 //
 
-//= require js/jquery-1.10.2.min
+//= require jquery-1.10.2.min
 // require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
@@ -21,8 +21,8 @@
 
 
 
-//= require plugins/bootstrap/js/bootstrap.min
-//= require plugins/navgoco/jquery.navgoco.min
-//= require plugins/waypoints/waypoints.min
-//= require plugins/switchery/switchery.min
-//= require js/application
+// require plugins/bootstrap/js/bootstrap.min
+//= require navgoco/jquery.navgoco.min
+//= require waypoints/waypoints.min
+//= require switchery/switchery.min
+//= require application
