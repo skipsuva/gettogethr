@@ -42,110 +42,29 @@
                   </button>
                   <ul class="dropdown-menu alert animated fadeInDown">
                       <li>
-                          <h1>You have <strong>5</strong> new messages</h1>
-                      </li>
-                      <li>
-                          <a href="#">
-                              <div class="profile-photo">
-                                  <img src="assets/img/avatar.gif" alt="" class="img-circle">
-                              </div>
-                              <div class="message-info">
-                                  <span class="sender">James Bagian</span>
-                                  <span class="time">30 mins</span>
-                                  <div class="message-content">Lorem ipsum dolor sit amet, elit rutrum felis sed erat augue fusce...</div>
-                              </div>
-                          </a>
-                      </li>
-
-                      <li>
-                          <a href="#">
-                              <div class="profile-photo">
-                                  <img src="assets/img/avatar1.gif" alt="" class="img-circle">
-                              </div>
-                              <div class="message-info">
-                                  <span class="sender">Jeffrey Ashby</span>
-                                  <span class="time">2 hour</span>
-                                  <div class="message-content">hendrerit pellentesque, iure tincidunt, faucibus vitae dolor aliquam...</div>
-                              </div>
-                          </a>
-                      </li>
-
-                      <li>
-                          <a href="#">
-                              <div class="profile-photo">
-                                  <img src="assets/img/avatar2.gif" alt="" class="img-circle">
-                              </div>
-                              <div class="message-info">
-                                  <span class="sender">John Douey</span>
-                                  <span class="time">3 hours</span>
-                                  <div class="message-content">Penatibus suspendisse sit pellentesque eu accumsan condimentum nec...</div>
-                              </div>
-                          </a>
-                      </li>
-
-                      <li>
-                          <a href="#">
-                              <div class="profile-photo">
-                                  <img src="assets/img/avatar3.gif" alt="" class="img-circle">
-                              </div>
-                              <div class="message-info">
-                                  <span class="sender">Ellen Baker</span>
-                                  <span class="time">7 hours</span>
-                                  <div class="message-content">Sem dapibus in, orci bibendum faucibus tellus, justo arcu...</div>
-                              </div>
-                          </a>
-                      </li>
-                      <li>
-                          <a href="#">
-                              <div class="profile-photo">
-                                  <img src="assets/img/avatar4.gif" alt="" class="img-circle">
-                              </div>
-                              <div class="message-info">
-                                  <span class="sender">Ivan Bella</span>
-                                  <span class="time">6 hours</span>
-                                  <div class="message-content">Curabitur metus faucibus sapien elit, ante molestie sapien...</div>
-                              </div>
-                          </a>
-                      </li>
-                      <li><a href="#">Check all messages <i class="fa fa-angle-right"></i></a>
+                          <h1>You have <strong>some number of</strong> new messages</h1>
                       </li>
                   </ul>
-
               </li>
               <li class="profile-photo">
                   <img src="assets/img/avatar.png" alt="" class="img-circle">
               </li>
               <li class="dropdown settings">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                Mike Adams <i class="fa fa-angle-down"></i>
-              </a>
-                  <ul class="dropdown-menu animated fadeInDown">
-                      <li>
-                          <a href="#"><i class="fa fa-user"></i> Profile</a>
-                      </li>
-                      <li>
-                          <a href="#"><i class="fa fa-calendar"></i> Calendar</a>
-                      </li>
-                      <li>
-                          <a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge badge-danager" id="user-inbox">5</span></a>
-                      </li>
-                      <li>
-                          <a href="#"><i class="fa fa-power-off"></i> Logout</a>
-                      </li>
-                  </ul>
+                  <%- if logged_in? -%>
+                    <%= render 'layouts/logged_in' %>
+                  <%- else -%>
+                    <%= render 'layouts/logged_out' %>
+                  <%- end -%>
+        
               </li>
-          
+
           </ul>
       </div>
 
       <div class="row">
         <h1 class="col-xs-8">gettoget.hr</h1>
         <nav aria-labelledby="user-navigation" class="user-menu text-right col-xs-4" role="navigation">
-          <%- if logged_in? -%>
-            <%= render 'layouts/logged_in' %>
-          <%- else -%>
-            <%= render 'layouts/logged_out' %>
-          <%- end -%>
+
         </nav>
       </div>
       <div class="row">
