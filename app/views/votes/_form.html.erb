@@ -2,34 +2,26 @@
 
 
   <%= form_tag({controller:"votes", :action => 'submit', thumbage:"1",  gathering_id:gathering.id, votable_id:votable.id, votable_class:votable.class.to_s}, {method: :post, remote: true, class:"button_to"}) do%>
-    <%= button_tag(type: 'submit', class: 'btn btn-primary btn-xs') do %>
+    <%= button_tag(type: 'submit', class: 'btn btn-primary btn-xs thumbs-up') do %>
      <i class="fa fa-thumbs-up"></i>
      <span class="vote-count"><%= vote_count(votable,1)%></span>
     <% end %>
   <% end %>
 
+  <%= form_tag({controller:"votes", :action => 'submit', thumbage:"0",  gathering_id:gathering.id, votable_id:votable.id, votable_class:votable.class.to_s}, {method: :post, remote: true, class:"button_to"}) do%>
+    <%= button_tag(type: 'submit', class: 'btn btn-primary btn-xs shruggie') do %>
+     <i class="fa fa-question-circle"></i>
+     <span class="vote-count"><%= vote_count(votable,0)%></span>
+    <% end %>
+  <% end %>
 
+  <%= form_tag({controller:"votes", :action => 'submit', thumbage:"-1",  gathering_id:gathering.id, votable_id:votable.id, votable_class:votable.class.to_s}, {method: :post, remote: true, class:"button_to"}) do%>
+    <%= button_tag(type: 'submit', class: 'btn btn-primary btn-xs thumbs-down') do %>
+     <i class="fa fa-thumbs-down"></i>
+     <span class="vote-count"><%= vote_count(votable,-1)%></span>
+    <% end %>
+  <% end %>
 
-  <label>
-  <span class="glyphicon glyphicon-thumbs-up thumbs-up">
-    <%= button_to "Thumbs Up",{ controller:"votes", action:"submit", thumbage:"1", gathering_id:gathering.id, votable_id:votable.id, votable_class:votable.class.to_s }, method: :post, remote: true, class:"btn btn-xs" %>
-    <span class="vote-count"><%= vote_count(votable,1)%></span>
-  </span>
-  </label>
-
-  <label class="btn">
-  <span class="glyphicon glyphicon-question-sign shruggie">
-    <%= button_to "Shrug", { controller:"votes", action:"submit", thumbage:"0", gathering_id:gathering.id, votable_id:votable.id, votable_class:votable.class.to_s }, method: :post, remote: true, class:"hidden-button" %>
-    <span class="vote-count"><%= vote_count(votable,0)%></span>
-  </span>
-  </label>
-
-<label>
-  <span class="glyphicon glyphicon-thumbs-down thumbs-down">
-    <%= button_to "Thumbs Down", { controller:"votes", action:"submit", thumbage:"-1", gathering_id:gathering.id, votable_id:votable.id, votable_class:votable.class.to_s }, method: :post, remote: true, class:"hidden-button" %>
-    <span class="vote-count"><%= vote_count(votable,-1)%></span>
-  </span>
-</label>
-
+</div>
 
 </div>
