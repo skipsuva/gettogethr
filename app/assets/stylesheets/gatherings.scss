@@ -5,4 +5,15 @@
 #modal-form .btn {
   white-space: normal;
   text-align: left;
+  margin-bottom: 12px;
+}
+
+.modal-body {
+  padding-left: $grid-gutter-width / 1.5;
+  padding-right: $grid-gutter-width / 1.5;
+}
+
+#modal-form .container {
+  padding-left: $grid-gutter-width / 4;
+  padding-right: $grid-gutter-width / 4;
 }
