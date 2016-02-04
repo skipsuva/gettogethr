@@ -25,7 +25,7 @@
 //= require navgoco/jquery.navgoco.min
 //= require waypoints/waypoints.min
 //= require switchery/switchery.min
-//= require application
+//= require spacelab
 
 // <!--Page Level JS-->
 //= require countTo/jquery.countTo

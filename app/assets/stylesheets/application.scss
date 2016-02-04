@@ -20,6 +20,12 @@
 @import "morris/css/morris.css";
 
 //
+// Theme colors
+// --------------------------------------------------
+
+$theme-body-text: #5D5F63;
+
+//
 // Navigation
 // --------------------------------------------------
 
@@ -67,4 +73,21 @@ img#nav-logo {
 
 .comment-list li {
     padding-bottom: $line-height-computed;
+}
+
+//
+// Theme Color Overrides
+// --------------------------------------------------
+
+// body {
+//   color: $theme-body-text;
+// }
+
+a:link,
+a:visited {
+  color: #1abc9c;
+}
+a:hover,
+a:active {
+  color: #16a086;
 }
