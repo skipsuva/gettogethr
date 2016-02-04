@@ -56,3 +56,27 @@
   </div>
 
 </div>
+
+<script id="modal-template" type="text/x-jsrender">
+<div class="col" id="moments-buttons" data-toggle="buttons">
+{{for moments}}
+  <label class="btn btn-primary">
+    <input type="radio" name="moments"> {{:time}}
+  </label>
+{{/for}}
+</div>
+<div class="col" id="activities-buttons" data-toggle="buttons">
+{{for activities}}
+  <label class="btn btn-primary">
+    <input type="radio" name="activities"> {{:description}}
+  </label>
+{{/for}}
+</div>
+<div class="col" id="places-buttons" data-toggle="buttons">
+{{for places}}
+  <label class="btn btn-primary">
+    <input type="radio" name="places"> {{:name}}
+  </label>
+{{/for}}
+</div>
+</script>
