@@ -1,2 +1,2 @@
-$(".moments-list").append("<%= j render(partial: 'gatherings/moment', locals:{moment: @moment}) %>");
+$(".moments-list").append("<%= j render @moment %>");
 $("#new_moment")[0].reset();
