@@ -1,45 +1,55 @@
-<div class="container col-md-12">
-
-  <div class="title-container" id="gathering-title-container" data-id="<%= @gathering.id %>">
-    <h2 class="gathering-title"><%= @gathering.title %></h2>
-  </div>
-
-  <p>
-    <strong>Owner:</strong>
-    <%= @gathering.owner.name %>
-  </p>
-
-  <%= link_to 'Edit', edit_gathering_path(@gathering) %> |
-  <%= link_to 'Back', gatherings_path %>
-
-  <button type="button" id="staging-button" class="btn btn-primary btn-md">
-    Let's Do It
-  </button>
-
-</div>
-
-<%= render 'do_it' %>
-
 <div class="container">
 
-  <div class="container col-md-2" id="collaborators">
-    <%= render "collaborators_section" %>
+  <div class="row">
+    <div class="title-container " id="gathering-title-container" data-id="<%= @gathering.id %>">
+      <h2 class="gathering-title"><%= @gathering.title %></h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <p>
+      <strong>Owner:</strong>
+      <%= @gathering.owner.name %>
+    </p>
+
+    <%= link_to 'Edit', edit_gathering_path(@gathering) %> |
+    <%= link_to 'Back', gatherings_path %>
+
+    <button type="button" id="staging-button" class="btn btn-primary btn-md">
+      Let's Do It
+    </button>
+
+    <%= render 'do_it' %>
+
+  </div>
+
+  <div class="row">
+
+    <div class="container">
+
+      <div class="container col-md-2" id="collaborators">
+        <%= render "collaborators_section" %>
+      </div>
+
+    </div>
+    
+  </div>
+
+  <div class="row">
+    <div class="container col-md-4" id="moments">
+      <%= render "moments_section" %>
+    </div>
+
+    <div class="container col-md-4" id="activities">
+      <%= render "activities_section" %>
+    </div>
+
+    <div class="container col-md-4" id="places">
+      <%= render "places_section" %>
+    </div>
   </div>
 
 
-  <div class="container col-md-4" id="moments">
-    <%= render "moments_section" %>
-  </div>
-
-  <div class="container col-md-4" id="activities">
-    <%= render "activities_section" %>
-  </div>
-
-  <div class="container col-md-2" id="right-panel">
-    <%= render "places_section" %>
-  </div>
-
-</div>
 
 <div class="container">
 
