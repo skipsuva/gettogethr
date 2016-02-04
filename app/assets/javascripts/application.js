@@ -18,7 +18,8 @@
 // require turbolinks
 //= require_tree .
 
-
+// <!-- Feature detection -->
+//= require modernizr-2.6.2.min
 
 //GLOBAL
 //= require navgoco/jquery.navgoco.min
