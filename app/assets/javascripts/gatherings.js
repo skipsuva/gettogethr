@@ -61,7 +61,7 @@ $(document).ready(function(){
           success: function(modal_data){
             var tmpl = $.templates("#modal-template");
             var html = tmpl.render(modal_data);
-            $('.modal-body form').append(html);
+            $('.modal-body form').prepend(html);
             this.$stagingModalTitle.text("Finalizing " + modal_data.gathering_title);
             this.$stagingModal.modal('show');
           }.bind(this),
