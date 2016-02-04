@@ -9,10 +9,12 @@
       </div>
       <div class="modal-body">
         <%= form_tag("/gatherings/#{@gathering.id}/finalize", method: 'post', remote: true, id: "modal-form") do %>
-          <%= submit_tag "Finalize" %>
-        <% end %>
       </div>
       <div class="modal-footer">
+        <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
+        Finalize
+        <% end %>
+          <% end %>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
