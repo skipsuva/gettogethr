@@ -24,6 +24,11 @@
 // --------------------------------------------------
 
 $theme-body-text: #5D5F63;
+$gt-color1: #0066b1; //rgba(0, 102, 177, 100) - bright blue
+$gt-color2: #003049; //rgba(0, 48, 73, 100) - navy
+$gt-color3: #ece4b7; //rgba(236, 228, 183, 100) - pellow
+$gt-color4: #f49e4c; //rgba(244, 158, 76, 100) - light ochre
+$gt-color5: #ab3428; //rgba(171, 52, 40, 100) - passionate coral
 
 //
 // Navigation
@@ -83,11 +88,18 @@ img#nav-logo {
 //   color: $theme-body-text;
 // }
 
+#header .brand {
+  background: $gt-color4;
+}
+.sidebar {
+  background: $gt-color3;
+}
+
 a:link,
 a:visited {
-  color: #1abc9c;
+  color: $gt-color1;
 }
 a:hover,
 a:active {
-  color: #16a086;
+  color: $gt-color2;
 }
