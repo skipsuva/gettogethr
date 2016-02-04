@@ -19,6 +19,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'rails_12factor'
 #for style
 gem 'bootstrap-sass', '~> 3.3.6'
+gem "font-awesome-rails"
 
 gem 'devise'
 
