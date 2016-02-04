@@ -19,18 +19,17 @@
 // <!-- Morris  -->
 @import "morris/css/morris.css";
 
-
-
-
-
-
-
-
 //
 // Navigation
 // --------------------------------------------------
-nav.user-menu {
-    padding-top: 1.5em;
+
+.brand {
+  text-align: center;
+}
+
+img#nav-logo {
+  width: 80%;
+  padding-top: 14px;
 }
 
 //
