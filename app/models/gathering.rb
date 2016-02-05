@@ -15,15 +15,30 @@ class Gathering < ActiveRecord::Base
     state :draft
     state :open, initial: true
     state :finalized
-    state :done
+    state :closed
     state :cancelled
 
     event :finalize do
-      transitions from: :open, to: :finalized
+      transitions from: :open, to: :finalized do
+        guard do
+          has_finalized_plan?
+        end
+        guard do
+          finalized_plan_not_empty?
+        end
+      end
+
+      #before do
+      #  assign_finalized_plan
+      #end
+
     end
 
-    event :reopen do
+    event :unfinalize do
       transitions from: :finalized, to: :open
+      before do
+        self.finalized_plan.destroy
+      end
     end
 
     event :cancel do
@@ -31,8 +46,37 @@ class Gathering < ActiveRecord::Base
       transitions from: :finalized, to: :cancelled
     end
 
+    event :to_draft do
+      transitions from: :open, to: :draft
+      transitions from: :cancelled, to: :draft
+    end
+
+    event :open do
+      transitions from: :cancelled, to: :open
+      transitions from: :draft, to: :open
+    end
+
+    event :close do
+      transitions from: :finalized, to: :closed
+    end
+
   end
 
+  def assign_finalized_plan
+    puts "assign_finalized_plan"
+  end
+
+  def has_finalized_plan?
+    !!self.finalized_plan
+  end
+
+  def finalized_plan_not_empty?
+    fp = self.finalized_plan
+    return true if fp.moment
+    return true if fp.place
+    return true if fp.activity
+    false
+  end
 
   #====================
 
