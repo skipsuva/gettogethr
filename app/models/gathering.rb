@@ -79,7 +79,7 @@ class Gathering < ActiveRecord::Base
   def save_finalized_plan(*args)
     fp = finalize_with_plan(*args)
     self.finalized_plan = fp
-    if !self.save
+    if !self.finalized_plan
       self.unfinalize
     end
   end
