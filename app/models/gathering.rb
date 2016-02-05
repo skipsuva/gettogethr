@@ -29,7 +29,7 @@ class Gathering < ActiveRecord::Base
       end
 
       #before do
-      #  assign_finalized_plan
+      #  save finalized plan
       #end
 
     end
@@ -62,9 +62,6 @@ class Gathering < ActiveRecord::Base
 
   end
 
-  def assign_finalized_plan
-    puts "assign_finalized_plan"
-  end
 
   def has_finalized_plan?
     !!self.finalized_plan
@@ -79,6 +76,12 @@ class Gathering < ActiveRecord::Base
   end
 
   #====================
+
+  def finalize_with_plan(moment:moment,place:place,activity:activity)
+    fp = FinalizedPlan.new(moment:moment,place:place,activity:activity)
+    self.finalized_plan = fp
+    self.finalize
+  end
 
   def find_best(votable_class)
     #TODO functionalize chain of filters
