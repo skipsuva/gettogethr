@@ -4,7 +4,6 @@
       <h3 class="panel-title"><%= activity.activity_category.label %></h3>
       <div class="actions pull-right">
         <i class="fa fa-chevron-up"></i>
-        <i class="fa fa-times"></i>
       </div>
     </div>
     <div class="panel-body">
@@ -12,7 +11,7 @@
         <%= activity.user.name %> has suggested the following gathering activity:
         <%= activity.description %> (<%= activity.activity_category.label %>)
       </p>
-      <%= button_to "X", gathering_activity_path(@gathering, activity), method: :delete, remote: true %>
+      <%= button_to "X", gathering_activity_path(@gathering, activity), method: :delete, remote: true, class: 'btn btn-xs', style:"display:inline-block;" %>
     </div>
     <div class="panel-footer">
       <%= render partial: '/votes/form', locals:{votable:activity,gathering:@gathering} %>
