@@ -19,15 +19,14 @@ class Gathering < ActiveRecord::Base
     state :cancelled
 
     event :finalize do
-      transitions from: :open, to: :finalized do
+      transitions from: :open, after: Proc.new { |*args| save_finalized_plan(*args) }, to: :finalized do
         guard do
           has_finalized_plan?
         end
         guard do
           finalized_plan_not_empty?
         end
-      end,
-      :after => Proc.new { |*args| save_finalized_plan(*args) }
+      end 
     end
 
     event :unfinalize do
@@ -74,15 +73,15 @@ class Gathering < ActiveRecord::Base
   #====================
 
   def finalize_with_plan(moment:moment,place:place,activity:activity)
-    fp = FinalizedPlan.new(moment:moment,place:place,activity:activity)
-    self.finalized_plan = fp
-    self.finalize
+    FinalizedPlan.new(moment:moment,place:place,activity:activity)
   end
 
-  def save_finalized_plan(*args)    
-    # if save
-    #   self.unfinalize
-    # end
+  def save_finalized_plan(*args)
+    fp = finalize_with_plan(*args)
+    self.finalized_plan = fp
+    if !self.save
+      self.unfinalize
+    end
   end
 
   def find_best(votable_class)
@@ -100,6 +99,10 @@ class Gathering < ActiveRecord::Base
 
     collection
 
+  end
+
+  def finalize_with_args(*args)
+    self.finalize(:finalized, *args)
   end
 
   private
