@@ -90,7 +90,7 @@
 <h4>Choose a moment:</h4>
 {{for moments}}
   <label class="btn btn-primary{{if suggested}} active{{/if}}">
-    <input type="radio" name="moments"{{if suggested}} checked=""{{/if}}> {{:time}}
+    <input type="radio" name="moments" value="{{:id}}"{{if suggested}} checked=""{{/if}}> {{:time}}
   </label>
 {{/for}}
 </div>
@@ -98,7 +98,7 @@
 <h4>Choose an activity:</h4>
 {{for activities}}
   <label class="btn btn-primary{{if suggested}} active{{/if}}">
-    <input type="radio" name="activities"{{if suggested}} checked=""{{/if}}> {{:description}}
+    <input type="radio" name="activities" value="{{:id}}"{{if suggested}} checked=""{{/if}}> {{:description}}
   </label>
 {{/for}}
 </div>
@@ -106,7 +106,7 @@
 <h4>Choose a place:</h4>
 {{for places}}
   <label class="btn btn-primary{{if suggested}} active{{/if}}">
-    <input type="radio" name="places"{{if suggested}} checked=""{{/if}}> {{:name}}
+    <input type="radio" name="places" value="{{:id}}"{{if suggested}} checked=""{{/if}}> {{:name}}
   </label>
 {{/for}}
 </div>
