@@ -32,12 +32,14 @@ $(document).ready(function(){
     this.$stagingModal = $('#staging-modal');
     this.gatheringId = this.$gatheringTitleContainer.data('id');
     this.$newItemForms = $('.new_moment, .new_activity, .new_place');
+    this.$titleRow = $('#title-row');
   };
 
   Gathering.prototype.init = function() {
     this.addTitleListener();
     this.addModalButtonListener();
     this.addModalCloseListener();
+    this.finalizeAjaxCallback();
   };
 
   Gathering.prototype.addTitleListener = function() {
@@ -80,6 +82,15 @@ $(document).ready(function(){
         $('.finalize-buttons-row').remove();
       });
     });
+  };
+
+  Gathering.prototype.finalizeAjaxCallback = function () {
+    $('#modal-form').bind('ajax:success', function(e, data, status, xhr){
+      this.$stagingModal.modal('hide');
+      var finalTmpl = $.templates("#finalized-template");
+      var finalHtml = finalTmpl.render(data);
+      $(finalHtml).insertAfter(this.$titleRow);
+    }.bind(this) );
   };
 
   var gathering = new Gathering();

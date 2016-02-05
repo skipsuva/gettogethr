@@ -104,6 +104,14 @@ class GatheringsController < ApplicationController
     end
   end
 
+  def finalize
+    @plan = FinalizedPlan.create(
+      moment_id: finalized_params[:moments],
+      activity_id: finalized_params[:activities],
+      place_id: finalized_params[:places],
+      gathering_id: params[:id])
+  end
+
   # DELETE /gatherings/1
   # DELETE /gatherings/1.json
   def destroy
@@ -123,5 +131,9 @@ class GatheringsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def gathering_params
       params.require(:gathering).permit(:title)
+    end
+
+    def finalized_params
+      params.permit(:moments, :activities, :places)
     end
 end
