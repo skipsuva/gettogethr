@@ -123,6 +123,12 @@ a:active {
   }
 }
 
+// for making the panels default to closed
+.panel-body {
+  display:none;
+}
+
+// Title panel styling
 .title-box .panel-heading {
   padding: 10px;
 }
@@ -131,10 +137,10 @@ a:active {
   margin-top: 5px;
 }
 
-// for making the panels default to closed
-.panel-body {
-  display:none;
+.title-box .panel-body {
+  display:block;
 }
+
 
 .item-col {
   padding-left: 0px;
