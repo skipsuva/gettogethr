@@ -1,9 +1,12 @@
+<div class="container">
+
 <h1>Gatherings</h1>
 
 <table class="table">
   <thead>
     <tr>
       <th>Title</th>
+      <th>Status</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -12,6 +15,7 @@
     <% @gatherings.each do |gathering| %>
       <tr>
         <td><%= link_to gathering.title, gathering %></td>
+        <td><%= gathering.aasm_state.capitalize %></td>
         <td><%= link_to 'Destroy', gathering, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -21,3 +25,5 @@
 <br>
 
 <%= link_to 'New Gathering', new_gathering_path %>
+
+</div>
