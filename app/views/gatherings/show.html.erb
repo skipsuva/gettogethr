@@ -51,19 +51,22 @@
 
 
 
-<div class="row">
+  <div class="row">
 
-  <div class="container col-md-2">
-    <%= render 'gatherings/add_items/all' %>
+    <div class="col-md-4">
+      <%= render 'gatherings/add_items/all' %>
+    </div>
+
+    <div class="col-md-8">
+
+      <div class="col-md-6">
+        <%= render 'add_comment' %>
+      </div>
+
+      <div class="col-md-6" id="comments">
+        <%= render 'comments' %>
+      </div>
+    </div>
+
   </div>
-
-  <div class="container col-md-4">
-    <%= render 'add_comment' %>
-  </div>
-
-  <div class="container col-md-6" id="comments">
-    <%= render 'comments' %>
-  </div>
-
-</div>
 </div>
