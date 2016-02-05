@@ -84,7 +84,14 @@ $(document).ready(function(){
 
   // need to add a new-item listener to re-apply the slide toggle
   Gathering.prototype.addNewItemListener = function () {
-
+    $('.new_moment').submit(function(){
+      setTimeout(function(){
+        $('.actions > .fa-chevron-up').click(function() {
+          $(this).parent().parent().next().slideToggle('fast');
+          $(this).toggleClass('fa-chevron-down fa-chevron-up');
+        });
+      }, 1000);
+    });
   };
 
   Gathering.prototype.addModalCloseListener = function () {
