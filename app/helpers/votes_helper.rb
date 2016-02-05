@@ -4,7 +4,16 @@ module VotesHelper
   end
 
   def vote(votable,user)
+    #TODO make into single SQL query for better performance
     (user.votes & votable.votes).try(:first)
+  end
+
+  def current_vote(votable)
+    vote(votable,current_user)
+  end
+
+  def voted_class
+    'btn-success'
   end
 
   def class_mapping(thumbage)
