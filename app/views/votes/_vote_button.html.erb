@@ -1,5 +1,5 @@
 
-<div style="inline-block">
+<div style="display:inline-block">
 
 <%= form_tag({controller:"votes", :action => 'submit', thumbage:thumbage,  gathering_id:gathering.id, votable_id:votable.id, votable_class:votable.class.to_s}, {method: :post, remote: true}) do%>
   <%= button_tag(type: 'submit', class: "btn btn-primary btn-xs #{class_mapping(thumbage)}") do %>
