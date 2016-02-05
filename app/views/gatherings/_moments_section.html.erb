@@ -1,5 +1,6 @@
 <h3>Suggested Times</h3>
 
-<ul class="moments-list">
-  <%= render partial: "moment", collection: @gathering.moments %>
-</ul>
+<div class="item-list moments-list">
+  <!-- <%# render partial: "moment", collection: @gathering.moments %> -->
+  <%= render @gathering.moments %>
+</div>

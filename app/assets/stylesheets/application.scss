@@ -105,3 +105,24 @@ a:hover,
 a:active {
   color: $gt-color2;
 }
+
+
+
+
+//
+// Skip Test
+// --------------------------------------------------
+
+.panel {
+  .panel-footer, .panel-body, .panel-heading  {
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+  .panel-heading {
+    padding-top: 15px;
+  }
+}
+
+.item-col {
+  padding-left: 0px;
+}
