@@ -26,18 +26,14 @@ class Gathering < ActiveRecord::Base
         guard do
           finalized_plan_not_empty?
         end
-      end
-
-      #before do
-      #  save finalized plan
-      #end
-
+      end,
+      :after => Proc.new { |*args| save_finalized_plan(*args) }
     end
 
     event :unfinalize do
       transitions from: :finalized, to: :open
       before do
-        self.finalized_plan.destroy
+        self.finalized_plan.try(:destroy)
       end
     end
 
@@ -81,6 +77,12 @@ class Gathering < ActiveRecord::Base
     fp = FinalizedPlan.new(moment:moment,place:place,activity:activity)
     self.finalized_plan = fp
     self.finalize
+  end
+
+  def save_finalized_plan(*args)    
+    # if save
+    #   self.unfinalize
+    # end
   end
 
   def find_best(votable_class)
