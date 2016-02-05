@@ -37,7 +37,6 @@ $(document).ready(function(){
     this.addTitleListener();
     this.addModalButtonListener();
     this.addModalCloseListener();
-    this.addChevronExpandListener();
   };
 
   Gathering.prototype.addTitleListener = function() {
