@@ -82,18 +82,6 @@ $(document).ready(function(){
     });
   };
 
-  Gathering.prototype.addChevronExpandListener = function () {
-
-  };
-
-  // var togglePanel = function() {
-  //      $('.actions > .fa-chevron-down').click(function() {
-  //          $(this).parent().parent().next().slideToggle('fast');
-  //          $(this).toggleClass('fa-chevron-down fa-chevron-up');
-  //      });
-  //
-  //  };
-
   var gathering = new Gathering();
   gathering.init();
 });

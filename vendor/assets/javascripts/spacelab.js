@@ -16,7 +16,7 @@ var app = function() {
     };
 
     var togglePanel = function() {
-        $('.actions > .fa-chevron-down').click(function() {
+        $('.actions > .fa-chevron-up').click(function() {
             $(this).parent().parent().next().slideToggle('fast');
             $(this).toggleClass('fa-chevron-down fa-chevron-up');
         });
@@ -25,7 +25,7 @@ var app = function() {
 
     var toggleMenuLeft = function() {
         $('#toggle-left').bind('click', function(e) {
-           $('body').removeClass('off-canvas-open')    
+           $('body').removeClass('off-canvas-open')
             var bodyEl = $('#container');
             ($(window).width() > 768) ? $(bodyEl).toggleClass('sidebar-mini'): $(bodyEl).toggleClass('sidebar-opened');
         });
@@ -71,7 +71,7 @@ var app = function() {
     };
 
 
-    //Vector Maps 
+    //Vector Maps
     var map = function() {
         $('#map').vectorMap({
             map: 'world_mill_en',
