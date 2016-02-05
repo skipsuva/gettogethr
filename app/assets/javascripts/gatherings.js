@@ -36,6 +36,7 @@ $(document).ready(function(){
   Gathering.prototype.init = function() {
     this.addTitleListener();
     this.addModalButtonListener();
+    this.addModalCloseListener();
   };
 
   Gathering.prototype.addTitleListener = function() {
@@ -71,6 +72,14 @@ $(document).ready(function(){
       });
     }.bind(this) );
   };
+
+  Gathering.prototype.addModalCloseListener = function () {
+    this.$stagingModal.on('shown.bs.modal', function () {
+      $(this).on('hidden.bs.modal', function () {
+        $('.finalize-buttons-row').remove();
+      });
+    });
+  }
 
   var gathering = new Gathering();
   gathering.init();
