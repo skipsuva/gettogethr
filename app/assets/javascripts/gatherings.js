@@ -33,6 +33,8 @@ $(document).ready(function(){
     this.gatheringId = this.$gatheringTitleContainer.data('id');
     this.$newItemForms = $('.new_moment, .new_activity, .new_place');
     this.$titleRow = $('#title-row');
+    this.$votableCards = $('#votable-cards');
+    this.$votableForms = $('#votable-forms');
   };
 
   Gathering.prototype.init = function() {
@@ -90,6 +92,8 @@ $(document).ready(function(){
       var finalTmpl = $.templates("#finalized-template");
       var finalHtml = finalTmpl.render(data);
       $(finalHtml).insertAfter(this.$titleRow);
+      this.$votableCards.toggleClass('gathering-finalized');
+      this.$votableForms.fadeOut();
     }.bind(this) );
   };
 
