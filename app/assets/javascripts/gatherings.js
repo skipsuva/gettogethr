@@ -37,6 +37,7 @@ $(document).ready(function(){
     this.addTitleListener();
     this.addModalButtonListener();
     this.addModalCloseListener();
+    this.addChevronExpandListener();
   };
 
   Gathering.prototype.addTitleListener = function() {
@@ -79,7 +80,19 @@ $(document).ready(function(){
         $('.finalize-buttons-row').remove();
       });
     });
-  }
+  };
+
+  Gathering.prototype.addChevronExpandListener = function () {
+
+  };
+
+  // var togglePanel = function() {
+  //      $('.actions > .fa-chevron-down').click(function() {
+  //          $(this).parent().parent().next().slideToggle('fast');
+  //          $(this).toggleClass('fa-chevron-down fa-chevron-up');
+  //      });
+  //
+  //  };
 
   var gathering = new Gathering();
   gathering.init();
