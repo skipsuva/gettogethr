@@ -38,6 +38,7 @@ $(document).ready(function(){
     this.addTitleListener();
     this.addModalButtonListener();
     this.addModalCloseListener();
+    this.finalizeAjaxCallback();
   };
 
   Gathering.prototype.addTitleListener = function() {
@@ -80,6 +81,13 @@ $(document).ready(function(){
         $('.finalize-buttons-row').remove();
       });
     });
+  };
+
+  Gathering.prototype.finalizeAjaxCallback = function () {
+    $('#modal-form').bind('ajax:success', function(e, data, status, xhr){
+      alert(JSON.stringify(data));
+      this.$stagingModal.modal('hide');
+    }.bind(this) );
   };
 
   var gathering = new Gathering();

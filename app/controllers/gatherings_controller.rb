@@ -107,9 +107,6 @@ class GatheringsController < ApplicationController
   def finalize
     @gathering = Gathering.find(params[:id])
     @plan = FinalizedPlan.create(moment_id: finalized_params[:moments], activity_id: finalized_params[:activities], place_id: finalized_params[:places], gathering_id: params[:id])
-
-
-
   end
 
   # DELETE /gatherings/1
