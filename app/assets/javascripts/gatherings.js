@@ -31,12 +31,14 @@ $(document).ready(function(){
     this.$stagingModalBody = $('#staging-modal .modal-body');
     this.$stagingModal = $('#staging-modal');
     this.gatheringId = this.$gatheringTitleContainer.data('id');
+    this.$newItemForms = $('.new_moment, .new_activity, .new_place');
   };
 
   Gathering.prototype.init = function() {
     this.addTitleListener();
     this.addModalButtonListener();
     this.addModalCloseListener();
+    this.addNewItemListener();
   };
 
   Gathering.prototype.addTitleListener = function() {
@@ -73,13 +75,25 @@ $(document).ready(function(){
     }.bind(this) );
   };
 
+
+  Gathering.prototype.addNewItemListener = function () {
+    this.$newItemForms.submit(function(){
+      setTimeout(function(){
+        $('.actions > .fa-chevron-up').click(function() {
+          $(this).parent().parent().next().slideToggle('fast');
+          $(this).toggleClass('fa-chevron-down fa-chevron-up');
+        });
+      }, 1500);
+    });
+  };
+
   Gathering.prototype.addModalCloseListener = function () {
     this.$stagingModal.on('shown.bs.modal', function () {
       $(this).on('hidden.bs.modal', function () {
         $('.finalize-buttons-row').remove();
       });
     });
-  }
+  };
 
   var gathering = new Gathering();
   gathering.init();
