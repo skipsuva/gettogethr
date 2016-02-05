@@ -1,3 +1,19 @@
 // Place all the styles related to the gatherings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#modal-form .btn {
+  white-space: normal;
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.modal-body {
+  padding-left: $grid-gutter-width / 1.5;
+  padding-right: $grid-gutter-width / 1.5;
+}
+
+#modal-form .container {
+  padding-left: $grid-gutter-width / 4;
+  padding-right: $grid-gutter-width / 4;
+}

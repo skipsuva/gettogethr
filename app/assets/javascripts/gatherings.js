@@ -36,6 +36,7 @@ $(document).ready(function(){
   Gathering.prototype.init = function() {
     this.addTitleListener();
     this.addModalButtonListener();
+    this.addModalCloseListener();
   };
 
   Gathering.prototype.addTitleListener = function() {
@@ -59,35 +60,11 @@ $(document).ready(function(){
           type: 'GET',
           dataType: 'json',
           success: function(modal_data){
-            // debugger;
-              var checked = "";
-              modal_data.moments.forEach(function(moment){
-                if(moment.suggested){
-                  checked = " checked";
-                }else{
-                  checked = "";
-                }
-                $("#moments-buttons").prepend('<input type="radio" name="moment" value=' + moment.id + checked + '>  ' + moment.time +'<br>');
-              });
-              modal_data.activities.forEach(function(activity){
-                if(activity.suggested){
-                  checked = " checked";
-                }else{
-                  checked = "";
-                }
-                $("#activities-buttons").prepend('<input type="radio" name="activity" value=' + activity.id + checked + '>  ' + activity.description +'<br>');
-              });
-              modal_data.places.forEach(function(place){
-                if(place.suggested){
-                  checked = " checked";
-                }else{
-                  checked = "";
-                }
-                $("#places-buttons").prepend('<input type="radio" name="place" value=' + place.id + checked + '>  ' + place.name +'<br>');
-              });
-              this.$stagingModalTitle.text("Finalizing " + modal_data.gathering_title);
-              // this.$stagingModalBody.html(JSON.stringify(modal_data));
-              this.$stagingModal.modal('show');
+            var tmpl = $.templates("#modal-template");
+            var html = tmpl.render(modal_data);
+            $('.modal-body form').prepend(html);
+            this.$stagingModalTitle.text("Finalizing " + modal_data.gathering_title);
+            this.$stagingModal.modal('show');
           }.bind(this),
           error: function(){
               alert("ajax error");
@@ -95,6 +72,14 @@ $(document).ready(function(){
       });
     }.bind(this) );
   };
+
+  Gathering.prototype.addModalCloseListener = function () {
+    this.$stagingModal.on('shown.bs.modal', function () {
+      $(this).on('hidden.bs.modal', function () {
+        $('.finalize-buttons-row').remove();
+      });
+    });
+  }
 
   var gathering = new Gathering();
   gathering.init();

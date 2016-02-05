@@ -9,20 +9,12 @@
       </div>
       <div class="modal-body">
         <%= form_tag("/gatherings/#{@gathering.id}/finalize", method: 'post', remote: true, id: "modal-form") do %>
-          <div class="btn-group" id="moments-buttons" data-toggle="buttons">
-
-          </div>
-          <div class="btn-group" id="activities-buttons" data-toggle="buttons">
-
-          </div>
-          <div class="btn-group" id="places-buttons" data-toggle="buttons">
-
-          </div>
-
-          <%= submit_tag "Finalize" %>
-        <% end %>
       </div>
       <div class="modal-footer">
+        <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
+        Finalize
+        <% end %>
+          <% end %>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
