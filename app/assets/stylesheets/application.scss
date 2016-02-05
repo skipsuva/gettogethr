@@ -110,3 +110,13 @@ a:active {
 .item-list {
   list-style: none;
 }
+
+.panel-solid-info > .panel-footer {
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.panel-solid-info > .panel-heading {
+  padding-bottom: 5px;
+  padding-top: 10px;
+}
