@@ -8,7 +8,7 @@
         <h4 class="modal-title" id="staging-modal-label"></h4>
       </div>
       <div class="modal-body">
-        <%= form_tag("/gatherings/#{@gathering.id}/finalize", method: 'post', remote: true, html: {'data-type': 'json', id: "modal-form" }) do %>
+        <%= form_tag("/gatherings/#{@gathering.id}/finalize", method: 'post', remote: true, 'data-type': 'json', id: "modal-form" ) do %>
       </div>
       <div class="modal-footer">
         <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>

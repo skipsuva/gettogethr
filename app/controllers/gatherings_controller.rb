@@ -106,12 +106,11 @@ class GatheringsController < ApplicationController
 
   def finalize
     @gathering = Gathering.find(params[:id])
-    plan = FinalizedPlan.new(moment_id: finalized_params[:moments], activity_id: finalized_params[:activities], place_id: finalized_params[:places], gathering_id: @gathering.id)
-    if plan.save
-
-    else
-      
+    @plan = FinalizedPlan.new(moment_id: finalized_params[:moments], activity_id: finalized_params[:activities], place_id: finalized_params[:places], gathering_id: params[:id])
+    respond_to do |format|
+      format.json { binding.pry }
     end
+
 
   end
 
