@@ -110,7 +110,7 @@ a:active {
 
 
 //
-// Skip Test
+// Gatherings Show
 // --------------------------------------------------
 
 .panel {
@@ -121,6 +121,10 @@ a:active {
   .panel-heading {
     padding-top: 15px;
   }
+}
+
+.gathering-finalized {
+  opacity: 0.35;
 }
 
 // for making the panels default to closed
