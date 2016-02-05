@@ -8,6 +8,33 @@ class Gathering < ActiveRecord::Base
   has_many :comments
   has_one :finalized_plan
 
+  #====================
+  include AASM
+
+  aasm do
+    state :draft
+    state :open, initial: true
+    state :finalized
+    state :done
+    state :cancelled
+
+    event :finalize do
+      transitions from: :open, to: :finalized
+    end
+
+    event :reopen do
+      transitions from: :finalized, to: :open
+    end
+
+    event :cancel do
+      transitions from: :open, to: :cancelled
+      transitions from: :finalized, to: :cancelled
+    end
+
+  end
+
+
+  #====================
 
   def find_best(votable_class)
     #TODO functionalize chain of filters
@@ -23,7 +50,7 @@ class Gathering < ActiveRecord::Base
     end
 
     collection
-    
+
   end
 
   private
