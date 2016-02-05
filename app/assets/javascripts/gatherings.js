@@ -74,15 +74,7 @@ $(document).ready(function(){
     }.bind(this) );
   };
 
-  // var togglePanel = function() {
-  //     $('.actions > .fa-chevron-up').click(function() {
-  //         $(this).parent().parent().next().slideToggle('fast');
-  //         $(this).toggleClass('fa-chevron-down fa-chevron-up');
-  //     });
-  //
-  // };
 
-  // need to add a new-item listener to re-apply the slide toggle
   Gathering.prototype.addNewItemListener = function () {
     $('.new_moment').submit(function(){
       setTimeout(function(){
