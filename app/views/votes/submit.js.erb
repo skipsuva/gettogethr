@@ -4,10 +4,10 @@ $("#<%= @votable.class.to_s.downcase %>-<%= @votable.id %> .thumbs-down .vote-co
 
 <% current_vote = vote(current_user,@votable) %>
 
-$("#<%= @votable.class.to_s.downcase %>-<%= @votable.id %> .thumbs-up").removeClass("btn-success");
-$("#<%= @votable.class.to_s.downcase %>-<%= @votable.id %> .shruggie").removeClass("btn-success");
-$("#<%= @votable.class.to_s.downcase %>-<%= @votable.id %> .thumbs-down").removeClass("btn-success");
+$("#<%= @votable.class.to_s.downcase %>-<%= @votable.id %> .thumbs-up").removeClass(voted_class);
+$("#<%= @votable.class.to_s.downcase %>-<%= @votable.id %> .shruggie").removeClass(voted_class);
+$("#<%= @votable.class.to_s.downcase %>-<%= @votable.id %> .thumbs-down").removeClass(voted_class);
 
 <% if current_vote %>
-$("#<%= @votable.class.to_s.downcase %>-<%= @votable.id %> .<%=class_mapping(current_vote.value)%> ").addClass("btn-success");
+$("#<%= @votable.class.to_s.downcase %>-<%= @votable.id %> .<%=class_mapping(current_vote.value)%> ").addClass(voted_class);
 <% end %>
