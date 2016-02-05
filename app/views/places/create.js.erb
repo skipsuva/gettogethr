@@ -1,2 +1,6 @@
 $(".places-list").append("<%= j render @place %>");
+$("#place-<%= @place.id %> .actions > .fa-chevron-up").click(function() {
+  $(this).parent().parent().next().slideToggle('fast');
+  $(this).toggleClass('fa-chevron-down fa-chevron-up');
+});
 $("#new_place")[0].reset();

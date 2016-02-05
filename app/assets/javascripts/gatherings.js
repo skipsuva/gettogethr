@@ -38,7 +38,6 @@ $(document).ready(function(){
     this.addTitleListener();
     this.addModalButtonListener();
     this.addModalCloseListener();
-    this.addNewItemListener();
   };
 
   Gathering.prototype.addTitleListener = function() {
@@ -73,18 +72,6 @@ $(document).ready(function(){
           }
       });
     }.bind(this) );
-  };
-
-
-  Gathering.prototype.addNewItemListener = function () {
-    this.$newItemForms.submit(function(){
-      setTimeout(function(){
-        $('.actions > .fa-chevron-up').click(function() {
-          $(this).parent().parent().next().slideToggle('fast');
-          $(this).toggleClass('fa-chevron-down fa-chevron-up');
-        });
-      }, 1500);
-    });
   };
 
   Gathering.prototype.addModalCloseListener = function () {
