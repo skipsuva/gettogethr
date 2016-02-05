@@ -8,6 +8,80 @@ class Gathering < ActiveRecord::Base
   has_many :comments
   has_one :finalized_plan
 
+  #====================
+  include AASM
+
+  aasm do
+    state :draft
+    state :open, initial: true
+    state :finalized
+    state :closed
+    state :cancelled
+
+    event :finalize do
+      transitions from: :open, to: :finalized do
+        guard do
+          has_finalized_plan?
+        end
+        guard do
+          finalized_plan_not_empty?
+        end
+      end
+
+      #before do
+      #  save finalized plan
+      #end
+
+    end
+
+    event :unfinalize do
+      transitions from: :finalized, to: :open
+      before do
+        self.finalized_plan.destroy
+      end
+    end
+
+    event :cancel do
+      transitions from: :open, to: :cancelled
+      transitions from: :finalized, to: :cancelled
+    end
+
+    event :to_draft do
+      transitions from: :open, to: :draft
+      transitions from: :cancelled, to: :draft
+    end
+
+    event :open do
+      transitions from: :cancelled, to: :open
+      transitions from: :draft, to: :open
+    end
+
+    event :close do
+      transitions from: :finalized, to: :closed
+    end
+
+  end
+
+
+  def has_finalized_plan?
+    !!self.finalized_plan
+  end
+
+  def finalized_plan_not_empty?
+    fp = self.finalized_plan
+    return true if fp.moment
+    return true if fp.place
+    return true if fp.activity
+    false
+  end
+
+  #====================
+
+  def finalize_with_plan(moment:moment,place:place,activity:activity)
+    fp = FinalizedPlan.new(moment:moment,place:place,activity:activity)
+    self.finalized_plan = fp
+    self.finalize
+  end
 
   def find_best(votable_class)
     #TODO functionalize chain of filters
@@ -23,7 +97,7 @@ class Gathering < ActiveRecord::Base
     end
 
     collection
-    
+
   end
 
   private
