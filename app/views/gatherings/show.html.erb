@@ -62,24 +62,24 @@
 <div class="container col-md-4" id="moments-buttons" data-toggle="buttons">
 <h4>Choose a moment:</h4>
 {{for moments}}
-  <label class="btn btn-primary">
-    <input type="radio" name="moments"> {{:time}}
+  <label class="btn btn-primary{{if suggested}} active{{/if}}">
+    <input type="radio" name="moments"{{if suggested}} checked=""{{/if}}> {{:time}}
   </label>
 {{/for}}
 </div>
 <div class="container col-md-4" id="activities-buttons" data-toggle="buttons">
 <h4>Choose an activity:</h4>
 {{for activities}}
-  <label class="btn btn-primary">
-    <input type="radio" name="activities"> {{:description}}
+  <label class="btn btn-primary{{if suggested}} active{{/if}}">
+    <input type="radio" name="activities"{{if suggested}} checked=""{{/if}}> {{:description}}
   </label>
 {{/for}}
 </div>
 <div class="container col-md-4" id="places-buttons" data-toggle="buttons">
 <h4>Choose a place:</h4>
 {{for places}}
-  <label class="btn btn-primary">
-    <input type="radio" name="places"> {{:name}}
+  <label class="btn btn-primary{{if suggested}} active{{/if}}">
+    <input type="radio" name="places"{{if suggested}} checked=""{{/if}}> {{:name}}
   </label>
 {{/for}}
 </div>
