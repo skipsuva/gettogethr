@@ -1,7 +1,7 @@
 json.gathering_title @gathering.title
 
 json.moments @gathering.moments do |moment|
-  json.time moment.time
+  json.time moment.time.strftime('%_m/%-d/%y at %l:%M %P')
   json.id moment.id
   json.suggested moment.suggested?
 end
