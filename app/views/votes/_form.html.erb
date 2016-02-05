@@ -1,28 +1,7 @@
 <div class="votebox">
 
-  <%= render partial:'votes/vote_button', locals:{thumbage: "1", gathering:gathering, votable:votable} %>
-
-  <%= form_tag({controller:"votes", :action => 'submit', thumbage:"1",  gathering_id:gathering.id, votable_id:votable.id, votable_class:votable.class.to_s}, {method: :post, remote: true, class:"button_to"}) do%>
-    <%= button_tag(type: 'submit', class: 'btn btn-primary btn-xs thumbs-up') do %>
-     <i class="fa fa-thumbs-up"></i>
-     <span class="vote-count"><%= vote_count(votable,1)%></span>
-    <% end %>
-  <% end %>
-
-  <%= form_tag({controller:"votes", :action => 'submit', thumbage:"0",  gathering_id:gathering.id, votable_id:votable.id, votable_class:votable.class.to_s}, {method: :post, remote: true, class:"button_to"}) do%>
-    <%= button_tag(type: 'submit', class: 'btn btn-primary btn-xs shruggie') do %>
-     <i class="fa fa-question-circle"></i>
-     <span class="vote-count"><%= vote_count(votable,0)%></span>
-    <% end %>
-  <% end %>
-
-  <%= form_tag({controller:"votes", :action => 'submit', thumbage:"-1",  gathering_id:gathering.id, votable_id:votable.id, votable_class:votable.class.to_s}, {method: :post, remote: true, class:"button_to"}) do%>
-    <%= button_tag(type: 'submit', class: 'btn btn-primary btn-xs thumbs-down') do %>
-     <i class="fa fa-thumbs-down"></i>
-     <span class="vote-count"><%= vote_count(votable,-1)%></span>
-    <% end %>
-  <% end %>
-
-</div>
+ <% [1,0,-1].each do |thumbage| %>
+  <%= render partial:'votes/vote_button', locals:{thumbage: thumbage, gathering: gathering, votable: votable} %>
+ <% end %>
 
 </div>
