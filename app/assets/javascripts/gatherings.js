@@ -31,6 +31,7 @@ $(document).ready(function(){
     this.$stagingModalBody = $('#staging-modal .modal-body');
     this.$stagingModal = $('#staging-modal');
     this.gatheringId = this.$gatheringTitleContainer.data('id');
+    this.$newItemForms = $('.new_moment, .new_activity, .new_place');
   };
 
   Gathering.prototype.init = function() {
@@ -76,7 +77,7 @@ $(document).ready(function(){
 
 
   Gathering.prototype.addNewItemListener = function () {
-    $('.new_moment, .new_activity, .new_place').submit(function(){
+    this.$newItemForms.submit(function(){
       setTimeout(function(){
         $('.actions > .fa-chevron-up').click(function() {
           $(this).parent().parent().next().slideToggle('fast');
