@@ -19,14 +19,11 @@ class Gathering < ActiveRecord::Base
     state :cancelled
 
     event :finalize do
-      transitions from: :open, after: Proc.new { |*args| save_finalized_plan(*args) }, to: :finalized do
-        guard do
-          has_finalized_plan?
-        end
-        guard do
-          finalized_plan_not_empty?
-        end
-      end 
+      transitions from: :open, to: :finalized
+      #   guard do
+      #     !has_finalized_plan?
+      #   end
+      # end 
     end
 
     event :unfinalize do
@@ -59,16 +56,18 @@ class Gathering < ActiveRecord::Base
 
 
   def has_finalized_plan?
-    !!self.finalized_plan
+    self.finalized_plan
   end
 
-  def finalized_plan_not_empty?
-    fp = self.finalized_plan
-    return true if fp.moment
-    return true if fp.place
-    return true if fp.activity
-    false
-  end
+  # def finalized_plan_not_empty?
+  #   fp = self.finalized_plan
+  #   if fp
+  #     return true if fp.moment
+  #     return true if fp.place
+  #     return true if fp.activity
+  #   end
+  #   false
+  # end
 
   #====================
 
@@ -76,13 +75,14 @@ class Gathering < ActiveRecord::Base
     FinalizedPlan.new(moment:moment,place:place,activity:activity)
   end
 
-  def save_finalized_plan(*args)
-    fp = finalize_with_plan(*args)
-    self.finalized_plan = fp
-    if !self.finalized_plan
-      self.unfinalize
-    end
-  end
+  # def save_finalized_plan(*args)
+  #   fp = finalize_with_plan(*args)
+  #   binding.pry
+  #   self.finalized_plan = fp
+  #   if !self.finalized_plan || !finalized_plan_not_empty?
+  #     self.unfinalize
+  #   end
+  # end
 
   def find_best(votable_class)
     #TODO functionalize chain of filters
@@ -101,9 +101,9 @@ class Gathering < ActiveRecord::Base
 
   end
 
-  def finalize_with_args(*args)
-    self.finalize(:finalized, *args)
-  end
+  # def finalize_with_args(*args)
+  #   self.finalize(:finalized, *args)
+  # end
 
   private
 
