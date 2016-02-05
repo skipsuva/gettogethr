@@ -41,39 +41,47 @@
   </div> -->
 
   <div class="row">
-    <div class="col-md-4" id="moments">
-      <%= render "moments_section" %>
-    </div>
+    <div class="col-md-12">
 
-    <div class="col-md-4" id="activities">
-      <%= render "activities_section" %>
-    </div>
+      <div class="col-md-4" id="moments">
+        <%= render "moments_section" %>
+      </div>
 
-    <div class="col-md-4" id="places">
-      <%= render "places_section" %>
+      <div class="col-md-4" id="activities">
+        <%= render "activities_section" %>
+      </div>
+
+      <div class="col-md-4" id="places">
+        <%= render "places_section" %>
+      </div>
+
     </div>
   </div>
 
 
 
   <div class="row">
+    <div class="col-md-12">
 
-    <div class="col-md-4">
-      <%= render 'gatherings/add_items/all' %>
-    </div>
-
-    <div class="col-md-8">
-
-      <div class="col-md-6">
-        <%= render 'add_comment' %>
+      <div class="col-md-4">
+        <%= render 'gatherings/add_items/all' %>
       </div>
 
-      <div class="col-md-6" id="comments">
-        <%= render 'comments' %>
+      <div class="col-md-8">
+
+        <div class="col-md-6">
+          <%= render 'add_comment' %>
+        </div>
+
+        <div class="col-md-6" id="comments">
+          <%= render 'comments' %>
+        </div>
       </div>
+
     </div>
 
   </div>
+
 </div>
 
 <script id="modal-template" type="text/x-jsrender">
