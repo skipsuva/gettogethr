@@ -1,74 +1,87 @@
 <div class="container">
 
   <div class="row">
-    <div class="title-container " id="gathering-title-container" data-id="<%= @gathering.id %>">
-      <h2 class="gathering-title"><%= @gathering.title %></h2>
+    <div class="col-md-10">
+      <div class="title-box panel">
+        <div class="panel-heading">
+          <div class="title-container " id="gathering-title-container" data-id="<%= @gathering.id %>">
+            <h2 class="gathering-title"><%= @gathering.title %></h2>
+          </div>
+          <p>
+            <strong>Owner:</strong>
+            <%= @gathering.owner.name %>
+          </p>
+          <div class="actions pull-right">
+            <button type="button" id="staging-button" class="btn btn-primary btn-md">
+              Let's Do It
+            </button>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="" id="collaborators">
+            <%= render "collaborators_section" %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
+  <%= render 'do_it' %>
+
+  <!-- <div class="row">
+
+    <div class="">
+
+      <div class=" col-md-2" id="collaborators">
+        <%# render "collaborators_section" %>
+      </div>
+
+    </div>
+
+  </div> -->
+
   <div class="row">
-    <p>
-      <strong>Owner:</strong>
-      <%= @gathering.owner.name %>
-    </p>
+    <div class="col-md-12">
 
-    <%= link_to 'Edit', edit_gathering_path(@gathering) %> |
-    <%= link_to 'Back', gatherings_path %>
+      <div class="col-md-4" id="moments">
+        <%= render "moments_section" %>
+      </div>
 
-    <button type="button" id="staging-button" class="btn btn-primary btn-md">
-      Let's Do It
-    </button>
+      <div class="col-md-4" id="activities">
+        <%= render "activities_section" %>
+      </div>
 
-    <%= render 'do_it' %>
+      <div class="col-md-4" id="places">
+        <%= render "places_section" %>
+      </div>
 
+    </div>
   </div>
 
+
+
   <div class="row">
+    <div class="col-md-12">
 
-    <div class="container">
+      <div class="col-md-4">
+        <%= render 'gatherings/add_items/all' %>
+      </div>
 
-      <div class="container col-md-2" id="collaborators">
-        <%= render "collaborators_section" %>
+      <div class="col-md-8">
+
+        <div class="col-md-6">
+          <%= render 'add_comment' %>
+        </div>
+
+        <div class="col-md-6" id="comments">
+          <%= render 'comments' %>
+        </div>
       </div>
 
     </div>
 
   </div>
 
-  <div class="row">
-    <div class="col-md-4" id="moments">
-      <%= render "moments_section" %>
-    </div>
-
-    <div class="col-md-4" id="activities">
-      <%= render "activities_section" %>
-    </div>
-
-    <div class="col-md-4" id="places">
-      <%= render "places_section" %>
-    </div>
-  </div>
-
-
-
-  <div class="row">
-
-    <div class="col-md-4">
-      <%= render 'gatherings/add_items/all' %>
-    </div>
-
-    <div class="col-md-8">
-
-      <div class="col-md-6">
-        <%= render 'add_comment' %>
-      </div>
-
-      <div class="col-md-6" id="comments">
-        <%= render 'comments' %>
-      </div>
-    </div>
-
-  </div>
 </div>
 
 <script id="modal-template" type="text/x-jsrender">

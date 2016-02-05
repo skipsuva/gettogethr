@@ -1,7 +1,9 @@
-<h4>Who's Involved?</h4>
-<ul id="collaborator-list">
-  <%= render partial: "collaborator", collection: @collaborators %>
-</ul>
+<p>
+  <strong>Who's Involved: </strong>
+  <div id="collaborator-list">
+    | <%= render partial: "collaborator", collection: @collaborators %>
+  </div>
+</p>
 
 <div>
   <%= form_tag("/gatherings/#{@gathering.id}/add-users", remote:true) do %>
