@@ -87,6 +87,9 @@ $(document).ready(function(){
     $('#modal-form').bind('ajax:success', function(e, data, status, xhr){
       alert(JSON.stringify(data));
       this.$stagingModal.modal('hide');
+      var finalTmpl = $.templates("#finalized-template");
+      var finalHtml = finalTmpl.render(data);
+      
     }.bind(this) );
   };
 
