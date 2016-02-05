@@ -107,16 +107,14 @@ a:active {
 //
 // Skip Test
 // --------------------------------------------------
-.item-list {
-  list-style: none;
-}
 
-.info > .panel-footer {
-  padding-bottom: 5px;
-  padding-top: 5px;
-}
 
-.info > .panel-heading {
-  padding-bottom: 5px;
-  padding-top: 10px;
+.panel {
+  .panel-footer, .panel-body, .panel-heading  {
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
+  .panel-body, .panel-heading {
+    padding-top: 10px;
+  }
 }
