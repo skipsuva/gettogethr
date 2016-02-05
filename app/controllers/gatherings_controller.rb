@@ -1,5 +1,5 @@
 class GatheringsController < ApplicationController
-  before_action :set_gathering, only: [:edit, :update, :destroy]
+  before_action :set_gathering, only: [:edit, :update, :destroy, :finalize]
   before_action -> { check_gathering_access(params[:id])}, only: [:show, :update]
 
 
@@ -105,11 +105,21 @@ class GatheringsController < ApplicationController
   end
 
   def finalize
+    # @gathering.finalize_with_args(
+    #   moment: Moment.find(finalized_params[:moments]),
+    #   activity: Activity.find(finalized_params[:activities]),
+    #   place: Place.find(finalized_params[:places]))
+
     @plan = FinalizedPlan.create(
       moment_id: finalized_params[:moments],
       activity_id: finalized_params[:activities],
       place_id: finalized_params[:places],
       gathering_id: params[:id])
+
+    if @plan
+      @gathering.finalize
+      @gathering.save
+    end
   end
 
   # DELETE /gatherings/1
