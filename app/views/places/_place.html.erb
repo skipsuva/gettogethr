@@ -4,7 +4,6 @@
       <h3 class="panel-title"><%= place.name %></h3>
       <div class="actions pull-right">
         <i class="fa fa-chevron-up"></i>
-        <i class="fa fa-times"></i>
       </div>
     </div>
     <div class="panel-body">
@@ -12,7 +11,7 @@
         <%= place.user %> has suggested the following gathering place:
         <%= place.name %>
       </p>
-      <%= button_to "X", gathering_place_path(@gathering, place), method: :delete, remote: true %>
+      <%= button_to "X", gathering_place_path(@gathering, place), method: :delete, remote: true, class: 'btn btn-xs', style:"display:inline-block;" %>
     </div>
     <div class="panel-footer">
       <%= render partial: '/votes/form', locals:{ votable: place, gathering: @gathering } %>
