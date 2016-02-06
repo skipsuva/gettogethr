@@ -1,4 +1,9 @@
-<li>
-  <span class="comment-user text-uppercase"><%= comment.user.name %></span>
-  <br><%= comment.content %>
-</li>
+
+<% if current_user.name == comment.user.name %>
+  <li class="current-user">
+<% else %>
+  <li>
+<% end %>
+    <span class="comment-user text-uppercase"><%= comment.user.name %></span>
+    <br><%= comment.content %>
+  </li>

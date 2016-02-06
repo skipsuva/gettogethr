@@ -82,6 +82,59 @@ img#nav-logo {
     padding-bottom: $line-height-computed;
 }
 
+.comment-list .current-user {
+  text-align: right;
+  color:red;
+}
+
+
+
+.comment-box {
+  background-color: $gt-color5;
+  // color: $gt-color3;
+}
+
+.comment-box .panel-body {
+  display:block;
+  padding-bottom: 0px;
+}
+
+.comment-list {
+  margin-bottom: 15px;
+}
+
+.comment-list .panel-body {
+  margin-bottom: 0px;
+  height:220px;
+  overflow: scroll;
+}
+
+.comment-box .panel-footer {
+  background-color: $gt-color5;
+  padding-top: 5px;
+  height: auto;
+}
+
+#new_comment textarea {
+  padding: 5px;
+  width: 75%;
+  margin: 15px;
+  margin-bottom: 0px;
+  resize: none;
+  border-radius: 5px;
+}
+
+#new_comment .btn {
+  // vertical-align: middle;
+  margin-bottom: 40px;
+  box-shadow: 0px 2px 0px #A6AAAC;
+  width: auto;
+}
+
+#new_comment {
+  height: 65px;
+}
+
 //
 // Theme Color Overrides
 // --------------------------------------------------
@@ -113,7 +166,7 @@ a:active {
 // Gatherings Show
 // --------------------------------------------------
 
-.panel {
+.item-list .panel {
   .panel-footer, .panel-body, .panel-heading  {
     padding-bottom: 5px;
     padding-top: 5px;
@@ -123,12 +176,16 @@ a:active {
   }
 }
 
+.item-col {
+  padding-left: 0px;
+}
+
 .gathering-finalized {
   opacity: 0.35;
 }
 
 // for making the panels default to closed
-.panel-body {
+.item-list .panel-body {
   display:none;
 }
 
@@ -143,11 +200,6 @@ a:active {
 
 .title-box .panel-body {
   display:block;
-}
-
-
-.item-col {
-  padding-left: 0px;
 }
 
 
