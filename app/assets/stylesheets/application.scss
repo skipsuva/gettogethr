@@ -82,6 +82,13 @@ img#nav-logo {
     padding-bottom: $line-height-computed;
 }
 
+.comment-list .current-user {
+  text-align: right;
+  color:red;
+}
+
+
+
 .comment-box {
   background-color: $gt-color5;
   // color: $gt-color3;
