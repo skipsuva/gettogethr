@@ -112,11 +112,12 @@ img#nav-logo {
 .comment-box .panel-footer {
   background-color: $gt-color5;
   padding-top: 5px;
+  height: auto;
 }
 
 #new_comment textarea {
   padding: 5px;
-  width: 80%;
+  width: 75%;
   margin: 15px;
   margin-bottom: 0px;
   resize: none;
@@ -127,6 +128,7 @@ img#nav-logo {
   // vertical-align: middle;
   margin-bottom: 40px;
   box-shadow: 0px 2px 0px #A6AAAC;
+  width: auto;
 }
 
 #new_comment {
