@@ -57,3 +57,4 @@
 //= require jvectormap/js/jquery-jvectormap-world-mill-en
 // <!-- ToDo List  -->
 //= require todo/js/todos
+//= require jquery-ui

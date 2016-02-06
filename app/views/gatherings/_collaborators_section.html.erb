@@ -1,3 +1,18 @@
+
+<script>
+$(function() {
+  var availableTags = [
+    "Alice",
+    "Bob",
+    "Charlie",
+  ];
+  $( ".autocomplete" ).autocomplete({
+    source: availableTags
+  });
+});
+</script>
+
+
 <p>
   <strong>Who's Involved: </strong>
   <div id="collaborator-list">
@@ -7,6 +22,7 @@
 
 <div>
   <%= form_tag("/gatherings/#{@gathering.id}/add-users", remote:true) do %>
+    <%= text_field( :user, :id, options={class:"form-control autocomplete"}) %>
     <%= select("user", "id", @users.map { |u| [u.name, u.id] }, {include_blank: true}) %>
     <%=submit_tag "Add Users!"%>
   <% end %>
