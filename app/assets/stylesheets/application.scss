@@ -227,9 +227,14 @@ a:active {
 // Homepage
 // --------------------------------------------------
 .home {
-  background-color: $gt-color5;
+  // background-color: $gt-color5;
 
 }
 .main-content-wrapper {
-  background-color: $gt-color3;
+  // background-color: $gt-color3;
+  background-image: url(home-hd.jpeg);
+  background-repeat: no-repeat;
+  background-size: 1920px 1080px;
+  background-repeat:no-repeat;
+  display: compact;
 }
