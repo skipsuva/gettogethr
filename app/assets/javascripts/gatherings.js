@@ -3,6 +3,17 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready(function(){
+
+  var availableTags = [
+  "Alice",
+  "Bob",
+  "Charlie",
+  ];
+  $( ".autocomplete" ).autocomplete({
+    source: availableTags
+  });
+
+
   var titleKeypressListener = function(e) {
     if(e.keyCode === 13) {
       var title = $('#title').val();
