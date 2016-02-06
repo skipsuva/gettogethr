@@ -1,4 +1,10 @@
-
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(event) {
+  $(".autocomplete").autocomplete({
+    source: <%= raw @users.map(&:name) %>
+  });
+});
+</script>
 
 <p>
   <strong>Who's Involved: </strong>

@@ -44,19 +44,19 @@ $(document).ready(function(){
     this.addModalButtonListener();
     this.addModalCloseListener();
     this.finalizeAjaxCallback();
-    this.addAutocomplete();
+    // this.addAutocomplete();
   };
 
-  Gathering.prototype.addAutocomplete = function() {
-    var availableTags = [
-    "Alice",
-    "Bob",
-    "Charlie",
-    ];
-    this.$autocomplete.autocomplete({
-      source: availableTags
-    });
-  }
+  // Gathering.prototype.addAutocomplete = function() {
+  //   availableTags = [
+  //   "Alice",
+  //   "Bob",
+  //   "Charlie",
+  //   ];
+  //   this.$autocomplete.autocomplete({
+  //     source: availableTags
+  //   });
+  // }
 
   Gathering.prototype.addTitleListener = function() {
     this.$gatheringTitle.dblclick(function() {
