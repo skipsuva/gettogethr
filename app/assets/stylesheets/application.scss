@@ -113,7 +113,7 @@ a:active {
 // Gatherings Show
 // --------------------------------------------------
 
-.panel {
+.item-list .panel {
   .panel-footer, .panel-body, .panel-heading  {
     padding-bottom: 5px;
     padding-top: 5px;
@@ -123,12 +123,16 @@ a:active {
   }
 }
 
+.item-col {
+  padding-left: 0px;
+}
+
 .gathering-finalized {
   opacity: 0.35;
 }
 
 // for making the panels default to closed
-.panel-body {
+.item-list .panel-body {
   display:none;
 }
 
@@ -145,9 +149,6 @@ a:active {
   display:block;
 }
 
-.item-col {
-  padding-left: 0px;
-}
 
 //
 // Comments
@@ -155,6 +156,10 @@ a:active {
 
 .comment-box .panel-body {
   display:block;
+}
+
+.comment-list {
+  margin-bottom: 0px;
 }
 
 //
