@@ -160,12 +160,39 @@ a:active {
 
 .comment-box .panel-body {
   display:block;
+  padding-bottom: 0px;
 }
 
 .comment-list {
+  margin-bottom: 15px;
+}
+
+.comment-list .panel-body {
+  margin-bottom: 0px;
+  height:220px;
+  overflow: scroll;
+}
+
+.comment-box .panel-footer {
+  background-color: $gt-color5;
+  padding-top: 5px;
+}
+
+#new_comment textarea {
+  padding: 5px;
+  width: 80%;
+  margin: 15px;
   margin-bottom: 0px;
 }
 
+#new_comment .btn {
+  // vertical-align: middle;
+  margin-bottom: 40px;
+}
+
+#new_comment {
+  height: 65px;
+}
 
 
 //
