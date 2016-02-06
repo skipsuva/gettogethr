@@ -153,6 +153,10 @@ a:active {
 //
 // Comments
 // --------------------------------------------------
+.comment-box {
+  background-color: $gt-color5;
+  // color: $gt-color3;
+}
 
 .comment-box .panel-body {
   display:block;
@@ -161,6 +165,8 @@ a:active {
 .comment-list {
   margin-bottom: 0px;
 }
+
+
 
 //
 // Modal
