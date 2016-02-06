@@ -1,9 +1,19 @@
 <script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function(event) { //Only invoke autocomplete aufter jquery is loaded
   $(".autocomplete").autocomplete({
-    source: <%= raw @users.map(&:name) %>
-  });
+    source: <%= @users.map{|u| {"value" => u.id, "label" => u.name} }.to_json.html_safe %>,
+    select: function(event, ui) {
+      event.preventDefault();
+      var selected_name = ui.item.label;
+      var selected_id = ui.item.value;
+      $("select#user_id option[value='"+selected_id+"']").prop('selected', true);
+      $(".ac-input").val(selected_name);
+    }
+   }
+   );
 });
+
+
 </script>
 
 <p>
@@ -15,8 +25,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 <div>
   <%= form_tag("/gatherings/#{@gathering.id}/add-users", remote:true) do %>
-    <%= text_field( :user, :id, options={class:"form-control autocomplete"}) %>
-    <%= select("user", "id", @users.map { |u| [u.name, u.id] }, {include_blank: true, class:"autocomplete"}) %>
+    <%= text_field( :user, :id, options={class:"form-control autocomplete ac-input"}) %>
+    <%= select("user", "id", @users.map { |u| [u.name, u.id] }, {include_blank: true, class:"autocomplete", type:"hidden"}) %>
     <%=submit_tag "Add Users!"%>
   <% end %>
 </div>
