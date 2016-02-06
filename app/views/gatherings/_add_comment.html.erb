@@ -3,7 +3,7 @@
     <%= form_for([@gathering, @comment], remote: true) do |f| %>
       <%= f.text_area :content, placeholder: 'Your comment here...' %>
 
-    <%= f.submit 'Comment', class:"btn btn-xs" %>
+    <%= f.submit 'Comment', class:"btn btn-default btn-xs btn-3d" %>
 
   <% end %>
 </div>
