@@ -4,16 +4,6 @@
 
 $(document).ready(function(){
 
-  var availableTags = [
-  "Alice",
-  "Bob",
-  "Charlie",
-  ];
-  $( ".autocomplete" ).autocomplete({
-    source: availableTags
-  });
-
-
   var titleKeypressListener = function(e) {
     if(e.keyCode === 13) {
       var title = $('#title').val();
@@ -46,6 +36,7 @@ $(document).ready(function(){
     this.$titleRow = $('#title-row');
     this.$votableCards = $('#votable-cards');
     this.$votableForms = $('#votable-forms');
+    this.$autocomplete = $(".autocomplete");
   };
 
   Gathering.prototype.init = function() {
@@ -53,7 +44,19 @@ $(document).ready(function(){
     this.addModalButtonListener();
     this.addModalCloseListener();
     this.finalizeAjaxCallback();
+    this.addAutocomplete();
   };
+
+  Gathering.prototype.addAutocomplete = function() {
+    var availableTags = [
+    "Alice",
+    "Bob",
+    "Charlie",
+    ];
+    this.$autocomplete.autocomplete({
+      source: availableTags
+    });
+  }
 
   Gathering.prototype.addTitleListener = function() {
     this.$gatheringTitle.dblclick(function() {

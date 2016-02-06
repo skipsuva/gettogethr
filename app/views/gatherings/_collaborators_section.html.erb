@@ -10,7 +10,7 @@
 <div>
   <%= form_tag("/gatherings/#{@gathering.id}/add-users", remote:true) do %>
     <%= text_field( :user, :id, options={class:"form-control autocomplete"}) %>
-    <%= select("user", "id", @users.map { |u| [u.name, u.id] }, {include_blank: true}) %>
+    <%= select("user", "id", @users.map { |u| [u.name, u.id] }, {include_blank: true, class:"autocomplete"}) %>
     <%=submit_tag "Add Users!"%>
   <% end %>
 </div>
