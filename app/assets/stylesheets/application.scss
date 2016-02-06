@@ -145,11 +145,17 @@ a:active {
   display:block;
 }
 
-
 .item-col {
   padding-left: 0px;
 }
 
+//
+// Comments
+// --------------------------------------------------
+
+.comment-box .panel-body {
+  display:block;
+}
 
 //
 // Modal
