@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 ruby "2.2.2"
 
-# Use state machine for Gathering state 
+# Use state machine for Gathering state
 gem 'aasm'
-
+gem 'jquery-ui-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -26,6 +26,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails"
 
 gem 'devise'
+gem 'omniauth-google-oauth2'
 
 gem 'faker'
 

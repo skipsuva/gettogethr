@@ -1,3 +1,21 @@
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(event) { //Only invoke autocomplete aufter jquery is loaded
+  $(".autocomplete").autocomplete({
+    source: <%= @users.map{|u| {"value" => u.id, "label" => u.name} }.to_json.html_safe %>,
+    select: function(event, ui) {
+      event.preventDefault();
+      var selected_name = ui.item.label;
+      var selected_id = ui.item.value;
+      $("select#user_id option[value='"+selected_id+"']").prop('selected', true);
+      $(".ac-input").val(selected_name);
+    }
+   }
+   );
+});
+
+
+</script>
+
 <p>
   <strong>Who's Involved: </strong>
   <div id="collaborator-list">
@@ -7,7 +25,14 @@
 
 <div>
   <%= form_tag("/gatherings/#{@gathering.id}/add-users", remote:true) do %>
-    <%= select("user", "id", @users.map { |u| [u.name, u.id] }, {include_blank: true}) %>
-    <%=submit_tag "Add Users!"%>
+    <p>
+      <%= text_field( :user, :id, options={class:"form-control autocomplete ac-input"}) %>
+      <div style="display:none;">
+       <%= select("user", "id", @users.map { |u| [u.name, u.id] }, {include_blank: true, class:"autocomplete"}) %>
+      </div>
+    </p>
+    <p>
+      <%=submit_tag "Add Users!", {class:"btn"}%>
+    </p>
   <% end %>
 </div>
