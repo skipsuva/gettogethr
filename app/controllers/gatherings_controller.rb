@@ -38,6 +38,7 @@ class GatheringsController < ApplicationController
     if @user == current_user
       @gathering.users.delete(@user)
       redirect_to gatherings_path
+      # our ajax is preventing an HTML page redirect
     else
       @gathering.users.delete(@user)
       respond_to do |format|
