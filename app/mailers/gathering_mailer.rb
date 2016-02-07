@@ -8,15 +8,12 @@ class GatheringMailer < ApplicationMailer
     mail(to: @user.email, subject: 'You have been invited to a gathering!')
   end
 
-  def finalize_plan(gathering, current_user)
+  def finalize_plan(gathering, user, current_user)
     @gathering = gathering
     @current_user = current_user
+    @user = user
 
-    # mail(to: Proc.new { @gathering.users.pluck(:email) }, subject: "The gathering #{@gathering.title} has been finalized!")
-
-
-    @gathering.users.each do |user|
-      mail(to: user.email, subject: "The gathering #{@gathering.title} has been finalized!")
-    end
+    mail(to: @user.email, subject: "The gathering #{@gathering.title} has been finalized!")
   end
+
 end
