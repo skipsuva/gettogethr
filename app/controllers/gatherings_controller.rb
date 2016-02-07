@@ -22,7 +22,6 @@ class GatheringsController < ApplicationController
   end
 
   def add_users
-    binding.pry
     @gathering = Gathering.find(params[:id])
     @user = User.find(params[:user][:id])
     @gathering.users << @user

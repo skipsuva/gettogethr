@@ -7,7 +7,8 @@ Rails.application.routes.draw do
 
   post 'votes/submit'
 
-  # post 'gatherings/:id/add-users'
+  post '/gatherings/:id/add-users', to: "gatherings#add_users"
+  post '/gatherings/:id/remove-users', to: "gatherings#remove_users"
 
   resources :gatherings do
     member do
