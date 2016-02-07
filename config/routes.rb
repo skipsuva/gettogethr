@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   end
 
   resources :users
+  
   # get 'login', to: "sessions#new", as: :user_root
 
   # resources :sessions, only: [:new, :create]
