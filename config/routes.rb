@@ -19,8 +19,6 @@ Rails.application.routes.draw do
   resources :users
   # get 'login', to: "sessions#new", as: :user_root
 
-  user_root 'gatherings/index'
-
   # resources :sessions, only: [:new, :create]
   # delete 'sessions', to: "sessions#destroy"
 
