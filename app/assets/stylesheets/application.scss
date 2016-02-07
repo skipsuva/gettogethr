@@ -33,6 +33,10 @@ $gt-color3: #ece4b7; //rgba(236, 228, 183, 100) - pellow
 $gt-color4: #f49e4c; //rgba(244, 158, 76, 100) - light ochre
 $gt-color5: #ab3428; //rgba(171, 52, 40, 100) - passionate coral
 
+$font-size-large-form: floor(($font-size-base * 2.5));
+$font-size-xl-header: floor(($font-size-base * 4.5));
+$font-size-l-header: floor(($font-size-base * 3.5));
+
 //
 // Navigation
 // --------------------------------------------------
@@ -79,20 +83,32 @@ img#nav-logo {
 // Home page
 // --------------------------------------------------
 
-.main-content-wrapper.home-index {
-  background-image: url('/images/gt-cover-hangout-web.jpg');
+.main-content-wrapper.home-index, .main-content-wrapper.gatherings-new {
   background-size: cover;
   background-position: center top;
 }
 
-h1#splash-header, h2#splash-callout {
+.main-content-wrapper.home-index {
+  background-image: url('/images/gt-cover-hangout-web.jpg');
+}
+
+.main-content-wrapper.gatherings-new {
+  background-image: url('/images/gt-create-canoe-web.jpg');
+}
+
+h1#splash-header, h2#splash-callout, h1#create-header {
   text-align: center;
   color: $gt-color4;
 }
 
-h1#splash-header {
-  font-size: $font-size-h1 * 1.75;
+#splash-header, #create-header {
+  font-size: $font-size-xl-header;
   padding-top: 1.25em;
+}
+
+#create-header {
+  color: #fff;
+  font-size: $font-size-l-header;
 }
 
 h2#splash-callout {
@@ -120,12 +136,37 @@ h2#splash-callout {
 }
 
 //
+// New Gathering
+// --------------------------------------------------
+
+#new_gathering {
+  padding-top: 1em;
+}
+
+#new_gathering .field {
+  text-align: center;
+}
+
+#new_gathering #gathering_title {
+  font-size: $font-size-large-form;
+  padding: .35em;
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 2px $gt-color2;
+  color: $gt-color2;
+}
+
+#new_gathering .actions {
+  padding-top: 1em;
+  text-align: center;
+}
+
+//
 // Vote Form
 // --------------------------------------------------
 .hidden-button {
   display: none;
 }
-
 
 //
 // Comments Field
