@@ -9,9 +9,15 @@
       The gathering <strong>"<%= @gathering.title %>"</strong> has been finalized by: <strong><%= @current_user.name %></strong>.<br><br>
 
       Here are the details:<br>
-      <strong>When:</strong> <%= @gathering.finalized_plan.moment.time %> <br>
+      <% if @gathering.finalized_plan.moment %>
+      <strong>When:</strong> <%= @gathering.finalized_plan.moment.time.strftime('%_m/%-d/%y at %l:%M %P') %> <br>
+      <% end %>
+      <% if @gathering.finalized_plan.place %>
       <strong>Where:</strong> <%= @gathering.finalized_plan.place.name %> <br>
+      <% end %>
+      <% if @gathering.finalized_plan.activity %>
       <strong>What:</strong> <%= @gathering.finalized_plan.activity.description %> <br>
+      <% end %>
       <strong>With:</strong> <% @gathering.users.each do |user| %>
         <%= user.name %> <br>
       <% end %>
