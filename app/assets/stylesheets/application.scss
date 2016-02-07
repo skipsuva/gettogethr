@@ -54,6 +54,7 @@ img#nav-logo {
 
 .main-nav {
   float: left;
+  font-size: 15px;
   padding-top: 19px;
   padding-left: 40px;
   color: $gray-light;
@@ -61,10 +62,16 @@ img#nav-logo {
 
 #header .user-nav {
   padding-top: 19px;
+  font-weight: 500;
+}
+
+#header .dropdown.settings > a {
+  font-size: 15px;
+  font-weight: 500;
 }
 
 .main-app-link {
-  font-weight: 700;
+  font-weight: 500;
   line-height: 39px;
 }
 
