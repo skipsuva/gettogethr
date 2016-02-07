@@ -22,6 +22,7 @@ class GatheringsController < ApplicationController
   end
 
   def add_users
+    # Mailer action
     @gathering = Gathering.find(params[:id])
     @user = User.find(params[:user][:id])
     @gathering.users << @user
@@ -111,6 +112,8 @@ class GatheringsController < ApplicationController
     #   activity: Activity.find(finalized_params[:activities]),
     #   place: Place.find(finalized_params[:places]))
 
+    # Mailer action
+    
     @plan = FinalizedPlan.create(
       moment_id: finalized_params[:moments],
       activity_id: finalized_params[:activities],

@@ -1,0 +1,2 @@
+class GatheringMailer < ApplicationMailer
+end
