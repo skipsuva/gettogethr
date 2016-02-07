@@ -159,8 +159,13 @@ a:active {
   color: $gt-color2;
 }
 
+//
+// Theme Structure Overrides
+// --------------------------------------------------
 
-
+.main-content-wrapper {
+  margin-left: 0;
+}
 
 //
 // Gatherings Show
