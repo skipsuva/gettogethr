@@ -2,7 +2,6 @@ class AddDeviseToUsers < ActiveRecord::Migration
   def self.up
     change_table(:users) do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
@@ -35,6 +34,9 @@ class AddDeviseToUsers < ActiveRecord::Migration
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true
     add_index :users, :unlock_token,         unique: true
+
+    change_column_null :users, :email, false
+    change_column_default :users, :email, ""
 
     # remove column for original authentication scheme
     remove_column :users, :password_digest
