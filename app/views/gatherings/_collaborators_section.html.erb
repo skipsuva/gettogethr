@@ -25,10 +25,14 @@ document.addEventListener("DOMContentLoaded", function(event) { //Only invoke au
 
 <div>
   <%= form_tag("/gatherings/#{@gathering.id}/add-users", remote:true) do %>
-    <%= text_field( :user, :id, options={class:"form-control autocomplete ac-input"}) %>
-    <div style="display:none;">
-     <%= select("user", "id", @users.map { |u| [u.name, u.id] }, {include_blank: true, class:"autocomplete"}) %>
-    </div>
-    <%=submit_tag "Add Users!"%>
+    <p>
+      <%= text_field( :user, :id, options={class:"form-control autocomplete ac-input"}) %>
+      <div style="display:none;">
+       <%= select("user", "id", @users.map { |u| [u.name, u.id] }, {include_blank: true, class:"autocomplete"}) %>
+      </div>
+    </p>
+    <p>
+      <%=submit_tag "Add Users!", {class:"btn"}%>
+    </p>
   <% end %>
 </div>
