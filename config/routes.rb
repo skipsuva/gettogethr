@@ -17,19 +17,16 @@ Rails.application.routes.draw do
   end
 
   resources :users
-  get 'login', to: "sessions#new", as: :user_root
+  # get 'login', to: "sessions#new", as: :user_root
 
   user_root 'gatherings/index'
 
-  # added by skip
-  resources :sessions, only: [:new, :create]
-  delete 'sessions', to: "sessions#destroy"
+  # resources :sessions, only: [:new, :create]
+  # delete 'sessions', to: "sessions#destroy"
 
-  resources :registrations, only: [:new, :create]
-  post '/gatherings/:id/add-users', to: "gatherings#add_users"
-  post '/gatherings/:id/remove-users', to: "gatherings#remove_users"
-
-
+  # resources :registrations, only: [:new, :create]
+  # post '/gatherings/:id/add-users', to: "gatherings#add_users"
+  # post '/gatherings/:id/remove-users', to: "gatherings#remove_users"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
