@@ -13,28 +13,26 @@
   <!-- Favicon -->
   <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
   <!-- Fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-
-
+  <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700,700italic,600italic,400italic|Open+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body class="off-canvas">
   <div id="container">
     <header id="header">
       <!--logo start-->
       <div class="brand">
-          <%= image_tag "gettogethr-logo-web.png", id: 'nav-logo' %>
+          <%= link_to image_tag("gettogethr-logo-web.png", id: 'nav-logo'), root_path %>
       </div>
       <!--logo end-->
-
-      <div class="toggle-navigation toggle-left">
-          <button type="button" class="btn btn-default" id="toggle-left" data-toggle="tooltip" data-placement="right" title="Toggle Navigation">
-              <i class="fa fa-bars"></i>
-          </button>
+      <div class="main-nav">
+        <ul class="list-unstyled">
+          <li class='main-app-link'>
+            <%= link_to 'Gatherings', gatherings_path %>
+          </li>
+        </ul>
       </div>
       <div class="user-nav">
           <ul>
-              <li class="dropdown messages">
+              <!-- <li class="dropdown messages">
                   <span class="badge badge-danager animated bounceIn" id="new-messages">5</span>
                   <button type="button" class="btn btn-default dropdown-toggle options" id="toggle-mail" data-toggle="dropdown">
                       <i class="fa fa-envelope"></i>
@@ -44,7 +42,7 @@
                           <h1>You have <strong>some number of</strong> new messages</h1>
                       </li>
                   </ul>
-              </li>
+              </li> -->
               <li class="profile-photo">
                   <!-- <img src="assets/img/avatar.png" alt="" class="img-circle"> -->
               </li>
@@ -58,34 +56,22 @@
           </ul>
       </div>
     </header>
-    <nav class="sidebar sidebar-left">
-      <ul class="nav nav-pills nav-stacked">
-        <li class="active">
-          <%= link_to root_path do %>
-          <i class="fa fa-home"></i> Home
-          <% end %>
-        </li>
-        <li>
-          <% if user_signed_in? %>
-            <%= link_to gatherings_path do %>
-          <i class="fa fa-group"></i> Gatherings
-            <% end %>
-          <% end %>
-        </li>
-      </ul>
-    </nav>
-    <%- if !flash.empty? -%>
-      <%- flash.each do |note, msg| -%>
-    <div class="container panel panel-default flash <%= note %>">
-        <div class="panel-body"><%= msg %></div>
-    </div>
-      <%- end -%>
-    <%- end -%>
-    <section class="main-content-wrapper">
+    <section class="main-content-wrapper <%= controller_name %>-<%= action_name %>">
       <section id="main-content">
         <div class="row">
-        <div class="col-md-12">
-      <%= yield %>
+          <%- if !flash.empty? -%>
+            <%- flash.each do |note, msg| -%>
+          <div class="container panel panel-default flash <%= note %>">
+              <div class="panel-body"><%= msg %></div>
+          </div>
+            <%- end -%>
+          <%- end -%>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+          <%= yield %>
+          </div>
+        </div>
         <!-- </div> -->
       </section>
     </section>
