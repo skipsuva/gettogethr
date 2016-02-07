@@ -1,1 +1,9 @@
-<span><%= collaborator.name %> <%= button_to "X", {action:"remove_users", user:collaborator.id}, method: :post, remote: true %> |</span>  
+<div style="display:inline-block" id="collaborator-<%=collaborator.id%>">
+  <span style="display:inline-block">
+  <%= collaborator.name %>
+  </span>
+  <span style="display:inline-block" class="btn btn-xs">
+  <%= button_to "X", {action:"remove_users", user:collaborator.id}, method: :post, remote: true, style:"display:inline-block" %>
+  </span>
+  |
+</div>

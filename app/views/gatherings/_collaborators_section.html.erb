@@ -1,7 +1,7 @@
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function(event) { //Only invoke autocomplete aufter jquery is loaded
   $(".autocomplete").autocomplete({
-    source: <%= @users.map{|u| {"value" => u.id, "label" => u.name} }.to_json.html_safe %>,
+    source: <%= @users.map{|u| {"value" => u.id, "label" => "#{u.name} <#{u.email}>"} }.to_json.html_safe %>,
     select: function(event, ui) {
       event.preventDefault();
       var selected_name = ui.item.label;
