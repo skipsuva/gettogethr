@@ -1,6 +1,6 @@
 class GatheringMailer < ApplicationMailer
 
-  def invite_user(user, gathering)
+  def invite_user(user, gathering, current_user)
     @user = user
     @gathering = gathering
     @current_user = current_user
