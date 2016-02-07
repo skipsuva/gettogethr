@@ -26,6 +26,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails"
 
 gem 'devise'
+gem 'omniauth-google-oauth2'
 
 gem 'faker'
 

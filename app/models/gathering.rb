@@ -5,7 +5,7 @@ class Gathering < ActiveRecord::Base
   has_many :moments, dependent: :destroy
   has_many :activities, dependent: :destroy
   has_many :places, dependent: :destroy
-  has_many :comments,  dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_one :finalized_plan, dependent: :destroy
 
   #====================
