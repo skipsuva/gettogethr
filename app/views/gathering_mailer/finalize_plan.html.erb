@@ -6,9 +6,15 @@
   <body>
     <h1>Hey, <%= @user.name %>!</h1>
     <p>
-      
-      You've been invited to the following gathering by <%= @current_user.name %>:<br>
-      <strong><%= @gathering.title %></strong>
+      The gathering <strong>"<%= @gathering.title %>"</strong> has been finalized by: <strong><%= @current_user.name %></strong>.<br><br>
+
+      Here are the details:<br>
+      <strong>When:</strong> <%= @gathering.finalized_plan.moment %>
+      <strong>Where:</strong> <%= @gathering.finalized_plan.place %>
+      <strong>What:</strong> <%= @gathering.finalized_plan.activity %>
+      <strong>With:</strong> <%= @gathering.finalized_plan %>
+
+
     </p>
     <p>
       Log in to check it out.

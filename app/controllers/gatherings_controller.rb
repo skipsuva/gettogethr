@@ -124,6 +124,7 @@ class GatheringsController < ApplicationController
     if @plan
       @gathering.finalize
       @gathering.save
+      GatheringMailer.finalize_plan(@gathering).deliver_now
     end
   end
 
