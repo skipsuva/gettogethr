@@ -4,16 +4,17 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Hey, <%= @user.name %>!</h1>
+    <h1>Hey there!</h1>
     <p>
       The gathering <strong>"<%= @gathering.title %>"</strong> has been finalized by: <strong><%= @current_user.name %></strong>.<br><br>
 
       Here are the details:<br>
-      <strong>When:</strong> <%= @gathering.finalized_plan.moment %>
-      <strong>Where:</strong> <%= @gathering.finalized_plan.place %>
-      <strong>What:</strong> <%= @gathering.finalized_plan.activity %>
-      <strong>With:</strong> <%= @gathering.finalized_plan %>
-
+      <strong>When:</strong> <%= @gathering.finalized_plan.moment.time %> <br>
+      <strong>Where:</strong> <%= @gathering.finalized_plan.place.name %> <br>
+      <strong>What:</strong> <%= @gathering.finalized_plan.activity.description %> <br>
+      <strong>With:</strong> <% @gathering.users.each do |user| %>
+        <%= user.name %> <br>
+      <% end %>
 
     </p>
     <p>

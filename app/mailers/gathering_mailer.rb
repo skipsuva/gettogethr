@@ -8,9 +8,10 @@ class GatheringMailer < ApplicationMailer
     mail(to: @user.email, subject: 'You have been invited to a gathering!')
   end
 
-  def finalize_plan(gathering, plan)
+  def finalize_plan(gathering, current_user)
     @gathering = gathering
-    @current_user = current_user    
+    @current_user = current_user
+    
     @gathering.users.each do |user|
       mail(to: user.email, subject: "The gathering #{@gathering.title} has been finalized!")
     end
