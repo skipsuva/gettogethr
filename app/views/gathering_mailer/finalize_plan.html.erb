@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hey, <%= @user.name %>!</h1>
+    <p>
+      
+      You've been invited to the following gathering by <%= @current_user.name %>:<br>
+      <strong><%= @gathering.title %></strong>
+    </p>
+    <p>
+      Log in to check it out.
+    </p>
+    <p>Thanks for using gettogethr!</p>
+  </body>
+</html>
