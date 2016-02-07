@@ -76,6 +76,15 @@ img#nav-logo {
 }
 
 //
+// Home page
+// --------------------------------------------------
+
+.main-content-wrapper.home-index {
+  background-image: url('/images/gt-cover-hangout-web.jpg');
+  background-size: cover;
+}
+
+//
 // Flash panel
 // --------------------------------------------------
 .flash.success {
