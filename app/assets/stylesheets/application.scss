@@ -82,6 +82,23 @@ img#nav-logo {
 .main-content-wrapper.home-index {
   background-image: url('/images/gt-cover-hangout-web.jpg');
   background-size: cover;
+  background-position: center top;
+}
+
+h1#splash-header, h2#splash-callout {
+  text-align: center;
+  color: $gt-color4;
+}
+
+h1#splash-header {
+  font-size: $font-size-h1 * 1.75;
+  padding-top: 1.25em;
+}
+
+h2#splash-callout {
+  font-size: $font-size-h4;
+  padding-top: 2em;
+  color: $gt-color1;
 }
 
 //
