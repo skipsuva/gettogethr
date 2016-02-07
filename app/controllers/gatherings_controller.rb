@@ -7,6 +7,7 @@ class GatheringsController < ApplicationController
   # GET /gatherings.json
   def index
     @gatherings = current_user.gatherings
+    @own_gatherings = current_user.own_gatherings - @gatherings
   end
 
   # GET /gatherings/1
