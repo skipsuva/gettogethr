@@ -44,7 +44,7 @@
         </thead>
 
         <tbody>
-          <% @gatherings.each do |gathering| %>
+          <% @invited_gatherings.each do |gathering| %>
             <tr>
               <td><%= link_to gathering.title, gathering %></td>
               <td><%= gathering.aasm_state.capitalize %></td>
