@@ -18,7 +18,7 @@ RSpec.describe SessionsController, type: :controller do
       it "creates a new user session" do
         new_user = user
         post :create, {:user => valid_attributes}
-        expect(@controller.logged_in?).to be_truthy
+        expect(@controller.user_signed_in?).to be_truthy
       end
 
       it "redirects to the created gathering" do
