@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   end
 
   resources :users
-  get 'login', to: "sessions#new", as: :login
+  get 'login', to: "sessions#new", as: :user_root
+
+  user_root 'gatherings/index'
 
   # added by skip
   resources :sessions, only: [:new, :create]
