@@ -1,3 +1,4 @@
+$font-family-sans-serif:  "Open Sans", Helvetica, Arial, sans-serif !default;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -22,7 +23,7 @@
 @import "gatherings";
 
 //
-// Theme colors
+// Variables: colors & fonts
 // --------------------------------------------------
 
 $theme-body-text: #5D5F63;
