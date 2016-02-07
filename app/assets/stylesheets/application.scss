@@ -39,6 +39,11 @@ $gt-color5: #ab3428; //rgba(171, 52, 40, 100) - passionate coral
 .brand {
   text-align: center;
   padding-left: 0;
+  border-right: solid 1px $gray-lighter;
+}
+
+#header .brand {
+  background-color: #fff;
 }
 
 img#nav-logo {
@@ -141,10 +146,6 @@ img#nav-logo {
 // body {
 //   color: $theme-body-text;
 // }
-
-#header .brand {
-  background: #fff;
-}
 
 a:link,
 a:visited {

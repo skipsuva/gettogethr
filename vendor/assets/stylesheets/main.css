@@ -757,7 +757,6 @@ label.valid {
   min-height: 80px;
   padding: 0 0 0 10px;
   position: relative;
-  background: #1abc9c url('../img/logo.png') no-repeat 25px 26px;
 }
 #header .logo {
   color: #fff;
@@ -2118,7 +2117,6 @@ body.off-canvas.off-canvas-open #container {
   display: inline-block;
 }
 #login-wrapper .logo:before {
-  background-image: url('../img/logo.png');
   background-position: left center;
   background-repeat: no-repeat;
   padding: 0 20px;
