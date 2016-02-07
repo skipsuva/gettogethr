@@ -30,7 +30,7 @@ class GatheringsController < ApplicationController
       format.html{redirect_to @gathering}
       format.js{}
     end
-    GatheringMailer.invite_user(@user, @gathering, current_user).deliver_later
+    GatheringMailer.invite_user(@user, @gathering, current_user).deliver_now
   end
 
   def remove_users
