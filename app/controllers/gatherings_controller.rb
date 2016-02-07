@@ -26,6 +26,7 @@ class GatheringsController < ApplicationController
     @gathering = Gathering.find(params[:id])
     @user = User.find(params[:user][:id])
     @gathering.users << @user
+    GatheringMailer.invite_user(@user, @gathering, current_user)
     respond_to do |format|
       format.html{redirect_to @gathering}
       format.js{}
@@ -113,7 +114,7 @@ class GatheringsController < ApplicationController
     #   place: Place.find(finalized_params[:places]))
 
     # Mailer action
-    
+
     @plan = FinalizedPlan.create(
       moment_id: finalized_params[:moments],
       activity_id: finalized_params[:activities],
