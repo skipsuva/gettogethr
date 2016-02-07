@@ -1,3 +1,4 @@
+$font-family-sans-serif:  "Open Sans", Helvetica, Arial, sans-serif !default;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -22,7 +23,7 @@
 @import "gatherings";
 
 //
-// Theme colors
+// Variables: colors & fonts
 // --------------------------------------------------
 
 $theme-body-text: #5D5F63;
@@ -32,17 +33,88 @@ $gt-color3: #ece4b7; //rgba(236, 228, 183, 100) - pellow
 $gt-color4: #f49e4c; //rgba(244, 158, 76, 100) - light ochre
 $gt-color5: #ab3428; //rgba(171, 52, 40, 100) - passionate coral
 
+$font-size-large-form: floor(($font-size-base * 2.5));
+$font-size-xl-header: floor(($font-size-base * 4.5));
+$font-size-l-header: floor(($font-size-base * 3.5));
+
 //
 // Navigation
 // --------------------------------------------------
 
 .brand {
   text-align: center;
+  padding-left: 0;
+  border-right: solid 1px $gray-lighter;
+}
+
+#header .brand {
+  background-color: #fff;
 }
 
 img#nav-logo {
   width: 80%;
   padding-top: 14px;
+}
+
+.main-nav {
+  float: left;
+  font-size: 15px;
+  padding-top: 19px;
+  padding-left: 40px;
+  color: $gray-light;
+}
+
+#header .user-nav {
+  padding-top: 19px;
+  font-weight: 500;
+}
+
+#header .dropdown.settings > a {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.main-app-link {
+  font-weight: 500;
+  line-height: 39px;
+}
+
+//
+// Home page
+// --------------------------------------------------
+
+.main-content-wrapper.home-index, .main-content-wrapper.gatherings-new {
+  background-size: cover;
+  background-position: center top;
+}
+
+.main-content-wrapper.home-index {
+  background-image: url('/images/gt-cover-hangout-web.jpg');
+}
+
+.main-content-wrapper.gatherings-new {
+  background-image: url('/images/gt-create-canoe-web.jpg');
+}
+
+h1#splash-header, h2#splash-callout, h1#create-header {
+  text-align: center;
+  color: $gt-color4;
+}
+
+#splash-header, #create-header {
+  font-size: $font-size-xl-header;
+  padding-top: 1.25em;
+}
+
+#create-header {
+  color: #fff;
+  font-size: $font-size-l-header;
+}
+
+h2#splash-callout {
+  font-size: $font-size-h4;
+  padding-top: 2em;
+  color: $gt-color1;
 }
 
 //
@@ -64,12 +136,37 @@ img#nav-logo {
 }
 
 //
+// New Gathering
+// --------------------------------------------------
+
+#new_gathering {
+  padding-top: 1em;
+}
+
+#new_gathering .field {
+  text-align: center;
+}
+
+#new_gathering #gathering_title {
+  font-size: $font-size-large-form;
+  padding: .35em;
+  background-color: transparent;
+  border: none;
+  border-bottom: solid 2px $gt-color2;
+  color: $gt-color2;
+}
+
+#new_gathering .actions {
+  padding-top: 1em;
+  text-align: center;
+}
+
+//
 // Vote Form
 // --------------------------------------------------
-.hidden-button{
+.hidden-button {
   display: none;
-  }
-
+}
 
 //
 // Comments Field
@@ -79,7 +176,58 @@ img#nav-logo {
 }
 
 .comment-list li {
-    padding-bottom: $line-height-computed;
+  padding-bottom: $line-height-computed;
+}
+
+.comment-list .current-user {
+  text-align: right;
+  color: red;
+}
+
+.comment-box {
+  background-color: $gt-color5;
+  // color: $gt-color3;
+}
+
+.comment-box .panel-body {
+  display: block;
+  padding-bottom: 0px;
+}
+
+.comment-list {
+  margin-bottom: 15px;
+}
+
+.comment-list .panel-body {
+  margin-bottom: 0px;
+  height: 220px;
+  overflow: scroll;
+}
+
+.comment-box .panel-footer {
+  background-color: $gt-color5;
+  padding-top: 5px;
+  height: auto;
+}
+
+#new_comment textarea {
+  padding: 5px;
+  width: 75%;
+  margin: 15px;
+  margin-bottom: 0px;
+  resize: none;
+  border-radius: 5px;
+}
+
+#new_comment .btn {
+  // vertical-align: middle;
+  margin-bottom: 40px;
+  box-shadow: 0px 2px 0px #A6AAAC;
+  width: auto;
+}
+
+#new_comment {
+  height: 65px;
 }
 
 //
@@ -90,13 +238,6 @@ img#nav-logo {
 //   color: $theme-body-text;
 // }
 
-#header .brand {
-  background: $gt-color4;
-}
-.sidebar {
-  background: $gt-color3;
-}
-
 a:link,
 a:visited {
   color: $gt-color1;
@@ -106,14 +247,19 @@ a:active {
   color: $gt-color2;
 }
 
+//
+// Theme Structure Overrides
+// --------------------------------------------------
 
-
+.main-content-wrapper {
+  margin-left: 0;
+}
 
 //
 // Gatherings Show
 // --------------------------------------------------
 
-.panel {
+.item-list .panel {
   .panel-footer, .panel-body, .panel-heading  {
     padding-bottom: 5px;
     padding-top: 5px;
@@ -123,12 +269,16 @@ a:active {
   }
 }
 
+.item-col {
+  padding-left: 0px;
+}
+
 .gathering-finalized {
   opacity: 0.35;
 }
 
 // for making the panels default to closed
-.panel-body {
+.item-list .panel-body {
   display:none;
 }
 
@@ -143,11 +293,6 @@ a:active {
 
 .title-box .panel-body {
   display:block;
-}
-
-
-.item-col {
-  padding-left: 0px;
 }
 
 

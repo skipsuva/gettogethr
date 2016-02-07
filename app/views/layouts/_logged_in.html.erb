@@ -1,6 +1,6 @@
 
   <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><%= "hello, #{current_user.name}!" %> <span class="caret"></span></a>
   <ul class="dropdown-menu animated fadeInDown">
-    <li><i class="fa fa-user"></i> <%= link_to "Log Out", sessions_path, method: :delete %></li>
-    <li><i class="fa fa-power-off"></i> <%= link_to "Your Account", current_user %></li>
+    <li><%= link_to destroy_user_session_path, method: :delete do %><i class="fa fa-user"></i> Log Out<% end %></li>
+    <li><%= link_to current_user do %><i class="fa fa-power-off"></i> Your Account<% end %></li>
   </ul>
