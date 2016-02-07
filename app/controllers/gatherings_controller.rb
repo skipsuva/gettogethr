@@ -26,7 +26,7 @@ class GatheringsController < ApplicationController
     @gathering = Gathering.find(params[:id])
     @user = User.find(params[:user][:id])
     @gathering.users << @user
-    GatheringMailer.invite_user(@user, @gathering, current_user)
+    GatheringMailer.invite_user(@user, @gathering).deliver_later
     respond_to do |format|
       format.html{redirect_to @gathering}
       format.js{}

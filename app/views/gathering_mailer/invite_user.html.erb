@@ -6,11 +6,12 @@
   <body>
     <h1>Hey, <%= @user.name %>!</h1>
     <p>
-      You've been invited to a gathering!
+      You've been invited to the following gathering by <%= current_user.name %>:<br>
+      <%= @gathering.title %>
     </p>
     <p>
-      To login to the site, just follow this link: <%= @url %>.
+      Log in to check it out.
     </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>Thanks for using gettogethr!</p>
   </body>
 </html>

@@ -1,7 +1,8 @@
 class GatheringMailer < ApplicationMailer
 
-  def invite_user(user)
+  def invite_user(user, gathering)
     @user = user
-    @url  = 'http://example.com/login'
+    @gathering = gathering
+    # @url = gathering
     mail(to: @user.email, subject: 'You have been invited to a gathering!)
 end
