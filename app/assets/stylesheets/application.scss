@@ -52,6 +52,22 @@ img#nav-logo {
   padding-top: 14px;
 }
 
+.main-nav {
+  float: left;
+  padding-top: 19px;
+  padding-left: 40px;
+  color: $gray-light;
+}
+
+#header .user-nav {
+  padding-top: 19px;
+}
+
+.main-app-link {
+  font-weight: 700;
+  line-height: 39px;
+}
+
 //
 // Flash panel
 // --------------------------------------------------
