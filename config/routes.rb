@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users
-  
+
   root 'home#index'
   get 'home/index'
 
   post 'votes/submit'
+
+  # post 'gatherings/:id/add-users'
 
   resources :gatherings do
     member do
