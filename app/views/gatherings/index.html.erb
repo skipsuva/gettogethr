@@ -1,25 +1,85 @@
-<h1>Gatherings</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="row">
+    <div class="col-md-12">
+      <h1>Profile</h1>
+         <div class="panel">
+           <p>
+             <strong>Name: </strong>
+             <%= current_user.name %>
+           </p>
+           <p>
+             <strong>Email: </strong>
+             <%= current_user.email %>
+           </p>
+         </div>
+    </div>
+</div>
 
-  <tbody>
-    <% @gatherings.each do |gathering| %>
-      <tr>
-        <td><%= link_to gathering.title, gathering %></td>
-        <td><%= gathering.aasm_state.capitalize %></td>
-        <td><%= link_to 'Destroy', gathering, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
 
-<br>
+  <div class="col-md-12">
 
-<%= link_to 'New Gathering', new_gathering_path %>
+    <h1>Gatherings</h1>
+
+    <div class="col-md-6">
+
+      <h2>Initiated</h2>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @own_gatherings.each do |gathering| %>
+            <tr>
+              <td><%= link_to gathering.title, gathering %></td>
+              <td><%= gathering.aasm_state.capitalize %></td>
+              <td><%= link_to 'Destroy', gathering, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="col-md-6">
+
+      <h2>Invited</h2>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Status</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @invited_gatherings.each do |gathering| %>
+            <tr>
+              <td><%= link_to gathering.title, gathering %></td>
+              <td><%= gathering.aasm_state.capitalize %></td>
+              <td><%= button_to "Drop Out", "gatherings/#{gathering.id}/remove-users?user=#{current_user.id}", method: :post, remote: true %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+
+  </div>
+
+
+  <br>
+
+  <div class="btn">
+    <%= link_to 'New Gathering', new_gathering_path %>
+  </div>
+
+</div>
