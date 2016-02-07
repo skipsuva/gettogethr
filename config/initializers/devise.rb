@@ -74,6 +74,9 @@ Devise.setup do |config|
   # Does not affect registerable.
   config.paranoid = true
 
+  # Enables OAuth for Users.
+  config.omniauth :google_oauth2, ENV['GMAIL_OAUTH_CLIENT_ID'], ENV['GMAIL_OAUTH_SECRET']
+
   # By default Devise will store the user in session. You can skip storage for
   # particular strategies by setting this option.
   # Notice that if you are skipping storage for all authentication paths, you
