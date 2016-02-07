@@ -2,11 +2,11 @@ class Gathering < ActiveRecord::Base
   belongs_to :owner, class_name: "User"
   has_many :interests, dependent: :destroy
   has_many :users, through: :interests
-  has_many :moments
-  has_many :activities
-  has_many :places
-  has_many :comments
-  has_one :finalized_plan
+  has_many :moments, dependent: :destroy
+  has_many :activities, dependent: :destroy
+  has_many :places, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_one :finalized_plan, dependent: :destroy
 
   #====================
   include AASM
@@ -23,7 +23,7 @@ class Gathering < ActiveRecord::Base
       #   guard do
       #     !has_finalized_plan?
       #   end
-      # end 
+      # end
     end
 
     event :unfinalize do

@@ -22,9 +22,11 @@ class GatheringsController < ApplicationController
   end
 
   def add_users
+    # Mailer action
     @gathering = Gathering.find(params[:id])
     @user = User.find(params[:user][:id])
     @gathering.users << @user
+    GatheringMailer.invite_user(@user, @gathering, current_user).deliver_now
     respond_to do |format|
       format.html{redirect_to @gathering}
       format.js{}
@@ -38,6 +40,7 @@ class GatheringsController < ApplicationController
     if @user == current_user
       @gathering.users.delete(@user)
       redirect_to gatherings_path
+      # our ajax is preventing an HTML page redirect
     else
       @gathering.users.delete(@user)
       respond_to do |format|
@@ -110,6 +113,8 @@ class GatheringsController < ApplicationController
     #   activity: Activity.find(finalized_params[:activities]),
     #   place: Place.find(finalized_params[:places]))
 
+    # Mailer action
+
     @plan = FinalizedPlan.create(
       moment_id: finalized_params[:moments],
       activity_id: finalized_params[:activities],
@@ -119,6 +124,9 @@ class GatheringsController < ApplicationController
     if @plan
       @gathering.finalize
       @gathering.save
+      @gathering.users.each do |user|
+        GatheringMailer.finalize_plan(@gathering, user, current_user).deliver
+      end
     end
   end
 
