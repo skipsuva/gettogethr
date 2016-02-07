@@ -15,8 +15,6 @@
   <!-- Fonts -->
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-
-
 </head>
 <body class="off-canvas">
   <div id="container">
@@ -52,18 +50,22 @@
           </ul>
       </div>
     </header>
-    <%- if !flash.empty? -%>
-      <%- flash.each do |note, msg| -%>
-    <div class="container panel panel-default flash <%= note %>">
-        <div class="panel-body"><%= msg %></div>
-    </div>
-      <%- end -%>
-    <%- end -%>
     <section class="main-content-wrapper">
       <section id="main-content">
         <div class="row">
-        <div class="col-md-12">
-      <%= yield %>
+          <%- if !flash.empty? -%>
+            <%- flash.each do |note, msg| -%>
+          <div class="container panel panel-default flash <%= note %>">
+              <div class="panel-body"><%= msg %></div>
+          </div>
+            <%- end -%>
+          <%- end -%>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+          <%= yield %>
+          </div>
+        </div>
         <!-- </div> -->
       </section>
     </section>
