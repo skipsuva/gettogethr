@@ -26,4 +26,7 @@ class ApplicationController < ActionController::Base
     redirect_to gatherings_path, :flash => { :error => "You have not been invited to that gathering." } unless is_interested?(gathering_id)
   end
 
+  def after_sign_in_path_for
+    gatherings_path
+  end
 end
