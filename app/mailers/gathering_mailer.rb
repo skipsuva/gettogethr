@@ -12,10 +12,11 @@ class GatheringMailer < ApplicationMailer
     @gathering = gathering
     @current_user = current_user
 
-    default to: Proc.new { @gathering.users.pluck(:email) },
-          from: 'notification@example.com'
+    # mail(to: Proc.new { @gathering.users.pluck(:email) }, subject: "The gathering #{@gathering.title} has been finalized!")
 
-    mail(subject: "The gathering #{@gathering.title} has been finalized!")
+
+    @gathering.users.each do |user|
+      mail(to: user.email, subject: "The gathering #{@gathering.title} has been finalized!")
+    end
   end
-
 end
