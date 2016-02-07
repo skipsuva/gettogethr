@@ -38,6 +38,7 @@ $gt-color5: #ab3428; //rgba(171, 52, 40, 100) - passionate coral
 
 .brand {
   text-align: center;
+  padding-left: 0;
 }
 
 img#nav-logo {
@@ -66,9 +67,9 @@ img#nav-logo {
 //
 // Vote Form
 // --------------------------------------------------
-.hidden-button{
+.hidden-button {
   display: none;
-  }
+}
 
 
 //
@@ -79,15 +80,13 @@ img#nav-logo {
 }
 
 .comment-list li {
-    padding-bottom: $line-height-computed;
+  padding-bottom: $line-height-computed;
 }
 
 .comment-list .current-user {
   text-align: right;
-  color:red;
+  color: red;
 }
-
-
 
 .comment-box {
   background-color: $gt-color5;
@@ -95,7 +94,7 @@ img#nav-logo {
 }
 
 .comment-box .panel-body {
-  display:block;
+  display: block;
   padding-bottom: 0px;
 }
 
@@ -105,7 +104,7 @@ img#nav-logo {
 
 .comment-list .panel-body {
   margin-bottom: 0px;
-  height:220px;
+  height: 220px;
   overflow: scroll;
 }
 
@@ -144,8 +143,9 @@ img#nav-logo {
 // }
 
 #header .brand {
-  background: $gt-color4;
+  background: #fff;
 }
+
 .sidebar {
   background: $gt-color3;
 }
