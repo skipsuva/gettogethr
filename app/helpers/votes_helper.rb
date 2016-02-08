@@ -26,4 +26,7 @@ module VotesHelper
     hash[thumbage.to_i]
   end
 
+  def users_for_votable_vote(votable, thumbage)
+    votable.votes.joins(:user).where(value: thumbage).map {|v| v.user.name}
+  end
 end
