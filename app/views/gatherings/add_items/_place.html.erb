@@ -1,5 +1,7 @@
-  <%= form_for [@gathering, @place], remote: true do |f| %>
-    <%= f.label "Place Name", class: 'hidden' %>
-    <%= f.text_field :name, placeholder: 'e.g. Central Park' %>
-    <%= f.submit 'Add a place', class: 'btn' %>
-  <% end %>
+<%= form_for [@gathering, @place], remote: true do |f| %>
+  <%= f.label "Place Name", class: 'hidden' %>
+  <%= f.text_field :name, placeholder: 'e.g. Central Park' %>
+  <%= f.submit 'Add a place', class: 'btn' %>
+<% end %>
+
+<a href="#" class="btn cancel-button" role="button" aria-expanded="true" aria-controls="activities-form-container">Cancel</a>
