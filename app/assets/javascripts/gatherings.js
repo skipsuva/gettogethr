@@ -3,6 +3,10 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready(function(){
+  
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
 
   var titleKeypressListener = function(e) {
     if(e.keyCode === 13) {
