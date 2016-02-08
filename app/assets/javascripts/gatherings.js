@@ -63,7 +63,6 @@ $(document).ready(function(){
 
   Gathering.prototype.addExpandCollaboratorListener = function() {
     $(".collaborator").on('click', function(e) {
-      // $(".collaborator-delete").toggle();
       $(this).next().toggle();
      }
     )
