@@ -32,7 +32,18 @@ class GatheringsController < ApplicationController
       format.html{redirect_to @gathering}
       format.js{}
     end
-    GatheringMailer.invite_user(@user, @gathering, current_user).deliver_now
+    #GatheringMailer.invite_user(@user, @gathering, current_user).deliver_now
+  end
+
+  def mail_users
+    @gathering = Gathering.find(params[:id])
+    @gathering.users.each do |user|
+      GatheringMailer.invite_user(user, @gathering, current_user).deliver_now
+    end
+    respond_to do |format|
+      format.html{redirect_to @gathering}
+      format.js{}
+    end
   end
 
   def remove_users
