@@ -1,7 +1,7 @@
 <p>
   <strong>Who's Involved: </strong>
   <div id="collaborator-list">
-    | <%= render partial: "collaborator", collection: @collaborators %>
+     <%= render partial: "collaborator", collection: @collaborators %>
   </div>
 </p>
 
@@ -23,7 +23,7 @@
 <div>
   <%= form_tag( "/gatherings/#{@gathering.id}/mail-users", remote: true) do %>
    <%= button_tag type: 'submit', class: "btn btn-primary" do %>
-     Notify Invited Users!
+     Notify Invited Users
    <%end  %>
   <%end %>
 </div>

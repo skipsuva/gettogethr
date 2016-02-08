@@ -53,7 +53,15 @@ $(document).ready(function(){
     this.addCreateFormButtonListener();
     this.addAutoCompleteListener();
     this.addCollaboratorFormReset();
+    this.addExpandCollaboratorListener();
   };
+
+  Gathering.prototype.addExpandCollaboratorListener = function() {
+    $(".collaborator").on('click', function(e) {
+      $(".collaborator-delete").toggle();
+    }
+   )
+  }
 
   Gathering.prototype.addAutoCompleteListener = function() {
     var that = this;
