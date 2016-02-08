@@ -23,55 +23,62 @@
       <div class="panel" id="dashboard-panel">
         <div class="panel-body" id="dashboard-panel-body">
 
-          <div class="panel col-md-9" id="votable-dashboard">
+          <div class="panel col-md-9 " id="votable-dashboard">
             <!-- votable rows -->
-            <div class="row" id="activities-row">
+            <div class="row well" id="activities-row">
               <!-- insert cards -->
               <%= render "activities_section" %>
 
             </div>
-            <div class="row" id="places-row">
+            <div class="row well" id="places-row">
               <!-- insert cards -->
               <%= render "places_section" %>
 
             </div>
-            <div class="row" id="moments-row">
+            <div class="row well" id="moments-row">
               <!-- insert cards -->
+              <%= render "moments_section" %>
             </div>
           </div>
+
           <div class="panel col-md-3" id="dashboard-control">
             <!-- forms -->
-            <div class="row" id="action-row">
+            <div class="row well" id="action-row">
+              <div class="panel" id="forms-panel">
+                <div class="panel-body" id="forms-panel-body">
 
-              <!-- Buttons -->
-              <div class="action-buttons">
-                <a href="#activities-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="activities-form-container" id="what-button">What?</a>
-                <a href="#places-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="places-form-container" id="where-button">Where?</a>
-                <a href="#moments-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="moments-form-container" id="when-button">When?</a>
-              </div>
+                  <!-- Buttons -->
+                  <div class="action-buttons">
+                    <a href="#activities-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="activities-form-container" id="what-button">What?</a><br>
+                    <a href="#places-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="places-form-container" id="where-button">Where?</a><br>
+                    <a href="#moments-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="moments-form-container" id="when-button">When?</a>
+                  </div>
 
-                <!-- forms -->
-              <div id="create-forms">
-                <div class="collapse" id="moments-form-container">
-                  <div class="well">
-                    <%= render 'gatherings/add_items/moment' %>
-                  </div>
-                </div>
-                <div class="collapse" id="activities-form-container">
-                  <div class="well">
-                    <%= render 'gatherings/add_items/activity' %>
-                  </div>
-                </div>
-                <div class="collapse" id="places-form-container">
-                  <div class="well">
-                    <%= render 'gatherings/add_items/place' %>
+                    <!-- forms -->
+                  <div id="create-forms">
+                    <div class="collapse" id="moments-form-container">
+                      <div class="well">
+                        <%= render 'gatherings/add_items/moment' %>
+                      </div>
+                    </div>
+                    <div class="collapse" id="activities-form-container">
+                      <div class="well">
+                        <%= render 'gatherings/add_items/activity' %>
+                      </div>
+                    </div>
+                    <div class="collapse" id="places-form-container">
+                      <div class="well">
+                        <%= render 'gatherings/add_items/place' %>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+              <!-- end action-row -->
             </div>
 
             <!-- comments -->
-            <div class="row">
+             <div class="row well" id="comment-row">
               <div class="">
                 <div class="comment-box panel">
                   <!-- body -->
