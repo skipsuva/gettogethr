@@ -39,8 +39,19 @@
         <%= f.submit "Sign up", class:"btn" %>
       </div>
     <% end %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+      <div class="submit google">
+        <%= button_to "Sign up with Google", omniauth_authorize_path(resource_name, provider), class:"btn btn-info" %>
+      </div>
 
-    <%= render "devise/shared/links" %>
+      <% end -%>
+
+    <div class="devise-links">
+
+      <%= render "devise/shared/links" %>
+
+    </div>
+
     </div>
 
   </div>
