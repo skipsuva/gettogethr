@@ -320,3 +320,26 @@ a:active {
 //
 // Sessions
 // --------------------------------------------------
+.text.field {
+  padding-top: 1em ;
+  padding-bottom: 1em ;
+}
+
+.text.field .text {
+  width: 90%;
+  height: 2.25em;
+}
+
+.log-in .rememberable {
+ font-size: .75em;
+}
+
+.log-in .submit {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.log-in .btn {
+  width: 90%;
+
+}
