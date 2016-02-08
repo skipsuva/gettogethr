@@ -177,7 +177,9 @@ h2#splash-callout {
 }
 
 #votable-dashboard {
-  padding-right: 2em
+  padding-right: 2em;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 #votable-dashboard .section-wrapper {
@@ -186,7 +188,9 @@ h2#splash-callout {
   border-radius: .5em;
   margin-bottom: 1em;
 }
-
+#moments-row .section-wrapper {
+  margin-bottom: 0;
+}
 
 #dashboard-control {
   padding-left: 2em
