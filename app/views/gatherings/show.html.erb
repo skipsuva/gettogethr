@@ -4,16 +4,17 @@
     <div class="col-md-12">
       <div class="title-container" id="gathering-title-container" data-id="<%= @gathering.id %>">
         <h2 class="gathering-title"><%= @gathering.title %></h2>
+        <% if current_user != @gathering.owner %>
+        <h5 class="gathering-title">Initiated by: <%= @gathering.owner.name %> </h5>
+        <% end %>
       </div>
     </div>
   </div>
 
   <!-- Need to format without card -->
-  <div id="collaborators-panel" class="panel col-md-12">
-    <div class="panel-body">
-      <div id="collaborators">
-        <%= render "collaborators_section" %>
-      </div>
+  <div id="collaborators-panel" class="col-md-4">
+    <div id="collaborators">
+      <%= render "collaborators_section" %>
     </div>
   </div>
 
@@ -23,56 +24,62 @@
       <div class="panel" id="dashboard-panel">
         <div class="panel-body" id="dashboard-panel-body">
 
-          <div class="panel col-md-9 " id="votable-dashboard">
+          <div class="col-md-9 " id="votable-dashboard">
             <!-- votable rows -->
-            <div class="row well" id="activities-row">
+            <div class="row" id="activities-row">
               <!-- insert cards -->
-              <%= render "activities_section" %>
-            </div>
-            <div class="row well" id="places-row">
-              <!-- insert cards -->
-              <%= render "places_section" %>
+              <div class="section-wrapper clearfix" id="">
+
+                <%= render "activities_section" %>
+              </div>
 
             </div>
-            <div class="row well" id="moments-row">
+            <div class="row" id="places-row">
               <!-- insert cards -->
-              <%= render "moments_section" %>
+              <div class="section-wrapper clearfix" id="">
+
+              <%= render "places_section" %>
+              </div>
+            </div>
+            <div class="row" id="moments-row">
+              <!-- insert cards -->
+              <div class="section-wrapper clearfix" id="">
+
+                <%= render "moments_section" %>
+              </div>
             </div>
           </div>
 
           <div class="panel col-md-3" id="dashboard-control">
             <!-- forms -->
-            <div class="row well" id="action-row">
+            <div class="row" id="action-row">
 
               <div class="panel" id="forms-panel">
                 <div class="panel-body" id="forms-panel-body">
 
                   <!-- Buttons -->
                   <div class="panes" id="pane-wrapper">
-
-                    <div class="action-pane" id="form-buttons">
-
-                      <div class="action-buttons">
-                        <a href="#activities-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="activities-form-container" id="what-button">What?</a><br>
-                        <a href="#places-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="places-form-container" id="where-button">Where?</a><br>
-                        <a href="#moments-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="moments-form-container" id="when-button">When?</a>
-                      </div>
-
-                    </div>
                       <!-- forms -->
                     <div id="create-forms">
-                      <div class="action-pane hidden" id="moments-form-container">
+
+                      <div class="action-buttons">
+                        <h4>Make a suggestion:</h4>
+                        <a href="#" class="btn" role="button" data-pane="activities-form-container" aria-expanded="false" aria-controls="activities-form-container" id="what-button">Activity</a>
+                        <a href="#" class="btn" role="button" data-pane="places-form-container" aria-expanded="false" aria-controls="places-form-container" id="where-button">Place</a>
+                        <a href="#" class="btn" role="button" data-pane="moments-form-container" aria-expanded="false" aria-controls="moments-form-container" id="when-button">Time</a>
+                      </div>
+
+                      <div class="action-pane" id="moments-form-container">
                         <%= render 'gatherings/add_items/moment' %>
                       </div>
 
-                      <div class="action-pane hidden" id="activities-form-container">
+                      <div class="action-pane" id="activities-form-container">
                         <%= render 'gatherings/add_items/activity' %>
                       </div>
 
-                      <div class="action-pane hidden" id="places-form-container">
+                      <div class="action-pane" id="places-form-container">
                         <%= render 'gatherings/add_items/place' %>
                       </div>
-
                     </div>
 
                   </div>
@@ -82,7 +89,7 @@
             </div>
 
             <!-- comments -->
-             <div class="row well" id="comment-row">
+             <div class="row" id="comment-row">
               <div class="">
                 <div class="comment-box panel">
                   <!-- body -->

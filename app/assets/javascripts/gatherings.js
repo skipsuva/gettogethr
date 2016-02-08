@@ -57,6 +57,8 @@ $(document).ready(function(){
     this.addAutoCompleteListener();
     this.addCollaboratorFormReset();
     this.addExpandCollaboratorListener();
+    this.addActionButtonListeners();
+    this.addCancelButtonListener();
   };
 
   Gathering.prototype.addExpandCollaboratorListener = function() {
@@ -83,6 +85,16 @@ $(document).ready(function(){
     });
   };
 
+  Gathering.prototype.addActionButtonListeners = function() {
+    $('.action-buttons a').click(function(e) {
+      e.preventDefault();
+      var paneId = $(this).data('pane');
+      $(this).parent().addClass('hide-pane');
+      $("#" + paneId).addClass('display-pane');
+      // debugger;
+    });
+  }
+
   Gathering.prototype.addCollaboratorFormReset = function (arguments) {
     this.$collaboratorForm.bind('ajax:success', function(e, data, status, xhr){
       this.$collaboratorForm[0].reset();
@@ -91,12 +103,18 @@ $(document).ready(function(){
 
   Gathering.prototype.addCreateFormButtonListener = function() {
     $('#create-forms form').bind('ajax:success', function(e, data, status, xhr){
-      if(this.$collaboratorsSection.hasClass('hidden')) {
-        // debugger;
-        this.$collaboratorsSection.fadeIn();
-        this.$collaboratorsSection.removeClass('hidden');
-      }
-    }.bind(this) );
+        $(this).parent().removeClass('display-pane');
+        $('.action-buttons').removeClass('hide-pane');
+    } );
+    // }.bind(this) );
+  };
+
+  Gathering.prototype.addCancelButtonListener = function() {
+    $('.cancel-button').click(function(e) {
+      e.preventDefault();
+      $(this).parent().removeClass('display-pane');
+      $('.action-buttons').removeClass('hide-pane');
+    } );
   };
 
   Gathering.prototype.addTitleListener = function() {

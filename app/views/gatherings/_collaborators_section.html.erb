@@ -1,29 +1,22 @@
-<p>
   <strong>Who's Involved: </strong>
   <div id="collaborator-list">
      <%= render partial: "collaborator", collection: @collaborators %>
   </div>
-</p>
 
-<div>
+<div id="add-collabs">
   <%= form_tag("/gatherings/#{@gathering.id}/add-users", remote: true, id: 'add-collaborator-form') do %>
-    <p>
       <%= text_field( :user, :id, options={class:"form-control autocomplete ac-input"}) %>
       <!-- <div style="display:none;"> -->
         <%# select("user", "id", @users.map { |u| [u.name, u.id] }, {include_blank: true, class:"autocomplete"}) %>
       <!-- </div> -->
       <%= hidden_field(:user, :id) %>
-    </p>
-    <p>
-      <%=submit_tag "Add Users!", {class:"btn"}%>
-    </p>
+      <%=submit_tag "Add People", {class:"btn btn-primary"}%>
   <% end %>
-</div>
 
-<div>
   <%= form_tag( "/gatherings/#{@gathering.id}/mail-users", remote: true) do %>
-   <%= button_tag type: 'submit', class: "btn btn-primary" do %>
-     Notify Invited Users
+
+   <%= button_tag type: 'submit', class: "btn", id:"id-btn" do %>
+     Notify via Email
    <%end  %>
   <%end %>
 </div>
