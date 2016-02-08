@@ -63,9 +63,10 @@ $(document).ready(function(){
       minLength: 2,
       select: function(event, ui) {
         event.preventDefault();
+        debugger;
         var selected_name = ui.item.label;
         var selected_id = ui.item.value;
-        $("select#user_id option[value='"+selected_id+"']").prop('selected', true);
+        $('#add-collaborator-form input[type="hidden"]').val(selected_id);
         $(".ac-input").val(selected_name);
       }
     });
