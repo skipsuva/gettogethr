@@ -138,6 +138,12 @@ h2#splash-callout {
 //
 // Dashboard
 // --------------------------------------------------
+#outer-dashboard {
+  max-width: 90%;
+  float: none;
+  margin: 0 auto;
+}
+
 #votable-dashboard {
   max-height: 100%;
 }
