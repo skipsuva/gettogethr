@@ -1,35 +1,3 @@
-<script type="text/javascript">
-document.addEventListener("DOMContentLoaded", function(event) { //Only invoke autocomplete aufter jquery is loaded
-  // baseurl = <%= request.base_url %>;
-  // debugger;
-  $(".autocomplete").autocomplete({
-    //  source: <%= @users.map{|u| {"value" => u.id, "label" => "#{u.name} <#{u.email}>"} }.to_json.html_safe %>
-    // source: function (request, response) {
-    //       $.ajax({
-    //         url: "list_autocomplete.json",
-    //         data: { query: request.term },
-    //         success: function (data) {
-    //           debugger;
-    //           response(data);
-    //         }
-    //         });
-    //   }
-    source: "<%=request.base_url%>/gatherings/<%=@gathering.id%>/list_autocomplete.json"
-    ,
-    select: function(event, ui) {
-      event.preventDefault();
-      var selected_name = ui.item.label;
-      var selected_id = ui.item.value;
-      $("select#user_id option[value='"+selected_id+"']").prop('selected', true);
-      $(".ac-input").val(selected_name);
-    }
-   }
-   );
-});
-
-
-</script>
-
 <p>
   <strong>Who's Involved: </strong>
   <div id="collaborator-list">
@@ -38,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(event) { //Only invoke au
 </p>
 
 <div>
-  <%= form_tag("/gatherings/#{@gathering.id}/add-users", remote:true) do %>
+  <%= form_tag("/gatherings/#{@gathering.id}/add-users", remote: true, id: 'add-collaborator-form') do %>
     <p>
       <%= text_field( :user, :id, options={class:"form-control autocomplete ac-input"}) %>
       <div style="display:none;">
@@ -52,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function(event) { //Only invoke au
 </div>
 
 <div>
-  <%= form_tag( "/gatherings/#{@gathering.id}/mail-users", remote:true) do %>
+  <%= form_tag( "/gatherings/#{@gathering.id}/mail-users", remote: true) do %>
    <%= button_tag type: 'submit', class: "btn btn-primary" do %>
      Notify Invited Users!
    <%end  %>
