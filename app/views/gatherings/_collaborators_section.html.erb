@@ -52,5 +52,9 @@ document.addEventListener("DOMContentLoaded", function(event) { //Only invoke au
 </div>
 
 <div>
-   <%= button_to "Notify All", action: "mail_users" %>
+  <%= form_tag( "/gatherings/#{@gathering.id}/mail-users", remote:true) do %>
+   <%= button_tag type: 'submit', class: "btn btn-primary" do %>
+     Notify Invited Users!
+   <%end  %>
+  <%end %>
 </div>
