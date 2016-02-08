@@ -7,6 +7,39 @@
       </div>
     </div>
   </div>
+
+  <div class="row" id="outer-dashboard">
+    <div class="col-md-12" id="dashboard-col">
+      <div class="panel" id="dashboard-panel">
+        <div class="panel-body" id="dashboard-panel-body">
+          <div class="panel col-md-9" id="votable-dashboard">
+            <div class="row" id="activities-row">
+              <!-- insert cards -->
+              <%= render "activities_section" %>
+
+            </div>
+            <div class="row" id="places-row">
+              <!-- insert cards -->
+              <%= render "places_section" %>
+
+            </div>
+            <div class="row" id="moments-row">
+              <!-- insert cards -->
+            </div>
+          </div>
+          <div class="panel col-md-3" id="dashboard-control">
+            <!-- forms -->
+
+            <!-- comments -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
   <div class="row" id="action-row">
     <div class="col-md-12 action-buttons">
       <a href="#activities-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="activities-form-container" id="what-button">What?</a>
