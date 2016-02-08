@@ -8,6 +8,14 @@
     </div>
   </div>
 
+  <div id="collaborators-panel" class="panel col-md-12">
+    <div class="panel-body">
+      <div id="collaborators">
+        <%= render "collaborators_section" %>
+      </div>
+    </div>
+  </div>
+
   <div class="row" id="outer-dashboard">
     <div class="col-md-12" id="dashboard-col">
       <div class="panel" id="dashboard-panel">
@@ -38,13 +46,7 @@
             </div>
             <div class="row" id="form-row">
               <div class="col-md-12">
-                <div id="collaborators-panel" class="panel col-md-4 hidden">
-                  <div class="panel-body">
-                    <div id="collaborators">
-                      <%= render "collaborators_section" %>
-                    </div>
-                  </div>
-                </div>
+
                 <div id="create-forms">
                   <div class="col-md-offset-4 col-md-4 collapse" id="moments-form-container">
                     <div class="well">
