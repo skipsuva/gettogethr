@@ -3,7 +3,7 @@
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).ready(function(){
-  
+
   $(function () {
     $('[data-toggle="tooltip"]').tooltip();
   });
@@ -80,7 +80,7 @@ $(document).ready(function(){
   Gathering.prototype.addCreateFormButtonListener = function() {
     $('#create-forms form').bind('ajax:success', function(e, data, status, xhr){
       if(this.$collaboratorsSection.hasClass('hidden')) {
-        debugger;
+        // debugger;
         this.$collaboratorsSection.fadeIn();
         this.$collaboratorsSection.removeClass('hidden');
       }
