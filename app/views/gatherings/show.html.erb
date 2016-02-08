@@ -2,11 +2,13 @@
 
   <div class="row" id="title-row">
     <div class="col-md-12">
+    <div class="title-container" id="gathering-title-container" data-id="<%= @gathering.id %>">
+      <h2 class="gathering-title"><%= @gathering.title %></h2>
+    </div>
+    </div>
+    <div class="col-md-12 hidden">
       <div class="title-box panel">
         <div class="panel-heading">
-          <div class="title-container " id="gathering-title-container" data-id="<%= @gathering.id %>">
-            <h2 class="gathering-title"><%= @gathering.title %></h2>
-          </div>
           <p>
             <strong>Owner:</strong>
             <%= @gathering.owner.name %>
@@ -43,13 +45,13 @@
     <div class="col-md-12" id="votable-forms">
 
       <div class="col-md-4">
-        <%= render 'gatherings/add_items/all' %>
+        <%# render 'gatherings/add_items/all' %>
       </div>
 
     </div>
   </div> -->
 
-  <div class="row">
+  <div class="row hidden">
     <div class="col-md-12" id="votable-cards">
 
       <div class="col-md-4" id="moments">
@@ -74,7 +76,7 @@
 
 
 
-  <div class="row">
+  <div class="row hidden">
     <div class="col-md-5 col-md-offset-4">
 
       <div class="comment-box panel">
