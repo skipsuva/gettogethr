@@ -320,7 +320,11 @@ a:active {
 //
 // Sessions
 // --------------------------------------------------
-
+.auth {
+  // display: inline-block;
+  float: none;
+  margin: 0 auto;
+}
 
 .sessions .panel-heading {
   padding-bottom: 5px;
