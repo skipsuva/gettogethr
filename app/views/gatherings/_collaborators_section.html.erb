@@ -1,7 +1,21 @@
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function(event) { //Only invoke autocomplete aufter jquery is loaded
+  // baseurl = <%= request.base_url %>;
+  // debugger;
   $(".autocomplete").autocomplete({
-    source: <%= @users.map{|u| {"value" => u.id, "label" => "#{u.name} <#{u.email}>"} }.to_json.html_safe %>,
+    //  source: <%= @users.map{|u| {"value" => u.id, "label" => "#{u.name} <#{u.email}>"} }.to_json.html_safe %>
+    // source: function (request, response) {
+    //       $.ajax({
+    //         url: "list_autocomplete.json",
+    //         data: { query: request.term },
+    //         success: function (data) {
+    //           debugger;
+    //           response(data);
+    //         }
+    //         });
+    //   }
+    source: "<%=request.base_url%>/gatherings/<%=@gathering.id%>/list_autocomplete.json"
+    ,
     select: function(event, ui) {
       event.preventDefault();
       var selected_name = ui.item.label;
@@ -35,4 +49,12 @@ document.addEventListener("DOMContentLoaded", function(event) { //Only invoke au
       <%=submit_tag "Add Users!", {class:"btn"}%>
     </p>
   <% end %>
+</div>
+
+<div>
+  <%= form_tag( "/gatherings/#{@gathering.id}/mail-users", remote:true) do %>
+   <%= button_tag type: 'submit', class: "btn btn-primary" do %>
+     Notify Invited Users!
+   <%end  %>
+  <%end %>
 </div>
