@@ -1,6 +1,5 @@
-<h4>Add a time</h4>
 <%= form_for [@gathering, @moment], remote: true do |f| %>
-  <%= f.label :time %>
+  <%= f.label :time, class: 'hidden' %>
   <%= f.datetime_local_field :time %>
-  <%= f.submit 'Add time' %>
+  <%= f.submit 'Add a time', class: 'btn' %>
 <% end %>

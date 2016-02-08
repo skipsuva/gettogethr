@@ -1,7 +1,5 @@
-
-  <h4>Add a place</h4>
   <%= form_for [@gathering, @place], remote: true do |f| %>
-    <%= f.label "Place Name" %>
-    <%= f.text_field :name %>
-    <%= f.submit 'Add place' %>
+    <%= f.label "Place Name", class: 'hidden' %>
+    <%= f.text_field :name, placeholder: 'e.g. Central Park' %>
+    <%= f.submit 'Add a place', class: 'btn' %>
   <% end %>

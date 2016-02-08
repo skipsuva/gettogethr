@@ -1,14 +1,11 @@
+<%= form_for [@gathering, @activity], remote: true do |f| %>
 
-<h4>Add an activity</h4>
+  <%= f.label :activity_category_id, class: 'hidden' %>
+  <%= f.collection_select(:activity_category_id, ActivityCategory.all, :id, :label, options = { include_blank: 'Choose a type...' }, html_options = { class: 'form-control' }) %>
 
-  <%= form_for [@gathering, @activity], remote: true do |f| %>
+  <%= f.label :description, class: 'hidden' %>
+  <%= f.text_field :description, placeholder: 'e.g. Birthday Party' %>
 
-  <%= f.label :activity_category_id %>
-  <%= f.collection_select(:activity_category_id, ActivityCategory.all, :id, :label) %>
-
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-
-  <%= f.submit 'Add activity' %>
+  <%= f.submit 'Add an activity', class: 'btn' %>
 
 <% end %>

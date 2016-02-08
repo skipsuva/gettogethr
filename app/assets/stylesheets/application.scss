@@ -156,9 +156,48 @@ h2#splash-callout {
   color: $gt-color2;
 }
 
+.gathering-title {
+  text-align: center;
+}
+
 #new_gathering .actions {
   padding-top: 1em;
   text-align: center;
+}
+
+#action-row .action-buttons {
+  text-align: center;
+  margin: 1em;
+  padding-left: 0;
+}
+
+.action-buttons .btn {
+  margin: 0 1em;
+  background-color: #fff;
+  color: $gt-color1;
+  border: 1px solid $gt-color1;
+}
+
+.action-buttons .btn:hover, .action-buttons .btn:active {
+  background-color: $gt-color1;
+  color: #fff;
+}
+
+#create-forms .well {
+  text-align: center;
+}
+
+#create-forms form .form-control {
+  max-width: 130px;
+  text-size: .75em;
+  height: 26px;
+  font-size: 12px;
+  display: inline;
+  margin-right: .75em;
+}
+
+#create-forms form input[type="submit"] {
+  margin: 1em;
 }
 
 //

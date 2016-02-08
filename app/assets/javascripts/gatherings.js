@@ -41,6 +41,7 @@ $(document).ready(function(){
     this.$votableCards = $('#votable-cards');
     this.$votableForms = $('#votable-forms');
     this.$autocomplete = $(".autocomplete");
+    this.$collaboratorsSection = $("#collaborators-panel");
   };
 
   Gathering.prototype.init = function() {
@@ -48,6 +49,7 @@ $(document).ready(function(){
     this.addModalButtonListener();
     this.addModalCloseListener();
     this.finalizeAjaxCallback();
+    this.addCreateFormButtonListener();
     // this.addAutocomplete();
   };
 
@@ -61,6 +63,16 @@ $(document).ready(function(){
   //     source: availableTags
   //   });
   // }
+
+  Gathering.prototype.addCreateFormButtonListener = function() {
+    $('#create-forms form').bind('ajax:success', function(e, data, status, xhr){
+      if(this.$collaboratorsSection.hasClass('hidden')) {
+        debugger;
+        this.$collaboratorsSection.fadeIn();
+        this.$collaboratorsSection.removeClass('hidden');
+      }
+    }.bind(this) );
+  }
 
   Gathering.prototype.addTitleListener = function() {
     this.$gatheringTitle.dblclick(function() {
