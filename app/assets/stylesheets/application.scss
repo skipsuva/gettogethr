@@ -136,14 +136,60 @@ h2#splash-callout {
 }
 
 //
+// Collabs
+// --------------------------------------------------
+#collaborators-panel {
+  float: none;
+  margin: 0 auto;
+  margin-top: 2.5em;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+#add-collabs {
+  margin-top: 1em;
+}
+#add-collabs form{
+    display: inline;
+}
+
+#add-collabs .form-control {
+  max-width: 40%;
+  display: inline;
+}
+
+#add-collabs .btn {
+  display: inline;
+  margin-left: 1em;
+}
+
+#id-btn {
+  display: inline;
+}
+
+//
 // Dashboard
 // --------------------------------------------------
-#votable-dashboard {
-  max-height: 100%;
+#dashboard-panel{
+  max-width: 90%;
+  float: none;
+  margin: 0 auto;
 }
 
 #votable-dashboard {
-  padding-right: 2em
+  padding-right: 2em;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#votable-dashboard .section-wrapper {
+  background-color: lighten($gray-base, 98.25%);
+  padding: 1em;
+  border-radius: .5em;
+  margin-bottom: 1em;
+}
+#moments-row .section-wrapper {
+  margin-bottom: 0;
 }
 
 #dashboard-control {
@@ -249,6 +295,14 @@ h2#splash-callout {
 // --------------------------------------------------
 .hidden-button {
   display: none;
+}
+
+.votebox {
+  padding-bottom: .6em;
+}
+
+.votebox div {
+  display: inline-block;
 }
 
 //

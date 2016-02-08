@@ -4,16 +4,17 @@
     <div class="col-md-12">
       <div class="title-container" id="gathering-title-container" data-id="<%= @gathering.id %>">
         <h2 class="gathering-title"><%= @gathering.title %></h2>
+        <% if current_user != @gathering.owner %>
+        <h5 class="gathering-title">Initiated by: <%= @gathering.owner.name %> </h5>
+        <% end %>
       </div>
     </div>
   </div>
 
   <!-- Need to format without card -->
-  <div id="collaborators-panel" class="panel col-md-12">
-    <div class="panel-body">
-      <div id="collaborators">
-        <%= render "collaborators_section" %>
-      </div>
+  <div id="collaborators-panel" class="col-md-4">
+    <div id="collaborators">
+      <%= render "collaborators_section" %>
     </div>
   </div>
 
@@ -23,20 +24,29 @@
       <div class="panel" id="dashboard-panel">
         <div class="panel-body" id="dashboard-panel-body">
 
-          <div class="panel col-md-9 " id="votable-dashboard">
+          <div class="col-md-9 " id="votable-dashboard">
             <!-- votable rows -->
-            <div class="row well" id="activities-row">
+            <div class="row" id="activities-row">
               <!-- insert cards -->
-              <%= render "activities_section" %>
-            </div>
-            <div class="row well" id="places-row">
-              <!-- insert cards -->
-              <%= render "places_section" %>
+              <div class="section-wrapper clearfix" id="">
+
+                <%= render "activities_section" %>
+              </div>
 
             </div>
-            <div class="row well" id="moments-row">
+            <div class="row" id="places-row">
               <!-- insert cards -->
-              <%= render "moments_section" %>
+              <div class="section-wrapper clearfix" id="">
+
+              <%= render "places_section" %>
+              </div>
+            </div>
+            <div class="row" id="moments-row">
+              <!-- insert cards -->
+              <div class="section-wrapper clearfix" id="">
+
+                <%= render "moments_section" %>
+              </div>
             </div>
           </div>
 
@@ -79,7 +89,7 @@
             </div>
 
             <!-- comments -->
-             <div class="row well" id="comment-row">
+             <div class="row" id="comment-row">
               <div class="">
                 <div class="comment-box panel">
                   <!-- body -->
