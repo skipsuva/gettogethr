@@ -1,9 +1,13 @@
-<div style="display:inline-block" id="collaborator-<%=collaborator.id%>">
-  <span style="display:inline-block">
+
+
+<div style="display:inline-block" id="collaborator-<%=collaborator.id%>" class="btn btn-primary btn-trans">
+  <span style="display:inline-block"  class="collaborator">
   <%= collaborator.name %>
   </span>
-  <span style="display:inline-block" class="btn btn-xs">
-  <%= button_to "X", {action:"remove_users", user:collaborator.id}, method: :post, remote: true, style:"display:inline-block" %>
+  <span style="display:inline-block" class="collaborator-delete">
+
+    <%= link_to(raw("<i class='fa fa-times collaborator-delete-icon'></i>"), {action:"remove_users", user:collaborator.id}, method: :post, remote: true, style:"display:inline-block" )%>
   </span>
-  |
+
+
 </div>

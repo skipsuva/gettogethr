@@ -8,6 +8,9 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
   });
 
+  var collapseCollaborators = function(){ $(".collaborator-delete").hide(); }
+  collapseCollaborators();
+
   var titleKeypressListener = function(e) {
     if(e.keyCode === 13) {
       var title = $('#title').val();
@@ -53,9 +56,17 @@ $(document).ready(function(){
     this.addCreateFormButtonListener();
     this.addAutoCompleteListener();
     this.addCollaboratorFormReset();
+    this.addExpandCollaboratorListener();
     this.addActionButtonListeners();
     this.addCancelButtonListener();
   };
+
+  Gathering.prototype.addExpandCollaboratorListener = function() {
+    $(".collaborator").on('click', function(e) {
+      $(this).next().toggle();
+     }
+    )
+  }
 
   Gathering.prototype.addAutoCompleteListener = function() {
     var that = this;
@@ -65,7 +76,6 @@ $(document).ready(function(){
       minLength: 2,
       select: function(event, ui) {
         event.preventDefault();
-        debugger;
         var selected_name = ui.item.label;
         var selected_id = ui.item.value;
         $('#add-collaborator-form input[type="hidden"]').val(selected_id);
