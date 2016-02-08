@@ -320,13 +320,21 @@ a:active {
 //
 // Sessions
 // --------------------------------------------------
+.log-in .panel-heading {
+  padding-bottom: 5px;
+}
+
+.log-in .panel-body {
+  padding-top: 0px;
+}
+
 .text.field {
   padding-top: 1em ;
   padding-bottom: 1em ;
 }
 
 .text.field .text {
-  width: 90%;
+  width: 100%;
   height: 2.25em;
 }
 
@@ -340,6 +348,6 @@ a:active {
 }
 
 .log-in .btn {
-  width: 90%;
+  width: 100%;
 
 }
