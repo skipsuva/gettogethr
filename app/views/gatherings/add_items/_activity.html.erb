@@ -4,8 +4,8 @@
   <%= f.collection_select(:activity_category_id, ActivityCategory.all, :id, :label, options = { include_blank: 'Choose a type...' }, html_options = { class: 'form-control' }) %>
 
   <%= f.label :description, class: 'hidden' %>
-  <%= f.text_field :description %>
+  <%= f.text_field :description, placeholder: 'e.g. Birthday Party' %>
 
-  <%= f.submit 'Add activity', class: 'btn' %>
+  <%= f.submit 'Add an activity', class: 'btn' %>
 
 <% end %>
