@@ -39,7 +39,7 @@
     </div>
 
   </div> -->
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-md-12" id="votable-forms">
 
       <div class="col-md-4">
@@ -47,19 +47,23 @@
       </div>
 
     </div>
-  </div>
+  </div> -->
+
   <div class="row">
     <div class="col-md-12" id="votable-cards">
 
       <div class="col-md-4" id="moments">
+        <%= render 'gatherings/add_items/moment' %>
         <%= render "moments_section" %>
       </div>
 
       <div class="col-md-4" id="activities">
+        <%= render 'gatherings/add_items/activity' %>
         <%= render "activities_section" %>
       </div>
 
       <div class="col-md-4" id="places">
+        <%= render 'gatherings/add_items/place' %>
         <%= render "places_section" %>
       </div>
 
