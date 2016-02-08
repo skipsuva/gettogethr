@@ -1,9 +1,7 @@
-<p>
   <strong>Who's Involved: </strong>
   <div id="collaborator-list">
     | <%= render partial: "collaborator", collection: @collaborators %>
   </div>
-</p>
 
 <div>
   <%= form_tag("/gatherings/#{@gathering.id}/add-users", remote: true, id: 'add-collaborator-form') do %>
