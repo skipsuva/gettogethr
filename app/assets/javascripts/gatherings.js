@@ -58,9 +58,10 @@ $(document).ready(function(){
 
   Gathering.prototype.addExpandCollaboratorListener = function() {
     $(".collaborator").on('click', function(e) {
-      $(".collaborator-delete").toggle();
-    }
-   )
+      // $(".collaborator-delete").toggle();
+      $(this).next().toggle();
+     }
+    )
   }
 
   Gathering.prototype.addAutoCompleteListener = function() {
