@@ -8,7 +8,8 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
   });
 
-  $(".collaborator-delete").hide();
+  var collapseCollaborators = function(){ $(".collaborator-delete").hide(); }
+  collapseCollaborators();
 
   var titleKeypressListener = function(e) {
     if(e.keyCode === 13) {
