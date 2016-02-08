@@ -42,6 +42,7 @@ $(document).ready(function(){
     this.$votableForms = $('#votable-forms');
     this.$autocomplete = $(".autocomplete");
     this.$collaboratorsSection = $("#collaborators-panel");
+    this.$collaboratorForm = $("#add-collaborator-form");
   };
 
   Gathering.prototype.init = function() {
@@ -50,19 +51,31 @@ $(document).ready(function(){
     this.addModalCloseListener();
     this.finalizeAjaxCallback();
     this.addCreateFormButtonListener();
-    // this.addAutocomplete();
+    this.addAutoCompleteListener();
+    this.addCollaboratorFormReset();
   };
 
-  // Gathering.prototype.addAutocomplete = function() {
-  //   availableTags = [
-  //   "Alice",
-  //   "Bob",
-  //   "Charlie",
-  //   ];
-  //   this.$autocomplete.autocomplete({
-  //     source: availableTags
-  //   });
-  // }
+  Gathering.prototype.addAutoCompleteListener = function() {
+    var that = this;
+    $(".autocomplete").autocomplete({
+      source: "/gatherings/" + this.gatheringId + "/list_autocomplete.json"
+      ,
+      minLength: 2,
+      select: function(event, ui) {
+        event.preventDefault();
+        var selected_name = ui.item.label;
+        var selected_id = ui.item.value;
+        $("select#user_id option[value='"+selected_id+"']").prop('selected', true);
+        $(".ac-input").val(selected_name);
+      }
+    });
+  };
+
+  Gathering.prototype.addCollaboratorFormReset = function (arguments) {
+    this.$collaboratorForm.bind('ajax:success', function(e, data, status, xhr){
+      this.$collaboratorForm[0].reset();
+    }.bind(this) );
+  };
 
   Gathering.prototype.addCreateFormButtonListener = function() {
     $('#create-forms form').bind('ajax:success', function(e, data, status, xhr){
@@ -72,7 +85,7 @@ $(document).ready(function(){
         this.$collaboratorsSection.removeClass('hidden');
       }
     }.bind(this) );
-  }
+  };
 
   Gathering.prototype.addTitleListener = function() {
     this.$gatheringTitle.dblclick(function() {

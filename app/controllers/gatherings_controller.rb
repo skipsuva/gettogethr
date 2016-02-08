@@ -38,7 +38,7 @@ class GatheringsController < ApplicationController
   def list_autocomplete
     @gathering = Gathering.find(params[:id])
     @collaborators = @gathering.users
-    @uninvited_users = User.all - @collaborators
+    @uninvited_users = User.where("name ILIKE ? OR email ILIKE ?", "%#{params[:term]}%", "%#{params[:term]}%") - @collaborators
   end
 
   def mail_users
