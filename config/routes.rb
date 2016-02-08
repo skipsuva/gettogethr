@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resources :gatherings do
     member do
-      get 'autocomplete-list'
+      get 'list_autocomplete'
       get 'stage'
       post 'finalize'
     end

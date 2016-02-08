@@ -35,6 +35,12 @@ class GatheringsController < ApplicationController
     #GatheringMailer.invite_user(@user, @gathering, current_user).deliver_now
   end
 
+  def list_autocomplete
+    @gathering = Gathering.find(params[:id])
+    @collaborators = @gathering.users
+    @uninvited_users = User.all - @collaborators
+  end
+
   def mail_users
     @gathering = Gathering.find(params[:id])
     @gathering.users.each do |user|
