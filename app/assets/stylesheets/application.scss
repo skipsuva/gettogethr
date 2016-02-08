@@ -167,7 +167,7 @@ h2#splash-callout {
 
 .action-buttons {
   text-align: center;
-  margin-top: 1em;
+  margin: 1em;
 }
 
 .action-buttons .btn {
@@ -180,6 +180,10 @@ h2#splash-callout {
 .action-buttons .btn:hover, .action-buttons .btn:active {
   background-color: $gt-color1;
   color: #fff;
+}
+
+#create-forms h4 {
+  margin-top: 0;
 }
 
 //
