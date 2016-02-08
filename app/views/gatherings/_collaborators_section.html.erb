@@ -3,12 +3,13 @@ document.addEventListener("DOMContentLoaded", function(event) { //Only invoke au
   // baseurl = <%= request.base_url %>;
   // debugger;
   $(".autocomplete").autocomplete({
-    // source: <%= @users.map{|u| {"value" => u.id, "label" => "#{u.name} <#{u.email}>"} }.to_json.html_safe %>
+    //  source: <%= @users.map{|u| {"value" => u.id, "label" => "#{u.name} <#{u.email}>"} }.to_json.html_safe %>
     // source: function (request, response) {
     //       $.ajax({
     //         url: "list_autocomplete.json",
     //         data: { query: request.term },
     //         success: function (data) {
+    //           debugger;
     //           response(data);
     //         }
     //         });
