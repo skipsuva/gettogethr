@@ -4,6 +4,9 @@
     <div class="col-md-12">
       <div class="title-container" id="gathering-title-container" data-id="<%= @gathering.id %>">
         <h2 class="gathering-title"><%= @gathering.title %></h2>
+        <% if current_user != @gathering.owner %>
+        <h5 class="gathering-title">Initiated by: <%= @gathering.owner.name %> </h5>
+        <% end %>
       </div>
     </div>
   </div>

@@ -141,11 +141,30 @@ h2#splash-callout {
 #collaborators-panel {
   float: none;
   margin: 0 auto;
+  margin-top: 2.5em;
   margin-bottom: 2em;
 }
 
+#add-collabs {
+  margin-top: 1em;
+}
+#add-collabs form{
+    display: inline;
+}
 
+#add-collabs .form-control {
+  max-width: 40%;
+  display: inline;
+}
 
+#add-collabs .btn {
+  display: inline;
+  margin-left: 1em;
+}
+
+#id-btn {
+  display: inline;
+}
 
 //
 // Dashboard
