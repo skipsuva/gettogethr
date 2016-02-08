@@ -1,11 +1,11 @@
 
 
-<div style="display:inline-block" id="collaborator-<%=collaborator.id%>">
+<div style="display:inline-block" id="collaborator-<%=collaborator.id%>" class="btn btn-primary btn-trans">
   <span style="display:inline-block"  class="collaborator">
   <%= collaborator.name %>
   </span>
   <span style="display:inline-block" class="btn btn-xs collaborator-delete">
     <%= button_to "X", {action:"remove_users", user:collaborator.id}, method: :post, remote: true, style:"display:inline-block" %>
   </span>
-  |
+  
 </div>
