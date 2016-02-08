@@ -170,19 +170,23 @@ h2#splash-callout {
 //
 // Dashboard
 // --------------------------------------------------
-#outer-dashboard {
+#dashboard-panel{
   max-width: 90%;
   float: none;
   margin: 0 auto;
 }
 
 #votable-dashboard {
-  max-height: 100%;
-}
-
-#votable-dashboard {
   padding-right: 2em
 }
+
+#votable-dashboard .section-wrapper {
+  background-color: grey;
+  padding: 1em;
+  border-radius: .5em;
+  margin-bottom: 1em;
+}
+
 
 #dashboard-control {
   padding-left: 2em

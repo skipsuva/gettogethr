@@ -26,18 +26,27 @@
 
           <div class="panel col-md-9 " id="votable-dashboard">
             <!-- votable rows -->
-            <div class="row " id="activities-row">
+            <div class="row" id="activities-row">
               <!-- insert cards -->
-              <%= render "activities_section" %>
-            </div>
-            <div class="row " id="places-row">
-              <!-- insert cards -->
-              <%= render "places_section" %>
+              <div class="section-wrapper clearfix" id="">
+
+                <%= render "activities_section" %>
+              </div>
 
             </div>
-            <div class="row " id="moments-row">
+            <div class="row" id="places-row">
               <!-- insert cards -->
-              <%= render "moments_section" %>
+              <div class="section-wrapper clearfix" id="">
+
+              <%= render "places_section" %>
+              </div>
+            </div>
+            <div class="row" id="moments-row">
+              <!-- insert cards -->
+              <div class="section-wrapper clearfix" id="">
+
+                <%= render "moments_section" %>
+              </div>
             </div>
           </div>
 
