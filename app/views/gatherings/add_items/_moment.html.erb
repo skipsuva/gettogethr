@@ -2,5 +2,5 @@
 <%= form_for [@gathering, @moment], remote: true do |f| %>
   <%= f.label :time %>
   <%= f.datetime_local_field :time %>
-  <%= f.submit 'Add time' %>
+  <%= f.submit 'Add time', class: 'btn' %>
 <% end %>

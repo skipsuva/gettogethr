@@ -3,5 +3,5 @@
   <%= form_for [@gathering, @place], remote: true do |f| %>
     <%= f.label "Place Name" %>
     <%= f.text_field :name %>
-    <%= f.submit 'Add place' %>
+    <%= f.submit 'Add place', class: 'btn' %>
   <% end %>

@@ -182,8 +182,21 @@ h2#splash-callout {
   color: #fff;
 }
 
-#create-forms h4 {
-  margin-top: 0;
+#create-forms .well {
+  text-align: center;
+}
+
+#create-forms form .form-control {
+  max-width: 100px;
+  text-size: .75em;
+  height: 26px;
+  font-size: 12px;
+  display: inline;
+  margin-right: .75em;
+}
+
+#create-forms form input[type="submit"] {
+  margin-top: 1em;
 }
 
 //
