@@ -165,6 +165,23 @@ h2#splash-callout {
   text-align: center;
 }
 
+.action-buttons {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.action-buttons .btn {
+  margin: 0 1em;
+  background-color: #fff;
+  color: $gt-color1;
+  border: 1px solid $gt-color1;
+}
+
+.action-buttons .btn:hover, .action-buttons .btn:active {
+  background-color: $gt-color1;
+  color: #fff;
+}
+
 //
 // Vote Form
 // --------------------------------------------------
