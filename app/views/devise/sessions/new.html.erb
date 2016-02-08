@@ -23,11 +23,15 @@
           <%= f.password_field :password, autocomplete: "off", placeholder:"Password", class:"text" %>
         </div>
 
-
-
         <div class="submit">
           <%= f.submit "Log in", class:"btn" %>
         </div>
+
+        <%- resource_class.omniauth_providers.each do |provider| %>
+          <div class="submit google">
+            <%= button_to "Log in with Google", omniauth_authorize_path(resource_name, provider), class:"btn btn-info" %>
+          </div>
+        <% end -%>
 
         <% if devise_mapping.rememberable? -%>
           <div class="rememberable field">
@@ -36,6 +40,7 @@
           </div>
         <% end -%>
       <% end %>
+
 
       <div class="devise-links">
 
