@@ -235,7 +235,7 @@ h2#splash-callout {
 }
 
 .action-buttons .btn {
-  margin: 0 1em;
+  margin: 0 .25em;
   background-color: #fff;
   color: $gt-color1;
   border: 1px solid $gt-color1;
@@ -244,6 +244,33 @@ h2#splash-callout {
 .action-buttons .btn:hover, .action-buttons .btn:active {
   background-color: $gt-color1;
   color: #fff;
+}
+
+.action-pane {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s linear;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.action-buttons {
+  visibility: visible;
+  opacity: 1.0;
+  transition: opacity 0.5s linear;
+}
+
+#create-forms .display-pane {
+  visibility: visible;
+  opacity: 1.0;
+  // transition: visibility 0s, opacity 1s linear;
+}
+
+#create-forms .hide-pane {
+  visibility: hidden;
+  opacity: 0.0;
+  // transition: visibility 0s, opacity 1s linear;
 }
 
 #create-forms {

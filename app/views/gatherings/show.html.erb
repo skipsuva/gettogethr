@@ -59,30 +59,27 @@
 
                   <!-- Buttons -->
                   <div class="panes" id="pane-wrapper">
-
-                    <div class="action-pane" id="form-buttons">
-
-                      <div class="action-buttons">
-                        <a href="#activities-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="activities-form-container" id="what-button">What?</a><br>
-                        <a href="#places-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="places-form-container" id="where-button">Where?</a><br>
-                        <a href="#moments-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="moments-form-container" id="when-button">When?</a>
-                      </div>
-
-                    </div>
                       <!-- forms -->
                     <div id="create-forms">
-                      <div class="action-pane hidden" id="moments-form-container">
+
+                      <div class="action-buttons">
+                        <h4>Make a suggestion:</h4>
+                        <a href="#" class="btn" role="button" data-pane="activities-form-container" aria-expanded="false" aria-controls="activities-form-container" id="what-button">Activity</a>
+                        <a href="#" class="btn" role="button" data-pane="places-form-container" aria-expanded="false" aria-controls="places-form-container" id="where-button">Place</a>
+                        <a href="#" class="btn" role="button" data-pane="moments-form-container" aria-expanded="false" aria-controls="moments-form-container" id="when-button">Time</a>
+                      </div>
+
+                      <div class="action-pane" id="moments-form-container">
                         <%= render 'gatherings/add_items/moment' %>
                       </div>
 
-                      <div class="action-pane hidden" id="activities-form-container">
+                      <div class="action-pane" id="activities-form-container">
                         <%= render 'gatherings/add_items/activity' %>
                       </div>
 
-                      <div class="action-pane hidden" id="places-form-container">
+                      <div class="action-pane" id="places-form-container">
                         <%= render 'gatherings/add_items/place' %>
                       </div>
-
                     </div>
 
                   </div>
