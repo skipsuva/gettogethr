@@ -7,43 +7,113 @@
       </div>
     </div>
   </div>
-  <div class="row" id="action-row">
-    <div class="col-md-12 action-buttons">
-      <a href="#activities-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="activities-form-container" id="what-button">What?</a>
-      <a href="#places-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="places-form-container" id="where-button">Where?</a>
-      <a href="#moments-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="moments-form-container" id="when-button">When?</a>
-    </div>
-  </div>
-  <div class="row" id="form-row">
-    <div class="col-md-12">
-      <div id="collaborators-panel" class="panel col-md-4 hidden">
-        <div class="panel-body">
-          <div id="collaborators">
-            <%= render "collaborators_section" %>
-          </div>
-        </div>
-      </div>
-      <div id="create-forms">
-        <div class="col-md-offset-4 col-md-4 collapse" id="moments-form-container">
-          <div class="well">
-            <%= render 'gatherings/add_items/moment' %>
-          </div>
-        </div>
 
-        <div class="col-md-offset-4 col-md-4 collapse" id="activities-form-container">
-          <div class="well">
-            <%= render 'gatherings/add_items/activity' %>
-          </div>
-        </div>
-
-        <div class="col-md-offset-4 col-md-4 collapse" id="places-form-container">
-          <div class="well">
-            <%= render 'gatherings/add_items/place' %>
-          </div>
-        </div>
+  <!-- Need to format without card -->
+  <div id="collaborators-panel" class="panel col-md-12">
+    <div class="panel-body">
+      <div id="collaborators">
+        <%= render "collaborators_section" %>
       </div>
     </div>
   </div>
+
+
+  <div class="row" id="outer-dashboard">
+    <div class="container col-md-12" id="dashboard-col">
+      <div class="panel" id="dashboard-panel">
+        <div class="panel-body" id="dashboard-panel-body">
+
+          <div class="panel col-md-9 " id="votable-dashboard">
+            <!-- votable rows -->
+            <div class="row well" id="activities-row">
+              <!-- insert cards -->
+              <%= render "activities_section" %>
+            </div>
+            <div class="row well" id="places-row">
+              <!-- insert cards -->
+              <%= render "places_section" %>
+
+            </div>
+            <div class="row well" id="moments-row">
+              <!-- insert cards -->
+              <%= render "moments_section" %>
+            </div>
+          </div>
+
+          <div class="panel col-md-3" id="dashboard-control">
+            <!-- forms -->
+            <div class="row well" id="action-row">
+
+              <div class="panel" id="forms-panel">
+                <div class="panel-body" id="forms-panel-body">
+
+                  <!-- Buttons -->
+                  <div class="panes" id="pane-wrapper">
+
+                    <div class="action-pane" id="form-buttons">
+
+                      <div class="action-buttons">
+                        <a href="#activities-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="activities-form-container" id="what-button">What?</a><br>
+                        <a href="#places-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="places-form-container" id="where-button">Where?</a><br>
+                        <a href="#moments-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="moments-form-container" id="when-button">When?</a>
+                      </div>
+
+                    </div>
+                      <!-- forms -->
+                    <div id="create-forms">
+                      <div class="action-pane hidden" id="moments-form-container">
+                        <%= render 'gatherings/add_items/moment' %>
+                      </div>
+
+                      <div class="action-pane hidden" id="activities-form-container">
+                        <%= render 'gatherings/add_items/activity' %>
+                      </div>
+
+                      <div class="action-pane hidden" id="places-form-container">
+                        <%= render 'gatherings/add_items/place' %>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <!-- end action-row -->
+            </div>
+
+            <!-- comments -->
+             <div class="row well" id="comment-row">
+              <div class="">
+                <div class="comment-box panel">
+                  <!-- body -->
+                  <div class="panel-body">
+                    <div class="comment-list panel">
+                      <div class="panel-body" id="comments">
+                          <%= render 'comments' %>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- footer -->
+                  <div class="panel-footer">
+                    <div class="" id="comment-form">
+                        <div class="">
+                          <%= render 'add_comment' %>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
   </div>
     <div class="col-md-12 hidden">
       <div class="title-box panel">
@@ -110,33 +180,7 @@
 
 
 
-  <div class="row hidden">
-    <div class="col-md-5 col-md-offset-4">
 
-      <div class="comment-box panel">
-        <!-- body -->
-        <div class="panel-body">
-
-          <div class="comment-list panel">
-            <div class="panel-body" id="comments">
-                <%= render 'comments' %>
-            </div>
-          </div>
-
-        </div>
-        <!-- footer -->
-        <div class="panel-footer">
-          <div class="" id="comment-form">
-              <div class="">
-                <%= render 'add_comment' %>
-              </div>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
 
 <!-- </div> -->
 

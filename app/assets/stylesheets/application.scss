@@ -136,6 +136,23 @@ h2#splash-callout {
 }
 
 //
+// Dashboard
+// --------------------------------------------------
+#votable-dashboard {
+  max-height: 100%;
+}
+
+#votable-dashboard {
+  padding-right: 2em
+}
+
+#dashboard-control {
+  padding-left: 2em
+
+}
+
+
+//
 // New Gathering
 // --------------------------------------------------
 
@@ -183,7 +200,7 @@ h2#splash-callout {
   color: #fff;
 }
 
-#create-forms .well {
+#create-forms {
   text-align: center;
 }
 
