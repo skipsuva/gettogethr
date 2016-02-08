@@ -315,3 +315,41 @@ a:active {
   padding-left: $grid-gutter-width / 4;
   padding-right: $grid-gutter-width / 4;
 }
+
+
+//
+// Sessions
+// --------------------------------------------------
+
+
+.sessions .panel-heading {
+  padding-bottom: 5px;
+}
+
+.sessions .panel-body {
+  padding-top: 0px;
+}
+
+.text.field {
+  padding-top: 1em ;
+  padding-bottom: 1em ;
+}
+
+.text.field .text {
+  width: 100%;
+  height: 2.25em;
+}
+
+.log-in .rememberable {
+ font-size: .75em;
+}
+
+.sessions .submit {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.sessions .btn {
+  width: 100%;
+
+}
