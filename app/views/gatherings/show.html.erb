@@ -6,11 +6,30 @@
         <h2 class="gathering-title"><%= @gathering.title %></h2>
       </div>
     </div>
+  </div>
+  <div class="row" id="action-row">
     <div class="col-md-12 action-buttons">
-      <a href="#" class="btn btn">What?</a>
-      <a href="#" class="btn btn">Where?</a>
-      <a href="#" class="btn btn">When?</a>
+      <a href="#" class="btn">What?</a>
+      <a href="#" class="btn">Where?</a>
+      <a href="#" class="btn">When?</a>
     </div>
+  </div>
+  <div class="row" id="form-row">
+    <div class="col-md-12" id="create-forms">
+      <div class="col-md-offset-4 col-md-4 hidden" id="moments-form-container">
+        <%= render 'gatherings/add_items/moment' %>
+      </div>
+
+      <div class="col-md-offset-4 col-md-4 hidden" id="activities-form-container">
+        <%= render 'gatherings/add_items/activity' %>
+      </div>
+
+      <div class="col-md-offset-4 col-md-4 hidden" id="places-form-container">
+        <%= render 'gatherings/add_items/place' %>
+      </div>
+    </div>
+  </div>
+  </div>
     <div class="col-md-12 hidden">
       <div class="title-box panel">
         <div class="panel-heading">
