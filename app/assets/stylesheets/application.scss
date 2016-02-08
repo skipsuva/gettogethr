@@ -277,6 +277,9 @@ a:active {
   opacity: 0.35;
 }
 
+.button-row{
+ display: inline-block;
+}
 // for making the panels default to closed
 .item-list .panel-body {
   display:none;

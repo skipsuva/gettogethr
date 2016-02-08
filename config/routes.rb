@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   post 'votes/submit'
 
   post '/gatherings/:id/add-users', to: "gatherings#add_users"
+  post '/gatherings/:id/mail-users', to: "gatherings#mail_users", as: "mail_users"
   post '/gatherings/:id/remove-users', to: "gatherings#remove_users", as: "remove_users"
 
   resources :gatherings do
     member do
+      get 'list_autocomplete'
       get 'stage'
       post 'finalize'
     end
