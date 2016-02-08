@@ -165,9 +165,10 @@ h2#splash-callout {
   text-align: center;
 }
 
-.action-buttons {
+#action-row .action-buttons {
   text-align: center;
   margin: 1em;
+  padding-left: 0;
 }
 
 .action-buttons .btn {

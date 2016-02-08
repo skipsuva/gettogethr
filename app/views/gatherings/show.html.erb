@@ -15,22 +15,31 @@
     </div>
   </div>
   <div class="row" id="form-row">
-    <div class="col-md-12" id="create-forms">
-      <div class="col-md-offset-4 col-md-4 collapse" id="moments-form-container">
-        <div class="well">
-          <%= render 'gatherings/add_items/moment' %>
+    <div class="col-md-12">
+      <div id="collaborators-panel" class="panel col-md-4 hidden">
+        <div class="panel-body">
+          <div id="collaborators">
+            <%= render "collaborators_section" %>
+          </div>
         </div>
       </div>
-
-      <div class="col-md-offset-4 col-md-4 collapse" id="activities-form-container">
-        <div class="well">
-          <%= render 'gatherings/add_items/activity' %>
+      <div id="create-forms">
+        <div class="col-md-offset-4 col-md-4 collapse" id="moments-form-container">
+          <div class="well">
+            <%= render 'gatherings/add_items/moment' %>
+          </div>
         </div>
-      </div>
 
-      <div class="col-md-offset-4 col-md-4 collapse" id="places-form-container">
-        <div class="well">
-          <%= render 'gatherings/add_items/place' %>
+        <div class="col-md-offset-4 col-md-4 collapse" id="activities-form-container">
+          <div class="well">
+            <%= render 'gatherings/add_items/activity' %>
+          </div>
+        </div>
+
+        <div class="col-md-offset-4 col-md-4 collapse" id="places-form-container">
+          <div class="well">
+            <%= render 'gatherings/add_items/place' %>
+          </div>
         </div>
       </div>
     </div>
@@ -47,11 +56,6 @@
             <button type="button" id="staging-button" class="btn btn-primary btn-md">
               Let's Do It
             </button>
-          </div>
-        </div>
-        <div class="panel-body">
-          <div class="" id="collaborators">
-            <%= render "collaborators_section" %>
           </div>
         </div>
       </div>
