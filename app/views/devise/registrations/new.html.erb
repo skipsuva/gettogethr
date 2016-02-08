@@ -1,7 +1,7 @@
 <div class="col-md-3 ">
 
   <!-- offset this shit -->
-  <div class="registration-form panel">
+  <div class="sessions registration-form panel">
 
     <div class="panel-heading">
 
@@ -13,26 +13,26 @@
       <%= devise_error_messages! %>
 
       <div class="text field">
-        <!-- <%= f.label :name %><br /> -->
-        <%= f.text_field :name, autofocus: true, placeholder:"Name" %>
+        <!-- <%# f.label :name %><br /> -->
+        <%= f.text_field :name, autofocus: true, placeholder:"Name", class:"text" %>
       </div>
 
       <div class="text field">
-        <!-- <%= f.label :email %><br /> -->
-        <%= f.email_field :email, placeholder:"Email" %>
+        <!-- <%# f.label :email %><br /> -->
+        <%= f.email_field :email, placeholder:"Email", class:"text" %>
       </div>
 
       <div class="text field">
-        <!-- <%= f.label :password %> -->
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off", placeholder:"Password" %>
+        <!-- <%# f.label :password %> -->
+        <%# if @minimum_password_length %>
+        <!-- <em>(<%# @minimum_password_length %> characters minimum)</em>
+        <%# end %><br /> -->
+        <%= f.password_field :password, autocomplete: "off", placeholder:"Password", class:"text" %>
       </div>
 
       <div class="text field">
-        <!-- <%= f.label :password_confirmation %><br /> -->
-        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"Password Confirmation" %>
+        <!-- <%# f.label :password_confirmation %><br /> -->
+        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"Password Confirmation", class:"text" %>
       </div>
 
       <div class="submit">
