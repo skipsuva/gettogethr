@@ -29,8 +29,44 @@
           </div>
           <div class="panel col-md-3" id="dashboard-control">
             <!-- forms -->
+            <div class="row" id="action-row">
+              <div class="col-md-12 action-buttons">
+                <a href="#activities-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="activities-form-container" id="what-button">What?</a>
+                <a href="#places-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="places-form-container" id="where-button">Where?</a>
+                <a href="#moments-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="moments-form-container" id="when-button">When?</a>
+              </div>
+            </div>
+            <div class="row" id="form-row">
+              <div class="col-md-12">
+                <div id="collaborators-panel" class="panel col-md-4 hidden">
+                  <div class="panel-body">
+                    <div id="collaborators">
+                      <%= render "collaborators_section" %>
+                    </div>
+                  </div>
+                </div>
+                <div id="create-forms">
+                  <div class="col-md-offset-4 col-md-4 collapse" id="moments-form-container">
+                    <div class="well">
+                      <%= render 'gatherings/add_items/moment' %>
+                    </div>
+                  </div>
+                  <div class="col-md-offset-4 col-md-4 collapse" id="activities-form-container">
+                    <div class="well">
+                      <%= render 'gatherings/add_items/activity' %>
+                    </div>
+                  </div>
+                  <div class="col-md-offset-4 col-md-4 collapse" id="places-form-container">
+                    <div class="well">
+                      <%= render 'gatherings/add_items/place' %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <!-- comments -->
+            
           </div>
         </div>
       </div>
@@ -40,43 +76,7 @@
 
 
 
-  <div class="row" id="action-row">
-    <div class="col-md-12 action-buttons">
-      <a href="#activities-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="activities-form-container" id="what-button">What?</a>
-      <a href="#places-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="places-form-container" id="where-button">Where?</a>
-      <a href="#moments-form-container" class="btn" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="moments-form-container" id="when-button">When?</a>
-    </div>
-  </div>
-  <div class="row" id="form-row">
-    <div class="col-md-12">
-      <div id="collaborators-panel" class="panel col-md-4 hidden">
-        <div class="panel-body">
-          <div id="collaborators">
-            <%= render "collaborators_section" %>
-          </div>
-        </div>
-      </div>
-      <div id="create-forms">
-        <div class="col-md-offset-4 col-md-4 collapse" id="moments-form-container">
-          <div class="well">
-            <%= render 'gatherings/add_items/moment' %>
-          </div>
-        </div>
 
-        <div class="col-md-offset-4 col-md-4 collapse" id="activities-form-container">
-          <div class="well">
-            <%= render 'gatherings/add_items/activity' %>
-          </div>
-        </div>
-
-        <div class="col-md-offset-4 col-md-4 collapse" id="places-form-container">
-          <div class="well">
-            <%= render 'gatherings/add_items/place' %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   </div>
     <div class="col-md-12 hidden">
       <div class="title-box panel">
