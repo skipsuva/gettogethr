@@ -1,1 +1,6 @@
-  <%= link_to raw("<i class='fa fa-times collaborator-delete-icon'></i>"), gathering, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+<% if gathering.owner == current_user %>
+  <%= link_to raw("<i class='fa fa-times collaborator-delete-icon'></i>"), gathering, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% else %>
+  <%= button_to "Drop Out", "gatherings/#{gathering.id}/remove-users?user=#{current_user.id}", method: :post, remote: true %>
+<% end %>
