@@ -321,11 +321,12 @@ h2#splash-callout {
 
 .comment-list li {
   padding-bottom: $line-height-computed;
+  color: $brand-info;
 }
 
 .comment-list .current-user {
   text-align: right;
-  color: red;
+  color: $brand-success;
 }
 
 .comment-box.panel {
@@ -373,7 +374,7 @@ h2#splash-callout {
 }
 
 #new_comment .btn {
-  margin: 1em 0 0 0;
+  margin: .65em 0 0 0;
 }
 
 
