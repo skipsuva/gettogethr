@@ -151,7 +151,8 @@ class GatheringsController < ApplicationController
 
   def unfinalize
     gathering = set_gathering
-    gathering.finalized_plan.destroy
+    gathering.unfinalize
+    gathering.save
     redirect_to gathering
   end
   # DELETE /gatherings/1
