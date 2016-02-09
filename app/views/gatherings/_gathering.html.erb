@@ -1,0 +1,5 @@
+<div class="row gathering-row">
+  <%= link_to gathering.title, gathering %>
+  <%= link_to raw("<i class='fa fa-times collaborator-delete-icon'></i>"), gathering, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <%= gathering.aasm_state.capitalize %>
+</div>
