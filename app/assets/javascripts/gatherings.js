@@ -186,8 +186,6 @@ $(document).ready(function(){
       this.$stagingModal.modal('hide');
       var finalTmpl = $.templates("#finalized-template");
       var finalHtml = finalTmpl.render(data);
-      // $(finalHtml).insertAfter(this.$collaboratorsSection);
-      //ideally replace a div
       $('#suggestions').fadeOut();
       $('#finalized-details').html(finalHtml);
       $('#finalized-details').fadeIn();
