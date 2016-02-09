@@ -149,6 +149,10 @@ h2#splash-callout {
 // Dashboard
 // --------------------------------------------------
 
+#outer-dashboard {
+
+}
+
 #dashboard-panel, #title-row {
   width: 90%;
   max-width: 1040px;
@@ -170,7 +174,7 @@ h2#splash-callout {
   border: lighten($gray-base, 90%) solid 1px;
 }
 
-#votable-dashboard h6 {
+#votable-dashboard h6, .suggestion-label, .finalize-button h6, .group-chat-label {
   font-size: $font-size-base;
   font-weight: 600;
   text-transform: uppercase;
@@ -179,12 +183,16 @@ h2#splash-callout {
   margin-top: 0;
 }
 
+.suggestion-label, .finalize-button h6, .group-chat-label {
+  text-align: left;
+}
+
 #moments-row .section-wrapper {
   margin-bottom: 0;
 }
 
 #dashboard-control {
-  padding-left: 2em
+  padding-left: .5em;
 }
 
 //
@@ -214,13 +222,14 @@ h2#splash-callout {
 }
 
 #action-row .action-buttons {
-  text-align: center;
-  margin: 1em;
   padding-left: 0;
+  text-align: left;
+  padding-bottom: 1.5em;
+  border-bottom: solid 1px $gray-lighter;
 }
 
 .action-buttons .btn {
-  margin: 0 .25em;
+  margin: 0 .5em 0 0;
   background-color: #fff;
   color: $gt-color1;
   border: 1px solid $gt-color1;
@@ -244,6 +253,11 @@ h2#splash-callout {
   visibility: visible;
   opacity: 1.0;
   transition: opacity 0.5s linear;
+}
+
+.finalize-button {
+  padding: 1.5em 0;
+  border-bottom: 1px solid $gray-lighter;
 }
 
 #create-forms .display-pane {
@@ -292,6 +306,10 @@ h2#splash-callout {
 //
 // Comments field
 // --------------------------------------------------
+
+#comment-row {
+  margin-top: 1.5em;
+}
 
 .comment-user {
   color: $gray-light;
