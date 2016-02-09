@@ -4,6 +4,7 @@
 </div>
 
 <div id="add-collabs">
+  <h6 class="invite-label">Invite people:</h6>
   <%= form_tag("/gatherings/#{@gathering.id}/add-users", remote: true, id: 'add-collaborator-form') do %>
     <%= text_field( :user, :id, options = { class: "form-control autocomplete ac-input", placeholder: 'Name or email address' }) %>
     <!-- <div style="display:none;"> -->
@@ -17,9 +18,13 @@
 
 
 <div id="email-notification-form">
-  <%= form_tag( "/gatherings/#{@gathering.id}/mail-users", remote: true) do %>
-   <%= button_tag type: 'submit', class: "btn", id:"id-btn" do %>
-     Send Everyone an Email Notification
-   <% end %>
-  <%end %>
+  <%= link_to "Send Everyone an Email Notification", "/gatherings/#{@gathering.id}/mail-users", remote: true, method: :post %>
+  <%# form_tag( "/gatherings/#{@gathering.id}/mail-users", remote: true) do %>
+   <%# button_tag type: 'submit', class: "btn", id:"id-btn" do %>
+     <!-- Send Everyone an Email Notification -->
+   <%# end %>
+   <%# link_to type: 'submit', class: "btn", id:"id-btn" do %>
+     <!-- Send Everyone an Email Notification -->
+   <%# end %>
+  <%# end %>
 </div>

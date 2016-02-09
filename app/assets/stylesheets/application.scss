@@ -168,6 +168,16 @@ h2#splash-callout {
   border-radius: .5em;
   margin-bottom: 1em;
 }
+
+#votable-dashboard h6 {
+  font-size: $font-size-base;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+  letter-spacing: 2px;
+  margin-top: 0;
+}
+
 #moments-row .section-wrapper {
   margin-bottom: 0;
 }
@@ -374,12 +384,16 @@ a:active {
 }
 
 #add-collabs {
-  // margin-top: 1em;
-  display: inline;
+  text-align: center;
+  margin: 1em auto;
 }
 
 #add-collabs form {
   display: inline;
+}
+
+#add-collabs form input[type="submit"] {
+  min-height: 36px;
 }
 
 #add-collabs .form-control {
@@ -400,6 +414,10 @@ a:active {
   margin-right: 4.4em;
 }
 
+#email-notification-form {
+  text-align: center;
+}
+
 //
 // Gatherings show
 // --------------------------------------------------
@@ -417,13 +435,19 @@ a:active {
   color: $gt-color1;
 }
 
-.popular-suggestions-title, .collaborators-label {
+.popular-suggestions-title, .collaborators-label, .invite-label, #email-notification-form {
   font-size: $font-size-base;
   font-weight: 600;
   text-transform: uppercase;
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
   text-align: center;
   letter-spacing: 2px;
+}
+
+.invite-label {
+  text-align: left;
+  display: inline;
+  margin-right: 1em;
 }
 
 .popular-suggestions {
