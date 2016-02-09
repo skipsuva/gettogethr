@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
   has_many :own_gatherings, foreign_key: 'owner_id', class_name:'Gathering'
   has_many :votes
 
+  def notified(gathering)
+    Interest.find_by(gathering:gathering,user:self).try(:notified_at)
+  end
+
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(:email => data["email"]).first
