@@ -161,10 +161,21 @@ h2#splash-callout {
 #add-collabs .btn {
   display: inline;
   margin-left: 1em;
+  margin-top: 1em;
 }
 
 #id-btn {
   display: inline;
+}
+
+#staging-button, #unstaging-button {
+  margin-right: 4.4em;
+}
+
+//Final Plan Card
+.finalize-plan-row .col-md-10 {
+  float: none;
+  margin: 0 auto;
 }
 
 //
@@ -183,7 +194,7 @@ h2#splash-callout {
 }
 
 #votable-dashboard .section-wrapper {
-  background-color: lighten($gray-base, 98.25%);
+  background-color: lighten($gray-base, 95%);
   padding: 1em;
   border-radius: .5em;
   margin-bottom: 1em;
@@ -410,13 +421,18 @@ a:active {
   padding-left: 0px;
 }
 
-.gathering-finalized {
-  opacity: 0.35;
-}
+
 
 .button-row{
  display: inline-block;
 }
+
+//finalized gathering
+.gathering-finalized {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
 // for making the panels default to closed
 .item-list .panel-body {
   display:none;

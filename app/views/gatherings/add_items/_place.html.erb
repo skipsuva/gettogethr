@@ -1,6 +1,6 @@
 <%= form_for [@gathering, @place], remote: true do |f| %>
   <%= f.label "Place Name", class: 'hidden' %>
-  <%= f.text_field :name, placeholder: 'e.g. Central Park' %>
+  <%= f.text_field :name, :required => true, placeholder: 'e.g. Central Park' %>
   <%= f.submit 'Add a place', class: 'btn' %>
 <% end %>
 

@@ -10,28 +10,43 @@
       </div>
     </div>
   </div>
-
+  <% if @gathering.finalized? %>
+  <div class="finalize-button action pull-right">
+    <button type="button" id="unstaging-button" class="btn btn-danger btn-md">
+      Change of Plans
+    </button>
+  </div>
+  <% else %>
+  <div class="finalize-button action pull-right">
+    <button type="button" id="staging-button" class="btn btn-primary btn-md">
+      Let's Do It
+    </button>
+  </div>
+  <% end %>
   <!-- Need to format without card -->
-  <div id="collaborators-panel" class="col-md-4">
+  <div id="collaborators-panel" class="col-md-5">
     <div id="collaborators">
       <%= render "collaborators_section" %>
     </div>
   </div>
 
-  <div class="row">
+  <% if @gathering.finalized? %>
+  <%= render 'finalize_display_persist' %>
+  <% end %>
+  <!-- <div class="row">
     <div class="finalize-button">
       <button type="button" id="staging-button" class="btn btn-primary btn-md">
         Let's Do It
       </button>
     </div>
-  </div>
+  </div> -->
 
   <div class="row" id="outer-dashboard">
     <div class="container col-md-12" id="dashboard-col">
       <div class="panel" id="dashboard-panel">
         <div class="panel-body" id="dashboard-panel-body">
 
-          <div class="col-md-9 " id="votable-dashboard">
+          <div class="col-md-9 <%= "gathering-finalized" if @gathering.finalized? %>" id="votable-dashboard">
             <!-- votable rows -->
             <div class="row" id="activities-row">
               <!-- insert cards -->
@@ -62,7 +77,7 @@
             <div class="row" id="action-row">
 
               <div class="panel" id="forms-panel">
-                <div class="panel-body" id="forms-panel-body">
+                <div class="panel-body <%= "gathering-finalized" if @gathering.finalized? %>" id="forms-panel-body">
 
                   <!-- Buttons -->
                   <div class="panes" id="pane-wrapper">
