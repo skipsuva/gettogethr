@@ -8,7 +8,7 @@
     </div>
     <div class="panel-body">
       <p>
-        <%= place.user %> has suggested the following gathering place:
+        <%= place.user.name %> has suggested the following gathering place:
         <%= place.name %>
       </p>
       <%= button_to "X", gathering_place_path(@gathering, place), method: :delete, remote: true, class: 'btn btn-xs', style:"display:inline-block;" %>
