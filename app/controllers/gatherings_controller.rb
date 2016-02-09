@@ -45,8 +45,8 @@ class GatheringsController < ApplicationController
   def mail_users
     @gathering = Gathering.find(params[:id])
     @gathering.users.each do |user|
-      GatheringMailer.invite_user(user, @gathering, current_user).deliver_now
       interest = user.interests.find_by(gathering:@gathering)
+      GatheringMailer.invite_user(user, @gathering, current_user).deliver_now if !interest.notified_at
       interest.notified_at = Time.now
       interest.save
     end
