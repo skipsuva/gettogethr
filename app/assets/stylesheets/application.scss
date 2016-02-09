@@ -382,6 +382,31 @@ a:active {
   margin-left: 0;
 }
 
+
+//
+// Gatherings Index
+// --------------------------------------------------
+
+.gathering-row {
+  margin-bottom: 1em;
+  padding: 1em;
+}
+
+.open{
+  background-color: $gt-color3;
+}
+
+.finalized{
+  background-color: $gray-light;
+}
+
+.index-col{
+  padding: 1em;
+  margin: 0px;
+}
+
+
+
 //
 // Collaborators panel
 // --------------------------------------------------
