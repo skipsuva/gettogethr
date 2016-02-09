@@ -59,8 +59,9 @@ class GatheringsController < ApplicationController
     @gathering = Gathering.find(params[:id])
     if @user == current_user
       @gathering.users.delete(@user)
-    #  redirect_to gatherings_path
-      redirect_to session.delete(:return_to)
+      flash[:notice] = "You have dropped out of Gathering: #{@gathering.title}"
+      redirect_to gatherings_path
+    #  redirect_to session.delete(:return_to)
       # our ajax is preventing an HTML page redirect
     else
       @gathering.users.delete(@user)
