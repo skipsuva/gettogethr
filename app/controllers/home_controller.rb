@@ -3,6 +3,6 @@ class HomeController < ApplicationController
   layout 'application'
 
   def letsencrypt
-    render text: ENV["LE-CHALLENGE"]
+    render text: ENV['LE_CHALLENGE']
   end
 end
