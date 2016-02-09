@@ -13,9 +13,9 @@
     <div class="row">
       <% users = gathering.users  %>
       <% users[0...-1].each do |user|  %>
-        <%=user.name%> |
+         <div style="display:inline-block"><%=user.name%></div> |
       <%end  %>
-      <%= users.last.name %>
+      <div style="display:inline-block"><%=users.last.name%></div> 
     </div>
   </div>
 </div>
