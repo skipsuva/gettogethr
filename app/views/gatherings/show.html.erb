@@ -8,7 +8,19 @@
         <h5 class="gathering-title">Initiated by: <%= @gathering.owner.name %> </h5>
         <% end %>
         <h6 class="popular-suggestions-title">The most popular suggestions so far are</h6>
-        <h5 class="popular-suggestions"><a href="#">Water Polo</a> on <a href="">Friday, March 12th at 10 AM</a> at <a href="#">The Water Polo Spot</a></h5>
+        <h5 class="popular-suggestions">
+          <%if (activity = @gathering.find_best("activity")) %>
+            <a href="#activities-section"><%= activity.description.try(:capitalize)%></a>
+          <%end%>
+          <%if (moment = @gathering.find_best("moment")) %>
+            <%= "on" if activity %>
+            <a href="#moments-section"> <%= moment.time ? render_time(moment.time): "" %></a>
+          <% end %>
+          <%if (place = @gathering.find_best("place")) %>
+            <%= "at" if (moment || activity) %>
+            <a href="#places-section"><%= place.name %></a>
+         <% end %>
+        </h5>
       </div>
     </div>
   </div>
@@ -41,24 +53,27 @@
 
           <div class="col-md-9 <%= "gathering-finalized" if @gathering.finalized? %>" id="votable-dashboard">
             <!-- votable rows -->
+
             <div class="row" id="activities-row">
               <!-- insert cards -->
-              <div class="section-wrapper clearfix" id="">
+              <div class="section-wrapper clearfix" id="activities-section">
 
                 <%= render "activities_section" %>
               </div>
 
             </div>
+
             <div class="row" id="places-row">
               <!-- insert cards -->
-              <div class="section-wrapper clearfix" id="">
+              <div class="section-wrapper clearfix" id="places-section">
 
               <%= render "places_section" %>
               </div>
             </div>
+
             <div class="row" id="moments-row">
               <!-- insert cards -->
-              <div class="section-wrapper clearfix" id="">
+              <div class="section-wrapper clearfix" id="moments-section">
 
                 <%= render "moments_section" %>
               </div>

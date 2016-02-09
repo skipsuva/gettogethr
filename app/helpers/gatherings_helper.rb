@@ -15,4 +15,8 @@ module GatheringsHelper
     end
   end
 
+  def render_time(time)
+    time.strftime('%A, %e %B at %l %P')
+  end
+
 end
