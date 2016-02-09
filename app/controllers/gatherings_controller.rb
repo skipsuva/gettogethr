@@ -1,5 +1,5 @@
 class GatheringsController < ApplicationController
-  before_action :set_gathering, only: [:edit, :update, :destroy, :finalize]
+  before_action :set_gathering, only: [:edit, :update, :destroy, :finalize, :unfinalize]
   before_action -> { check_gathering_access(params[:id])}, only: [:show, :update]
 
 
@@ -146,6 +146,15 @@ class GatheringsController < ApplicationController
       @gathering.users.each do |user|
         GatheringMailer.finalize_plan(@gathering, user, current_user).deliver
       end
+    end
+  end
+
+  def unfinalize
+    @gathering.unfinalize
+    @gathering.save
+    respond_to do |format|
+      format.html { redirect_to @gathering}
+      format.js { head 204 }
     end
   end
 

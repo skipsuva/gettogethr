@@ -8,7 +8,7 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
   });
 
-  var collapseCollaborators = function(){ $(".collaborator-delete").hide(); }
+  var collapseCollaborators = function(){ $(".collaborator-delete").hide(); };
   collapseCollaborators();
 
   var titleKeypressListener = function(e) {
@@ -47,7 +47,6 @@ $(document).ready(function(){
     this.$collaboratorsSection = $("#collaborators-panel");
     this.$collaboratorForm = $("#add-collaborator-form");
     this.$finalizedGatheringItems = $("#votable-dashboard, #forms-panel-body");
-    this.$unstagingButton = $('#unstaging-button');
   };
 
   Gathering.prototype.init = function() {
@@ -61,6 +60,7 @@ $(document).ready(function(){
     this.addExpandCollaboratorListener();
     this.addActionButtonListeners();
     this.addCancelButtonListener();
+    this.addUnfinalizeListener();
   };
 
   Gathering.prototype.addExpandCollaboratorListener = function() {
@@ -92,7 +92,6 @@ $(document).ready(function(){
       var paneId = $(this).data('pane');
       $(this).parent().addClass('hide-pane');
       $("#" + paneId).addClass('display-pane');
-      // debugger;
     });
   };
 
@@ -107,7 +106,6 @@ $(document).ready(function(){
         $(this).parent().removeClass('display-pane');
         $('.action-buttons').removeClass('hide-pane');
     } );
-    // }.bind(this) );
   };
 
   Gathering.prototype.addCancelButtonListener = function() {
@@ -160,23 +158,36 @@ $(document).ready(function(){
     });
   };
 
-  //ADD UNSTAGING LISTENER
-  Gathering.prototype.methodName = function () {
-    this.$unstagingButton.on('click', function(){
-      //hide the finalized plan html
-
-    });
+  Gathering.prototype.addUnfinalizeListener = function () {
+    var unfinalizeURL = this.gatheringId + '/unfinalize';
+    $('#unstaging-button').on('click', function(){
+      $.ajax({
+          url:  unfinalizeURL,
+          type: 'PUT',
+          dataType: 'script',
+          success: function(modal_data){
+            $('.finalize-plan-row').fadeOut();
+            $('#votable-dashboard, #forms-panel-body').removeClass('gathering-finalized');
+            $('#unstaging-button').replaceWith("<button type='button' id='staging-button' class='btn btn-primary btn-md'>Let's Do It</button>");
+            this.addModalButtonListener();
+          }.bind(this),
+          error: function(){
+              alert("ajax error");
+          }
+      });
+    }.bind(this) );
   };
 
   Gathering.prototype.finalizeAjaxCallback = function () {
+    var that = this;
     $('#modal-form').bind('ajax:success', function(e, data, status, xhr){
       this.$stagingModal.modal('hide');
       var finalTmpl = $.templates("#finalized-template");
       var finalHtml = finalTmpl.render(data);
       $(finalHtml).insertAfter(this.$collaboratorsSection);
       this.$finalizedGatheringItems.toggleClass('gathering-finalized');
-      this.$stagingButton.replaceWith("<button type='button' id='unstaging-button' class='btn btn-danger btn-md'>Change of Plans</button>");
-      // this.$votableForms.fadeOut();
+      $('#staging-button').replaceWith("<button type='button' id='unstaging-button' class='btn btn-danger btn-md'>Change of Plans</button>");
+      that.addUnfinalizeListener();
     }.bind(this) );
   };
 
