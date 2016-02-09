@@ -416,8 +416,10 @@ a:active {
  display: inline-block;
 }
 
+//finalized gathering
 .gathering-finalized {
   opacity: 0.35;
+  pointer-events: none;
 }
 
 // for making the panels default to closed
