@@ -1,7 +1,9 @@
 <%= form_for [@gathering, @moment], remote: true do |f| %>
   <%= f.label :time, class: 'hidden' %>
-  <%= f.datetime_local_field :time %>
-  <%= f.submit 'Add a time', class: 'btn' %>
+  <%= f.datetime_local_field :time, class: 'form-control' %>
+  <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
+    Add
+  <% end %>
 <% end %>
 
 <a href="#" class="btn cancel-button" role="button" aria-expanded="true" aria-controls="activities-form-container">Cancel</a>
