@@ -11,11 +11,13 @@ Rails.application.routes.draw do
   post '/gatherings/:id/mail-users', to: "gatherings#mail_users", as: "mail_users"
   post '/gatherings/:id/remove-users', to: "gatherings#remove_users", as: "remove_users"
 
+
   resources :gatherings do
     member do
       get 'list_autocomplete'
       get 'stage'
       post 'finalize'
+      put 'unfinalize'
     end
     resources :moments, only: [:create, :destroy]
     resources :activities, only: [:create, :destroy]
