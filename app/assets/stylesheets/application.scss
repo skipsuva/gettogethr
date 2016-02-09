@@ -307,9 +307,17 @@ h2#splash-callout {
 }
 
 .comment-box {
-  background-color: $gt-color5;
+  background-color: $gt-color2;
   // color: $gt-color3;
 }
+
+// .section-wrapper {
+//   background-color: lighten($gray-base, 97%);
+//   padding: 1em;
+//   border-radius: .5em;
+//   margin-bottom: 1em;
+//   border: lighten($gray-base, 90%) solid 1px;
+// }
 
 .comment-box .panel-body {
   display: block;
@@ -330,6 +338,7 @@ h2#splash-callout {
   background-color: $gt-color5;
   padding-top: 5px;
   height: auto;
+  
 }
 
 #new_comment textarea {
@@ -343,7 +352,6 @@ h2#splash-callout {
 
 #new_comment .btn {
   margin-bottom: 40px;
-  box-shadow: 0px 2px 0px #A6AAAC;
   width: auto;
 }
 
