@@ -162,11 +162,12 @@ h2#splash-callout {
   padding-bottom: 0;
 }
 
-#votable-dashboard .section-wrapper {
-  background-color: lighten($gray-base, 95%);
+.section-wrapper {
+  background-color: lighten($gray-base, 97%);
   padding: 1em;
   border-radius: .5em;
   margin-bottom: 1em;
+  border: grey solid 1px;
 }
 
 #votable-dashboard h6 {
