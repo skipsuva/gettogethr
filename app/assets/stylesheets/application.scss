@@ -137,44 +137,6 @@ h2#splash-callout {
 }
 
 //
-// Collaborators panel
-// --------------------------------------------------
-
-#collaborators-panel {
-  float: none;
-  margin: 0 auto;
-  margin-top: 2.5em;
-  margin-bottom: 2em;
-  text-align: center;
-}
-
-#add-collabs {
-  margin-top: 1em;
-}
-#add-collabs form{
-    display: inline;
-}
-
-#add-collabs .form-control {
-  max-width: 40%;
-  display: inline;
-}
-
-#add-collabs .btn {
-  display: inline;
-  margin-left: 1em;
-  margin-top: 1em;
-}
-
-#id-btn {
-  display: inline;
-}
-
-#staging-button, #unstaging-button {
-  margin-right: 4.4em;
-}
-
-//
 // Final plan card
 // --------------------------------------------------
 
@@ -400,6 +362,45 @@ a:active {
 }
 
 //
+// Collaborators panel
+// --------------------------------------------------
+
+#collaborators-panel {
+  float: none;
+  margin: 0 auto;
+  margin-top: 2.5em;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+#add-collabs {
+  // margin-top: 1em;
+  display: inline;
+}
+
+#add-collabs form {
+  display: inline;
+}
+
+#add-collabs .form-control {
+  max-width: 180px;
+  display: inline;
+}
+
+#add-collabs .btn {
+  display: inline;
+  margin-left: 1em;
+}
+
+#id-btn {
+  display: inline;
+}
+
+#staging-button, #unstaging-button {
+  margin-right: 4.4em;
+}
+
+//
 // Gatherings show
 // --------------------------------------------------
 
@@ -425,10 +426,6 @@ a:active {
   letter-spacing: 2px;
 }
 
-.collaborators-label {
-  display: inline;
-}
-
 .popular-suggestions {
   font-size: $font-size-h3;
   font-weight: 300;
@@ -437,7 +434,7 @@ a:active {
 }
 
 #collaborators-row {
-  background-color: lighten($gt-color1, 85%);
+  background-color: darken(#f1f2f7, 3%);
   margin-top: 1.5em;
   border-top: solid 1px $gray-lighter;
   border-bottom: solid 1px $gray-lighter;
@@ -451,7 +448,12 @@ a:active {
 }
 
 #collaborator-list {
-  display: inline;
+  text-align: center;
+}
+
+#collaborator-list .btn {
+  display: inline-block;
+  margin: .25em;
 }
 
 .item-list .panel {

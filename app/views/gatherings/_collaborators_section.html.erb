@@ -1,22 +1,25 @@
-  <h6 class="collaborators-label">Who's Involved:</h6>
-  <div id="collaborator-list">
-     <%= render partial: "collaborator", collection: @collaborators %>
-  </div>
+<h6 class="collaborators-label">The people involved are</h6>
+<div id="collaborator-list">
+   <%= render partial: "collaborator", collection: @collaborators %>
+</div>
 
 <div id="add-collabs">
   <%= form_tag("/gatherings/#{@gathering.id}/add-users", remote: true, id: 'add-collaborator-form') do %>
-      <%= text_field( :user, :id, options={class:"form-control autocomplete ac-input"}) %>
-      <!-- <div style="display:none;"> -->
-        <%# select("user", "id", @users.map { |u| [u.name, u.id] }, {include_blank: true, class:"autocomplete"}) %>
-      <!-- </div> -->
-      <%= hidden_field(:user, :id) %>
-      <%=submit_tag "Add People", {class:"btn btn-primary"}%>
+    <%= text_field( :user, :id, options = { class: "form-control autocomplete ac-input", placeholder: 'Name or email address' }) %>
+    <!-- <div style="display:none;"> -->
+      <%# select("user", "id", @users.map { |u| [u.name, u.id] }, {include_blank: true, class:"autocomplete"}) %>
+    <!-- </div> -->
+    <%= hidden_field(:user, :id) %>
+    <%= submit_tag "Add People", { class:"btn btn-primary" } %>
   <% end %>
+</div>
 
+
+
+<div id="email-notification-form">
   <%= form_tag( "/gatherings/#{@gathering.id}/mail-users", remote: true) do %>
-
    <%= button_tag type: 'submit', class: "btn", id:"id-btn" do %>
-     Notify via Email
+     Send Everyone an Email Notification
    <% end %>
   <%end %>
 </div>
