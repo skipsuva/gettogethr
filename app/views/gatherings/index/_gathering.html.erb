@@ -1,5 +1,7 @@
 <div class="row gathering-row">
+  <h3>
   <%= render partial:"gatherings/index/remove_gathering", locals:{gathering:gathering} %>
   <%= link_to gathering.title, gathering %>
+  </h3>
   <%= gathering.aasm_state.capitalize %>
 </div>
