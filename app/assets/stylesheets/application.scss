@@ -187,7 +187,7 @@ h2#splash-callout {
 // Dashboard
 // --------------------------------------------------
 
-#dashboard-panel{
+#dashboard-panel, #title-row {
   width: 90%;
   max-width: 1040px;
   float: none;
@@ -280,7 +280,6 @@ h2#splash-callout {
 #create-forms .display-pane {
   visibility: visible;
   opacity: 1.0;
-  // transition: visibility 0s, opacity 1s linear;
 }
 
 #create-forms .hide-pane {
@@ -322,8 +321,9 @@ h2#splash-callout {
 }
 
 //
-// Comments Field
+// Comments field
 // --------------------------------------------------
+
 .comment-user {
   color: $gray-light;
 }
@@ -404,8 +404,14 @@ a:active {
 }
 
 //
-// Gatherings Show
+// Gatherings show
 // --------------------------------------------------
+
+.gathering-title {
+  font-size: $font-size-h1;
+  font-weight: 700;
+  text-align: left;
+}
 
 .item-list .panel {
   .panel-footer, .panel-body, .panel-heading  {
