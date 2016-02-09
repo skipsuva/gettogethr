@@ -46,6 +46,7 @@ $(document).ready(function(){
     this.$autocomplete = $(".autocomplete");
     this.$collaboratorsSection = $("#collaborators-panel");
     this.$collaboratorForm = $("#add-collaborator-form");
+    this.$finalizedGatheringItems = $("#votable-dashboard, #forms-panel-body");
   };
 
   Gathering.prototype.init = function() {
@@ -164,7 +165,7 @@ $(document).ready(function(){
       var finalTmpl = $.templates("#finalized-template");
       var finalHtml = finalTmpl.render(data);
       $(finalHtml).insertAfter(this.$titleRow);
-      this.$votableCards.toggleClass('gathering-finalized');
+      this.$finalizedGatheringItems.toggleClass('gathering-finalized');
       this.$votableForms.fadeOut();
     }.bind(this) );
   };
