@@ -150,7 +150,9 @@ class GatheringsController < ApplicationController
   end
 
   def unfinalize
-    binding.pry
+    gathering = set_gathering
+    gathering.finalized_plan.destroy
+    redirect_to gathering
   end
   # DELETE /gatherings/1
   # DELETE /gatherings/1.json

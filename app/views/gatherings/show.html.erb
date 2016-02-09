@@ -106,11 +106,11 @@
             <% if @gathering.finalized? %>
             <div class="finalize-button action">
               <h4>Need to make some changes?</h4>
-              <button type="button" id="unstaging-button" class="btn btn-danger btn-md">
+              <!-- <button type="button" id="unstaging-button" class="btn btn-danger btn-md">
                 Change of Plans
-              </button>
+              </button> -->
 
-              <%= button_to "Change of Plans", unfinalize_gathering_path %>
+              <%= button_to "Change of Plans", unfinalize_gathering_path, class:"btn btn-danger btn-md", id:"unstaging-button" %>
             </div>
             <% else %>
             <div class="finalize-button action">
