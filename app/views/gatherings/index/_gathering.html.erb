@@ -1,7 +1,6 @@
 
 <div class="row gathering-row <%=gathering.aasm_state%>">
-  <div class="panel-body">
-  <div class = "col-md-2">
+  <div class = "col-md-4">
     <div class ="row">
     <h3>
     <%= render partial:"gatherings/index/remove_gathering", locals:{gathering:gathering} %>
@@ -10,12 +9,13 @@
     <%= gathering.aasm_state.capitalize %>
    </div>
   </div>
-  <div class = "col-md-4">
+  <div class = "col-md-8" style="text-align: right;">
     <div class="row">
-      <% gathering.users.each do |user|  %>
-        <%= user.name %> |
+      <% users = gathering.users  %>
+      <% users[0...-1].each do |user|  %>
+        <%=user.name%> |
       <%end  %>
+      <%= users.last.name %>
     </div>
   </div>
-</div>
 </div>
