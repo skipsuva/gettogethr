@@ -12,9 +12,15 @@
         <div class="panel-body final-plan-body">
           <p>
             The gathering has been finalized.<br>
+            {{if place}}
             <strong>Place: </strong>{{:place}}<br>
+            {{/if}}
+            {{if moment}}
             <strong>Time: </strong>{{:moment}}<br>
+            {{/if}}
+            {{if activity}}
             <strong>Activity: </strong>{{:activity}} ({{:activity_category.label}})
+            {{/if}}
           </p>
         </div>
       </div>
