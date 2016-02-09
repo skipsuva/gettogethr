@@ -77,6 +77,14 @@ img#nav-logo {
 .main-app-link {
   font-weight: 500;
   line-height: 39px;
+  float: left;
+  padding-right: 1.5em;
+}
+
+.main-app-link a.btn-primary {
+  background-color: $gt-color1;
+  color: #fff;
+  border: none;
 }
 
 //
