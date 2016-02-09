@@ -167,7 +167,7 @@ h2#splash-callout {
   padding: 1em;
   border-radius: .5em;
   margin-bottom: 1em;
-  border: grey solid 1px;
+  border: lighten($gray-base, 90%) solid 1px;
 }
 
 #votable-dashboard h6 {

@@ -65,11 +65,11 @@
             </div>
           </div>
 
-          <div class=" col-md-3" id="dashboard-control">
+          <div class="col-md-3" id="dashboard-control">
             <!-- forms -->
             <div class="row" id="action-row">
 
-              <div class="" id="forms-panel">
+              <div id="forms-panel">
                 <div class="panel-body section-wrapper <%= "gathering-finalized" if @gathering.finalized? %>" id="forms-panel-body">
 
                   <!-- Buttons -->
@@ -104,7 +104,7 @@
             </div>
 
             <% if @gathering.finalized? %>
-            <div class="finalize-button action">
+            <div class="finalize-button action section-wrapper">
               <h4>Need to make some changes?</h4>
               <!-- <button type="button" id="unstaging-button" class="btn btn-danger btn-md">
                 Change of Plans
@@ -113,7 +113,7 @@
               <%= button_to "Change of Plans", unfinalize_gathering_path, remote: true, class:"btn btn-danger btn-md", id:"unstaging-button" %>
             </div>
             <% else %>
-            <div class="finalize-button action">
+            <div class="finalize-button action section-wrapper">
               <h4>Ready to make a decision?</h4>
               <button type="button" id="staging-button" class="btn btn-primary btn-md">
                 Let's Do It
@@ -123,7 +123,7 @@
 
             <!-- comments -->
              <div class="row" id="comment-row">
-              <div class="">
+              <div class="section-wrapper">
                 <div class="comment-box panel">
                   <!-- body -->
                   <div class="panel-body">
