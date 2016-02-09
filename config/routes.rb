@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       get 'list_autocomplete'
       get 'stage'
       post 'finalize'
-      post 'unfinalize'
+      put 'unfinalize'
     end
     resources :moments, only: [:create, :destroy]
     resources :activities, only: [:create, :destroy]
