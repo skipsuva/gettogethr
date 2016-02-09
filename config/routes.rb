@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/.well-known/acme-challenge/:id' => 'home#letsencrypt'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users
 
