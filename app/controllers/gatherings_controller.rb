@@ -149,6 +149,9 @@ class GatheringsController < ApplicationController
     end
   end
 
+  def unfinalize
+    binding.pry
+  end
   # DELETE /gatherings/1
   # DELETE /gatherings/1.json
   def destroy
