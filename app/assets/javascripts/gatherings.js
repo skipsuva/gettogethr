@@ -170,7 +170,7 @@ $(document).ready(function(){
             $('#votable-dashboard, #forms-panel-body').removeClass('gathering-finalized');
             $('#unstaging-button').replaceWith("<button type='button' id='staging-button' class='btn btn-primary btn-md'>Let's Do It</button>");
             $('#finalized-details').fadeOut();
-            $('#suggested-or-finalized').fadeIn('#suggestions');
+            $('#suggestions').fadeIn();
             this.addModalButtonListener();
           }.bind(this),
           error: function(){
