@@ -166,7 +166,7 @@ $(document).ready(function(){
       var finalHtml = finalTmpl.render(data);
       $(finalHtml).insertAfter(this.$titleRow);
       this.$finalizedGatheringItems.toggleClass('gathering-finalized');
-      this.$votableForms.fadeOut();
+      // this.$votableForms.fadeOut();
     }.bind(this) );
   };
 
