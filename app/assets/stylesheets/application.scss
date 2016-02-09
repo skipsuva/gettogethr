@@ -408,6 +408,41 @@ a:active {
   font-weight: 300;
   text-align: center;
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+  margin-bottom: 1em;
+}
+
+.gathering-title:hover {
+  cursor: pointer;
+  color: $gt-color1;
+}
+
+.popular-suggestions-title {
+  font-size: $font-size-base;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.popular-suggestions {
+  font-size: $font-size-h3;
+  font-weight: 300;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+  text-align: center;
+}
+
+#collaborators-row {
+  background-color: #fff;
+  margin-top: 1.5em;
+  border-top: solid 1px $gray-lighter;
+  border-bottom: solid 1px $gray-lighter;
+}
+
+#collaborators {
+  width: 90%;
+  max-width: 1040px;
+  text-align: left;
 }
 
 .item-list .panel {

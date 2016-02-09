@@ -7,28 +7,21 @@
         <% if current_user != @gathering.owner %>
         <h5 class="gathering-title">Initiated by: <%= @gathering.owner.name %> </h5>
         <% end %>
+        <h6 class="popular-suggestions-title">The most popular suggestions so far are</h6>
+        <h5 class="popular-suggestions"><a href="#">Water Polo</a> on <a href="">Friday, March 12th at 10 AM</a> at <a href="#">The Water Polo Spot</a></h5>
       </div>
     </div>
   </div>
-  <% if @gathering.finalized? %>
-  <div class="finalize-button action pull-right">
-    <button type="button" id="unstaging-button" class="btn btn-danger btn-md">
-      Change of Plans
-    </button>
-  </div>
-  <% else %>
-  <div class="finalize-button action pull-right">
-    <button type="button" id="staging-button" class="btn btn-primary btn-md">
-      Let's Do It
-    </button>
-  </div>
-  <% end %>
-  <!-- Need to format without card -->
-  <div id="collaborators-panel" class="col-md-5">
-    <div id="collaborators">
-      <%= render "collaborators_section" %>
+
+  <div class="row" id="collaborators-row">
+    <div id="collaborators-panel" class="col-md-12">
+      <div id="collaborators">
+        <%= render "collaborators_section" %>
+      </div>
     </div>
   </div>
+  <!-- Need to format without card -->
+  
 
   <% if @gathering.finalized? %>
   <%= render 'finalize_display_persist' %>
@@ -109,6 +102,22 @@
               </div>
               <!-- end action-row -->
             </div>
+
+            <% if @gathering.finalized? %>
+            <div class="finalize-button action">
+              <h4>Need to make some changes?</h4>
+              <button type="button" id="unstaging-button" class="btn btn-danger btn-md">
+                Change of Plans
+              </button>
+            </div>
+            <% else %>
+            <div class="finalize-button action">
+              <h4>Ready to make a decision?</h4>
+              <button type="button" id="staging-button" class="btn btn-primary btn-md">
+                Let's Do It
+              </button>
+            </div>
+            <% end %>
 
             <!-- comments -->
              <div class="row" id="comment-row">
