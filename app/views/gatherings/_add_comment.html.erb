@@ -2,6 +2,8 @@
   <%= form_for([@gathering, @comment], remote: true) do |f| %>
     <%= f.text_area :content, placeholder: 'Your comment here...' %>
 
-  <%= f.submit 'Comment', class:"btn btn-default btn-xs" %>
-
-<% end %>
+    <%# f.submit 'Comment', class: "btn btn-default btn-xs" %>
+    <%= button_tag(type: 'submit', class: 'btn btn-primary') do %>
+      Comment
+    <% end %>
+  <% end %>
