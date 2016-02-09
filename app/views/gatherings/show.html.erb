@@ -7,19 +7,11 @@
         <% if current_user != @gathering.owner %>
         <h5 class="gathering-title">Initiated by: <%= @gathering.owner.name %> </h5>
         <% end %>
-        <h6 class="popular-suggestions-title">The most popular suggestions so far are</h6>
-        <h5 class="popular-suggestions">
-          <%if (activity = @gathering.find_best("activity")) %>
-            <a href="#activities-section"><%= activity.description.try(:capitalize)%></a>
-          <%end%>
-          <%if (moment = @gathering.find_best("moment")) %>
-            <%= "on" if activity %>
-            <a href="#moments-section"> <%= moment.time ? render_time(moment.time): "" %></a>
-          <% end %>
-          <%if (place = @gathering.find_best("place")) %>
-            <%= "at" if (moment || activity) %>
-            <a href="#places-section"><%= place.name %></a>
-         <% end %>
+        <% if @gathering.finalized? %>
+        <%= render 'finalize_display_persist' %>
+        <% else %>
+        <%= render 'suggestions' %>
+        <% end %>
         </h5>
       </div>
     </div>
@@ -35,9 +27,7 @@
   <!-- Need to format without card -->
 
 
-  <% if @gathering.finalized? %>
-  <%= render 'finalize_display_persist' %>
-  <% end %>
+
   <!-- <div class="row">
     <div class="finalize-button">
       <button type="button" id="staging-button" class="btn btn-primary btn-md">
