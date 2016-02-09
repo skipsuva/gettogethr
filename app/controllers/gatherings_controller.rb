@@ -154,8 +154,9 @@ class GatheringsController < ApplicationController
     gathering.unfinalize
     gathering.save
     #   Remove with Ajax
-    redirect_to gathering
+    # redirect_to gathering
   end
+  
   # DELETE /gatherings/1
   # DELETE /gatherings/1.json
   def destroy

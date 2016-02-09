@@ -47,7 +47,7 @@ $(document).ready(function(){
     this.$collaboratorsSection = $("#collaborators-panel");
     this.$collaboratorForm = $("#add-collaborator-form");
     this.$finalizedGatheringItems = $("#votable-dashboard, #forms-panel-body");
-    this.$unstagingButton = $('#unstaging-button');
+    // this.$unstagingButton = $('#unstaging-button');
   };
 
   Gathering.prototype.init = function() {
@@ -162,8 +162,9 @@ $(document).ready(function(){
 
   //ADD UNSTAGING LISTENER
   Gathering.prototype.addUnfinalizeListener = function () {
-    this.$unstagingButton.on('click', function(){
+    $('#unstaging-button').on('click', function(){
       //hide the finalized plan html
+      debugger;
       $('.finalize-plan-row').fadeOut();
       $('#votable-dashboard, #forms-panel-body').removeClass('gathering-finalized');
       $('#unstagingButton').replaceWith("<button type='button' id='staging-button' class='btn btn-primary btn-md'>Change of Plans</button>");
@@ -172,18 +173,23 @@ $(document).ready(function(){
   };
 
   Gathering.prototype.finalizeAjaxCallback = function () {
+    var that = this;
     $('#modal-form').bind('ajax:success', function(e, data, status, xhr){
       this.$stagingModal.modal('hide');
       var finalTmpl = $.templates("#finalized-template");
       var finalHtml = finalTmpl.render(data);
       $(finalHtml).insertAfter(this.$collaboratorsSection);
+      //change toggle to addClass?
       this.$finalizedGatheringItems.toggleClass('gathering-finalized');
       this.$stagingButton.replaceWith("<button type='button' id='unstaging-button' class='btn btn-danger btn-md'>Change of Plans</button>");
       // this.$votableForms.fadeOut();
 
       //will this work?
-      this.addUnfinalizeListener();
+      that.addUnfinalizeListener();
+      // debugger;
     }.bind(this) );
+    // debugger;
+
   };
 
   var gathering = new Gathering();
