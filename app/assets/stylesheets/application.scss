@@ -120,6 +120,7 @@ h2#splash-callout {
 //
 // Flash panel
 // --------------------------------------------------
+
 .flash.success {
     background-color: lighten($brand-success, 35%);
     color: darken($brand-success, 5%);
@@ -136,43 +137,9 @@ h2#splash-callout {
 }
 
 //
-// Collabs
+// Final plan card
 // --------------------------------------------------
-#collaborators-panel {
-  float: none;
-  margin: 0 auto;
-  margin-top: 2.5em;
-  margin-bottom: 2em;
-  text-align: center;
-}
 
-#add-collabs {
-  margin-top: 1em;
-}
-#add-collabs form{
-    display: inline;
-}
-
-#add-collabs .form-control {
-  max-width: 40%;
-  display: inline;
-}
-
-#add-collabs .btn {
-  display: inline;
-  margin-left: 1em;
-  margin-top: 1em;
-}
-
-#id-btn {
-  display: inline;
-}
-
-#staging-button, #unstaging-button {
-  margin-right: 4.4em;
-}
-
-//Final Plan Card
 .finalize-plan-row .col-md-10 {
   float: none;
   margin: 0 auto;
@@ -181,8 +148,10 @@ h2#splash-callout {
 //
 // Dashboard
 // --------------------------------------------------
-#dashboard-panel{
-  max-width: 90%;
+
+#dashboard-panel, #title-row {
+  width: 90%;
+  max-width: 1040px;
   float: none;
   margin: 0 auto;
 }
@@ -199,18 +168,26 @@ h2#splash-callout {
   border-radius: .5em;
   margin-bottom: 1em;
 }
+
+#votable-dashboard h6 {
+  font-size: $font-size-base;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+  letter-spacing: 2px;
+  margin-top: 0;
+}
+
 #moments-row .section-wrapper {
   margin-bottom: 0;
 }
 
 #dashboard-control {
   padding-left: 2em
-
 }
 
-
 //
-// New Gathering
+// New gathering
 // --------------------------------------------------
 
 #new_gathering {
@@ -228,10 +205,6 @@ h2#splash-callout {
   border: none;
   border-bottom: solid 2px $gt-color2;
   color: $gt-color2;
-}
-
-.gathering-title {
-  text-align: center;
 }
 
 #new_gathering .actions {
@@ -275,13 +248,11 @@ h2#splash-callout {
 #create-forms .display-pane {
   visibility: visible;
   opacity: 1.0;
-  // transition: visibility 0s, opacity 1s linear;
 }
 
 #create-forms .hide-pane {
   visibility: hidden;
   opacity: 0.0;
-  // transition: visibility 0s, opacity 1s linear;
 }
 
 #create-forms {
@@ -302,8 +273,9 @@ h2#splash-callout {
 }
 
 //
-// Vote Form
+// Vote form
 // --------------------------------------------------
+
 .hidden-button {
   display: none;
 }
@@ -317,8 +289,9 @@ h2#splash-callout {
 }
 
 //
-// Comments Field
+// Comments field
 // --------------------------------------------------
+
 .comment-user {
   color: $gray-light;
 }
@@ -368,7 +341,6 @@ h2#splash-callout {
 }
 
 #new_comment .btn {
-  // vertical-align: middle;
   margin-bottom: 40px;
   box-shadow: 0px 2px 0px #A6AAAC;
   width: auto;
@@ -379,12 +351,8 @@ h2#splash-callout {
 }
 
 //
-// Theme Color Overrides
+// Theme color overrides
 // --------------------------------------------------
-
-// body {
-//   color: $theme-body-text;
-// }
 
 a:link,
 a:visited {
@@ -396,7 +364,7 @@ a:active {
 }
 
 //
-// Theme Structure Overrides
+// Theme structure overrides
 // --------------------------------------------------
 
 .main-content-wrapper {
@@ -404,8 +372,113 @@ a:active {
 }
 
 //
-// Gatherings Show
+// Collaborators panel
 // --------------------------------------------------
+
+#collaborators-panel {
+  float: none;
+  margin: 0 auto;
+  margin-top: 2.5em;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+#add-collabs {
+  text-align: center;
+  margin: 1em auto;
+}
+
+#add-collabs form {
+  display: inline;
+}
+
+#add-collabs form input[type="submit"] {
+  min-height: 36px;
+}
+
+#add-collabs .form-control {
+  max-width: 180px;
+  display: inline;
+}
+
+#add-collabs .btn {
+  display: inline;
+  margin-left: 1em;
+}
+
+#id-btn {
+  display: inline;
+}
+
+#staging-button, #unstaging-button {
+  margin-right: 4.4em;
+}
+
+#email-notification-form {
+  text-align: center;
+}
+
+//
+// Gatherings show
+// --------------------------------------------------
+
+.gathering-title {
+  font-size: $font-size-h1;
+  font-weight: 300;
+  text-align: center;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+  margin-bottom: 1em;
+}
+
+.gathering-title:hover {
+  cursor: pointer;
+  color: $gt-color1;
+}
+
+.popular-suggestions-title, .collaborators-label, .invite-label, #email-notification-form {
+  font-size: $font-size-base;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.invite-label {
+  text-align: left;
+  display: inline;
+  margin-right: 1em;
+}
+
+.popular-suggestions {
+  font-size: $font-size-h3;
+  font-weight: 300;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+  text-align: center;
+}
+
+#collaborators-row {
+  background-color: darken(#f1f2f7, 3%);
+  margin-top: 1.5em;
+  border-top: solid 1px $gray-lighter;
+  border-bottom: solid 1px $gray-lighter;
+}
+
+#collaborators {
+  width: 90%;
+  max-width: 1040px;
+  text-align: left;
+  margin: 0 auto;
+}
+
+#collaborator-list {
+  text-align: center;
+}
+
+#collaborator-list .btn {
+  display: inline-block;
+  margin: .25em;
+}
 
 .item-list .panel {
   .panel-footer, .panel-body, .panel-heading  {
@@ -421,21 +494,17 @@ a:active {
   padding-left: 0px;
 }
 
-
-
 .button-row{
  display: inline-block;
 }
 
-//finalized gathering
 .gathering-finalized {
   opacity: 0.35;
   pointer-events: none;
 }
 
-// for making the panels default to closed
 .item-list .panel-body {
-  display:none;
+  display: none;
 }
 
 // Title panel styling
@@ -480,8 +549,8 @@ a:active {
 //
 // Sessions
 // --------------------------------------------------
+
 .auth {
-  // display: inline-block;
   float: none;
   margin: 0 auto;
 }
@@ -515,5 +584,4 @@ a:active {
 
 .sessions .btn {
   width: 100%;
-
 }
