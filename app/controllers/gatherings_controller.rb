@@ -46,6 +46,9 @@ class GatheringsController < ApplicationController
     @gathering = Gathering.find(params[:id])
     @gathering.users.each do |user|
       GatheringMailer.invite_user(user, @gathering, current_user).deliver_now
+      interest = user.interests.find_by(gathering:@gathering)
+      interest.notified_at = Time.now
+      interest.save
     end
     respond_to do |format|
       format.html{redirect_to @gathering}
