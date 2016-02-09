@@ -161,9 +161,12 @@ $(document).ready(function(){
   };
 
   //ADD UNSTAGING LISTENER
-  Gathering.prototype.methodName = function () {
+  Gathering.prototype.addUnfinalizeListener = function () {
     this.$unstagingButton.on('click', function(){
       //hide the finalized plan html
+      $('.finalize-plan-row').fadeOut();
+      $('#votable-dashboard, #forms-panel-body').removeClass('gathering-finalized');
+      $('#unstagingButton').replaceWith("<button type='button' id='staging-button' class='btn btn-primary btn-md'>Change of Plans</button>");
 
     });
   };
@@ -177,6 +180,9 @@ $(document).ready(function(){
       this.$finalizedGatheringItems.toggleClass('gathering-finalized');
       this.$stagingButton.replaceWith("<button type='button' id='unstaging-button' class='btn btn-danger btn-md'>Change of Plans</button>");
       // this.$votableForms.fadeOut();
+
+      //will this work?
+      this.addUnfinalizeListener();
     }.bind(this) );
   };
 
