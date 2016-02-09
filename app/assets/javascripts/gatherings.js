@@ -60,6 +60,7 @@ $(document).ready(function(){
     this.addExpandCollaboratorListener();
     this.addActionButtonListeners();
     this.addCancelButtonListener();
+    this.addUnfinalizeListener();
   };
 
   Gathering.prototype.addExpandCollaboratorListener = function() {
