@@ -7,11 +7,14 @@
         <% if current_user != @gathering.owner %>
         <h5 class="gathering-title">Initiated by: <%= @gathering.owner.name %> </h5>
         <% end %>
+        <div id="suggested-or-finalized">
         <% if @gathering.finalized? %>
         <%= render 'finalize_display_persist' %>
         <% else %>
         <%= render 'suggestions' %>
         <% end %>
+
+        </div>
         </h5>
       </div>
     </div>

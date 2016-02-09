@@ -1,3 +1,5 @@
+<div id="finalized-persist">
+
 <h6 class="popular-suggestions-title">The final plan is</h6>
 <h5 class="popular-suggestions">
   <%if @gathering.finalized_plan.activity %>
@@ -11,3 +13,4 @@
     <%= "at" if (@gathering.finalized_plan.moment || @gathering.finalized_plan.activity) %>
     <a href="#places-section"><%= @gathering.finalized_plan.place.name %></a>
  <% end %>
+</div>
