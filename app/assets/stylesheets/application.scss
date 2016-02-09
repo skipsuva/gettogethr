@@ -285,7 +285,7 @@ h2.your-gatherings-title {
   transition: opacity 0.5s linear;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 20px;
 }
 
 .action-buttons {
@@ -314,12 +314,19 @@ h2.your-gatherings-title {
 }
 
 #create-forms form .form-control {
-  max-width: 130px;
   text-size: .75em;
   height: 26px;
   font-size: 12px;
   display: inline;
   margin-right: .75em;
+}
+
+#create-forms form select.form-control {
+  width: 20px;
+}
+
+#create-forms form input.form-control {
+  width: 120px;
 }
 
 #create-forms form input[type="submit"] {
