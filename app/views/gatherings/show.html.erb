@@ -235,30 +235,36 @@
 
 <script id="modal-template" type="text/x-jsrender">
 <div class="row finalize-buttons-row">
-<div class="container col-md-4" id="moments-buttons" data-toggle="buttons">
-<h4>Choose a moment:</h4>
-{{for moments}}
-  <label class="btn btn-primary{{if suggested}} active{{/if}}">
-    <input type="radio" name="moments" value="{{:id}}"{{if suggested}} checked=""{{/if}}> {{:time}}
-  </label>
-{{/for}}
-</div>
-<div class="container col-md-4" id="activities-buttons" data-toggle="buttons">
-<h4>Choose an activity:</h4>
-{{for activities}}
-  <label class="btn btn-primary{{if suggested}} active{{/if}}">
-    <input type="radio" name="activities" value="{{:id}}"{{if suggested}} checked=""{{/if}}> {{:description}}
-  </label>
-{{/for}}
-</div>
-<div class="container col-md-4" id="places-buttons" data-toggle="buttons">
+{{if moments.length != 0}}
+    <div class="container col-md-4" id="moments-buttons" data-toggle="buttons">
+      <h4>Choose a moment:</h4>
+      {{for moments}}
+        <label class="btn btn-primary{{if suggested}} active{{/if}}">
+          <input type="radio" name="moments" value="{{:id}}"{{if suggested}} checked=""{{/if}}> {{:time}}
+        </label>
+      {{/for}}
+    </div>
+{{/if}}
+{{if activities.length != 0}}
+  <div class="container col-md-4" id="activities-buttons" data-toggle="buttons">
+    <h4>Choose an activity:</h4>
+    {{for activities}}
+      <label class="btn btn-primary{{if suggested}} active{{/if}}">
+        <input type="radio" name="activities" value="{{:id}}"{{if suggested}} checked=""{{/if}}> {{:description}}
+      </label>
+    {{/for}}
+  </div>
+{{/if}}
+{{if places.length != 0}}
 <h4>Choose a place:</h4>
-{{for places}}
-  <label class="btn btn-primary{{if suggested}} active{{/if}}">
-    <input type="radio" name="places" value="{{:id}}"{{if suggested}} checked=""{{/if}}> {{:name}}
-  </label>
-{{/for}}
-</div>
+  <div class="container col-md-4" id="places-buttons" data-toggle="buttons">
+    {{for places}}
+      <label class="btn btn-primary{{if suggested}} active{{/if}}">
+        <input type="radio" name="places" value="{{:id}}"{{if suggested}} checked=""{{/if}}> {{:name}}
+      </label>
+    {{/for}}
+  </div>
+{{/if}}
 </div>
 </script>
 
