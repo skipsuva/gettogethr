@@ -6,7 +6,8 @@
   </span>
   <span style="display:inline-block" class="collaborator-delete">
 
-    <%= link_to(raw("<i class='fa fa-times collaborator-delete-icon'></i>"), {action:"remove_users", user:collaborator.id}, method: :post, remote: true, style:"display:inline-block" )%>
+    <%= link_to(raw("<i class='fa fa-times collaborator-delete-icon'></i>"),
+    {action:"remove_users", user:collaborator.id}, method: :post, remote: (collaborator == current_user ? false : true), style:"display:inline-block" )%>
   </span>
 
 
