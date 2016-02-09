@@ -120,6 +120,7 @@ h2#splash-callout {
 //
 // Flash panel
 // --------------------------------------------------
+
 .flash.success {
     background-color: lighten($brand-success, 35%);
     color: darken($brand-success, 5%);
@@ -136,8 +137,9 @@ h2#splash-callout {
 }
 
 //
-// Collabs
+// Collaborators panel
 // --------------------------------------------------
+
 #collaborators-panel {
   float: none;
   margin: 0 auto;
@@ -172,7 +174,10 @@ h2#splash-callout {
   margin-right: 4.4em;
 }
 
-//Final Plan Card
+//
+// Final plan card
+// --------------------------------------------------
+
 .finalize-plan-row .col-md-10 {
   float: none;
   margin: 0 auto;
@@ -181,6 +186,7 @@ h2#splash-callout {
 //
 // Dashboard
 // --------------------------------------------------
+
 #dashboard-panel{
   width: 90%;
   max-width: 1040px;
@@ -206,12 +212,10 @@ h2#splash-callout {
 
 #dashboard-control {
   padding-left: 2em
-
 }
 
-
 //
-// New Gathering
+// New gathering
 // --------------------------------------------------
 
 #new_gathering {
@@ -282,7 +286,6 @@ h2#splash-callout {
 #create-forms .hide-pane {
   visibility: hidden;
   opacity: 0.0;
-  // transition: visibility 0s, opacity 1s linear;
 }
 
 #create-forms {
@@ -303,8 +306,9 @@ h2#splash-callout {
 }
 
 //
-// Vote Form
+// Vote form
 // --------------------------------------------------
+
 .hidden-button {
   display: none;
 }
@@ -369,7 +373,6 @@ h2#splash-callout {
 }
 
 #new_comment .btn {
-  // vertical-align: middle;
   margin-bottom: 40px;
   box-shadow: 0px 2px 0px #A6AAAC;
   width: auto;
@@ -380,12 +383,8 @@ h2#splash-callout {
 }
 
 //
-// Theme Color Overrides
+// Theme color overrides
 // --------------------------------------------------
-
-// body {
-//   color: $theme-body-text;
-// }
 
 a:link,
 a:visited {
@@ -397,7 +396,7 @@ a:active {
 }
 
 //
-// Theme Structure Overrides
+// Theme structure overrides
 // --------------------------------------------------
 
 .main-content-wrapper {
@@ -422,21 +421,17 @@ a:active {
   padding-left: 0px;
 }
 
-
-
 .button-row{
  display: inline-block;
 }
 
-//finalized gathering
 .gathering-finalized {
   opacity: 0.35;
   pointer-events: none;
 }
 
-// for making the panels default to closed
 .item-list .panel-body {
-  display:none;
+  display: none;
 }
 
 // Title panel styling
@@ -481,8 +476,8 @@ a:active {
 //
 // Sessions
 // --------------------------------------------------
+
 .auth {
-  // display: inline-block;
   float: none;
   margin: 0 auto;
 }
@@ -516,5 +511,4 @@ a:active {
 
 .sessions .btn {
   width: 100%;
-
 }
