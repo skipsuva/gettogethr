@@ -16,6 +16,19 @@ class User < ActiveRecord::Base
     Interest.find_by(gathering:gathering,user:self).try(:notified_at)
   end
 
+  def notified_recently?(gathering)
+    notified = notified(gathering)
+    if !notified
+      return false
+    else
+      if (Time.now - notified) > 86400
+        return false
+      else
+        return true
+      end
+    end
+  end
+
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(:email => data["email"]).first

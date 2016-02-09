@@ -1,5 +1,5 @@
 
-<div id="collaborator-<%=collaborator.id%>" class="collaborator-btn btn btn-trans <%= (collaborator == current_user ? "btn-danger" : "btn-primary") %>  <%='collaborator-not-notified' if !collaborator.notified(@gathering)%>">
+<div id="collaborator-<%=collaborator.id%>" class="collaborator-btn btn btn-trans <%= (collaborator == current_user ? "btn-danger" : "btn-primary") %>  <%='collaborator-not-notified' if !collaborator.notified_recently?(@gathering)%>">
   <span style="display:inline-block"  class="collaborator">
   <%= collaborator.name %>
   </span>
