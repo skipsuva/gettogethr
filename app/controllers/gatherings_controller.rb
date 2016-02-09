@@ -1,5 +1,5 @@
 class GatheringsController < ApplicationController
-  before_action :set_gathering, only: [:edit, :update, :destroy, :finalize]
+  before_action :set_gathering, only: [:edit, :update, :destroy, :finalize, :unfinalize]
   before_action -> { check_gathering_access(params[:id])}, only: [:show, :update]
 
 
@@ -150,15 +150,12 @@ class GatheringsController < ApplicationController
   end
 
   def unfinalize
-    gathering = set_gathering
-    gathering.unfinalize
-    gathering.save
+    @gathering.unfinalize
+    @gathering.save
     respond_to do |format|
-      format.html { redirect_to gathering}
+      format.html { redirect_to @gathering}
       format.js { head 204 }
     end
-    #   Remove with Ajax
-    # redirect_to gathering
   end
 
   # DELETE /gatherings/1
