@@ -235,10 +235,6 @@ h2#splash-callout {
   color: $gt-color2;
 }
 
-.gathering-title {
-  text-align: center;
-}
-
 #new_gathering .actions {
   padding-top: 1em;
   text-align: center;
@@ -409,8 +405,9 @@ a:active {
 
 .gathering-title {
   font-size: $font-size-h1;
-  font-weight: 700;
-  text-align: left;
+  font-weight: 300;
+  text-align: center;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
 }
 
 .item-list .panel {
