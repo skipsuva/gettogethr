@@ -321,7 +321,7 @@ h2#splash-callout {
 
 .comment-box .panel-body {
   display: block;
-  padding-bottom: 0px;
+  // padding-bottom: 0px;
 }
 
 .comment-list {
@@ -329,34 +329,36 @@ h2#splash-callout {
 }
 
 .comment-list .panel-body {
-  margin-bottom: 0px;
+  // margin-bottom: 0px;
   height: 220px;
   overflow: scroll;
 }
 
-.comment-box .panel-footer {
-  background-color: $gt-color5;
-  padding-top: 5px;
-  height: auto;
-  
-}
+// .comment-box .panel-footer {
+//   background-color: $gt-color5;
+//   padding-top: 5px;
+//   height: auto;
+// }
 
 #new_comment textarea {
   padding: 5px;
-  width: 75%;
-  margin: 15px;
-  margin-bottom: 0px;
+  width: 100%;
+  // margin: 15px;
+  // margin-bottom: 0px;
   resize: none;
   border-radius: 5px;
 }
 
 #new_comment .btn {
-  margin-bottom: 40px;
+  // margin-bottom: 40px;
   width: auto;
+
 }
 
 #new_comment {
-  height: 65px;
+  height: 4em;
+
+
 }
 
 //
