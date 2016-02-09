@@ -172,6 +172,13 @@ h2.your-gatherings-title {
   margin-bottom: 1em;
 }
 
+h2.index-labels {
+  font-size: $font-size-h3;
+  font-weight: 300;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+  margin-top: 0;
+  text-transform: uppercase;
+}
 
 //
 // Dashboard
@@ -179,6 +186,10 @@ h2.your-gatherings-title {
 
 #outer-dashboard {
   background-color: darken(#f1f2f7, 3%);
+}
+
+.gatherings-index #outer-dashboard {
+  background-color: transparent;
 }
 
 #dashboard-panel, #title-row {
@@ -449,18 +460,32 @@ a:active {
 .gathering-row {
   margin-bottom: 1em;
   padding: 1em;
+  margin-left: 0;
+  border-radius: .5em;
+}
+
+.gathering-title-index {
+  font-size: $font-size-h3;
+  font-weight: 300;
+  text-align: left;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+  margin-bottom: 1em;
 }
 
 .open{
-  background-color: $gt-color3;
+  // background-color: $gt-color3;
+  background-color: lighten($brand-info, 35%);
+  border: 1px solid $brand-info;
 }
 
 .finalized{
-  background-color: $gray-light;
+  // background-color: $gray-light;
+  background-color: lighten($brand-success, 35%);
+  border: 1px solid $brand-success;
 }
 
 .index-col{
-  padding: 1em;
+  padding: 0 1em 0 0;
   margin: 0px;
 }
 

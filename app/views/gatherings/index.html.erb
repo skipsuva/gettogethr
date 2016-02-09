@@ -5,7 +5,7 @@
     <div class="panel" id="dashboard-panel">
       <div class="panel-body" id="dashboard-panel-body">
         <div class="col-md-6 index-col" id="votable-dashboard">
-          <h2>Initiated</h2>
+          <h2 class="index-labels">Initiated</h2>
           <br/>
               <% @own_gatherings.each do |gathering| %>
                 <%= render partial:"gatherings/index/gathering", locals:{gathering:gathering} %>
@@ -14,7 +14,7 @@
 
         <div class="col-md-6 index-col" id="votable-dashboard">
 
-          <h2>Invited</h2>
+          <h2 class="index-labels">Invited</h2>
           <br/>
               <% @invited_gatherings.each do |gathering| %>
                   <%= render partial:"gatherings/index/gathering", locals:{gathering:gathering} %>

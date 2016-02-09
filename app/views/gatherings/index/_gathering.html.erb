@@ -1,12 +1,12 @@
 
 <div class="row gathering-row <%=gathering.aasm_state%>">
-  <div class = "col-md-4">
-    <div class ="row">
-    <h3>
+  <div class="col-md-4">
+    <div class="row">
+    <h3 class="gathering-title-index">
     <%= render partial:"gatherings/index/remove_gathering", locals:{gathering:gathering} %>
-    <%= link_to gathering.title, gathering %>
+    <%= link_to gathering.title, gathering %> (<%= gathering.aasm_state.capitalize %>)
     </h3>
-    <%= gathering.aasm_state.capitalize %>
+    
    </div>
   </div>
   <div class = "col-md-8" style="text-align: right;">
