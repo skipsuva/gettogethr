@@ -167,6 +167,10 @@ h2#splash-callout {
   display: inline;
 }
 
+#staging-button {
+  margin-right: 4.4em;
+}
+
 //
 // Dashboard
 // --------------------------------------------------
@@ -183,7 +187,7 @@ h2#splash-callout {
 }
 
 #votable-dashboard .section-wrapper {
-  background-color: lighten($gray-base, 98.25%);
+  background-color: lighten($gray-base, 95%);
   padding: 1em;
   border-radius: .5em;
   margin-bottom: 1em;
