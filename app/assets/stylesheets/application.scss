@@ -410,13 +410,16 @@ a:active {
   padding-left: 0px;
 }
 
-.gathering-finalized {
-  opacity: 0.35;
-}
+
 
 .button-row{
  display: inline-block;
 }
+
+.gathering-finalized {
+  opacity: 0.35;
+}
+
 // for making the panels default to closed
 .item-list .panel-body {
   display:none;
