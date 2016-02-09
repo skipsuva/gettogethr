@@ -41,7 +41,7 @@
 
   <div class="row" id="outer-dashboard">
     <div class="container col-md-12" id="dashboard-col">
-      <div class="panel" id="dashboard-panel">
+      <div class="panel clearfix" id="dashboard-panel">
         <div class="panel-body" id="dashboard-panel-body">
 
           <div class="col-md-9 <%= "gathering-finalized" if @gathering.finalized? %>" id="votable-dashboard">
@@ -75,10 +75,10 @@
 
           <div class="col-md-3" id="dashboard-control">
             <!-- forms -->
-            <div class="row" id="action-row">
+            <div id="action-row">
 
               <div id="forms-panel">
-                <div class="panel-body section-wrapper <%= "gathering-finalized" if @gathering.finalized? %>" id="forms-panel-body">
+                <div class="<%= " gathering-finalized" if @gathering.finalized? %>" id="forms-panel-body">
 
                   <!-- Buttons -->
                   <div class="panes" id="pane-wrapper">
@@ -86,7 +86,7 @@
                     <div id="create-forms">
 
                       <div class="action-buttons">
-                        <h4>Make a suggestion:</h4>
+                        <h6 class="suggestion-label">Make a suggestion:</h6>
                         <a href="#" class="btn" role="button" data-pane="activities-form-container" aria-expanded="false" aria-controls="activities-form-container" id="what-button">Activity</a>
                         <a href="#" class="btn" role="button" data-pane="places-form-container" aria-expanded="false" aria-controls="places-form-container" id="where-button">Place</a>
                         <a href="#" class="btn" role="button" data-pane="moments-form-container" aria-expanded="false" aria-controls="moments-form-container" id="when-button">Time</a>
@@ -112,8 +112,8 @@
             </div>
 
             <% if @gathering.finalized? %>
-            <div class="finalize-button action section-wrapper">
-              <h4>Need to make some changes?</h4>
+            <div class="finalize-button action">
+              <h6>Need to make some changes?</h6>
               <!-- <button type="button" id="unstaging-button" class="btn btn-danger btn-md">
                 Change of Plans
               </button> -->
@@ -121,8 +121,8 @@
               <%= button_to "Change of Plans", unfinalize_gathering_path, remote: true, method:'put', class:"btn btn-danger btn-md", id:"unstaging-button" %>
             </div>
             <% else %>
-            <div class="finalize-button action section-wrapper">
-              <h4>Ready to make a decision?</h4>
+            <div class="finalize-button action">
+              <h6>Ready to make a decision?</h6>
               <button type="button" id="staging-button" class="btn btn-primary btn-md">
                 Let's Do It
               </button>
@@ -130,24 +130,19 @@
             <% end %>
 
             <!-- comments -->
-             <div class="row" id="comment-row">
-              <div class="section-wrapper">
+             <div id="comment-row">
+              <div>
+                <h6 class="group-chat-label">Group Chat</h6>
                 <div class="comment-box panel">
                   <!-- body -->
-                  <div class="panel-body">
-                    <div class="comment-list panel">
-                      <div class="panel-body" id="comments">
-                          <%= render 'comments' %>
-                      </div>
-                    </div>
-
-                  <!-- footer -->
-                    <div class="" id="comment-form">
-                        <div class="">
-                          <%= render 'add_comment' %>
-                        </div>
+                  <div class="comment-list panel">
+                    <div class="panel-body" id="comments">
+                        <%= render 'comments' %>
                     </div>
                   </div>
+
+                <!-- footer -->
+                  <%= render 'add_comment' %>
                 </div>
               </div>
             </div>

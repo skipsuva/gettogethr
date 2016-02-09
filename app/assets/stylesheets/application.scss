@@ -77,6 +77,14 @@ img#nav-logo {
 .main-app-link {
   font-weight: 500;
   line-height: 39px;
+  float: left;
+  padding-right: 1.5em;
+}
+
+.main-app-link a.btn-primary {
+  background-color: $gt-color1;
+  color: #fff;
+  border: none;
 }
 
 //
@@ -153,8 +161,25 @@ h2#splash-callout {
 }
 
 //
+// Gatherings index
+// --------------------------------------------------
+
+h2.your-gatherings-title {
+  font-size: $font-size-h1;
+  font-weight: 300;
+  text-align: center;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
+  margin-bottom: 1em;
+}
+
+
+//
 // Dashboard
 // --------------------------------------------------
+
+#outer-dashboard {
+  background-color: darken(#f1f2f7, 3%);
+}
 
 #dashboard-panel, #title-row {
   width: 90%;
@@ -177,7 +202,7 @@ h2#splash-callout {
   border: lighten($gray-base, 90%) solid 1px;
 }
 
-#votable-dashboard h6 {
+#votable-dashboard h6, .suggestion-label, .finalize-button h6, .group-chat-label {
   font-size: $font-size-base;
   font-weight: 600;
   text-transform: uppercase;
@@ -186,12 +211,20 @@ h2#splash-callout {
   margin-top: 0;
 }
 
+.suggestion-label, .finalize-button h6, .group-chat-label {
+  text-align: left;
+}
+
 #moments-row .section-wrapper {
   margin-bottom: 0;
 }
 
 #dashboard-control {
-  padding-left: 2em
+  padding-left: .5em;
+}
+
+#dashboard-col {
+  margin-bottom: 6em;
 }
 
 
@@ -228,13 +261,14 @@ h2#splash-callout {
 }
 
 #action-row .action-buttons {
-  text-align: center;
-  margin: 1em;
   padding-left: 0;
+  text-align: left;
+  padding-bottom: 1.5em;
+  border-bottom: solid 1px $gray-lighter;
 }
 
 .action-buttons .btn {
-  margin: 0 .25em;
+  margin: 0 .5em 0 0;
   background-color: #fff;
   color: $gt-color1;
   border: 1px solid $gt-color1;
@@ -258,6 +292,11 @@ h2#splash-callout {
   visibility: visible;
   opacity: 1.0;
   transition: opacity 0.5s linear;
+}
+
+.finalize-button {
+  padding: 1.5em 0;
+  border-bottom: 1px solid $gray-lighter;
 }
 
 #create-forms .display-pane {
@@ -307,22 +346,26 @@ h2#splash-callout {
 // Comments field
 // --------------------------------------------------
 
+#comment-row {
+  margin-top: 1.5em;
+}
+
 .comment-user {
   color: $gray-light;
 }
 
 .comment-list li {
   padding-bottom: $line-height-computed;
+  color: $brand-info;
 }
 
 .comment-list .current-user {
   text-align: right;
-  color: red;
+  color: $brand-success;
 }
 
-.comment-box {
-  background-color: $gt-color2;
-  // color: $gt-color3;
+.comment-box.panel {
+  box-shadow: none;
 }
 
 // .section-wrapper {
@@ -335,6 +378,8 @@ h2#splash-callout {
 
 .comment-box .panel-body {
   display: block;
+  border: solid 1px $gt-color2;
+  border-radius: .5em;
   // padding-bottom: 0px;
 }
 
@@ -355,25 +400,18 @@ h2#splash-callout {
 // }
 
 #new_comment textarea {
-  padding: 5px;
+  padding: 8px 8px 0 8px;
   width: 100%;
-  // margin: 15px;
-  // margin-bottom: 0px;
   resize: none;
-  border-radius: 5px;
+  border-radius: .5em;
+  border: solid 1px $gt-color2;
+  height: 4em;
 }
 
 #new_comment .btn {
-  // margin-bottom: 40px;
-  width: auto;
-
+  margin: .65em 0 0 0;
 }
 
-#new_comment {
-  height: 4em;
-
-
-}
 
 //
 // Theme color overrides
@@ -511,7 +549,6 @@ a:active {
   background-color: darken(#f1f2f7, 3%);
   margin-top: 1.5em;
   border-top: solid 1px $gray-lighter;
-  border-bottom: solid 1px $gray-lighter;
 }
 
 #collaborators {

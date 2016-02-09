@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Gettoget.hr</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
   <meta charset="utf-8">
@@ -28,7 +28,10 @@
       <div class="main-nav">
         <ul class="list-unstyled">
           <li class='main-app-link'>
-            <%= link_to 'Gatherings', gatherings_path %>
+            <%= link_to 'Your Gatherings', gatherings_path %>
+          </li>
+          <li class='main-app-link'>
+            <%= link_to 'New Gathering', new_gathering_path, class: 'btn btn-primary' %>
           </li>
         </ul>
       </div>

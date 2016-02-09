@@ -1,41 +1,25 @@
-
-
-<div class="row" style="margin-bottom:2em">
-    <div class="col-md-12">
-        <div class="btn btn-xl btn-default btn-lg">
-          <%= link_to 'New Gathering', new_gathering_path %>
-        </div>
-    </div>
-</div>
-
-
-
+<h2 class="your-gatherings-title">Your Gatherings</h2>
 
 <div class="row" id="outer-dashboard">
   <div class="container col-md-12" id="dashboard-col">
     <div class="panel" id="dashboard-panel">
       <div class="panel-body" id="dashboard-panel-body">
+        <div class="col-md-6 index-col" id="votable-dashboard">
+          <h2>Initiated</h2>
+          <br/>
+              <% @own_gatherings.each do |gathering| %>
+                <%= render partial:"gatherings/index/gathering", locals:{gathering:gathering} %>
+              <% end %>
+        </div>
 
-          <h1>My Gatherings</h1>
+        <div class="col-md-6 index-col" id="votable-dashboard">
 
-          <div class="col-md-6 index-col" id="votable-dashboard">
-            <h2>Initiated</h2>
-            <br/>
-                <% @own_gatherings.each do |gathering| %>
+          <h2>Invited</h2>
+          <br/>
+              <% @invited_gatherings.each do |gathering| %>
                   <%= render partial:"gatherings/index/gathering", locals:{gathering:gathering} %>
-                <% end %>
-          </div>
-
-          <div class="col-md-6 index-col" id="votable-dashboard">
-
-            <h2>Invited</h2>
-            <br/>
-                <% @invited_gatherings.each do |gathering| %>
-                    <%= render partial:"gatherings/index/gathering", locals:{gathering:gathering} %>
-                <% end %>
-          </div>
-
-
+              <% end %>
+        </div>
       </div>
     </div>
   </div>
