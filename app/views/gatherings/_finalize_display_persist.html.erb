@@ -18,7 +18,7 @@
           <strong>Time: </strong> <%= @gathering.finalized_plan.moment.time.strftime('%_m/%-d/%y at %l:%M %P') %> <br>
           <% end %>
           <% if @gathering.finalized_plan.activity %>
-          <strong>Activity: </strong> <%= @gathering.finalized_plan.activity.description %> (<%= @gathering.finalized_plan.activity_category.label %>)
+          <strong>Activity: </strong> <%= @gathering.finalized_plan.activity.description %> (<%= @gathering.finalized_plan.activity.activity_category.label %>)
           <% end %>
         </p>
       </div>

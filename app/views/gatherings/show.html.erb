@@ -30,6 +30,9 @@
     </div>
   </div>
 
+  <% if @gathering.finalized? %>
+  <%= render 'finalize_display_persist' %>
+  <% end %>
   <!-- <div class="row">
     <div class="finalize-button">
       <button type="button" id="staging-button" class="btn btn-primary btn-md">
