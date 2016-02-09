@@ -13,25 +13,23 @@
 
   <div class="col-md-12">
 
-    <h1>Gatherings</h1>
+    <h1>My Gatherings</h1>
 
-    <div class="col-md-6">
+    <div class="col-md-6 index-col">
       <h2>Initiated</h2>
           <% @own_gatherings.each do |gathering| %>
             <%= render partial:"gatherings/index/gathering", locals:{gathering:gathering} %>
           <% end %>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-6 index-col">
 
       <h2>Invited</h2>
           <% @invited_gatherings.each do |gathering| %>
               <%= render partial:"gatherings/index/gathering", locals:{gathering:gathering} %>
           <% end %>
-          
+
     </div>
-
-
 
 
 </div>
