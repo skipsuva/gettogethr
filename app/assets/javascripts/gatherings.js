@@ -46,6 +46,8 @@ $(document).ready(function(){
     this.$autocomplete = $(".autocomplete");
     this.$collaboratorsSection = $("#collaborators-panel");
     this.$collaboratorForm = $("#add-collaborator-form");
+    this.$finalizedGatheringItems = $("#votable-dashboard, #forms-panel-body");
+    this.$unstagingButton = $('#unstaging-button');
   };
 
   Gathering.prototype.init = function() {
@@ -65,8 +67,8 @@ $(document).ready(function(){
     $(".collaborator").on('click', function(e) {
       $(this).next().toggle();
      }
-    )
-  }
+   );
+  };
 
   Gathering.prototype.addAutoCompleteListener = function() {
     var that = this;
@@ -92,7 +94,7 @@ $(document).ready(function(){
       $("#" + paneId).addClass('display-pane');
       // debugger;
     });
-  }
+  };
 
   Gathering.prototype.addCollaboratorFormReset = function (arguments) {
     this.$collaboratorForm.bind('ajax:success', function(e, data, status, xhr){
@@ -158,14 +160,23 @@ $(document).ready(function(){
     });
   };
 
+  //ADD UNSTAGING LISTENER
+  Gathering.prototype.methodName = function () {
+    this.$unstagingButton.on('click', function(){
+      //hide the finalized plan html
+
+    });
+  };
+
   Gathering.prototype.finalizeAjaxCallback = function () {
     $('#modal-form').bind('ajax:success', function(e, data, status, xhr){
       this.$stagingModal.modal('hide');
       var finalTmpl = $.templates("#finalized-template");
       var finalHtml = finalTmpl.render(data);
-      $(finalHtml).insertAfter(this.$titleRow);
-      this.$votableCards.toggleClass('gathering-finalized');
-      this.$votableForms.fadeOut();
+      $(finalHtml).insertAfter(this.$collaboratorsSection);
+      this.$finalizedGatheringItems.toggleClass('gathering-finalized');
+      this.$stagingButton.replaceWith("<button type='button' id='unstaging-button' class='btn btn-danger btn-md'>Change of Plans</button>");
+      // this.$votableForms.fadeOut();
     }.bind(this) );
   };
 

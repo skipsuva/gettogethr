@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160208231351) do
+ActiveRecord::Schema.define(version: 20160207172806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,10 +55,10 @@ ActiveRecord::Schema.define(version: 20160208231351) do
     t.datetime "updated_at",   null: false
   end
 
-  add_index "finalized_plans", ["activity_id"], name: "index_finalized_plans_on_activity_id", using: :btree
-  add_index "finalized_plans", ["gathering_id"], name: "index_finalized_plans_on_gathering_id", using: :btree
-  add_index "finalized_plans", ["moment_id"], name: "index_finalized_plans_on_moment_id", using: :btree
-  add_index "finalized_plans", ["place_id"], name: "index_finalized_plans_on_place_id", using: :btree
+  add_index "finalized_plans", ["activity_id"], name: "index_finalized_plans_on_activity_id", unique: true, using: :btree
+  add_index "finalized_plans", ["gathering_id"], name: "index_finalized_plans_on_gathering_id", unique: true, using: :btree
+  add_index "finalized_plans", ["moment_id"], name: "index_finalized_plans_on_moment_id", unique: true, using: :btree
+  add_index "finalized_plans", ["place_id"], name: "index_finalized_plans_on_place_id", unique: true, using: :btree
 
   create_table "gatherings", force: :cascade do |t|
     t.string   "title"
