@@ -27,3 +27,16 @@
     </div>
   </div>
 </script>
+<h6 class="popular-suggestions-title">The final plan is</h6>
+<h5 class="popular-suggestions">
+  {{if activity}}
+    <a href="#activities-section"><%= @gathering.finalized_plan.activity.description.try(:capitalize)%></a>
+  {{/if}}
+  {{if moment}}
+    <%= "on" if @gathering.finalized_plan.activity %>
+    <a href="#moments-section"> <%= @gathering.finalized_plan.moment.time ? render_time(@gathering.finalized_plan.moment.time): "" %></a>
+  {{/if}}
+  {{if place}}
+    <%= "at" if (@gathering.finalized_plan.moment || @gathering.finalized_plan.activity) %>
+    <a href="#places-section"><%= @gathering.finalized_plan.place.name %></a>
+  {{/if}}
