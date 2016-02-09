@@ -572,6 +572,15 @@ a:active {
   letter-spacing: 2px;
 }
 
+.title-container h5.gathering-title {
+  font-size: $font-size-h3;
+}
+
+.title-container h5.gathering-title:hover {
+  color: #000;
+  cursor: default;
+}
+
 .invite-label {
   text-align: left;
   display: inline;
