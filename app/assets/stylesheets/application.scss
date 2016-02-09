@@ -398,9 +398,16 @@ a:active {
 // --------------------------------------------------
 
 .gathering-row {
-  background-color: $gt-color3;
   margin-bottom: 1em;
   padding: 1em;
+}
+
+.open{
+  background-color: $gt-color3;
+}
+
+.finalized{
+  background-color: #AAA;
 }
 
 .index-col{
