@@ -1,0 +1,27 @@
+<div class="row finalize-plan-row">
+  <div class="col-md-10">
+    <div class="title-box panel final-plan-panel">
+
+      <div class="panel-heading final-plan-heading">
+        <div class="title-container final" id="gathering-title-container">
+          <h4>The Plan:</h4>
+        </div>
+      </div>
+
+      <div class="panel-body final-plan-body">
+        <p>
+          <strong>The gathering has been finalized.</strong><br>
+          <% if @gathering.finalized_plan.place %>
+          <strong>Place: </strong> <%= @gathering.finalized_plan.place.name %><br>
+          <% end %>
+          <% if @gathering.finalized_plan.moment %>
+          <strong>Time: </strong> <%= @gathering.finalized_plan.moment.time.strftime('%_m/%-d/%y at %l:%M %P') %> <br>
+          <% end %>
+          <% if @gathering.finalized_plan.activity %>
+          <strong>Activity: </strong> <%= @gathering.finalized_plan.activity.description %> (<%= @gathering.finalized_plan.activity_category.label %>)
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
