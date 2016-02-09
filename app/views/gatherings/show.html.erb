@@ -110,7 +110,7 @@
                 Change of Plans
               </button> -->
 
-              <%= button_to "Change of Plans", unfinalize_gathering_path, class:"btn btn-danger btn-md", id:"unstaging-button" %>
+              <%= button_to "Change of Plans", unfinalize_gathering_path, remote: true, class:"btn btn-danger btn-md", id:"unstaging-button" %>
             </div>
             <% else %>
             <div class="finalize-button action">

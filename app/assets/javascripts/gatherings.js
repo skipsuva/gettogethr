@@ -8,7 +8,7 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
   });
 
-  var collapseCollaborators = function(){ $(".collaborator-delete").hide(); }
+  var collapseCollaborators = function(){ $(".collaborator-delete").hide(); };
   collapseCollaborators();
 
   var titleKeypressListener = function(e) {
