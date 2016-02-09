@@ -1,14 +1,16 @@
 <div class="item-col col-md-3">
   <div class="activity-box panel panel-solid-default" id="activity-<%= activity.id %>">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= activity.activity_category.label %></h3>
+    <div class="item panel-heading">
+
+        <h3 class="panel-title"><%= activity.description %></h3>
+
       <div class="actions pull-right">
         <i class="fa fa-chevron-up"></i>
       </div>
     </div>
     <div class="panel-body">
       <p>
-        <%= activity.user.name %> has suggested the following gathering activity:
+        <%= activity.user.name %> suggests:<br>
         <%= activity.description %> (<%= activity.activity_category.label %>)
       </p>
       <%= button_to "X", gathering_activity_path(@gathering, activity), method: :delete, remote: true, class: 'btn btn-xs', style:"display:inline-block;" %>

@@ -169,6 +169,8 @@ $(document).ready(function(){
             $('.finalize-plan-row').fadeOut();
             $('#votable-dashboard, #forms-panel-body').removeClass('gathering-finalized');
             $('#unstaging-button').replaceWith("<button type='button' id='staging-button' class='btn btn-primary btn-md'>Let's Do It</button>");
+            $('#finalized-details').fadeOut();
+            $('#suggestions').fadeIn();
             this.addModalButtonListener();
           }.bind(this),
           error: function(){
@@ -184,7 +186,10 @@ $(document).ready(function(){
       this.$stagingModal.modal('hide');
       var finalTmpl = $.templates("#finalized-template");
       var finalHtml = finalTmpl.render(data);
-      $(finalHtml).insertAfter(this.$collaboratorsSection);
+      $('#suggestions').fadeOut();
+      $('#finalized-details').html(finalHtml);
+      $('#finalized-details').fadeIn();
+
       this.$finalizedGatheringItems.toggleClass('gathering-finalized');
       $('#staging-button').replaceWith("<button type='button' id='unstaging-button' class='btn btn-danger btn-md'>Change of Plans</button>");
       that.addUnfinalizeListener();

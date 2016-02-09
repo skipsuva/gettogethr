@@ -1,23 +1,16 @@
 <script id="finalized-template" type="text/x-jsrender">
-  <div class="row finalize-plan-row">
-    <div class="col-md-10">
-      <div class="title-box panel final-plan-panel">
-
-        <div class="panel-heading final-plan-heading">
-          <div class="title-container final" id="gathering-title-container">
-            <h4>The Plan:</h4>
-          </div>
-        </div>
-
-        <div class="panel-body final-plan-body">
-          <p>
-            The gathering has been finalized.<br>
-            <strong>Place: </strong>{{:place}}<br>
-            <strong>Time: </strong>{{:moment}}<br>
-            <strong>Activity: </strong>{{:activity}} ({{:activity_category.label}})
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+<h6 class="popular-suggestions-title">The final plan is</h6>
+<h5 class="popular-suggestions">
+  {{if activity}}
+    <a href="#activities-section">{{:activity}}</a><%# @gathering.finalized_plan.activity.description.try(:capitalize)%>
+  {{/if}}
+  {{if moment}}
+    {{if activity }}on{{/if}}
+    <a href="#moments-section"> {{:moment}}</a><%# @gathering.finalized_plan.moment.time ? render_time(@gathering.finalized_plan.moment.time): "" %>
+  {{/if}}
+  {{if place}}
+    <%# "at" if (@gathering.finalized_plan.moment || @gathering.finalized_plan.activity) %>
+    {{if moment || activity }}at{{/if}}
+    <a href="#places-section">{{:place}}</a><%# @gathering.finalized_plan.place.name %>
+  {{/if}}
 </script>
