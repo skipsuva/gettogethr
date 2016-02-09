@@ -416,13 +416,17 @@ a:active {
   color: $gt-color1;
 }
 
-.popular-suggestions-title {
+.popular-suggestions-title, .collaborators-label {
   font-size: $font-size-base;
   font-weight: 600;
   text-transform: uppercase;
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
   text-align: center;
   letter-spacing: 2px;
+}
+
+.collaborators-label {
+  display: inline;
 }
 
 .popular-suggestions {
@@ -433,7 +437,7 @@ a:active {
 }
 
 #collaborators-row {
-  background-color: #fff;
+  background-color: lighten($gt-color1, 85%);
   margin-top: 1.5em;
   border-top: solid 1px $gray-lighter;
   border-bottom: solid 1px $gray-lighter;
@@ -443,6 +447,11 @@ a:active {
   width: 90%;
   max-width: 1040px;
   text-align: left;
+  margin: 0 auto;
+}
+
+#collaborator-list {
+  display: inline;
 }
 
 .item-list .panel {
