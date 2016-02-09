@@ -166,9 +166,11 @@ $(document).ready(function(){
       //hide the finalized plan html
       $('.finalize-plan-row').fadeOut();
       $('#votable-dashboard, #forms-panel-body').removeClass('gathering-finalized');
-      $('#unstaging-button').replaceWith("<button type='button' id='staging-button' class='btn btn-primary btn-md'>Change of Plans</button>");
+      $('#unstaging-button').replaceWith("<button type='button' id='staging-button' class='btn btn-primary btn-md'>Let's Do It</button>");
+      this.addModalButtonListener();
 
-    });
+    }.bind(this) );
+    //this doesnt work
   };
 
   Gathering.prototype.finalizeAjaxCallback = function () {
@@ -182,13 +184,8 @@ $(document).ready(function(){
       this.$finalizedGatheringItems.toggleClass('gathering-finalized');
       this.$stagingButton.replaceWith("<button type='button' id='unstaging-button' class='btn btn-danger btn-md'>Change of Plans</button>");
       // this.$votableForms.fadeOut();
-
-      //will this work?
       that.addUnfinalizeListener();
-      // debugger;
     }.bind(this) );
-    // debugger;
-
   };
 
   var gathering = new Gathering();
