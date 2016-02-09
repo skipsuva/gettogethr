@@ -48,7 +48,7 @@
 
   <div class="row" id="outer-dashboard">
     <div class="container col-md-12" id="dashboard-col">
-      <div class="panel" id="dashboard-panel">
+      <div class="panel clearfix" id="dashboard-panel">
         <div class="panel-body" id="dashboard-panel-body">
 
           <div class="col-md-9 <%= "gathering-finalized" if @gathering.finalized? %>" id="votable-dashboard">
@@ -142,20 +142,14 @@
                 <h6 class="group-chat-label">Group Chat</h6>
                 <div class="comment-box panel">
                   <!-- body -->
-                  <div class="panel-body">
-                    <div class="comment-list panel">
-                      <div class="panel-body" id="comments">
-                          <%= render 'comments' %>
-                      </div>
-                    </div>
-
-                  <!-- footer -->
-                    <div class="" id="comment-form">
-                        <div class="">
-                          <%= render 'add_comment' %>
-                        </div>
+                  <div class="comment-list panel">
+                    <div class="panel-body" id="comments">
+                        <%= render 'comments' %>
                     </div>
                   </div>
+
+                <!-- footer -->
+                  <%= render 'add_comment' %>
                 </div>
               </div>
             </div>

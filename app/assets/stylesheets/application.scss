@@ -150,7 +150,7 @@ h2#splash-callout {
 // --------------------------------------------------
 
 #outer-dashboard {
-
+  background-color: darken(#f1f2f7, 3%);
 }
 
 #dashboard-panel, #title-row {
@@ -193,6 +193,10 @@ h2#splash-callout {
 
 #dashboard-control {
   padding-left: .5em;
+}
+
+#dashboard-col {
+  margin-bottom: 6em;
 }
 
 //
@@ -324,9 +328,8 @@ h2#splash-callout {
   color: red;
 }
 
-.comment-box {
-  background-color: $gt-color2;
-  // color: $gt-color3;
+.comment-box.panel {
+  box-shadow: none;
 }
 
 // .section-wrapper {
@@ -339,6 +342,8 @@ h2#splash-callout {
 
 .comment-box .panel-body {
   display: block;
+  border: solid 1px $gt-color2;
+  border-radius: .5em;
   // padding-bottom: 0px;
 }
 
@@ -359,25 +364,18 @@ h2#splash-callout {
 // }
 
 #new_comment textarea {
-  padding: 5px;
+  padding: 8px 8px 0 8px;
   width: 100%;
-  // margin: 15px;
-  // margin-bottom: 0px;
   resize: none;
-  border-radius: 5px;
+  border-radius: .5em;
+  border: solid 1px $gt-color2;
+  height: 4em;
 }
 
 #new_comment .btn {
-  // margin-bottom: 40px;
-  width: auto;
-
+  margin: 1em 0 0 0;
 }
 
-#new_comment {
-  height: 4em;
-
-
-}
 
 //
 // Theme color overrides
@@ -515,7 +513,6 @@ a:active {
   background-color: darken(#f1f2f7, 3%);
   margin-top: 1.5em;
   border-top: solid 1px $gray-lighter;
-  border-bottom: solid 1px $gray-lighter;
 }
 
 #collaborators {
