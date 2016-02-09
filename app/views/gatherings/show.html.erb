@@ -31,7 +31,7 @@
       <div class="panel" id="dashboard-panel">
         <div class="panel-body" id="dashboard-panel-body">
 
-          <div class="col-md-9 <%= "gathering-finalized" if @gathering.finalized? %> " id="votable-dashboard">
+          <div class="col-md-9 <%= "gathering-finalized" if @gathering.finalized? %>" id="votable-dashboard">
             <!-- votable rows -->
             <div class="row" id="activities-row">
               <!-- insert cards -->
@@ -62,7 +62,7 @@
             <div class="row" id="action-row">
 
               <div class="panel" id="forms-panel">
-                <div class="panel-body" id="forms-panel-body">
+                <div class="panel-body <%= "gathering-finalized" if @gathering.finalized? %>" id="forms-panel-body">
 
                   <!-- Buttons -->
                   <div class="panes" id="pane-wrapper">
