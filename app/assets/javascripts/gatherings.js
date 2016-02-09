@@ -35,7 +35,6 @@ $(document).ready(function(){
     this.$gatheringTitle = $('.gathering-title');
     this.$gatheringTitleContainer = $('#gathering-title-container');
     this.$stagingButton = $('#staging-button');
-    this.$unstagingButton = $('#unstaging-button');
     this.$stagingModalTitle = $('#staging-modal-label');
     this.$stagingModalBody = $('#staging-modal .modal-body');
     this.$stagingModal = $('#staging-modal');
@@ -48,6 +47,7 @@ $(document).ready(function(){
     this.$collaboratorsSection = $("#collaborators-panel");
     this.$collaboratorForm = $("#add-collaborator-form");
     this.$finalizedGatheringItems = $("#votable-dashboard, #forms-panel-body");
+    this.$unstagingButton = $('#unstaging-button');
   };
 
   Gathering.prototype.init = function() {
@@ -175,8 +175,7 @@ $(document).ready(function(){
       var finalHtml = finalTmpl.render(data);
       $(finalHtml).insertAfter(this.$collaboratorsSection);
       this.$finalizedGatheringItems.toggleClass('gathering-finalized');
-      this.$stagingButton.remove();
-      this.$unstagingButton.show();
+      this.$stagingButton.replaceWith("<button type='button' id='unstaging-button' class='btn btn-danger btn-md'>Change of Plans</button>");
       // this.$votableForms.fadeOut();
     }.bind(this) );
   };
