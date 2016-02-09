@@ -1,8 +1,21 @@
 
 <div class="row gathering-row <%=gathering.aasm_state%>">
-  <h3>
-  <%= render partial:"gatherings/index/remove_gathering", locals:{gathering:gathering} %>
-  <%= link_to gathering.title, gathering %>
-  </h3>
-  <%= gathering.aasm_state.capitalize %>
+  <div class="panel-body">
+  <div class = "col-md-2">
+    <div class ="row">
+    <h3>
+    <%= render partial:"gatherings/index/remove_gathering", locals:{gathering:gathering} %>
+    <%= link_to gathering.title, gathering %>
+    </h3>
+    <%= gathering.aasm_state.capitalize %>
+   </div>
+  </div>
+  <div class = "col-md-4">
+    <div class="row">
+      <% gathering.users.each do |user|  %>
+        <%= user.name %> |
+      <%end  %>
+    </div>
+  </div>
+</div>
 </div>

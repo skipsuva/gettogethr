@@ -9,6 +9,7 @@ class GatheringsController < ApplicationController
     @gatherings = current_user.gatherings
     @own_gatherings = (current_user.own_gatherings).sort_by{|g| g.created_at}
     @invited_gatherings = (@gatherings - @own_gatherings).sort_by{|g| g.created_at}
+    session[:return_to] ||= request.referer
   end
 
   # GET /gatherings/1
@@ -58,7 +59,8 @@ class GatheringsController < ApplicationController
     @gathering = Gathering.find(params[:id])
     if @user == current_user
       @gathering.users.delete(@user)
-      redirect_to gatherings_path
+    #  redirect_to gatherings_path
+      redirect_to session.delete(:return_to)
       # our ajax is preventing an HTML page redirect
     else
       @gathering.users.delete(@user)

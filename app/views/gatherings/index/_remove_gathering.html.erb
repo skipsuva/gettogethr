@@ -5,6 +5,6 @@
       "data-toggle" =>" tooltip", "title" => "Permanently Delete Gatething" %>
 <% else %>
 <%= link_to raw("<i class='fa fa-times collaborator-delete-icon'></i>"),
-    "gatherings/#{gathering.id}/remove-users?user=#{current_user.id}", method: :post, remote: true ,
+    "gatherings/#{gathering.id}/remove-users?user=#{current_user.id}", method: :post, remote: false ,
     "data-toggle" =>" tooltip", "title" => "Drop Out" %>
 <% end %>

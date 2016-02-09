@@ -1,6 +1,5 @@
 
-
-<div style="display:inline-block" id="collaborator-<%=collaborator.id%>" class="btn btn-primary btn-trans">
+<div style="display:inline-block" id="collaborator-<%=collaborator.id%>" class="btn <%= (collaborator == current_user ? "btn-danger" : "btn-primary") %> btn-trans ">
   <span style="display:inline-block"  class="collaborator">
   <%= collaborator.name %>
   </span>
