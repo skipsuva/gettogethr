@@ -75,7 +75,8 @@ Devise.setup do |config|
   config.paranoid = true
 
   # Disable SSL requirement in development.
-  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?
+  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+  # if Rails.env.development?
 
   # Enables OAuth for Users.
   config.omniauth :google_oauth2, ENV['GMAIL_OAUTH_CLIENT_ID'], ENV['GMAIL_OAUTH_SECRET'], { }
