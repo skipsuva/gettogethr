@@ -67,8 +67,8 @@ $(document).ready(function(){
     $(".collaborator").on('click', function(e) {
       $(this).next().toggle();
      }
-    )
-  }
+   );
+  };
 
   Gathering.prototype.addAutoCompleteListener = function() {
     var that = this;
@@ -94,7 +94,7 @@ $(document).ready(function(){
       $("#" + paneId).addClass('display-pane');
       // debugger;
     });
-  }
+  };
 
   Gathering.prototype.addCollaboratorFormReset = function (arguments) {
     this.$collaboratorForm.bind('ajax:success', function(e, data, status, xhr){
@@ -163,6 +163,7 @@ $(document).ready(function(){
   //ADD UNSTAGING LISTENER
   Gathering.prototype.methodName = function () {
     this.$unstagingButton.on('click', function(){
+      //hide the finalized plan html
 
     });
   };
@@ -174,6 +175,8 @@ $(document).ready(function(){
       var finalHtml = finalTmpl.render(data);
       $(finalHtml).insertAfter(this.$collaboratorsSection);
       this.$finalizedGatheringItems.toggleClass('gathering-finalized');
+      this.$stagingButton.remove();
+      this.$unstagingButton.show();
       // this.$votableForms.fadeOut();
     }.bind(this) );
   };
