@@ -35,6 +35,7 @@ $(document).ready(function(){
     this.$gatheringTitle = $('.gathering-title');
     this.$gatheringTitleContainer = $('#gathering-title-container');
     this.$stagingButton = $('#staging-button');
+    this.$unstagingButton = $('#unstaging-button');
     this.$stagingModalTitle = $('#staging-modal-label');
     this.$stagingModalBody = $('#staging-modal .modal-body');
     this.$stagingModal = $('#staging-modal');
@@ -159,12 +160,19 @@ $(document).ready(function(){
     });
   };
 
+  //ADD UNSTAGING LISTENER
+  Gathering.prototype.methodName = function () {
+    this.$unstagingButton.on('click', function(){
+
+    });
+  };
+
   Gathering.prototype.finalizeAjaxCallback = function () {
     $('#modal-form').bind('ajax:success', function(e, data, status, xhr){
       this.$stagingModal.modal('hide');
       var finalTmpl = $.templates("#finalized-template");
       var finalHtml = finalTmpl.render(data);
-      $(finalHtml).insertAfter(this.$titleRow);
+      $(finalHtml).insertAfter(this.$collaboratorsSection);
       this.$finalizedGatheringItems.toggleClass('gathering-finalized');
       // this.$votableForms.fadeOut();
     }.bind(this) );
