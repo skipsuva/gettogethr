@@ -4,7 +4,7 @@ class MomentsController < ApplicationController
 
   def create
     @moment = Moment.new(moment_params.merge({
-      gathering_id: params['gathering_id'] }))
+      gathering_id: params['gathering_id'], user_id: current_user.id }))
     @gathering = Gathering.find(params['gathering_id'])
     respond_to do |format|
       if @moment.save
