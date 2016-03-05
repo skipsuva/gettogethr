@@ -8,7 +8,9 @@
     </div>
     <div class="panel-body">
       <p>
+        <% if moment.user %>
         <%= moment.user.name %> suggests:<br>
+        <% end %>
         <%= moment.time.strftime('%A, %B %e %Y at %I:%M %P') %>
       </p>
       <%= button_to "X", gathering_moment_path(@gathering, moment), method: :delete, remote: true, class: 'btn btn-xs', style:"display:inline-block;" %>
